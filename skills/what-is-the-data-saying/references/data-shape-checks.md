@@ -44,7 +44,7 @@
 | 流去哪 | 桑基／沖積／弦圖 |
 | 誰連誰 | 力導向／弧線／鄰接矩陣／HEB |
 | 分布長怎樣 | 小提琴／蜂群／雨雲／山脊 |
-| 地圖上哪裡大 | choropleth／bubble map／cartogram |
+| 地圖上哪裡大／哪裡密 | choropleth／點密度圖／bubble map／cartogram／flow map |
 | 很多同類比較 | 小多圖 |
 
 ## 最小可用樣本

@@ -2,7 +2,7 @@
 name: what-is-the-data-saying
 description: >
   Given a table or report, recommend the chart and how to make it (資料在說什麼).
-  Nazh-grounded Taiwan zh-TW pedagogy plus 39 named patterns. Use when the user
+  Nazh-grounded Taiwan zh-TW pedagogy plus 40 named patterns. Use when the user
   pastes CSV / Excel / a table / 報表 and asks which chart, how to visualize,
   這份資料該怎麼畫, 推薦圖表, 視覺化, or runs /what-is-the-data-saying.
 when-to-use: >
@@ -13,7 +13,7 @@ argument-hint: paste a table or describe the report
 metadata:
   short-description: "Which chart? How to make it. 資料在說什麼"
   author: g0uv4
-  version: "0.3.0"
+  version: "0.3.1"
   lineage: "納茲 - 資料視覺 teach-viz 教圖"
   license: MIT
 ---
@@ -91,7 +91,7 @@ pattern：examples/<slug>.md（若有）
 | 有向流量 | 桑基；階段重分組用沖積圖；成對交換用弦圖 |
 | 多類別交叉 | 馬賽克／平行集合；集合交集用 UpSet |
 | 網路關係 | 力導向／弧線／鄰接矩陣／蜂巢圖；有階層+葉連線用 HEB |
-| 地理量 | 等值區劃圖（choropleth）；總量用比例符號地圖；變形用統計變形地圖 |
+| 地理量 | 等值區劃圖（choropleth）；計數疏密用點密度圖；總量規模用比例符號地圖；變形用統計變形地圖 |
 | KPI 對目標 | 子彈圖 |
 | 專案時程 | 甘特圖 |
 | 日曆活動密度 | 日曆熱力圖 |

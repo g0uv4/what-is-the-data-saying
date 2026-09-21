@@ -1,7 +1,7 @@
 {
   "name": "what-is-the-data-saying",
-  "version": "0.1.0",
-  "description": "資料在說什麼：依資料形狀推薦視覺化、協助產出圖表，並維護可成長的 pattern 範例庫。",
+  "version": "0.2.0",
+  "description": "資料在說什麼：依資料形狀推薦視覺化、協助產出圖表，並維護可成長的 pattern 範例庫（納茲教圖實戰版）。",
   "author": {
     "name": "g0uv4"
   },

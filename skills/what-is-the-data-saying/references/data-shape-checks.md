@@ -1,42 +1,52 @@
-# Data shape checks
+# 資料形狀檢查
 
-Run these before recommending a chart. Output a short diagnosis, not a essay.
+推薦圖表前先跑這些檢查。輸出短診斷，不要寫論文。
 
-## Roles
+## 欄位角色
 
-Assign each column one primary role:
+每個欄位指定一個主角色：
 
-| Role | Signals |
-|------|---------|
+| 角色 | 訊號 |
+|------|------|
 | time | date, datetime, year, month, 期別, 年月 |
-| category | 名稱, id, 部門, 產品, region (unordered) |
-| ordered-category | 評等, 年齡層, Likert, 階段 |
+| category | 名稱, id, 部門, 產品, region（無序） |
+| ordered-category | 評等, 年齡層, Likert, 階段, 漏斗階 |
 | numeric | 金額, 數量, %, 指數 |
 | hierarchy | parent/child, path, 科目樹, org levels |
-| geo | 縣市, 郵遞區號, lat/lon |
-| id | opaque key (usually not plotted alone) |
+| geo | 縣市, 郵遞區號, lat/lon, ISO 區碼 |
+| network-node / edge | 來源, 去向, 權重, 共現 |
+| id | 不透明鍵（通常不單獨畫） |
 
-## Structure probes
+## 結構探測
 
-1. **Grain**: one row = ? (日／人／訂單／科目／…)。Grain 不清就先問或推斷並標「假設」。
-2. **Cardinality**: distinct count per category. >12–15 類別比大小 → 考慮 top-N + other、或改 table／small multiples。
-3. **Nulls / zeros**: 缺值比例；0 是真實還是空白。
-4. **Units**: 混用千元／元／%？統一後再畫。
-5. **Duplicates**: 同 key 多列 → 需聚合規則（sum/mean/last）。
-6. **Outliers**: 是否該用 log、截尾、或獨立標註。
-7. **Wide vs long**: 寬表（每年一欄）常需 melt 成長表再畫 line/bar。
+1. **粒度**：一列＝？（日／人／訂單／科目／邊…）。不清就先問或標「假設」。
+2. **基數**：類別 distinct 數。>12–15 比大小 → top-N＋其他、改表、或小多圖／圓形長條（搶眼用）。
+3. **缺值／零**：0 是真實還是空白；地理缺值不要 silently 變零面積。
+4. **單位**：混用千元／元／%？統一再畫。
+5. **重複鍵**：同 key 多列 → 聚合規則（sum/mean/last）。
+6. **極端值**：是否 log、截尾、或獨立標註。
+7. **寬 vs 長**：寬表常需 melt 成長表再畫折線／長條。
+8. **階層閉合**：子加總是否＝父；不相等先清。
+9. **流量方向**：有向／無向；漏斗是否單調不增。
+10. **網路面貌**：邊數、是否毛球、有無可信階層可做 HEB。
 
-## Question type → next file
+## 問題類型 → 下一步
 
-| Question | Go to |
-|----------|-------|
-| 誰大誰小 | chart-heuristics → bar / table |
-| 怎麼變 | line / area |
-| 是否相關 | scatter / heat |
-| 佔多少 | stacked bar / treemap / icicle（階層） |
-| 結構／下鑽 | icicle / sunburst / partition |
-| 很多同類比較 | small multiples |
+| 問題 | 去哪 |
+|------|------|
+| 誰大誰小 | chart-heuristics → 長條／表 |
+| 兩期差多少 | 啞鈴／坡度 |
+| 怎麼變 | 折線／溪流／凹凸 |
+| 是否相關／密度 | 散點／hexbin／等高線／熱力 |
+| 佔多少／階層 | 堆疊／華夫／冰柱／旭日／treemap／圓堆 |
+| 從 A 怎麼變成 B | 瀑布 |
+| 哪一階漏掉 | 漏斗 |
+| 流去哪 | 桑基／沖積／弦圖 |
+| 誰連誰 | 力導向／弧線／鄰接矩陣／HEB |
+| 分布長怎樣 | 小提琴／蜂群／雨雲／山脊 |
+| 地圖上哪裡大 | choropleth／bubble map／cartogram |
+| 很多同類比較 | 小多圖 |
 
-## Minimum viable sample
+## 最小可用樣本
 
-Prefer: header + ≥5–20 rows + 單位說明. Screenshot-only → recommend + ask for machine-readable extract.
+偏好：表頭 + ≥5–20 列 + 單位說明。只有截圖 → 先推薦並請機器可讀摘錄。

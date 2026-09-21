@@ -1,54 +1,105 @@
-# Chart-type heuristics
+# 圖種啟發式（納茲教圖實戰）
 
-One primary recommendation + 1–2 alternates. Prefer the simplest chart that answers the question.
+給 **1 主選 + 1–2 備選**。優先選能直接回答問題的最簡單圖；新穎圖種只在資料形狀真的對口時才上。
 
-## Decision table
+中文圖種名對齊納茲教圖用語（見 `ATTRIBUTION.md`）。
 
-| If the main job is… | Prefer | Avoid / caution |
-|---------------------|--------|-----------------|
-| Look up exact values, audit, legal annex | **table** (+ conditional format) | Decorative charts that hide numbers |
-| Compare magnitudes across categories | **bar** (horizontal if labels long) | Pie with >5 slices; 3D bar |
-| Rank / top-N | **sorted bar** | Unsorted categorical axis |
-| Trend over time (few series) | **line** | Bar for dense daily series (unless discrete periods) |
-| Trend, many entities | **small multiples** (same scale) | Single chart with 20+ overlapping lines |
-| Part-to-whole, few parts | **stacked bar** or **100% stacked** | Pie unless ≤4 parts and brand requires it |
-| Part-to-whole, hierarchy | **icicle** / **sunburst** / **treemap** | Flat pie of leaf nodes only |
-| Relationship of two numerics | **scatter** | Line (unless ordered by a third variable) |
-| Correlation / matrix intensity | **heatmap** | Scatter matrix when N is huge (sample first) |
-| Distribution | **histogram** / **violin** / **box** | Bar of every raw point |
-| Flow A→B | **sankey** / **alluvial** | Sankey with cycles unless tool supports |
-| Geographic rate | **choropleth** (normalized) | Raw counts on unequal regions without note |
+## 決策表
 
-## Shape → chart shortcuts
+| 主任務 | 優先 | 備選／注意 |
+|--------|------|------------|
+| 精確查數、對帳、法規附件 | **表格**（+ 條件格式） | 不要用裝飾圖藏數字 |
+| 少數類別比大小 | **長條圖**（標籤長 → 水平） | 圓餅僅 ≤4 塊且敘事需要 |
+| 類別很多、要搶眼排序 | **圓形長條圖** | 精準比差距仍回直線長條 |
+| 排名／Top-N | **排序長條** | 名次隨時間 → **凹凸圖** |
+| 兩期／兩條件差距 | **啞鈴圖**（Datawrapper Range Plot） | 兩期軌跡交錯感 → **坡度圖** |
+| 時間趨勢（少系列） | **折線圖** | 密日資料勿硬用每日長條 |
+| 時間趨勢（多實體） | **小多圖**（同尺度） | 單圖 20+ 線＝義大利麵 |
+| 組成隨時間（整體河） | **溪流圖** | 要讀單一層精準走勢 → 折線／小多圖 |
+| 平級組成、少塊 | 堆疊長條／100% 堆疊／**華夫圖** | 階層 → 下面階層列 |
+| 階層組成、要標籤 | **冰柱圖** | 緊湊總覽 → **旭日**；鋪滿面積 → **矩形樹狀**；嵌套圓 → **圓堆**；凸多邊形鋪滿 → **Voronoi 樹狀** |
+| 從 A 到 B 的因子橋 | **瀑布圖**（bridge） | 不要跟啞鈴／堆疊長條混 |
+| 階段漏損／轉換率 | **漏斗圖** | 後階 > 前階 → 口徑錯或非漏斗 |
+| 有向流量（過程） | **桑基圖** | 有序階段重分組 → **沖積圖** |
+| 成對雙向交換 | **弦圖** | 不要拿來畫階層組成 |
+| 兩數值關係 | **散點** | 過密 → **六角分箱**／**等高線** |
+| 雙序列怎麼一起演化 | **連接散點圖**（型 B：雙量測平面） | 勿與「時間在 X 的折線加點」混淆 |
+| 相關／矩陣強度 | **熱力圖** | 網路有無邊 → **鄰接矩陣** |
+| 分布形狀（少組） | **小提琴**／**雨雲**／**蜂群** | 多組密度漂移 → **山脊圖** |
+| 多類別交叉表 | **馬賽克圖**（商用常叫 Marimekko） | 多維頻率帶 → **平行集合** |
+| 集合交集（多集合） | **UpSet** | 不要用一堆 Venn |
+| 多連續特徵剖面 | **平行座標** | 少度量、要比外形 → **雷達**（系列 ≤2～3） |
+| 三組成加總常數 | **三元圖** | 非三元勿硬套 |
+| KPI 實際 vs 目標＋區間 | **子彈圖** | 不要用圓形儀表取代長度比較 |
+| 專案時程 | **甘特圖** | 依賴箭頭少畫 |
+| 日活動密度 | **日曆熱力圖** | 勿與類別矩陣熱力混淆 |
+| 網路誰連誰 | **力導向**；要可讀標籤 → **弧線圖**；要比兩張網 → **蜂巢圖** | 有可信階層＋葉連線 → **階層式邊捆綁（HEB）** |
+| 地理比率 | **等值區劃圖**（先正規化） | 總量點位 → **比例符號地圖**；面積＝資料量 → **統計變形地圖** |
+| 同結構多切片 | **小多圖** | 軸尺度要對齊 |
 
-- **time + 1 numeric + ≤3 series** → line  
-- **category + 1 numeric** → bar  
-- **category + time + numeric** → line facets or grouped bar (few periods)  
-- **2 numerics** → scatter  
-- **category × category + numeric** → heatmap  
-- **path / parent-child + numeric** → icicle (detail labels) or sunburst (compact overview)  
-- **many parallel series, same grain** → small multiples  
+## 形狀 → 圖捷徑
 
-## Encoding rules (short)
+- **時間 + 1 數值 + ≤3 系列** → 折線
+- **類別 + 1 數值** → 長條（多類別搶眼 → 圓形長條）
+- **類別 + 兩個同單位數值** → 啞鈴
+- **實體 + 恰好兩期數值** → 坡度圖
+- **時間 + 實體 + 可排名度量** → 凹凸圖
+- **時間 + 類別 + 非負量（整體組成）** → 溪流圖
+- **2 數值** → 散點；點重疊嚴重 → hexbin／contour
+- **2 數值 + 時間只決定連線順序** → 連接散點
+- **類別 × 類別 + 值** → 熱力／馬賽克
+- **path／父子 + 數值** → 冰柱／旭日／treemap／圓堆／Voronoi 樹狀
+- **起點 + 有符號增量串** → 瀑布
+- **有序階段 + 通過量（單調不增）** → 漏斗
+- **來源→去向 + 流量** → 桑基；階段重分組 → 沖積；方陣交換 → 弦圖
+- **節點 + 邊** → 力導向／弧線／鄰接矩陣；+階層葉連線 → HEB
+- **每日一值** → 日曆熱力
+- **任務 + 開始 + 結束** → 甘特
+- **實際 + 目標 + 質性區間** → 子彈
+- **geo 區塊 + 比率** → choropleth；**點 + 總量** → bubble map
 
-- Position > length > angle > area > color hue for quantity.
-- One numeric encoding per primary question.
-- Dual axis: only if user insists; label both scales; prefer index/normalize or dual panel.
-- Stacked absolute: good for total + rough composition; bad for comparing middle segments → prefer grouped or 100% stacked + absolute table.
+## 易混圖種（納茲口訣摘錄）
 
-## Output medium
+| 不要混 | 差在哪 |
+|--------|--------|
+| 冰柱 vs 旭日 | 同一套 partition；冰柱＝直角深度軸好標字；旭日＝環帶緊湊 |
+| 冰柱／旭日 vs 桑基 | 隸屬組成 ≠ 有向流量 |
+| 啞鈴 vs 坡度圖 | 啞鈴＝類別列上兩點差距；坡度＝兩垂直軸軌跡 |
+| 啞鈴 vs 棒棒糖 | 棒棒糖一端在基線；啞鈴兩端互連 |
+| 圓形長條 vs 南丁格爾玫瑰 | 棒長 vs 等角扇形面積（半徑常對平方根） |
+| 圓形長條 vs 雷達 | 獨立棒 vs 多軸連多邊形 |
+| 蜂群 vs 蜂巢圖 | 一維數值避撞排點 vs 放射軸網路 |
+| 雨雲 vs 山脊 | 少組＝雲+雨+箱 vs 多組密度山脈 |
+| 沖積 vs 桑基 vs 平行集合 | 有序階段重分組 vs 自由節點流量 vs 等長類別軸頻率帶 |
+| 溪流圖 vs 沖積 | 連續時間面積河 vs 階段節點+帶 |
+| 力導向 vs 弧線 vs 鄰接矩陣 | 佈局說話但難標全名 vs 線性好標 vs 矩陣可重排看團 |
+| HEB vs 力導向邊捆 | HEB 沿**階層共同祖先**捆；FDEB 無階層 |
+| hexbin vs 日曆熱力 vs 鄰接矩陣 | 兩連續軸密度格 vs 日曆骨架 vs 節點×節點 |
+| Voronoi 樹狀 vs 地圖 | 面積＝權重，外框不是地理邊界 |
+| 統計變形地圖 vs choropleth | 面積被資料撐大／縮小 vs 邊界固定只填色 |
 
-| Medium | Bias |
-|--------|------|
-| 投影片／PDF | Fewer series, larger type, static png/svg |
-| 互動 dashboard | Hover detail, filter, drill (icicle/sunburst) |
-| 內部對帳 | Table first |
-| 對外敘事 | One clear chart + one sentence takeaway |
+## 編碼規則（短）
 
-## Library hints (non-binding)
+- 數量：位置 > 長度 > 角度 > 面積 > 色相。
+- 一個主問題一個主編碼。
+- 雙軸：僅在使用者堅持時；兩軸都標清楚；寧可指數化／雙面板。
+- 堆疊絕對值：看總量+粗組成可以；比中段 → 分組長條或 100% 堆疊 + 旁表。
+- 圓／面積編碼：旁邊準備表格或改長條給要精準比的人。
 
-- Python: plotly (interactive), matplotlib/seaborn (static), altair (grammar)
-- JS: Observable Plot / d3, echarts
-- No-code: Flourish, spreadsheet pivot + chart
+## 輸出媒介
 
-Pick what the repo already uses when inside a codebase.
+| 媒介 | 偏向 |
+|------|------|
+| 投影片／PDF | 少系列、大字、靜態 png/svg |
+| 互動 dashboard | hover、篩選、下鑽（冰柱／旭日／網路） |
+| 內部對帳 | 表格優先 |
+| 對外敘事／教圖 | 一圖一句結論；教圖附中文名、適不適合、口述步驟、參考連結 |
+
+## 工具提示（非綁定）
+
+- Python：plotly（互動）、matplotlib/seaborn（靜態）、altair
+- JS：Observable Plot／d3、echarts
+- 無碼：Flourish、Datawrapper、RAWGraphs、試算表樞紐
+- 在既有 codebase 內優先沿用專案已有庫
+
+細部口述步驟見 `how-to-produce.md`；具名案例見 `examples/`。

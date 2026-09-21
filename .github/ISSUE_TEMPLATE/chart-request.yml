@@ -1,0 +1,41 @@
+name: Chart request
+description: Ask which chart a table needs, or request a new named pattern
+title: "[chart] "
+labels: ["chart-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        貼上表或描述任務。數字請標示意／未核。客製包或內訓請在正文提到 `0xsaghm`。
+  - type: textarea
+    id: question
+    attributes:
+      label: What should the chart answer?
+      description: One sentence. Example — 庫存金額卡在哪一層？
+    validations:
+      required: true
+  - type: textarea
+    id: table
+    attributes:
+      label: Table or shape
+      description: Paste a sample table, or name the columns (time / category / hierarchy / signed steps).
+      render: markdown
+    validations:
+      required: true
+  - type: dropdown
+    id: audience
+    attributes:
+      label: Who reads it?
+      options:
+        - Earnings / board deck
+        - Ops dashboard
+        - Research digest
+        - Workshop / teaching
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: pattern
+    attributes:
+      label: Pattern you expected (optional)
+      placeholder: "e.g. icicle, waterfall, dumbbell"

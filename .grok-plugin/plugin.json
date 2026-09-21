@@ -1,18 +1,23 @@
 {
   "name": "what-is-the-data-saying",
-  "version": "0.2.0",
-  "description": "資料在說什麼：依資料形狀推薦視覺化、協助產出圖表，並維護可成長的 pattern 範例庫（納茲教圖實戰版）。",
+  "version": "0.3.0",
+  "description": "Given a table or report: which chart, and how to make it. Nazh-grounded Taiwan zh-TW pedagogy plus 39 named patterns.",
   "author": {
-    "name": "g0uv4"
+    "name": "g0uv4",
+    "url": "https://github.com/g0uv4"
   },
+  "homepage": "https://github.com/g0uv4/what-is-the-data-saying",
   "repository": "https://github.com/g0uv4/what-is-the-data-saying",
   "license": "MIT",
   "keywords": [
     "visualization",
     "charts",
+    "dataviz",
     "data",
     "taiwan",
+    "zh-TW",
     "traditional-chinese",
-    "reporting"
+    "reporting",
+    "teach-viz"
   ]
 }

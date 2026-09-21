@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Custom viz / skill packs / training
+    url: https://github.com/g0uv4/what-is-the-data-saying/issues/new?template=chart-request.yml
+    about: Open an Issue and mention 0xsaghm. No invented email or checkout link.
+  - name: Copy-paste demos
+    url: https://github.com/g0uv4/what-is-the-data-saying/tree/main/demos
+    about: Five first-run prompts (icicle, funnel, waterfall, dumbbell, slope).

@@ -1,7 +1,8 @@
 # Examples / pattern library
 
 具名、可複用的 pattern。每個檔：**when → recommend → avoid → produce checklist**。
-多數圖種提炼自納茲（資料視覺）`/workspace/teach-viz/` 教圖；檔內「來源」指向原始檔名。完整清單見 `../ATTRIBUTION.md`。
+多數圖種提炼自納茲（資料視覺）教圖；檔內「來源」指向原始檔名（全文不在本 repo）。完整清單見 `../ATTRIBUTION.md`。
+第一次安裝請先跑 plugin 根目錄 [`demos/`](../../../demos/README.md) 的五則貼上稿。
 
 | Pattern | File | 來源教圖 |
 |---------|------|----------|

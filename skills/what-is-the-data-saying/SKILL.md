@@ -1,28 +1,32 @@
 ---
 name: what-is-the-data-saying
 description: >
-  資料在說什麼：依資料形狀與閱讀任務推薦視覺化類型／做法，並協助產出圖表；
-  維護可成長的 pattern 範例庫（納茲教圖實戰版）。Use when the user pastes
-  data/reports and asks how to visualize, which chart to use, 這份資料該怎麼畫,
-  推薦圖表, 視覺化, 資料在說什麼, or runs /what-is-the-data-saying.
+  Given a table or report, recommend the chart and how to make it (資料在說什麼).
+  Nazh-grounded Taiwan zh-TW pedagogy plus 39 named patterns. Use when the user
+  pastes CSV / Excel / a table / 報表 and asks which chart, how to visualize,
+  這份資料該怎麼畫, 推薦圖表, 視覺化, or runs /what-is-the-data-saying.
 when-to-use: >
-  data entered the harness; report / CSV / table / Excel / 報表; ask for chart
-  type, viz approach, or help producing a visualization; Taiwan Traditional
-  Chinese report audience; teaching-style how-to for uncommon chart types.
+  A table, CSV, Excel, screenshot, or report is in the chat and they want a
+  chart pick, a how-to, or zh-TW teaching (適不適合／口述怎麼做) — not a
+  generic “use a bar chart.”
+argument-hint: paste a table or describe the report
 metadata:
-  short-description: "資料視覺化推薦與產出（資料在說什麼）"
+  short-description: "Which chart? How to make it. 資料在說什麼"
   author: g0uv4
-  version: "0.2.0"
+  version: "0.3.0"
   lineage: "納茲 - 資料視覺 teach-viz 教圖"
+  license: MIT
 ---
 
 # 資料在說什麼（what-is-the-data-saying）
 
 當資料或報表進入對話時，依序做三件事：**診斷形狀 → 推薦圖型 → 協助產出**。
 細節啟發式見 `references/`；可複用案例見 `examples/`；來源歸因見 `ATTRIBUTION.md`。
+陌生人第一次試用的貼上稿在 plugin 根目錄 `demos/`（冰柱／漏斗／瀑布／啞鈴／坡度）。
 不要把大段規則複製進回覆，點名引用檔名即可。
 
 面向：**台灣繁體中文報表讀者**（標題、軸標、圖註、結論句用 zh-TW；程式／變數名可用 EN）。
+公開使用者用英文問就英答，但圖種仍給 **中文名（英文名）**。
 
 教學語氣對齊納茲教圖習慣：先給**中文圖種名（英文名）**、**適不適合**、**口述怎麼做**、再給工具路徑；數字未核要標「未核」。
 

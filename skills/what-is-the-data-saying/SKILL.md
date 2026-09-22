@@ -13,7 +13,7 @@ argument-hint: paste a table or describe the report
 metadata:
   short-description: "Which chart? How to make it. 資料在說什麼"
   author: g0uv4
-  version: "0.3.1"
+  version: "0.3.2"
   lineage: "納茲 - 資料視覺 teach-viz 教圖"
   license: MIT
 ---
@@ -80,7 +80,7 @@ pattern：examples/<slug>.md（若有）
 |------|------------------|
 | 類別比大小 | 長條圖；類別多可考慮圓形長條 |
 | 兩期／兩條件差距 | 啞鈴圖；兩期軌跡用坡度圖 |
-| 時間趨勢 | 折線；多實體小多圖；組成隨時間用溪流圖 |
+| 時間趨勢 | 折線；多實體小多圖；組成隨時間用河流圖（溪流圖） |
 | 排名起伏 | 凹凸圖（bump） |
 | 兩數值關係 | 散點；過密用六角分箱／等高線；雙序列演化用連接散點 |
 | 分布形狀 | 小提琴／蜂群／雨雲／山脊 |

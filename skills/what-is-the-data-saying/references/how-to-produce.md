@@ -35,7 +35,7 @@
 
 - **折線**：長表 time+value(+series) → 少系列單圖，多系列小多圖。
 - **凹凸圖**：每期內排名 → Y 軸名次反向（1 在上）→ 線交叉=超車。
-- **溪流圖**：time+category+非負量 → 堆疊面積 + wiggle/center offset → 不強求讀 Y 刻度。
+- **河流圖（溪流圖／ThemeRiver）**：time+category+非負量（長或寬表）→ 先貼零堆疊面積對照 → 再切 stream／中軸／wiggle → 類別少、色差夠 → 互動補數值；不強求讀 Y 刻度；負值勿硬套。
 
 ### 分布
 

@@ -17,7 +17,7 @@
 | 啞鈴差距 | `dumbbell-gap.md` | 2026-09-07-pm-dumbbell.md |
 | 坡度兩期 | `slope-two-period.md` | 2026-09-20-am-slope.md |
 | 凹凸排名 | `bump-ranking.md` | 2026-08-28-am-bump-draft.md |
-| 溪流組成 | `streamgraph-composition.md` | 2026-08-28-pm-streamgraph-draft.md |
+| 河流組成（溪流圖） | `streamgraph-composition.md` | 2026-09-22-am-streamgraph.md |
 | 桑基流量 | `sankey-flow.md` | 2026-08-31-am-sankey-draft.md |
 | 沖積階段 | `alluvial-stages.md` | 2026-09-07-am-alluvial.md |
 | 旭日階層 | `sunburst-hierarchy.md` | 2026-08-31-pm-sunburst-draft.md |

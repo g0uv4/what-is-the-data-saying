@@ -11,7 +11,7 @@
 ## Recommend
 
 - **主選**：折線圖（≤3 系列）
-- **備選**：多實體 → 小多圖；組成河 → `streamgraph-composition.md`；兩期 only → `slope-two-period.md`
+- **備選**：多實體 → 小多圖；組成河（河流圖）→ `streamgraph-composition.md`；兩期 only → `slope-two-period.md`
 
 ## Avoid
 

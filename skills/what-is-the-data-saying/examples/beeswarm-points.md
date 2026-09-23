@@ -15,6 +15,8 @@
 
 ## Avoid
 
+- 只要五數摘要＋離群、不要每個點 → 見 `boxplot-summary.md`（箱形圖）
+
 - 與 jitter／蜂巢圖混淆
 
 ## Produce checklist

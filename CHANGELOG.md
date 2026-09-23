@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.4 — 箱形圖 pattern
+
+- Add `examples/boxplot-summary.md` from Nazh teach-viz `2026-09-23-pm-boxplot.md` (approved skill pack); primary name **箱形圖**（Box plot／Box-and-whisker；盒鬚圖）.
+- Fold mix-ups vs 小提琴／雨雲／蜂群／直方／長條／誤差棒 into `chart-heuristics.md` + how-to / data-shape checks (zh-TW); tool honesty: Datawrapper **無**原生箱形；data-to-viz graph/boxplot 404；Observable 可能 429.
+- Fictional demo CSV `examples/data/sample-boxplot.csv`（group+value；數字未核）.
+- ATTRIBUTION cites final teach-viz + pack path; images cited, not copied. Pattern count 42 → 43.
+
 ## 0.3.3 — 人口金字塔 + 棒棒糖圖 patterns
 
 - Add `examples/population-pyramid.md` from Nazh teach-viz `2026-09-22-pm-pyramid.md` (approved skill pack); primary name **人口金字塔**（age-sex／population pyramid）.

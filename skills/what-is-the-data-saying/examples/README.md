@@ -47,6 +47,7 @@
 | 點密度地圖 | `dot-density-map.md` | 2026-09-21-pm-dotdensity.md |
 | 人口金字塔 | `population-pyramid.md` | 2026-09-22-pm-pyramid.md |
 | 棒棒糖排名 | `lollipop-rank.md` | 2026-09-23-am-lollipop.md |
+| 箱形分布摘要 | `boxplot-summary.md` | 2026-09-23-pm-boxplot.md |
 | UpSet 集合 | `upset-sets.md` | 2026-09-01-pm-upset-draft.md |
 
 新增 pattern：複製最接近的檔，改 slug 與本表列；保持短；補 ATTRIBUTION。

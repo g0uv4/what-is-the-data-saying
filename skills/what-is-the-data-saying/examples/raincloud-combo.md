@@ -15,6 +15,8 @@
 
 ## Avoid
 
+- 只要獨立箱／鬚摘要、不要雲＋雨 → 見 `boxplot-summary.md`（箱形圖）
+
 - 只畫 bar+error 卻宣稱看過分布
 
 ## Produce checklist

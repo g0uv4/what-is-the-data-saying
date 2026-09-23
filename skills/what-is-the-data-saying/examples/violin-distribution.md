@@ -15,6 +15,8 @@
 
 ## Avoid
 
+- 只要五數＋離群、多組並排省版面 → 見 `boxplot-summary.md`（箱形圖）
+
 - n 很小仍平滑；不標 n=
 
 ## Produce checklist

@@ -11,5 +11,6 @@
 | `population-pyramid-long.csv` | 人口金字塔長表：age_group, sex, count | `2026-09-22-pm-pyramid` |
 | `population-pyramid-wide.csv` | 人口金字塔寬表：age_group, male, female | 同上 |
 | `lollipop-categories.csv` | 棒棒糖：category, value | `2026-09-23-am-lollipop` |
+| `sample-boxplot.csv` | 箱形：group, value（虛構，數字未核） | `2026-09-23-pm-boxplot` |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`。

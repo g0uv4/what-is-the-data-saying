@@ -1,6 +1,6 @@
 # ATTRIBUTION（納茲教圖來源）
 
-本 skill **0.3.2** 的圖種啟發式、口述產出步驟與 `examples/` pattern，提炼自 **納茲 - 資料視覺**（agent id `41759b08-68d8-455a-8d45-22730ad6bd40`）的教圖與相關素材。
+本 skill **0.3.3** 的圖種啟發式、口述產出步驟與 `examples/` pattern，提炼自 **納茲 - 資料視覺**（agent id `41759b08-68d8-455a-8d45-22730ad6bd40`）的教圖與相關素材。
 
 技能文字為摘要與可執行 checklist，**不是**教圖全文轉貼；數字案例仍以原教圖「未核」標註習慣為準。
 原教圖草稿／截圖**不在這個公開 repo**。下表的路徑是作者當時的取材位置，方便內部對帳，不是給 clone 的人去開的檔。
@@ -63,15 +63,19 @@
 | 2026-09-20-pm-flowmap.md | 流量地圖 | heuristics（地理） |
 | 2026-09-21-am-bubblemap.md | 比例符號地圖 | heuristics（地理） |
 | 2026-09-21-pm-dotdensity.md | 點密度圖 | `examples/dot-density-map.md`；demo CSV 見 `examples/data/` |
+| 2026-09-22-pm-pyramid.md | 人口金字塔 | `examples/population-pyramid.md`；demo CSV 見 `examples/data/` |
+| 2026-09-23-am-lollipop.md | 棒棒糖圖 | `examples/lollipop-rank.md`；demo CSV 見 `examples/data/` |
 
 另有同日前綴之 `*-research.md`、截圖檔（png/jpg）作為教圖研究與圖例依據，未逐一複製進 repo。
 點密度圖另經已審 skill pack `/workspace/skill-packs/2026-09-21-pm-dotdensity/`（SKILL-PACK.md、sources.txt、images/）；公開 repo 只收 pattern 摘要與虛構 demo CSV，大圖不入库。
 河流圖另經已審 skill pack `/workspace/skill-packs/2026-09-22-am-streamgraph/`（SKILL-PACK.md、sources.txt、sample CSVs、images/ 共 13 張）；公開 repo 只收 pattern 摘要與虛構 demo CSV，大圖不入库（對帳可看 pack `images/`）。
+人口金字塔另經已審 skill pack `/workspace/skill-packs/2026-09-22-pm-pyramid/`（SKILL-PACK.md、sources.txt、sample CSVs、images/ 約 19 張）；公開 repo 只收 pattern 摘要與虛構 demo CSV，大圖不入库。
+棒棒糖圖另經已審 skill pack `/workspace/skill-packs/2026-09-23-am-lollipop/`（SKILL-PACK.md、sources.txt、sample CSV、images/；稿內嵌約 24 張）；公開 repo 只收 pattern 摘要與虛構 demo CSV，大圖不入库。
 
 ## 尚未獨立成 pattern 的缺口（可請 Liora／納茲補）
 
 - 南丁格爾玫瑰、三元圖、樹狀譜系、蜂巢圖、HEB、地平線圖、流量地圖、比例符號地圖、平行集合：目前多半只在 `chart-heuristics.md`，尚無專檔 example。
-- 點密度圖（2026-09-21-pm）、河流圖（2026-09-22-am）已有專檔 example + 虛構 demo CSV；其餘教圖「適合使用的範例」三小節樣本尚未全面打包。
+- 點密度圖、河流圖、人口金字塔、棒棒糖圖已有專檔 example + 虛構 demo CSV；其餘教圖「適合使用的範例」三小節樣本尚未全面打包。
 - X 社群卡 skill／fox-card 產線未併入本 plugin（敘事卡 ≠ 資料形狀推薦）。
 
 ## 授權與改寫

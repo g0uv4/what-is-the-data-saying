@@ -11,11 +11,12 @@
 ## Recommend
 
 - **主選**：連接散點圖（型 B）
-- **備選**：各畫趨勢 → 雙折線；一般相關 → 散點
+- **備選**：各畫趨勢 → 雙折線；一般相關 → 散點；單截面＋第三 size → `bubble-chart.md`
 
 ## Avoid
 
 - 與型 A（時間在 X 的折線加點）混淆
+- 與單截面氣泡圖（無多期連線）混淆 → `bubble-chart.md`
 
 ## Produce checklist
 

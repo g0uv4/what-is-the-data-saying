@@ -1,0 +1,11 @@
+entity,x_gdp_pc,y_life_exp,size_pop_m,region
+Alpha,4500,62.4,12.3,A
+Beta,8900,71.2,4.1,B
+Gamma,15200,76.8,28.5,A
+Delta,3200,58.1,45.0,C
+Epsilon,22100,79.5,8.7,B
+Zeta,6100,67.0,19.2,C
+Eta,11800,74.3,3.4,A
+Theta,27500,81.0,6.9,B
+Iota,1800,54.6,33.1,C
+Kappa,9800,70.5,15.8,A

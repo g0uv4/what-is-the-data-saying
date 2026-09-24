@@ -11,12 +11,13 @@
 ## Recommend
 
 - **主選**：散點（可加趨勢／分組色）
-- **備選**：點很密 → `hexbin-density.md`／`contour-density.md`；雙序列演化 → `connected-scatter.md`
+- **備選**：＋第三量級 → `bubble-chart.md`；點很密 → `hexbin-density.md`／`contour-density.md`；雙序列演化 → `connected-scatter.md`
 
 ## Avoid
 
 - 用折線連接無序類別
 - 雙軸硬疊兩個不同單位卻不說明
+- 無第三連續量級卻硬加點大小裝飾（有第三 size → 氣泡圖，見 `bubble-chart.md`）
 
 ## Produce checklist
 

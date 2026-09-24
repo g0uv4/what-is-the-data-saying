@@ -2,7 +2,7 @@
 name: what-is-the-data-saying
 description: >
   Given a table or report, recommend the chart and how to make it (資料在說什麼).
-  Nazh-grounded Taiwan zh-TW pedagogy plus 44 named patterns. Use when the user
+  Nazh-grounded Taiwan zh-TW pedagogy plus 45 named patterns. Use when the user
   pastes CSV / Excel / a table / 報表 and asks which chart, how to visualize,
   這份資料該怎麼畫, 推薦圖表, 視覺化, or runs /what-is-the-data-saying.
 when-to-use: >
@@ -13,7 +13,7 @@ argument-hint: paste a table or describe the report
 metadata:
   short-description: "Which chart? How to make it. 資料在說什麼"
   author: g0uv4
-  version: "0.3.5"
+  version: "0.3.6"
   lineage: "納茲 - 資料視覺 teach-viz 教圖"
   license: MIT
 ---
@@ -85,12 +85,12 @@ pattern：examples/<slug>.md（若有）
 | 排名起伏 | 凹凸圖（bump） |
 | 兩數值關係 | 散點；＋第三量級用氣泡圖（面積映射）；過密用六角分箱／等高線；雙序列演化用連接散點 |
 | 分布形狀 | 箱形／小提琴／蜂群／雨雲／山脊 |
-| 組成（平級） | 堆疊長條／華夫；精確值用表 |
+| 組成（平級） | 堆疊長條／華夫；區隔規模＋區內組成 → 馬里梅可；精確值用表 |
 | 階層組成 | 冰柱／旭日／矩形樹狀／圓堆／Voronoi 樹狀 |
 | 從 A 變到 B 的因子 | 瀑布圖（bridge） |
 | 階段漏損 | 漏斗圖 |
 | 有向流量 | 桑基；階段重分組用沖積圖；成對交換用弦圖 |
-| 多類別交叉 | 馬賽克／平行集合；集合交集用 UpSet |
+| 多類別交叉／市場區隔×組成 | 馬賽克（獨立性）；商用變寬堆疊用馬里梅可；平行集合；集合交集用 UpSet |
 | 網路關係 | 力導向／弧線／鄰接矩陣／蜂巢圖；有階層+葉連線用 HEB |
 | 地理量 | 等值區劃圖（choropleth）；計數疏密用點密度圖；總量規模用比例符號地圖；變形用統計變形地圖 |
 | KPI 對目標 | 子彈圖 |

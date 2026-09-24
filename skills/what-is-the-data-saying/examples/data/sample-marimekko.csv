@@ -1,0 +1,13 @@
+segment,product,value
+North,Hardware,120
+North,Software,80
+North,Services,40
+South,Hardware,60
+South,Software,90
+South,Services,50
+East,Hardware,30
+East,Software,20
+East,Services,50
+West,Hardware,70
+West,Software,40
+West,Services,90

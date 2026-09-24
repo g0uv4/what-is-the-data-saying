@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.6 — 馬里梅可圖 pattern
+
+- Add `examples/marimekko-chart.md` from Nazh teach-viz `2026-09-24-pm-marimekko.md` (approved skill pack); primary name **馬里梅可圖**（Marimekko／Mekko；變寬堆疊長條）.
+- Fold mix-ups vs 馬賽克（獨立性）／等寬堆疊／Treemap／Variwide＋軸模式（百分比 vs 絕對值）into `chart-heuristics.md` + how-to / data-shape checks (zh-TW); tool honesty: Datawrapper **無**原生 Marimekko；data-to-viz mosaic 404；Tableau 可能 403；Observable 可能 429；X 無可用教學原帖.
+- Fictional demo CSV `examples/data/sample-marimekko.csv`（segment+product+value；數字未核）.
+- ATTRIBUTION cites final teach-viz + pack path; images cited, not copied. Pattern count 44 → 45.
+
 ## 0.3.5 — 氣泡圖 pattern
 
 - Add `examples/bubble-chart.md` from Nazh teach-viz `2026-09-24-am-bubble.md` (approved skill pack); primary name **氣泡圖**（Bubble chart／Bubble plot；氣泡散點圖）.

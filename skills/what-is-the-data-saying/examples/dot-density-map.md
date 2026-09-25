@@ -16,7 +16,7 @@
 - **主選**：點密度圖
   - **一對多**：一點＝固定單位（Dot Value），在多邊形內演算法灑點
   - **一對一**：一點＝一筆真實座標
-- **備選**：比率／人均 → **等值區劃圖（choropleth）**；少數具名城市比規模 → **比例符號地圖**；起迄流向 → **流量地圖**；非地理兩軸＋第三 size → `bubble-chart.md`（笛卡兒氣泡，≠ bubble map）；非地理兩軸密度 → hexbin／等高線（勿當地圖）
+- **備選**：比率／人均 → **等值區域圖（choropleth）**（`choropleth-map.md`）；少數具名城市比規模 → **比例符號地圖**；起迄流向 → **流量地圖**；非地理兩軸＋第三 size → `bubble-chart.md`（笛卡兒氣泡，≠ bubble map）；非地理兩軸密度 → hexbin／等高線（勿當地圖）
 
 ## Avoid
 
@@ -34,7 +34,7 @@
 - [ ] 圖例必寫「1 點＝N 單位」；點等大；必要時標統計期間與「數字未核」
 - [ ] 校準 Dot Value／點徑：最密不糊成色塊、最疏仍看得出相對差
 - [ ] 工具誠實：一對多 → ArcGIS Pro Dot Density／Atlas／QGIS；一對一 → Datawrapper Symbol map（勿 Size by）或 Flourish Marker／Projection Points
-- [ ] 自檢：隱藏點後若只靠填色就夠 → 該用 choropleth；點少且大小不一 → 實際是比例符號
+- [ ] 自檢：隱藏點後若只靠填色就夠 → 該用 choropleth（`choropleth-map.md`）；點少且大小不一 → 實際是比例符號
 
 ## 虛構 demo 資料
 

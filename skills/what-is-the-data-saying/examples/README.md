@@ -44,6 +44,7 @@
 | 平行座標 | `parallel-coordinates.md` | 2026-08-29-parallel-draft.md |
 | 圓形長條 | `circular-bar.md` | 2026-09-08-am-circular-bar.md |
 | 統計變形地圖 | `cartogram-geo.md` | 2026-09-16-am-cartogram.md |
+| 等值區域地圖 | `choropleth-map.md` | 2026-09-25-am-choropleth.md |
 | 點密度地圖 | `dot-density-map.md` | 2026-09-21-pm-dotdensity.md |
 | 人口金字塔 | `population-pyramid.md` | 2026-09-22-pm-pyramid.md |
 | 棒棒糖排名 | `lollipop-rank.md` | 2026-09-23-am-lollipop.md |

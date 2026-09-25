@@ -1,6 +1,6 @@
 # ATTRIBUTION（納茲教圖來源）
 
-本 skill **0.3.6** 的圖種啟發式、口述產出步驟與 `examples/` pattern，提炼自 **納茲 - 資料視覺**（agent id `41759b08-68d8-455a-8d45-22730ad6bd40`）的教圖與相關素材。
+本 skill **0.3.7** 的圖種啟發式、口述產出步驟與 `examples/` pattern，提炼自 **納茲 - 資料視覺**（agent id `41759b08-68d8-455a-8d45-22730ad6bd40`）的教圖與相關素材。
 
 技能文字為摘要與可執行 checklist，**不是**教圖全文轉貼；數字案例仍以原教圖「未核」標註習慣為準。
 原教圖草稿／截圖**不在這個公開 repo**。下表的路徑是作者當時的取材位置，方便內部對帳，不是給 clone 的人去開的檔。
@@ -68,6 +68,7 @@
 | 2026-09-23-pm-boxplot.md | 箱形圖 | `examples/boxplot-summary.md`；demo CSV 見 `examples/data/` |
 | 2026-09-24-am-bubble.md | 氣泡圖 | `examples/bubble-chart.md`；demo CSV 見 `examples/data/` |
 | 2026-09-24-pm-marimekko.md | 馬里梅可圖 | `examples/marimekko-chart.md`；demo CSV 見 `examples/data/` |
+| 2026-09-25-am-choropleth.md | 等值區域圖 | `examples/choropleth-map.md`；demo CSV 見 `examples/data/` |
 
 另有同日前綴之 `*-research.md`、截圖檔（png/jpg）作為教圖研究與圖例依據，未逐一複製進 repo。
 點密度圖另經已審 skill pack `/workspace/skill-packs/2026-09-21-pm-dotdensity/`（SKILL-PACK.md、sources.txt、images/）；公開 repo 只收 pattern 摘要與虛構 demo CSV，大圖不入库。
@@ -77,11 +78,12 @@
 箱形圖另經已審 skill pack `/workspace/skill-packs/2026-09-23-pm-boxplot/`（SKILL-PACK.md、sources.txt、sample CSV、images/；稿內嵌約 24 張）；公開 repo 只收 pattern 摘要與虛構 demo CSV，大圖不入库。
 氣泡圖另經已審 skill pack `/workspace/skill-packs/2026-09-24-am-bubble/`（SKILL-PACK.md、sources.txt、sample CSV、images/；稿內嵌約 24 張）；公開 repo 只收 pattern 摘要與虛構 demo CSV，大圖不入库。
 馬里梅可圖另經已審 skill pack `/workspace/skill-packs/2026-09-24-pm-marimekko/`（SKILL-PACK.md、sources.txt、sample CSV、images/；稿內嵌約 23 張）；公開 repo 只收 pattern 摘要與虛構 demo CSV，大圖不入库。
+等值區域圖另經已審 skill pack `/workspace/skill-packs/2026-09-25-am-choropleth/`（SKILL-PACK.md、sources.txt 25 條、sample CSV、images/；稿內嵌 24 張）；公開 repo 只收 pattern 摘要與虛構 demo CSV，大圖不入库。來源含 Dataviz Catalogue／Dataviz Project／data-to-viz／Wikipedia／Claus Wilke／Datawrapper（部落格、Academy、產品頁）／ColorBrewer／Flourish／D3・R・Python Graph Gallery／Plotly／Observable（舊 `@d3/choropleth` 已停用，引用新版 `@d3/choropleth/2`），以及 4 則已核 X 教學原帖（Africa_DataHub、World_Data_A、tableaupublic、JoachimSchork）；逐條連結見 `examples/choropleth-map.md`。
 
 ## 尚未獨立成 pattern 的缺口（可請 Liora／納茲補）
 
 - 南丁格爾玫瑰、三元圖、樹狀譜系、蜂巢圖、HEB、地平線圖、流量地圖、比例符號地圖、平行集合：目前多半只在 `chart-heuristics.md`，尚無專檔 example。
-- 點密度圖、河流圖、人口金字塔、棒棒糖圖、箱形圖、氣泡圖、馬里梅可圖已有專檔 example + 虛構 demo CSV；其餘教圖「適合使用的範例」三小節樣本尚未全面打包。
+- 點密度圖、河流圖、人口金字塔、棒棒糖圖、箱形圖、氣泡圖、馬里梅可圖、等值區域圖已有專檔 example + 虛構 demo CSV；其餘教圖「適合使用的範例」三小節樣本尚未全面打包。
 - X 社群卡 skill／fox-card 產線未併入本 plugin（敘事卡 ≠ 資料形狀推薦）。
 
 ## 授權與改寫

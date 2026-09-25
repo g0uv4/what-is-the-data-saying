@@ -11,7 +11,7 @@
 ## Recommend
 
 - **主選**：統計變形地圖
-- **備選**：比率填色 → choropleth；點總量 → bubble map
+- **備選**：比率填色 → choropleth（`choropleth-map.md`）；點總量 → bubble map
 
 ## Avoid
 

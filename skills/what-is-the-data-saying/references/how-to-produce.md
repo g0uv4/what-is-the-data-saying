@@ -92,6 +92,7 @@
 - **雷達**：軸必須可比、同尺；系列少；面積≠總分。
 - **平行座標**：多連續軸；先縮放；軸順序影響可讀性。
 - **等值區域圖（choropleth）**：區域代碼＋已正規化指標（分子／分母→比率、每十萬人、每面積）→ 對上邊界檔（同編碼、同年份，檢查未匹配）→ 連續或分級（寫明分位數／等距／自然斷點）→ 順序或發散色（中心值寫明；ColorBrewer）→ 缺值灰／斜線＋「無資料」→ 只標要點名的區；總量改比例符號地圖；大面積低人口偏誤要註明或並列 cartogram／長條。工具：Datawrapper Choropleth、Flourish Projection map、D3（Observable `@d3/choropleth/2`）、R、GeoPandas、Plotly。
+- **圖塊地圖（tile map）**：區域代碼＋已正規化指標（每區一列）→ 取得或設計「區域→格座標 row／col」對照（每區一格、座標不重複、外形好認、鄰居盡量相鄰）→ 方塊（好讀好標）或六角（鄰接較完整）→ 順序／發散／質性色＋圖例（ColorBrewer）→ 格內縮寫、特殊格（半區、飛地）另註 → 標題寫「每格一區、格子等大」；缺值灰／斜線。要格數＝人口／選舉人票 → 加權變體（格數加總＝總數，屬 cartogram）。工具：R `statebins`／`geofacet`／R Graph Gallery 州六角；Datawrapper「Switzerland › Cantons (square)」、U.S. hexagons 底圖（electoral college hexagons 為加權版）；Python／Plotly；Tableau（欄列座標＋方塊標記）；D3（Bill Mill grid choropleth、d3kit-gridmap）。
 - **點密度圖**：先定一對多（多邊形+計數+Dot Value）或一對一（lat/lon）；點**等大**；圖例必寫「1 點＝N」；校準疏密；一對多用 ArcGIS／Atlas／QGIS，一對一可用 Datawrapper／Flourish 標記（勿 Size by 裝成一對多）。
 - **統計變形地圖／比例符號（bubble map）／流量地圖**：面積或符號大小／線寬=資料；對照真實邊界；勿與點密度的等大點疏密混稱；亦勿與**笛卡兒氣泡圖**混（後者圓心在數值軸，見相關／密度）。
 - **人口金字塔**：年齡組（可排序）+ 左／右側度量 → 寬或長表 → 左右橫軸同 max → Split Bars＋Mirror（Datawrapper）或 Flourish／Vega 金字塔範本 → 標組距／單位／輪廓形態；勿與龍捲風混用。

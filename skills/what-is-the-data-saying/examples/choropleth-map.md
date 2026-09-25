@@ -20,7 +20,7 @@
   - 進階：**雙變數（bivariate）**二維色盤，僅概念；確有兩指標關係要講才用
 - **備選（何時改用哪一種）**：
   - 要讀**總量規模**（人口數、案件數、總營收）→ **比例符號地圖**（bubble map；圓心在點位、面積∝總量）
-  - 要讓**面積＝資料量**、化解大區小區偏誤 → **面積變形地圖**（`cartogram-geo.md`；或方格／statebins）
+  - 要讓**面積＝資料量**、化解大區小區偏誤 → **面積變形地圖**（`cartogram-geo.md`）；要**每區等權重**、一區一格等大 → **圖塊地圖**（`tile-map.md`；statebins／tile grid，代價是形狀與鄰接失真）
   - 要看**可數計數的疏密／叢集** → **點密度地圖**（`dot-density-map.md`；等大點、1 點＝N）
   - 要看**起迄流向** → **流向地圖**（flow map）
   - 要精準比少數區 → 排序長條／`lollipop-rank.md` 或表；並列附上最穩
@@ -28,7 +28,7 @@
 ## Avoid
 
 - **直接用總量填色**（人口、件數、總營收）：大區／人多的區自然偏深 → 先正規化，或改比例符號地圖
-- **大面積、低人口的視覺偏誤**：地廣人稀區奪走注意力、小而人多的都會區看不見（choropleth illusion）→ 註明「色＝比率，面積＝土地」；必要時並列 cartogram 或排序長條
+- **大面積、低人口的視覺偏誤**：地廣人稀區奪走注意力、小而人多的都會區看不見（choropleth illusion）→ 註明「色＝比率，面積＝土地」；必要時並列 cartogram、圖塊地圖（`tile-map.md`）或排序長條
 - 與**面積變形地圖**混（本圖不扭曲面積）；與**比例符號地圖**混（本圖整區填色，不畫點上圓）；與**點密度地圖**混（本圖不撒點）；與**流向地圖**混（本圖無方向）；與 hexbin／等高線或矩陣熱力混（本圖依既有地理邊界）
 - 分級不交代方法；發散色卻沒有有意義的中心值；類別資料用漸層
 - 缺值區塗成零色或最淺色（缺值 ≠ 0）→ 灰色或斜線網底並在圖例標「無資料」
@@ -85,6 +85,6 @@ X 教學原帖（Liora 已逐則核對帳號與內文）：
 - https://x.com/tableaupublic/status/2100593181209297136 — Highlight／Heat／Density／Choropleth 辨異
 - https://x.com/JoachimSchork/status/2101027736395378725 — 雙變數等值區域圖（Python 套件 bivario）
 
-鄰居 pattern：`dot-density-map.md`、`cartogram-geo.md`、`bubble-chart.md`（笛卡兒氣泡，≠ bubble map）、`hexbin-density.md`、`matrix-heatmap.md`。
+鄰居 pattern：`dot-density-map.md`、`cartogram-geo.md`、`tile-map.md`（等大圖塊，解大面積偏誤）、`bubble-chart.md`（笛卡兒氣泡，≠ bubble map）、`hexbin-density.md`、`matrix-heatmap.md`。
 
 圖檔與截圖留在教圖／skill-pack（`/workspace/skill-packs/2026-09-25-am-choropleth/images/`，稿內嵌 24 張），本 repo **不複製**大圖；對帳見 `ATTRIBUTION.md`。

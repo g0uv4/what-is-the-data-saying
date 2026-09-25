@@ -1,12 +1,12 @@
 # What is the data saying（資料在說什麼）
 
-**Open-core [Grok Build](https://github.com/xai-org/grok-build) skill — v0.3.7.**
+**Open-core [Grok Build](https://github.com/xai-org/grok-build) skill — v0.3.8.**
 
 Paste a table or report. Get **which chart**, **why not the usual pie**, and **how to make it**.
 
-The differentiator is not another chart-chooser flowchart. It is **Nazh-grounded Taiwan zh-TW pedagogy** plus **46 named patterns** from real teach-viz lessons: 中文圖種名, 適不適合, 口述怎麼做.
+The differentiator is not another chart-chooser flowchart. It is **Nazh-grounded Taiwan zh-TW pedagogy** plus **47 named patterns** from real teach-viz lessons: 中文圖種名, 適不適合, 口述怎麼做.
 
-[Install](#install-grok-build) · [30-second demo](#try-this-first) · [46 patterns](#46-named-patterns) · [Teams](COMMERCIAL.md) · [中文說明](#資料在說什麼)
+[Install](#install-grok-build) · [30-second demo](#try-this-first) · [47 patterns](#47-named-patterns) · [Teams](COMMERCIAL.md) · [中文說明](#資料在說什麼)
 
 > Star or fork if a first paste already beats your default pie.  
 > Need a chart for *your* table? [Open a chart request](https://github.com/g0uv4/what-is-the-data-saying/issues/new?template=chart-request.yml).
@@ -64,11 +64,11 @@ Reply format the skill always uses:
 pattern：examples/<slug>.md
 ```
 
-## 46 named patterns
+## 47 named patterns
 
 Full table: [`skills/what-is-the-data-saying/examples/README.md`](skills/what-is-the-data-saying/examples/README.md). Heuristics: [`references/chart-heuristics.md`](skills/what-is-the-data-saying/references/chart-heuristics.md).
 
-Highlights: icicle / sunburst / treemap / voronoi tree · waterfall · funnel · dumbbell / slope / bump · **lollipop／棒棒糖** · **streamgraph／河流圖** · sankey / alluvial / chord · **boxplot／箱形圖** · **bubble／氣泡圖** · **marimekko／馬里梅可** · raincloud / ridgeline / beeswarm / violin · hexbin / contour · **choropleth／等值區域** · **dot density** · **population pyramid／人口金字塔** · UpSet · bullet KPI · calendar heatmap · cartogram.
+Highlights: icicle / sunburst / treemap / voronoi tree · waterfall · funnel · dumbbell / slope / bump · **lollipop／棒棒糖** · **streamgraph／河流圖** · sankey / alluvial / chord · **boxplot／箱形圖** · **bubble／氣泡圖** · **marimekko／馬里梅可** · raincloud / ridgeline / beeswarm / violin · hexbin / contour · **choropleth／等值區域** · **tile map／圖塊地圖** · **dot density** · **population pyramid／人口金字塔** · UpSet · bullet KPI · calendar heatmap · cartogram.
 
 ## For teams (hours, not a paywall)
 
@@ -91,7 +91,7 @@ The **core skill stays MIT**. No hosted login wall.
 |------|------|
 | `skills/what-is-the-data-saying/SKILL.md` | When to fire + the three-step loop |
 | `references/` | Heuristics, produce-how, shape checks, Taiwan readers |
-| `examples/` | 46 patterns (when / recommend / avoid / checklist) |
+| `examples/` | 47 patterns (when / recommend / avoid / checklist) |
 | `demos/` | Copy-paste first-run prompts |
 | `COMMERCIAL.md` | Team use cases |
 | `ATTRIBUTION.md` | Nazh teach-viz mapping |
@@ -108,9 +108,9 @@ Pedagogy and pattern names come from **納茲 - 資料視覺** teach-viz lessons
 
 ## 資料在說什麼
 
-**開源核心的 Grok Build skill（v0.3.7）。** 丟進一張表或一份報表，它回答兩件事：**該畫哪種圖**、**怎麼做得出來**。
+**開源核心的 Grok Build skill（v0.3.8）。** 丟進一張表或一份報表，它回答兩件事：**該畫哪種圖**、**怎麼做得出來**。
 
-和一般「圖表選擇器」的差別：對齊納茲教圖的台灣繁體中文教學——先給中文圖種名（英文名）、適不適合、口述怎麼做，再給工具。內建 **46 個具名 pattern**，不是示意三張長條圖。
+和一般「圖表選擇器」的差別：對齊納茲教圖的台灣繁體中文教學——先給中文圖種名（英文名）、適不適合、口述怎麼做，再給工具。內建 **47 個具名 pattern**，不是示意三張長條圖。
 
 ### 安裝
 

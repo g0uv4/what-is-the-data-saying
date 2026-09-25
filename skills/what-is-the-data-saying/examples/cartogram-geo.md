@@ -11,7 +11,8 @@
 ## Recommend
 
 - **主選**：統計變形地圖
-- **備選**：比率填色 → choropleth（`choropleth-map.md`）；點總量 → bubble map
+- **備選**：比率填色 → choropleth（`choropleth-map.md`）；點總量 → bubble map；每區等權重、一區一格等大 → 圖塊地圖（`tile-map.md`）
+- **加權六角／方塊**（格數＝人口或選舉人票：Datawrapper electoral college hexagons、grid cartogram、鑲嵌式面積變形地圖、Tilegrams）屬本家族，不是等大圖塊地圖；對照見 `tile-map.md`
 
 ## Avoid
 

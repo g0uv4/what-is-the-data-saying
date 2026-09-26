@@ -11,7 +11,7 @@
 ## Recommend
 
 - **主選**：折線圖（≤3 系列）
-- **備選**：多實體 → 小多圖；組成河（河流圖）→ `streamgraph-composition.md`；兩期 only → `slope-two-period.md`
+- **備選**：多實體 → 小多圖；長序列＋穩定週期、要同時看季節對齊與跨年趨勢 → 螺旋圖 `spiral-plot.md`（精讀差值仍回折線）；組成河（河流圖）→ `streamgraph-composition.md`；兩期 only → `slope-two-period.md`
 
 ## Avoid
 
@@ -24,3 +24,5 @@
 - [ ] 系列過多改小多圖或篩選
 - [ ] 標事件註記（若有）
 - [ ] 單位／來源 zh-TW
+
+鄰居 pattern：`spiral-plot.md`（把長時間軸捲成一圈＝一個週期）、`streamgraph-composition.md`、`slope-two-period.md`、`small-multiples.md`。

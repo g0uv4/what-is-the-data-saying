@@ -23,4 +23,4 @@
 - [ ] 聚合每日一值
 - [ ] 圖注：週起始、時區、零 vs 無資料
 
-鄰居 pattern：`matrix-heatmap.md`（任意兩個類別軸的色階矩陣；日曆版面才歸本檔）、`time-series-trend.md`。
+鄰居 pattern：`matrix-heatmap.md`（任意兩個類別軸的色階矩陣；日曆版面才歸本檔）、`spiral-plot.md`（螺旋熱圖：格子嵌在螺旋弧段、一圈＝一個週期，不是日曆方格）、`time-series-trend.md`。

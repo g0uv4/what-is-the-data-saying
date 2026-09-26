@@ -28,6 +28,7 @@
   - 兩個連續變數的點事件密度 → 六角分箱（`hexbin-density.md`）／等高線（`contour-density.md`）
   - 要用面積表達占比 → 馬賽克（`mosaic-crosstab.md`）／馬里梅可（`marimekko-chart.md`）
   - 變數兩兩的原始點關係 → 散點（`correlation-scatter.md`）
+  - 長時間序列＋穩定週期、要看季節對齊 → 螺旋圖（`spiral-plot.md`；螺旋熱圖的格子嵌在螺旋弧段上，不是本圖種）
 
 ## Avoid
 
@@ -88,6 +89,6 @@
 - X 教學原帖（本輪唯一可用）：https://x.com/clcoding/status/2099864539659710972
 - 查核限制（未核內容、不列連結）：Datawrapper 無熱圖產品專頁、熱圖部落格文 404；Flourish 熱圖操作教學頁 404；Observable `@d3/heatmap` 429；D3 Graph Gallery `heatmap2_basic` 404
 
-鄰居 pattern：`calendar-heatmap.md`（日曆版面的每日一值；不算本圖種）、`adjacency-matrix.md`（節點 × 節點的邊，排序是核心；不算本圖種）、`chord-matrix.md`（同樣方陣畫成交換帶）、`correlation-scatter.md`（兩變數原始點）、`mosaic-crosstab.md`、`marimekko-chart.md`（面積編碼占比）、`hexbin-density.md`、`contour-density.md`（點資料密度）、`choropleth-map.md`、`tile-map.md`（地理）。
+鄰居 pattern：`calendar-heatmap.md`（日曆版面的每日一值；不算本圖種）、`adjacency-matrix.md`（節點 × 節點的邊，排序是核心；不算本圖種）、`chord-matrix.md`（同樣方陣畫成交換帶）、`correlation-scatter.md`（兩變數原始點）、`mosaic-crosstab.md`、`marimekko-chart.md`（面積編碼占比）、`hexbin-density.md`、`contour-density.md`（點資料密度）、`choropleth-map.md`、`tile-map.md`（地理）、`spiral-plot.md`（週期時間序列捲成螺旋）。
 
 圖檔留在教圖／skill-pack（`/workspace/skill-packs/2026-09-26-am-heatmap/images/`，稿內嵌 24 張），本 repo **不複製**大圖。可當範例對照的是 catalogue-anatomy、wiki-heatmap、d3-basic、d3-style、rgg-215-1、rgg-283（時間 × 類別）、pygg-91-annotate（標註熱圖）、pygg-404-cluster、seaborn-cm1、seaborn-structured（分群熱圖）、wilke-forensic1／wilke-forensic2（相關矩陣色塊／色圓）、flourish-numeric、flourish-categorical、flourish-101（Flourish 熱圖編輯介面截圖：左預覽、右設定面板）；色階對照看 wiki-greyscale、wiki-rainbow-viridis、wiki-viridis。相關矩陣**不要**引用 wilke-correlations（散點示意，不是熱圖，也未收進本包）。對帳見 `ATTRIBUTION.md`。

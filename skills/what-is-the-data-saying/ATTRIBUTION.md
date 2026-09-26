@@ -1,6 +1,6 @@
 # ATTRIBUTION（納茲教圖來源）
 
-本 skill **0.3.9** 的圖種啟發式、口述產出步驟與 `examples/` pattern，提炼自 **納茲 - 資料視覺**（agent id `41759b08-68d8-455a-8d45-22730ad6bd40`）的教圖與相關素材。
+本 skill **0.3.10** 的圖種啟發式、口述產出步驟與 `examples/` pattern，提炼自 **納茲 - 資料視覺**（agent id `41759b08-68d8-455a-8d45-22730ad6bd40`）的教圖與相關素材。
 
 技能文字為摘要與可執行 checklist，**不是**教圖全文轉貼；數字案例仍以原教圖「未核」標註習慣為準。
 原教圖草稿／截圖**不在這個公開 repo**。下表的路徑是作者當時的取材位置，方便內部對帳，不是給 clone 的人去開的檔。
@@ -71,6 +71,7 @@
 | 2026-09-25-am-choropleth.md | 等值區域圖 | `examples/choropleth-map.md`；demo CSV 見 `examples/data/` |
 | 2026-09-25-pm-tilemap.md | 圖塊地圖 | `examples/tile-map.md`；demo CSV 見 `examples/data/` |
 | 2026-09-26-am-heatmap.md | 矩陣熱圖 | `examples/matrix-heatmap.md`（升級原通用版）；demo CSV 見 `examples/data/` |
+| 2026-09-26-pm-spiral.md | 螺旋圖 | `examples/spiral-plot.md`；demo CSV 見 `examples/data/` |
 
 另有同日前綴之 `*-research.md`、截圖檔（png/jpg）作為教圖研究與圖例依據，未逐一複製進 repo。
 點密度圖另經已審 skill pack `/workspace/skill-packs/2026-09-21-pm-dotdensity/`（SKILL-PACK.md、sources.txt、images/）；公開 repo 只收 pattern 摘要與虛構 demo CSV，大圖不入库。
@@ -83,11 +84,12 @@
 等值區域圖另經已審 skill pack `/workspace/skill-packs/2026-09-25-am-choropleth/`（SKILL-PACK.md、sources.txt 25 條、sample CSV、images/；稿內嵌 24 張）；公開 repo 只收 pattern 摘要與虛構 demo CSV，大圖不入库。來源含 Dataviz Catalogue／Dataviz Project／data-to-viz／Wikipedia／Claus Wilke／Datawrapper（部落格、Academy、產品頁）／ColorBrewer／Flourish／D3・R・Python Graph Gallery／Plotly／Observable（舊 `@d3/choropleth` 已停用，引用新版 `@d3/choropleth/2`），以及 4 則已核 X 教學原帖（Africa_DataHub、World_Data_A、tableaupublic、JoachimSchork）；逐條連結見 `examples/choropleth-map.md`。
 圖塊地圖另經已審 skill pack `/workspace/skill-packs/2026-09-25-pm-tilemap/`（SKILL-PACK.md、sources.txt 23 條、sample CSV、images/；稿內嵌 24 張）；公開 repo 只收 pattern 摘要與虛構 demo CSV，大圖不入库。來源含 Claus Wilke／NPR Visuals／Datawrapper（部落格、地圖總覽）／Wikipedia Cartogram／Pitch Tilegrams／statebins（GitHub、CRAN）／geofacet／R Graph Gallery／Bill Mill／d3kit-gridmap／Medium（Plotly）／tamasszabo.org（Tableau）／Flourish／data-to-viz／ColorBrewer；Observable 429、CDC COVE 403 列為查核限制；本輪 X 查無教學原帖。封面／拼貼圖（dw-election-hex、medium-hex、dw-swiss-compare）不當圖塊地圖範例；逐條連結見 `examples/tile-map.md`。
 矩陣熱圖另經已審 skill pack `/workspace/skill-packs/2026-09-26-am-heatmap/`（SKILL-PACK.md、sources.txt 23 條、sample CSV、images/；稿內嵌 24 張），升級原本通用版 `examples/matrix-heatmap.md`（pattern 數不變）；公開 repo 只收 pattern 摘要與虛構 demo CSV，大圖不入库。來源含 Dataviz Catalogue／Dataviz Project／data-to-viz／Wikipedia／Claus Wilke／ColorBrewer／Datawrapper 色階文／Flourish（Heatmaps 頁、範本）／D3・R・Python Graph Gallery／Seaborn／Plotly／Highcharts，以及 1 則 X 教學原帖（clcoding）；Datawrapper 熱圖專頁與部落格 404、Flourish 操作教學 404、Observable `@d3/heatmap` 429、D3 `heatmap2_basic` 404 列為查核限制。相關矩陣範例圖用 wilke-forensic1（不用 wilke-correlations 散點示意）；`levelplot` 歸 lattice；Flourish 三張 PNG 已由素材作者重新存檔。日曆熱力圖與鄰接矩陣只列為鄰近圖種。逐條連結見 `examples/matrix-heatmap.md`。
+螺旋圖另經已審 skill pack `/workspace/skill-packs/2026-09-26-pm-spiral/`（SKILL-PACK.md、sources.txt 22 條正式來源＋失敗項對照、sample CSV、images/；稿內嵌 26 張）；公開 repo 只收 pattern 摘要與虛構 demo CSV，大圖不入库。來源含 Dataviz Catalogue／Wikipedia（Climate spiral、Archimedean spiral）／Ed Hawkins Climate Visuals（CC-BY 4.0）與 Climate Lab Book Substack／NASA SVS 5190・5383・5057／spiralize（首頁、入門、範例集）／tomshanley d3-spiral-heatmap（GitHub、bl.ocks）／Condegram gist／Carlis & Konstan UIST 1998（DOI 10.1145/288392.288399），以及 2 則 X 解說原帖（Stellarixorine 的「一圈＝一個月」有誤、已註明；MyZeroCarbon）；Dataviz Project 403、spiralize COVID 互動應用逾時列為查核限制，本輪查無程式教學類 X 原帖。圖說照審稿修正版（NASA 無標示版與舊版靜幀分屬 5383、5057，非 5190；spiralize 入門圖逐張更正）。逐條連結見 `examples/spiral-plot.md`。
 
 ## 尚未獨立成 pattern 的缺口（可請 Liora／納茲補）
 
 - 南丁格爾玫瑰、三元圖、樹狀譜系、蜂巢圖、HEB、地平線圖、流量地圖、比例符號地圖、平行集合：目前多半只在 `chart-heuristics.md`，尚無專檔 example。
-- 點密度圖、河流圖、人口金字塔、棒棒糖圖、箱形圖、氣泡圖、馬里梅可圖、等值區域圖、圖塊地圖、矩陣熱圖已有專檔 example + 虛構 demo CSV；其餘教圖「適合使用的範例」三小節樣本尚未全面打包。
+- 點密度圖、河流圖、人口金字塔、棒棒糖圖、箱形圖、氣泡圖、馬里梅可圖、等值區域圖、圖塊地圖、矩陣熱圖、螺旋圖已有專檔 example + 虛構 demo CSV；其餘教圖「適合使用的範例」三小節樣本尚未全面打包。
 - X 社群卡 skill／fox-card 產線未併入本 plugin（敘事卡 ≠ 資料形狀推薦）。
 
 ## 授權與改寫

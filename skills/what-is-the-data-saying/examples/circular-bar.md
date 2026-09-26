@@ -16,8 +16,11 @@
 ## Avoid
 
 - 與玫瑰／雷達／旭日混淆；少數類別純裝飾
+- 與螺旋圖混淆：本圖類別繞一圈就結束；連續時間捲成多圈、圈間對齊季節 → `spiral-plot.md`
 
 ## Produce checklist
 
 - [ ] 數值=徑向棒長
 - [ ] 圖注提醒精準比較弱於直線長條
+
+鄰居 pattern：`radar-profile.md`、`spiral-plot.md`、`lollipop-rank.md`。

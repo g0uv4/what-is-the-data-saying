@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.10 — 螺旋圖 pattern
+
+- Add `examples/spiral-plot.md` from Nazh teach-viz `2026-09-26-pm-spiral.md` (approved skill pack; 方法教學); primary name **螺旋圖**（Spiral plot／Time series spiral；climate spiral 變體）. No spiral／periodic-time-series example existed before → new pattern.
+- Core lesson: time on an Archimedean spiral, one turn = one period (centre earlier, outer newer), same angle = same point in the cycle; track encodings bar／condegram, line／area, spiral heatmap, horizon; climate spiral needs baseline period + units. Pitfalls: undefined turn／direction ("one turn = one month" misreading), dense turns, outer-arc distortion, unstable periods.
+- Neighbours cross-linked: `time-series-trend.md`, `calendar-heatmap.md`, `matrix-heatmap.md`, `circular-bar.md`, `radar-profile.md` (plus streamgraph／gantt mentioned).
+- Heuristics / how-to / data-shape checks. Tool honesty: R spiralize, D3 community (tomshanley d3-spiral-heatmap, Condegram gist), Hawkins Climate Visuals, NASA SVS 5190; no dedicated pages on data-to-viz／Flourish／R・Python Graph Gallery. Dataviz Project 403 and spiralize COVID app timeout noted; Carlis & Konstan DOI 10.1145/288392.288399; NASA stills attributed to SVS 5383／5057 (not 5190). Two X explainer posts (one flagged for the "one turn = one month" error); no coding tutorial post (none invented).
+- Fictional demo CSV `examples/data/sample-spiral.csv`（2017–2024 monthly bike rentals, 96 rows, anomalous 2020 turn；數字未核）.
+- ATTRIBUTION cites final teach-viz + pack path; images cited, not copied. Pattern count 47 → 48.
+
 ## 0.3.9 — 矩陣熱圖 pattern 升級
 
 - Upgrade `examples/matrix-heatmap.md` from Nazh teach-viz `2026-09-26-am-heatmap.md` (approved skill pack); primary name **矩陣熱圖**（Heatmap；熱力圖／色階矩陣）. A generic example already existed → upgrade in place; pattern count stays 47.

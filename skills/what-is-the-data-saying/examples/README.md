@@ -27,6 +27,7 @@
 | 六角分箱 | `hexbin-density.md` | 2026-09-18-pm-hexbin.md |
 | 等高密度 | `contour-density.md` | 2026-09-19-am-contour.md |
 | 日曆熱力 | `calendar-heatmap.md` | 2026-09-19-pm-calendar.md |
+| 螺旋圖（週期時間序列） | `spiral-plot.md` | 2026-09-26-pm-spiral.md |
 | 小提琴分布 | `violin-distribution.md` | 2026-09-15-pm-violin.md |
 | 蜂群點 | `beeswarm-points.md` | 2026-09-04-pm-beeswarm.md |
 | 雨雲組合 | `raincloud-combo.md` | 2026-09-05-pm-raincloud.md |

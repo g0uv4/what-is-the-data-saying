@@ -16,8 +16,11 @@
 ## Avoid
 
 - 與鄰接矩陣／類別熱力混淆；時區不標
+- 任意兩個類別軸（例如星期 × 小時、商品 × 通路）不排日曆版面 → 那是矩陣熱圖（`matrix-heatmap.md`）
 
 ## Produce checklist
 
 - [ ] 聚合每日一值
 - [ ] 圖注：週起始、時區、零 vs 無資料
+
+鄰居 pattern：`matrix-heatmap.md`（任意兩個類別軸的色階矩陣；日曆版面才歸本檔）、`time-series-trend.md`。

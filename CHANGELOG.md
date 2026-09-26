@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.9 — 矩陣熱圖 pattern 升級
+
+- Upgrade `examples/matrix-heatmap.md` from Nazh teach-viz `2026-09-26-am-heatmap.md` (approved skill pack); primary name **矩陣熱圖**（Heatmap；熱力圖／色階矩陣）. A generic example already existed → upgrade in place; pattern count stays 47.
+- Core lesson: two categorical／ordered axes → matrix, colour = value strength; variants annotated heatmap, clustermap (reorder + dendrogram), correlation matrix (Wilke tiles／circles), time × category. Normalise by column／row when scales differ; sequential vs diverging (midpoint) scales, avoid rainbow (Viridis／ColorBrewer); missing ≠ zero; keep fixed axis order unless clustering.
+- Calendar heatmap and adjacency matrix are neighbours only (not variants); cross-links added in `calendar-heatmap.md`, `adjacency-matrix.md`, `chord-matrix.md`.
+- Heuristics / how-to / data-shape checks. Tool honesty: ggplot2 `geom_tile`, lattice `levelplot` (not ggplot), base `heatmap()`, Seaborn heatmap／clustermap, Plotly, D3 Graph Gallery, Flourish Heatmaps, Highcharts; Datawrapper heatmap pages 404, Flourish how-to 404, Observable 429, D3 heatmap2_basic 404 noted. One X teaching post (clcoding). Correlation-matrix image = wilke-forensic1 (not wilke-correlations).
+- Fictional demo CSV `examples/data/sample-heatmap.csv`（12 categories × 7 channels, long format；數字未核）.
+- ATTRIBUTION cites final teach-viz + pack path; images cited, not copied.
+
 ## 0.3.8 — 圖塊地圖 pattern
 
 - Add `examples/tile-map.md` from Nazh teach-viz `2026-09-25-pm-tilemap.md` (approved skill pack); primary name **圖塊地圖**（Tile map；statebins／tile grid map／格子地圖）. No dedicated example existed before (repo only had `hexbin-density.md` and `cartogram-geo.md`) → new pattern.

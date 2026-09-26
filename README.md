@@ -1,6 +1,6 @@
 # What is the data saying（資料在說什麼）
 
-**Open-core [Grok Build](https://github.com/xai-org/grok-build) skill — v0.3.8.**
+**Open-core [Grok Build](https://github.com/xai-org/grok-build) skill — v0.3.9.**
 
 Paste a table or report. Get **which chart**, **why not the usual pie**, and **how to make it**.
 
@@ -68,7 +68,7 @@ pattern：examples/<slug>.md
 
 Full table: [`skills/what-is-the-data-saying/examples/README.md`](skills/what-is-the-data-saying/examples/README.md). Heuristics: [`references/chart-heuristics.md`](skills/what-is-the-data-saying/references/chart-heuristics.md).
 
-Highlights: icicle / sunburst / treemap / voronoi tree · waterfall · funnel · dumbbell / slope / bump · **lollipop／棒棒糖** · **streamgraph／河流圖** · sankey / alluvial / chord · **boxplot／箱形圖** · **bubble／氣泡圖** · **marimekko／馬里梅可** · raincloud / ridgeline / beeswarm / violin · hexbin / contour · **choropleth／等值區域** · **tile map／圖塊地圖** · **dot density** · **population pyramid／人口金字塔** · UpSet · bullet KPI · calendar heatmap · cartogram.
+Highlights: icicle / sunburst / treemap / voronoi tree · waterfall · funnel · dumbbell / slope / bump · **lollipop／棒棒糖** · **streamgraph／河流圖** · sankey / alluvial / chord · **boxplot／箱形圖** · **bubble／氣泡圖** · **marimekko／馬里梅可** · raincloud / ridgeline / beeswarm / violin · hexbin / contour · **choropleth／等值區域** · **tile map／圖塊地圖** · **dot density** · **population pyramid／人口金字塔** · UpSet · bullet KPI · **matrix heatmap／矩陣熱圖** · calendar heatmap · cartogram.
 
 ## For teams (hours, not a paywall)
 
@@ -108,7 +108,7 @@ Pedagogy and pattern names come from **納茲 - 資料視覺** teach-viz lessons
 
 ## 資料在說什麼
 
-**開源核心的 Grok Build skill（v0.3.8）。** 丟進一張表或一份報表，它回答兩件事：**該畫哪種圖**、**怎麼做得出來**。
+**開源核心的 Grok Build skill（v0.3.9）。** 丟進一張表或一份報表，它回答兩件事：**該畫哪種圖**、**怎麼做得出來**。
 
 和一般「圖表選擇器」的差別：對齊納茲教圖的台灣繁體中文教學——先給中文圖種名（英文名）、適不適合、口述怎麼做，再給工具。內建 **47 個具名 pattern**，不是示意三張長條圖。
 

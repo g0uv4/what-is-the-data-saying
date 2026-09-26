@@ -9,7 +9,7 @@
 | 類別比大小 | `categorical-comparison.md` | 通用 |
 | 時間趨勢 | `time-series-trend.md` | 通用 |
 | 兩變數相關 | `correlation-scatter.md` | 通用 |
-| 矩陣熱度 | `matrix-heatmap.md` | 通用 |
+| 矩陣熱圖（色階矩陣） | `matrix-heatmap.md` | 2026-09-26-am-heatmap.md（升級原通用版） |
 | 階層冰柱 | `hierarchy-icicle.md` | 2026-09-01-am-icicle-draft.md |
 | 同構多面板 | `small-multiples.md` | 通用 |
 | 瀑布橋 | `waterfall-bridge.md` | 2026-09-10-am-waterfall.md |

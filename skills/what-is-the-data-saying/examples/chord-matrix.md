@@ -16,8 +16,11 @@
 ## Avoid
 
 - 拿弦圖畫階層；弱邊全畫
+- 要讀每一格強度而非交換帶 → 同一方陣改畫矩陣熱圖（`matrix-heatmap.md`）或鄰接矩陣（`adjacency-matrix.md`）
 
 ## Produce checklist
 
 - [ ] 節點序減少交叉；裁弱邊
 - [ ] 分步敘事
+
+鄰居 pattern：`matrix-heatmap.md`、`adjacency-matrix.md`、`sankey-flow.md`。

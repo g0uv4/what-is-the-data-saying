@@ -13,7 +13,7 @@ argument-hint: paste a table or describe the report
 metadata:
   short-description: "Which chart? How to make it. 資料在說什麼"
   author: g0uv4
-  version: "0.3.8"
+  version: "0.3.9"
   lineage: "納茲 - 資料視覺 teach-viz 教圖"
   license: MIT
 ---
@@ -83,6 +83,7 @@ pattern：examples/<slug>.md（若有）
 | 年齡×雙側結構 | 人口金字塔（勿與龍捲風混） |
 | 時間趨勢 | 折線；多實體小多圖；組成隨時間用河流圖（溪流圖） |
 | 排名起伏 | 凹凸圖（bump） |
+| 列×欄哪裡熱／相關矩陣 | 矩陣熱圖（循序色階；有中點用發散；要看相似才分群重排）；日曆版面用日曆熱力圖；節點×節點用鄰接矩陣 |
 | 兩數值關係 | 散點；＋第三量級用氣泡圖（面積映射）；過密用六角分箱／等高線；雙序列演化用連接散點 |
 | 分布形狀 | 箱形／小提琴／蜂群／雨雲／山脊 |
 | 組成（平級） | 堆疊長條／華夫；區隔規模＋區內組成 → 馬里梅可；精確值用表 |

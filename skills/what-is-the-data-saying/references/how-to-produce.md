@@ -57,7 +57,8 @@
 ### 階層組成
 
 - **共同**：葉非負值；父=子加總；層順序=深度／圈順序。
-- **冰柱**：直角 partition，好標字、深層較不易被徑向擠壓；Flourish 常無原生冰柱。
+- **冰柱**：直角 partition，好標字、深層較不易被徑向擠壓；Flourish 常無原生冰柱。≠ 火焰圖（堆疊取樣）。
+- **火焰圖（flame graph；效能剖面，非組成）**：確認故事是熱路徑不是時間順序 → 取帶堆疊的剖面（Linux perf／eBPF、DTrace、產品化剖析器、語言取樣器；符號齊備）→ 收合成 `根;…;葉 計數` → 標準（根在下）或冰柱布局（根在上）→ 色票寫明（CPU 隨機暖色無資料意義；Memory 綠；Differential 紅增藍減）→ 互動：懸停、點選放大、搜尋累計 → 有週期／突發先用 FlameScope 挑時段 → 讀法：最寬頂緣葉框 → 祖先 → 搜尋累加 → 對帳計數表；圖注寫「橫向不是時間」與取樣條件。要時間順序 → 火焰時序圖（Chrome 開發者工具 Performance、speedscope Time Order）。工具：`brendangregg/FlameGraph`（互動 SVG）、`d3-flame-graph`、speedscope、FlameScope。
 - **旭日**：同一套 partition 改環帶；小塊靠 hover／下鑽。
 - **矩形樹狀**：嵌套矩形鋪滿；葉面積∝值。
 - **圓堆**：嵌套圓；面積弱於長度，精準比請旁表。

@@ -11,6 +11,7 @@
 | 兩變數相關 | `correlation-scatter.md` | 通用 |
 | 矩陣熱圖（色階矩陣） | `matrix-heatmap.md` | 2026-09-26-am-heatmap.md（升級原通用版） |
 | 階層冰柱 | `hierarchy-icicle.md` | 2026-09-01-am-icicle-draft.md |
+| 火焰圖（堆疊取樣；≠ 火焰時序圖、≠ 冰柱） | `flame-graph.md` | 2026-09-27-pm-flamegraph.md |
 | 同構多面板 | `small-multiples.md` | 通用 |
 | 瀑布橋 | `waterfall-bridge.md` | 2026-09-10-am-waterfall.md |
 | 漏斗階段 | `funnel-stages.md` | 2026-09-10-pm-funnel.md |

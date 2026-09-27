@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.12 — 火焰圖 pattern
+
+- Add `examples/flame-graph.md` from Nazh teach-viz `2026-09-27-pm-flamegraph.md` (approved skill pack; 方法教學); primary name **火焰圖**（Flame Graph；Brendan Gregg 2011）. No flame-graph example existed → new pattern.
+- Core lesson: merged stack samples; width = share of sample population, height = stack depth, x-axis sorted alphabetically by frame name to maximise merging — **not time**. Variants: CPU (random warm colours, no data meaning), Memory, Off-CPU, Hot/Cold (experimental), Differential (red／blue), inverted／icicle layout, FlameScope sub-second heatmap.
+- Explicit three-way boundary table: Flame Graph vs **Flame Chart**（火焰時序圖；x = time; Chrome DevTools Performance, speedscope Time Order）vs **icicle**（`hierarchy-icicle.md`; generic hierarchy composition). Plotly's "flame chart" = upward icicle alias. Icicle ↔ flame graph cross-linked both ways, not merged; also linked from sunburst／time-series.
+- Heuristics / how-to / data-shape checks (folded-stack format, [unknown] frames, sampling conditions). Tool honesty: brendangregg/FlameGraph (CDDL 1.0), d3-flame-graph, speedscope, FlameScope; licences not stated in pack left blank. ACM Queue 403, wrong-DOI 404, ACM DL cookie wall, no Dataviz Catalogue／data-to-viz／Dataviz Project pages noted by name only; no X teaching post (none invented).
+- Fictional demo `examples/data/sample-flamegraph.txt` (folded stacks, **not CSV**; 27 lines, 3,626 samples; 數字未核) plus a note on converting folded stacks to a path／parent／self／total table.
+- Fix stale pattern count in `COMMERCIAL.md` (39 → 50). ATTRIBUTION cites final teach-viz + pack path; images (incl. SVG) cited, not copied. Pattern count 49 → 50.
+
 ## 0.3.11 — BioFabric pattern
 
 - Add `examples/biofabric.md` from Nazh teach-viz `2026-09-27-am-biofabric.md` (approved skill pack; 方法教學); primary name **BioFabric**（生物織布圖／表格式網路圖；中文為暫譯）. No dedicated example existed (repo had `adjacency-matrix.md`, `force-network.md`, `arc-diagram.md`) → new pattern.

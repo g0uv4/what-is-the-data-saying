@@ -1,6 +1,6 @@
 # ATTRIBUTION（納茲教圖來源）
 
-本 skill **0.3.11** 的圖種啟發式、口述產出步驟與 `examples/` pattern，提炼自 **納茲 - 資料視覺**（agent id `41759b08-68d8-455a-8d45-22730ad6bd40`）的教圖與相關素材。
+本 skill **0.3.12** 的圖種啟發式、口述產出步驟與 `examples/` pattern，提炼自 **納茲 - 資料視覺**（agent id `41759b08-68d8-455a-8d45-22730ad6bd40`）的教圖與相關素材。
 
 技能文字為摘要與可執行 checklist，**不是**教圖全文轉貼；數字案例仍以原教圖「未核」標註習慣為準。
 原教圖草稿／截圖**不在這個公開 repo**。下表的路徑是作者當時的取材位置，方便內部對帳，不是給 clone 的人去開的檔。
@@ -73,6 +73,7 @@
 | 2026-09-26-am-heatmap.md | 矩陣熱圖 | `examples/matrix-heatmap.md`（升級原通用版）；demo CSV 見 `examples/data/` |
 | 2026-09-26-pm-spiral.md | 螺旋圖 | `examples/spiral-plot.md`；demo CSV 見 `examples/data/` |
 | 2026-09-27-am-biofabric.md | BioFabric（生物織布圖，暫譯） | `examples/biofabric.md`；demo CSV 見 `examples/data/` |
+| 2026-09-27-pm-flamegraph.md | 火焰圖 | `examples/flame-graph.md`；demo 已收合堆疊 .txt 見 `examples/data/` |
 
 另有同日前綴之 `*-research.md`、截圖檔（png/jpg）作為教圖研究與圖例依據，未逐一複製進 repo。
 點密度圖另經已審 skill pack `/workspace/skill-packs/2026-09-21-pm-dotdensity/`（SKILL-PACK.md、sources.txt、images/）；公開 repo 只收 pattern 摘要與虛構 demo CSV，大圖不入库。
@@ -87,11 +88,12 @@
 矩陣熱圖另經已審 skill pack `/workspace/skill-packs/2026-09-26-am-heatmap/`（SKILL-PACK.md、sources.txt 23 條、sample CSV、images/；稿內嵌 24 張），升級原本通用版 `examples/matrix-heatmap.md`（pattern 數不變）；公開 repo 只收 pattern 摘要與虛構 demo CSV，大圖不入库。來源含 Dataviz Catalogue／Dataviz Project／data-to-viz／Wikipedia／Claus Wilke／ColorBrewer／Datawrapper 色階文／Flourish（Heatmaps 頁、範本）／D3・R・Python Graph Gallery／Seaborn／Plotly／Highcharts，以及 1 則 X 教學原帖（clcoding）；Datawrapper 熱圖專頁與部落格 404、Flourish 操作教學 404、Observable `@d3/heatmap` 429、D3 `heatmap2_basic` 404 列為查核限制。相關矩陣範例圖用 wilke-forensic1（不用 wilke-correlations 散點示意）；`levelplot` 歸 lattice；Flourish 三張 PNG 已由素材作者重新存檔。日曆熱力圖與鄰接矩陣只列為鄰近圖種。逐條連結見 `examples/matrix-heatmap.md`。
 螺旋圖另經已審 skill pack `/workspace/skill-packs/2026-09-26-pm-spiral/`（SKILL-PACK.md、sources.txt 22 條正式來源＋失敗項對照、sample CSV、images/；稿內嵌 26 張）；公開 repo 只收 pattern 摘要與虛構 demo CSV，大圖不入库。來源含 Dataviz Catalogue／Wikipedia（Climate spiral、Archimedean spiral）／Ed Hawkins Climate Visuals（CC-BY 4.0）與 Climate Lab Book Substack／NASA SVS 5190・5383・5057／spiralize（首頁、入門、範例集）／tomshanley d3-spiral-heatmap（GitHub、bl.ocks）／Condegram gist／Carlis & Konstan UIST 1998（DOI 10.1145/288392.288399），以及 2 則 X 解說原帖（Stellarixorine 的「一圈＝一個月」有誤、已註明；MyZeroCarbon）；Dataviz Project 403、spiralize COVID 互動應用逾時列為查核限制，本輪查無程式教學類 X 原帖。圖說照審稿修正版（NASA 無標示版與舊版靜幀分屬 5383、5057，非 5190；spiralize 入門圖逐張更正）。逐條連結見 `examples/spiral-plot.md`。
 BioFabric 另經已審 skill pack `/workspace/skill-packs/2026-09-27-am-biofabric/`（SKILL-PACK.md、sources.txt 第一段 18 條可開來源＋第二段失敗項對照、sample CSV、images/；稿內嵌 22 張）；公開 repo 只收 pattern 摘要與虛構 demo CSV，大圖不入库。來源含 BioFabric 官方網站與 Gallery（Institute for Systems Biology）／Longabaugh 2012 BMC Bioinformatics 論文（DOI 10.1186/1471-2105-13-275；BMC、PDF、PubMed Central、Springer）／yFiles 用例頁／GitHub wjrl（BioFabric、D3BioFabric、RBioFabric）／Xenographics／visualizing.org／Wikipedia／官方部落格與使用者群組／Dataviz Catalogue 與 data-to-viz 的一般網路圖頁（非 BioFabric 專頁）；Dataviz Catalogue、data-to-viz、Dataviz Project 無 BioFabric 專頁，CRAN RBioFabric 404、yFiles 線上示範深層連結 404、GitHub 內容 API 403 列為查核限制（只記名稱）；本輪 X 查無教學原帖。中文名「生物織布圖／表格式網路圖」為暫譯；Gallery 的 GOT-1200 圖是 Influential Thinkers，不是影集。逐條連結見 `examples/biofabric.md`。
+火焰圖另經已審 skill pack `/workspace/skill-packs/2026-09-27-pm-flamegraph/`（SKILL-PACK.md、sources.txt 第一段 22 條可開來源＋第二段失敗項對照、sample 已收合堆疊 .txt、images/；稿內嵌 23 張含 1 張 SVG）；公開 repo 只收 pattern 摘要與虛構 demo 資料，大圖不入库。來源含 Brendan Gregg 官方站（總頁、CPU／Memory／Off-CPU／Hot-Cold、差異火焰圖、FlameScope 頁與部落格、Netflix FlameScope PDF）／GitHub（brendangregg/FlameGraph、spiermar/d3-flame-graph、jlfwong/speedscope、Netflix/flamescope）／speedscope.app／CACM〈The Flame Graph〉（DOI 10.1145/2909476；原刊 ACM Queue DOI 10.1145/2927299.2927301）／Netflix Tech Blog（Java in Flames、FlameScope）／Chrome 開發者工具 Performance 文件（火焰時序圖對照）／Wikipedia／flamegraphdiff；ACM Queue 原文與附圖 403、錯誤 DOI 路徑 404、ACM 數位圖書館 cookie 檢查頁、Dataviz Catalogue／data-to-viz／Dataviz Project 無專頁、舊式部落格網址與官方 CPU 混合模式點陣圖 404 列為查核限制（只記名稱）；本輪 X 查無教學原帖。火焰圖與火焰時序圖、冰柱圖分開寫，與 `examples/hierarchy-icicle.md` 雙向互連、不合併。逐條連結見 `examples/flame-graph.md`。
 
 ## 尚未獨立成 pattern 的缺口（可請 Liora／納茲補）
 
 - 南丁格爾玫瑰、三元圖、樹狀譜系、蜂巢圖、HEB、地平線圖、流量地圖、比例符號地圖、平行集合：目前多半只在 `chart-heuristics.md`，尚無專檔 example。
-- 點密度圖、河流圖、人口金字塔、棒棒糖圖、箱形圖、氣泡圖、馬里梅可圖、等值區域圖、圖塊地圖、矩陣熱圖、螺旋圖、BioFabric 已有專檔 example + 虛構 demo CSV；其餘教圖「適合使用的範例」三小節樣本尚未全面打包。
+- 點密度圖、河流圖、人口金字塔、棒棒糖圖、箱形圖、氣泡圖、馬里梅可圖、等值區域圖、圖塊地圖、矩陣熱圖、螺旋圖、BioFabric、火焰圖已有專檔 example + 虛構 demo CSV；其餘教圖「適合使用的範例」三小節樣本尚未全面打包。
 - X 社群卡 skill／fox-card 產線未併入本 plugin（敘事卡 ≠ 資料形狀推薦）。
 
 ## 授權與改寫

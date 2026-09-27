@@ -23,4 +23,4 @@
 - [ ] 節點序減少交叉；裁弱邊
 - [ ] 分步敘事
 
-鄰居 pattern：`matrix-heatmap.md`、`adjacency-matrix.md`、`sankey-flow.md`。
+鄰居 pattern：`matrix-heatmap.md`、`adjacency-matrix.md`、`sankey-flow.md`、`biofabric.md`（誰連誰與連線型態，不講份額）。

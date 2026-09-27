@@ -42,6 +42,7 @@
 | 力導向網路 | `force-network.md` | 2026-09-17-pm-force.md |
 | 弧線圖 | `arc-diagram.md` | 2026-09-17-am-arc.md |
 | 鄰接矩陣 | `adjacency-matrix.md` | 2026-09-18-am-adjacency.md |
+| BioFabric（生物織布圖，暫譯） | `biofabric.md` | 2026-09-27-am-biofabric.md |
 | 平行座標 | `parallel-coordinates.md` | 2026-08-29-parallel-draft.md |
 | 圓形長條 | `circular-bar.md` | 2026-09-08-am-circular-bar.md |
 | 統計變形地圖 | `cartogram-geo.md` | 2026-09-16-am-cartogram.md |

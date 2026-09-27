@@ -11,13 +11,15 @@
 ## Recommend
 
 - **主選**：弧線圖
-- **備選**：探索 → 力導向；重排看塊 → 鄰接矩陣
+- **備選**：邊多到弧線交疊、要每條邊一欄並依類型分塊 → BioFabric（`biofabric.md`）；探索 → 力導向；重排看塊 → 鄰接矩陣
 
 ## Avoid
 
-- 節點順序亂排；與弦圖／桑基混淆
+- 節點順序亂排；與弦圖／桑基混淆；與 BioFabric 混淆（本圖節點在單一軸、邊是弧線；BioFabric 節點各占一列、邊一律垂直）
 
 ## Produce checklist
 
 - [ ] 排序最關鍵；優化序 vs 亂序對照
 - [ ] 圖注寫排序依據
+
+鄰居 pattern：`biofabric.md`、`force-network.md`、`adjacency-matrix.md`。

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.11 — BioFabric pattern
+
+- Add `examples/biofabric.md` from Nazh teach-viz `2026-09-27-am-biofabric.md` (approved skill pack; 方法教學); primary name **BioFabric**（生物織布圖／表格式網路圖；中文為暫譯）. No dedicated example existed (repo had `adjacency-matrix.md`, `force-network.md`, `arc-diagram.md`) → new pattern.
+- Core lesson: nodes = horizontal lines (one row each), edges = vertical segments (one column each) — an orthogonal tabular view that combs the hairball so every edge is individually visible; row／column ordering is itself the analysis. Variants: default BFS／degree layout, connectivity layout, shadow links, link groups, node-zone shading, subset views／navigation. Longabaugh 2012, BMC Bioinformatics 13:275, DOI 10.1186/1471-2105-13-275.
+- Neighbours cross-linked with boundaries: `force-network.md`, `arc-diagram.md`, `adjacency-matrix.md`, `chord-matrix.md` (HEB／hive plot in heuristics).
+- Heuristics / how-to / data-shape checks. Tool honesty: BioFabric Java (LGPL 2.1), RBioFabric (GitHub only, not on CRAN), D3BioFabric, yFiles; no dedicated pages on Dataviz Catalogue／data-to-viz／Dataviz Project; failed URLs recorded by name only; no X teaching post (none invented). Gallery "GOT-1200" image is Influential Thinkers, not the TV series.
+- Fictional demo CSV `examples/data/sample-biofabric.csv`（17 nodes, 38 edges; social／collaboration／reporting link groups；數字未核）.
+- ATTRIBUTION cites final teach-viz + pack path; images cited, not copied. Pattern count 48 → 49.
+
 ## 0.3.10 — 螺旋圖 pattern
 
 - Add `examples/spiral-plot.md` from Nazh teach-viz `2026-09-26-pm-spiral.md` (approved skill pack; 方法教學); primary name **螺旋圖**（Spiral plot／Time series spiral；climate spiral 變體）. No spiral／periodic-time-series example existed before → new pattern.

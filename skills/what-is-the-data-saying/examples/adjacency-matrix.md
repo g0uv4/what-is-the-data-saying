@@ -11,7 +11,7 @@
 ## Recommend
 
 - **主選**：鄰接矩陣
-- **備選**：直覺圖 → 力導向／弧線
+- **備選**：直覺圖 → 力導向／弧線；要仍畫「線」、每條邊可辨識並依類型／條件／時間排成欄塊 → BioFabric（`biofabric.md`）
 
 ## Avoid
 
@@ -22,4 +22,4 @@
 - [ ] 排序最關鍵
 - [ ] 圖注寫排序依據與有向方向
 
-鄰居 pattern：`matrix-heatmap.md`（一般色階矩陣／相關矩陣；鄰接矩陣不算其變體）、`force-network.md`、`arc-diagram.md`、`chord-matrix.md`。
+鄰居 pattern：`matrix-heatmap.md`（一般色階矩陣／相關矩陣；鄰接矩陣不算其變體）、`biofabric.md`（格子 ≠ 正交線；BioFabric 節點一列、邊一欄）、`force-network.md`、`arc-diagram.md`、`chord-matrix.md`。

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'">
+<title>資料在說什麼？ · What is the data saying</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <h1 data-i18n="title">資料在說什麼？</h1>
+    <p class="subtitle" data-i18n="subtitle"></p>
+  </div>
+  <button type="button" id="langBtn" class="btn ghost" data-i18n="lang">English</button>
+</header>
+
+<main class="layout">
+  <div class="col-left">
+    <section class="card" id="dataCard" aria-labelledby="h-data">
+      <h2 id="h-data" data-i18n="step1">1. 資料</h2>
+      <div class="data-inputs">
+        <label class="field">
+          <span data-i18n="sample">載入示範資料</span>
+          <select id="sampleSelect"></select>
+        </label>
+        <label class="field">
+          <span data-i18n="upload">上傳 CSV 檔</span>
+          <input type="file" id="fileInput" accept=".csv,.tsv,.txt,text/csv">
+        </label>
+      </div>
+      <details id="pasteBox">
+        <summary data-i18n="paste">或貼上 CSV 文字</summary>
+        <textarea id="pasteArea" rows="6" spellcheck="false" placeholder="date,category,value&#10;2024-01,A,12"></textarea>
+        <button type="button" id="parseBtn" class="btn" data-i18n="parse">解析貼上的文字</button>
+      </details>
+      <p id="dataStatus" class="status" role="status" aria-live="polite"></p>
+      <div id="preview" class="table-wrap"></div>
+    </section>
+
+    <section class="card" id="colCard" aria-labelledby="h-cols">
+      <h2 id="h-cols" data-i18n="step2">2. 欄位型態</h2>
+      <div id="columns" class="table-wrap"></div>
+    </section>
+
+    <section class="card" id="recCard" aria-labelledby="h-recs">
+      <div class="card-head">
+        <h2 id="h-recs" data-i18n="step3">3. 推薦圖種</h2>
+        <label class="toggle"><input type="checkbox" id="showAll"> <span data-i18n="showAll">顯示全部 49 種</span></label>
+      </div>
+      <div id="shapeHints" class="hints"></div>
+      <p id="recCount" class="muted"></p>
+      <ol id="recList" class="rec-list"></ol>
+    </section>
+  </div>
+
+  <div class="col-right">
+    <section class="card" id="chartCard" aria-labelledby="h-chart">
+      <h2 id="h-chart" data-i18n="step4">4. 圖表</h2>
+      <div id="chartHead"></div>
+      <div id="rendererTabs" class="tabs" role="tablist"></div>
+      <div id="controls" class="controls"></div>
+      <div id="chartHost" class="chart-host"></div>
+    </section>
+
+    <section class="card" id="tutCard" aria-labelledby="h-tut">
+      <h2 id="h-tut" data-i18n="step5">5. 教學</h2>
+      <div id="tutMeta" class="muted"></div>
+      <article id="tutorial" class="markdown"></article>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer"><p data-i18n="footer"></p></footer>
+
+<!-- Plain scripts (no ES modules) so the page works from file:// -->
+<script src="vendor/chart.umd.min.js"></script>
+<script src="data/content.js"></script>
+<script src="data/samples.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/csv.js"></script>
+<script src="js/types.js"></script>
+<script src="js/rules.js"></script>
+<script src="js/markdown.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.14 — 火山圖 pattern
+
+- Add `examples/volcano-plot.md` from Nazh teach-viz `2026-09-28-pm-volcano.md` (approved skill pack; 方法教學); primary name **火山圖**（Volcano plot）. No volcano example existed → new pattern.
+- Core lesson: one point per feature; x = log2 fold change (direction + magnitude), y = −log10 p — raw **or** adjusted, and the plot must say which. Pre-registered threshold lines, 3- or 4-colour categories, sparse labels. Threshold table (MetwareBio, Harvard HBC, Galaxy, biostatsquid, EnhancedVolcano manual) labelled 「範例，不是標準」; EnhancedVolcano vignette ">|2|" vs manual FCcutoff 1 conflict noted (manual wins). Cui & Churchill 2003 *Genome Biology*; Li 2012 *JBCB*.
+- Neighbour boundary table vs scatter (`correlation-scatter.md`), Manhattan plot, MA plot, topographic contour (name coincidence; ≠ statistical `contour-density.md`), `circos.md`; existing three cross-linked both ways, Manhattan／MA／topographic contour named only (no files).
+- Heuristics / how-to / data-shape check 24 (effect size + raw／adjusted p, direction, thresholds before analysis). Tool honesty: EnhancedVolcano (Bioconductor 1.30.0, GPL v3), ggplot2 + ggrepel, DESeq2 `lfcThreshold`, apeglm, Plotly Python (no R page), Galaxy; Seaborn／Matplotlib have no dedicated example; other licences left blank. Plotly R page 404, Dataviz Project page 403→404, docs.biolab.si Orange widget page redirects to docs home — named only, unchecked. No X teaching post (none invented).
+- Fictional demo CSV `sample-volcano-de-results.csv`（50 rows, raw + BH-adjusted p；數字未核）.
+- `COMMERCIAL.md` pattern count 51 → 52. ATTRIBUTION cites final teach-viz + pack path; images cited, not copied. Pattern count 51 → 52.
+
 ## 0.3.13 — Circos pattern
 
 - Add `examples/circos.md` from Nazh teach-viz `2026-09-28-am-circos.md` (approved skill pack; 方法教學); primary name **Circos**（環狀多軌圖／環形比較基因組視覺）. No Circos example existed → new pattern.

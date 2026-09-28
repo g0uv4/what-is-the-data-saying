@@ -53,6 +53,7 @@
 - **矩陣熱圖（heatmap）**：樞紐成列 × 欄 → 一個值 → 各欄尺度差大就依欄／列正規化（圖注寫明）→ 循序色階（單向）或發散色階（有中點，如相關係數 0）；Viridis 類或 ColorBrewer，不用彩虹 → 缺值獨立樣式＋圖例 → 固定順序軸保持原序，要看相似才分群重排（clustermap＋樹狀圖）→ 格子少格內標數字、格子多靠圖例＋懸停。工具：R（ggplot2 `geom_tile`、lattice `levelplot`、基本 `heatmap()`）；Python（Seaborn `heatmap`／`clustermap`、Plotly）；D3 Graph Gallery；Flourish Heatmaps；Highcharts。Datawrapper 本輪查無熱圖專頁，不宣稱原生。日曆版面 → 日曆熱力；節點 × 節點 → 鄰接矩陣。
 - **六角分箱／等高線**：點夠多且重疊才用；交代 bin／帶寬；對參數敏感要誠實講。
 - **連接散點（型 B）**：X、Y 都是量測，時間只決定連線順序；找 loop／滯後。
+- **火山圖（volcano plot；差異分析）**：確認故事是「大量特徵差異結果的優先排序」（任意兩欄 → 散點；橫軸位置 → 曼哈頓圖）→ 表：特徵＋log2 倍數變化＋原始／校正後 p 值，對比方向寫進圖說 → 縱軸 −log10 p，軸標題寫明原始或校正後 → 分析前定倍數與顯著性門檻（範例，不是標準；如 q < 0.05 且 |log2FC| ≥ 1、padj < 0.05 且 0.58），畫水平／垂直虛線 → 三色或四色著色、圖例寫門檻 → 只標要討論的特徵、加引線 → 檢查「倍數大但不顯著」「很顯著但倍數近 0」→ 必要時並列 MA 圖。工具：EnhancedVolcano（Bioconductor，GPL 第 3 版，預設四色；手冊預設 pCutoff 1e-05、FCcutoff 1）；ggplot2＋ggrepel；上游 DESeq2（`lfcThreshold`）、apeglm 收縮；Plotly Python（Dash Bio VolcanoPlot；R 語言版專頁不存在）；Galaxy；Seaborn、Matplotlib 無專屬範例、用散點組裝。
 
 ### 階層組成
 

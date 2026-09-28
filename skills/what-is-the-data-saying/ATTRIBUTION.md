@@ -1,6 +1,6 @@
 # ATTRIBUTION（納茲教圖來源）
 
-本 skill **0.3.13** 的圖種啟發式、口述產出步驟與 `examples/` pattern，提炼自 **納茲 - 資料視覺**（agent id `41759b08-68d8-455a-8d45-22730ad6bd40`）的教圖與相關素材。
+本 skill **0.3.14** 的圖種啟發式、口述產出步驟與 `examples/` pattern，提炼自 **納茲 - 資料視覺**（agent id `41759b08-68d8-455a-8d45-22730ad6bd40`）的教圖與相關素材。
 
 技能文字為摘要與可執行 checklist，**不是**教圖全文轉貼；數字案例仍以原教圖「未核」標註習慣為準。
 原教圖草稿／截圖**不在這個公開 repo**。下表的路徑是作者當時的取材位置，方便內部對帳，不是給 clone 的人去開的檔。
@@ -75,6 +75,7 @@
 | 2026-09-27-am-biofabric.md | BioFabric（生物織布圖，暫譯） | `examples/biofabric.md`；demo CSV 見 `examples/data/` |
 | 2026-09-27-pm-flamegraph.md | 火焰圖 | `examples/flame-graph.md`；demo 已收合堆疊 .txt 見 `examples/data/` |
 | 2026-09-28-am-circos.md | Circos（環狀多軌圖） | `examples/circos.md`；demo CSV（扇區／軌道／連線三檔）見 `examples/data/` |
+| 2026-09-28-pm-volcano.md | 火山圖（Volcano plot） | `examples/volcano-plot.md`；demo CSV（原始與校正後 p 值）見 `examples/data/` |
 
 另有同日前綴之 `*-research.md`、截圖檔（png/jpg）作為教圖研究與圖例依據，未逐一複製進 repo。
 點密度圖另經已審 skill pack `/workspace/skill-packs/2026-09-21-pm-dotdensity/`（SKILL-PACK.md、sources.txt、images/）；公開 repo 只收 pattern 摘要與虛構 demo CSV，大圖不入库。
@@ -91,11 +92,12 @@
 BioFabric 另經已審 skill pack `/workspace/skill-packs/2026-09-27-am-biofabric/`（SKILL-PACK.md、sources.txt 第一段 18 條可開來源＋第二段失敗項對照、sample CSV、images/；稿內嵌 22 張）；公開 repo 只收 pattern 摘要與虛構 demo CSV，大圖不入库。來源含 BioFabric 官方網站與 Gallery（Institute for Systems Biology）／Longabaugh 2012 BMC Bioinformatics 論文（DOI 10.1186/1471-2105-13-275；BMC、PDF、PubMed Central、Springer）／yFiles 用例頁／GitHub wjrl（BioFabric、D3BioFabric、RBioFabric）／Xenographics／visualizing.org／Wikipedia／官方部落格與使用者群組／Dataviz Catalogue 與 data-to-viz 的一般網路圖頁（非 BioFabric 專頁）；Dataviz Catalogue、data-to-viz、Dataviz Project 無 BioFabric 專頁，CRAN RBioFabric 404、yFiles 線上示範深層連結 404、GitHub 內容 API 403 列為查核限制（只記名稱）；本輪 X 查無教學原帖。中文名「生物織布圖／表格式網路圖」為暫譯；Gallery 的 GOT-1200 圖是 Influential Thinkers，不是影集。逐條連結見 `examples/biofabric.md`。
 火焰圖另經已審 skill pack `/workspace/skill-packs/2026-09-27-pm-flamegraph/`（SKILL-PACK.md、sources.txt 第一段 22 條可開來源＋第二段失敗項對照、sample 已收合堆疊 .txt、images/；稿內嵌 23 張含 1 張 SVG）；公開 repo 只收 pattern 摘要與虛構 demo 資料，大圖不入库。來源含 Brendan Gregg 官方站（總頁、CPU／Memory／Off-CPU／Hot-Cold、差異火焰圖、FlameScope 頁與部落格、Netflix FlameScope PDF）／GitHub（brendangregg/FlameGraph、spiermar/d3-flame-graph、jlfwong/speedscope、Netflix/flamescope）／speedscope.app／CACM〈The Flame Graph〉（DOI 10.1145/2909476；原刊 ACM Queue DOI 10.1145/2927299.2927301）／Netflix Tech Blog（Java in Flames、FlameScope）／Chrome 開發者工具 Performance 文件（火焰時序圖對照）／Wikipedia／flamegraphdiff；ACM Queue 原文與附圖 403、錯誤 DOI 路徑 404、ACM 數位圖書館 cookie 檢查頁、Dataviz Catalogue／data-to-viz／Dataviz Project 無專頁、舊式部落格網址與官方 CPU 混合模式點陣圖 404 列為查核限制（只記名稱）；本輪 X 查無教學原帖。火焰圖與火焰時序圖、冰柱圖分開寫，與 `examples/hierarchy-icicle.md` 雙向互連、不合併。逐條連結見 `examples/flame-graph.md`。
 Circos 另經已審 skill pack `/workspace/skill-packs/2026-09-28-am-circos/`（SKILL-PACK.md、sources.txt 每行標可否打開、三個 sample CSV、images/ 22 張，圖說用 Liora 修正後版本）；公開 repo 只收 pattern 摘要與虛構 demo CSV，大圖不入库。來源含 circos.ca 官方站（首頁、圖庫、樣品、媒體與文獻採用例、導覽、指南、教學、文件、軟體下載與需求頁）／Krzywinski 等 2009 *Genome Research* 論文（PubMed Central、PubMed、Crossref）／PHSA 新聞稿／circlize（論文 DOI、線上專書、CRAN）／pyCirclize（GitHub、文件、PyPI）／vigsterkr/circos（非官方倉庫，與官方關係未證實）／Dataviz Catalogue 與 data-to-viz 弦圖頁／英文維基百科弦圖條目（「Circos」條目會轉到弦圖，不當 Circos 專頁）。授權：Circos 為 GPL 第 3 版；circlize、pyCirclize 為 MIT（同家族實作，非官方版；pyCirclize 原文「inspired by circlize and pyCircos」）。期刊頁與論文 DOI 登入轉址迴圈、github.com/circos/circos 404、Dataviz Project 403、mkweb.bcgsc.ca 舊網址與舊表格檢視器 403 列為查核限制（只記名稱）；本輪 X 查無可用教學原帖。階層邊捆綁尚無專檔，只在 heuristics 寫分界。逐條連結見 `examples/circos.md`。
+火山圖另經已審 skill pack `/workspace/skill-packs/2026-09-28-pm-volcano/`（SKILL-PACK.md、sources.txt 50 條每行標狀態、sample CSV 50 列含原始與校正後 p 值、images/ 22 張，圖說用 Liora 修正後版本）；公開 repo 只收 pattern 摘要與虛構 demo CSV，大圖不入库。來源含英文維基百科（火山圖、MA 圖、曼哈頓圖、等高線條目）／Cui 與 Churchill 2003 *Genome Biology*（DOI、PubMed、Europe PMC）／Li 2012 *JBCB*（DOI、PubMed）／Jin 等 2001 *Nat Genet*、Li 等 2014（DOI）／EnhancedVolcano（Bioconductor 套件頁、說明文件、手冊、GitHub；GPL 第 3 版）／Plotly Python 火山圖頁／biostatsquid、NotchBio、MetwareBio、Galaxy 訓練教材、哈佛生物資訊核心教學／R Graph Gallery 曼哈頓圖頁／Seaborn、Matplotlib 範例索引（無火山圖專屬範例）。門檻表標「範例，不是標準」；EnhancedVolcano 說明文件內文 ">|2|" 與手冊 FCcutoff 1 矛盾，以手冊為準。Plotly R 語言火山圖頁 404、Dataviz Project 火山圖頁（研究時 403、今天 404）、docs.biolab.si Orange 火山圖圖元頁（轉址到文件首頁）及其他 404 網址列為查核限制（只記名稱、未核）；本輪 X 查無可用教學原帖。曼哈頓圖、MA 圖、地形等高線圖尚無專檔，只寫分界。逐條連結見 `examples/volcano-plot.md`。
 
 ## 尚未獨立成 pattern 的缺口（可請 Liora／納茲補）
 
 - 南丁格爾玫瑰、三元圖、樹狀譜系、蜂巢圖、HEB、地平線圖、流量地圖、比例符號地圖、平行集合：目前多半只在 `chart-heuristics.md`，尚無專檔 example。
-- 點密度圖、河流圖、人口金字塔、棒棒糖圖、箱形圖、氣泡圖、馬里梅可圖、等值區域圖、圖塊地圖、矩陣熱圖、螺旋圖、BioFabric、火焰圖、Circos 已有專檔 example + 虛構 demo CSV；其餘教圖「適合使用的範例」三小節樣本尚未全面打包。
+- 點密度圖、河流圖、人口金字塔、棒棒糖圖、箱形圖、氣泡圖、馬里梅可圖、等值區域圖、圖塊地圖、矩陣熱圖、螺旋圖、BioFabric、火焰圖、Circos、火山圖 已有專檔 example + 虛構 demo CSV；其餘教圖「適合使用的範例」三小節樣本尚未全面打包。
 - X 社群卡 skill／fox-card 產線未併入本 plugin（敘事卡 ≠ 資料形狀推薦）。
 
 ## 授權與改寫

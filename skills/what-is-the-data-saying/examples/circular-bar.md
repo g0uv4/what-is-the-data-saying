@@ -16,6 +16,7 @@
 ## Avoid
 
 - 與玫瑰／雷達／旭日混淆；少數類別純裝飾
+- 與 Circos 混淆：本圖只有一層類別長條、沒有連線與位置座標；長參考軸＋多層軌道＋對位連線 → `circos.md`（本圖約等於其一條直方圖軌道的簡化版）
 - 與螺旋圖混淆：本圖類別繞一圈就結束；連續時間捲成多圈、圈間對齊季節 → `spiral-plot.md`
 
 ## Produce checklist
@@ -23,4 +24,4 @@
 - [ ] 數值=徑向棒長
 - [ ] 圖注提醒精準比較弱於直線長條
 
-鄰居 pattern：`radar-profile.md`、`spiral-plot.md`、`lollipop-rank.md`。
+鄰居 pattern：`circos.md`、`radar-profile.md`、`spiral-plot.md`、`lollipop-rank.md`。

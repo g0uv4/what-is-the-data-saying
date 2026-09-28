@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.13 — Circos pattern
+
+- Add `examples/circos.md` from Nazh teach-viz `2026-09-28-am-circos.md` (approved skill pack; 方法教學); primary name **Circos**（環狀多軌圖／環形比較基因組視覺）. No Circos example existed → new pattern.
+- Core lesson (three layers): ring = scaled reference axis (ideogram), radial tracks = multi-layer signals at the same angle, inner links／ribbons = paired positional relations. Variants: tracks only, tracks + thin links, ribbons, axis breaks／local zoom, table-to-circle (tableviewer; overlaps chord). Krzywinski et al., *Genome Research* 2009;19(9):1639–1645.
+- Neighbour boundary table vs chord (`chord-matrix.md`), arc (`arc-diagram.md`), hierarchical edge bundling (no file; heuristics only), circular bar (`circular-bar.md`), sunburst (`sunburst-hierarchy.md`); existing four cross-linked both ways.
+- Heuristics / how-to / data-shape checks (sector／track／link tables, positions within sector length, orientation). Tool honesty: Circos GPL v3 (Perl, 0.69-10); circlize (CRAN 0.4.18, MIT) and pyCirclize (PyPI 1.10.1, MIT; "inspired by circlize and pyCircos") are same-family implementations, not official; vigsterkr/circos unofficial, relation unverified. English Wikipedia "Circos" redirects to chord diagram — not cited as a Circos page. Unreachable sources named only; no X teaching post (none invented).
+- Fictional demo CSVs `sample-circos-sectors.csv`, `sample-circos-track.csv`, `sample-circos-links.csv`（數字未核）.
+- `COMMERCIAL.md` pattern count 50 → 51. ATTRIBUTION cites final teach-viz + pack path; images cited, not copied. Pattern count 50 → 51.
+
 ## 0.3.12 — 火焰圖 pattern
 
 - Add `examples/flame-graph.md` from Nazh teach-viz `2026-09-27-pm-flamegraph.md` (approved skill pack; 方法教學); primary name **火焰圖**（Flame Graph；Brendan Gregg 2011）. No flame-graph example existed → new pattern.

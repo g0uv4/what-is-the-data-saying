@@ -16,8 +16,11 @@
 ## Avoid
 
 - 無階層硬畫；父子加總不合；與南丁格爾玫瑰混淆
+- 與 Circos 混淆：本圖同心環＝階層深度、沒有連線層；Circos 同心環＝同一位置的多層訊號＋對位連線（`circos.md`）
 
 ## Produce checklist
 
 - [ ] 層順序＝圈順序；父角寬＝子加總
 - [ ] 小塊靠 hover／下鑽
+
+鄰居 pattern：`hierarchy-icicle.md`、`treemap-composition.md`、`flame-graph.md`、`circos.md`（同心環意義不同：多軌訊號，不是階層）。

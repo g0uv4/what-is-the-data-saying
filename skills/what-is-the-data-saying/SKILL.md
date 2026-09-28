@@ -2,7 +2,7 @@
 name: what-is-the-data-saying
 description: >
   Given a table or report, recommend the chart and how to make it (資料在說什麼).
-  Nazh-grounded Taiwan zh-TW pedagogy plus 50 named patterns. Use when the user
+  Nazh-grounded Taiwan zh-TW pedagogy plus 51 named patterns. Use when the user
   pastes CSV / Excel / a table / 報表 and asks which chart, how to visualize,
   這份資料該怎麼畫, 推薦圖表, 視覺化, or runs /what-is-the-data-saying.
 when-to-use: >
@@ -13,7 +13,7 @@ argument-hint: paste a table or describe the report
 metadata:
   short-description: "Which chart? How to make it. 資料在說什麼"
   author: g0uv4
-  version: "0.3.12"
+  version: "0.3.13"
   lineage: "納茲 - 資料視覺 teach-viz 教圖"
   license: MIT
 ---
@@ -92,6 +92,7 @@ pattern：examples/<slug>.md（若有）
 | 從 A 變到 B 的因子 | 瀑布圖（bridge） |
 | 階段漏損 | 漏斗圖 |
 | 有向流量 | 桑基；階段重分組用沖積圖；成對交換用弦圖 |
+| 長參考軸多層訊號＋區段對位（基因組等） | Circos（環狀多軌圖）；只有類別流量用弦圖；精確數值附線性多軌圖或表 |
 | 多類別交叉／市場區隔×組成 | 馬賽克（獨立性）；商用變寬堆疊用馬里梅可；平行集合；集合交集用 UpSet |
 | 網路關係 | 力導向／弧線／鄰接矩陣／蜂巢圖；有階層+葉連線用 HEB；稠密成毛球、每條邊要可辨識或依類型分塊用 BioFabric（生物織布圖，暫譯） |
 | 地理量 | 等值區域圖（choropleth；先正規化，勿用總量填色）；計數疏密用點密度圖；總量規模用比例符號地圖；每區等權重、怕大區搶眼用圖塊地圖（一區一格）；面積＝資料用面積變形地圖；起迄用流向地圖 |

@@ -16,6 +16,7 @@
 ## Avoid
 
 - 拿弦圖畫階層；弱邊全畫
+- 與 Circos 混：弦圖外圈是類別弧段（弧長≈總量比例），沒有位置刻度與同心多軌；資料有長刻度參考軸＋沿軸多層軌道＋位置對位連線 → `circos.md`（弦圖大致只相當於 Circos 最內層連線層）
 - 要讀每一格強度而非交換帶 → 同一方陣改畫矩陣熱圖（`matrix-heatmap.md`）或鄰接矩陣（`adjacency-matrix.md`）
 
 ## Produce checklist
@@ -23,4 +24,4 @@
 - [ ] 節點序減少交叉；裁弱邊
 - [ ] 分步敘事
 
-鄰居 pattern：`matrix-heatmap.md`、`adjacency-matrix.md`、`sankey-flow.md`、`biofabric.md`（誰連誰與連線型態，不講份額）。
+鄰居 pattern：`matrix-heatmap.md`、`adjacency-matrix.md`、`sankey-flow.md`、`biofabric.md`（誰連誰與連線型態，不講份額）、`circos.md`（外圈是刻度參考軸＋多軌＋對位連線）。

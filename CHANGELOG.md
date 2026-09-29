@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.15 — 曼哈頓圖 pattern
+
+- Add `examples/manhattan-plot.md` from Nazh teach-viz `2026-09-29-am-manhattan.md` (approved skill pack; 方法教學); primary name **曼哈頓圖**（Manhattan plot）. No Manhattan example existed → new pattern.
+- Core lesson: one point per marker (SNP); x = genomic position ordered by chromosome 1, 2, 3… with alternating colours; y = −log10(p); skyline of towers; pre-agreed threshold lines. Variants: linear, circular (CMplot; still not Circos), **Miami plot** (mirrored two-trait variant, no separate pattern), interactive, single-chromosome crop. Threshold table (5×10⁻⁸, 1×10⁻⁵ tool default with unverified academic origin, CMplot demo 1×10⁻⁶／1×10⁻⁴, volcano 0.05) labelled 「範例，不是標準」.
+- Neighbour boundary table vs volcano, scatter, QQ plot, Circos, regional plot (LocusZoom), Miami, karyotype ideogram. `volcano-plot.md` and `circos.md` cross-linked both ways (volcano now links Manhattan instead of naming it); QQ plot and LocusZoom named only (no files).
+- Heuristics / how-to / data-shape check 25 (marker, chromosome from 1, position, p; cumulative x; QQ companion). Tool honesty: qqman (GPL-3), CMplot (GPL ≥ 2), Dash Bio ManhattanPlot (MIT); **manhattanly archived from CRAN on 2025-06-13** — historical reference only. LocusZoom source is Pruim et al. 2010 (PMC2935401); previously mis-cited PMC3605911 (a viral phylodynamics paper) excluded. Unreachable sources (Pe'er 2008 PubMed 203, Plotly R pages, gallery-site Manhattan pages, Wikipedia Miami plot／LocusZoom, etc.) named only, unchecked; no X teaching post (none invented).
+- Fictional demo CSV `sample-manhattan-gwas.csv`（6,427 rows, ~230 KB, 3 fictional peaks on chr 3／11／17；數字未核）.
+- `COMMERCIAL.md` pattern count 52 → 53. ATTRIBUTION cites final teach-viz + pack path; images cited, not copied. Pattern count 52 → 53.
+
 ## 0.3.14 — 火山圖 pattern
 
 - Add `examples/volcano-plot.md` from Nazh teach-viz `2026-09-28-pm-volcano.md` (approved skill pack; 方法教學); primary name **火山圖**（Volcano plot）. No volcano example existed → new pattern.

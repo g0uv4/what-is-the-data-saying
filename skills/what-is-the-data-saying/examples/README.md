@@ -42,6 +42,7 @@
 | 弦圖交換 | `chord-matrix.md` | 2026-08-30-am-chord-draft.md |
 | Circos（環狀多軌圖） | `circos.md` | 2026-09-28-am-circos.md |
 | 火山圖（差異分析） | `volcano-plot.md` | 2026-09-28-pm-volcano.md |
+| 曼哈頓圖（全基因組關聯；含邁阿密圖變體） | `manhattan-plot.md` | 2026-09-29-am-manhattan.md |
 | 力導向網路 | `force-network.md` | 2026-09-17-pm-force.md |
 | 弧線圖 | `arc-diagram.md` | 2026-09-17-am-arc.md |
 | 鄰接矩陣 | `adjacency-matrix.md` | 2026-09-18-am-adjacency.md |

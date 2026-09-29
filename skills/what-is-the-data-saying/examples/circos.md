@@ -112,6 +112,6 @@
 
 X 教學原帖：本輪查無可用教學原帖（搜尋結果多為工具閒聊、「Circos 風格」弦圖推廣或新工具發表；不編造）。
 
-鄰居 pattern：`chord-matrix.md`（只有類別流量）、`arc-diagram.md`（直線版面拓撲）、`circular-bar.md`（單層類別長條）、`sunburst-hierarchy.md`（同心環＝階層）、`sankey-flow.md`、`biofabric.md`、`adjacency-matrix.md`、`force-network.md`、`hierarchy-icicle.md`、`flame-graph.md`、`volcano-plot.md`（同屬基因體學常見圖，但火山圖是差異分析的優先排序散點）；階層邊捆綁尚無專檔。
+鄰居 pattern：`chord-matrix.md`（只有類別流量）、`arc-diagram.md`（直線版面拓撲）、`circular-bar.md`（單層類別長條）、`sunburst-hierarchy.md`（同心環＝階層）、`sankey-flow.md`、`biofabric.md`、`adjacency-matrix.md`、`force-network.md`、`hierarchy-icicle.md`、`flame-graph.md`、`volcano-plot.md`（同屬基因體學常見圖，但火山圖是差異分析的優先排序散點）、`manhattan-plot.md`（環狀曼哈頓圖只是 −log10(p) 峰值，不是 Circos 多軌連結）；階層邊捆綁尚無專檔。
 
 圖檔留在教圖／skill-pack（`/workspace/skill-packs/2026-09-28-am-circos/images/`，22 張，圖說用 SKILL-PACK.md 修正後版本），本 repo **不複製**大圖。可當範例對照的是 official-sample-panel（四格：細連線、寬帶、多軌加扇出、只有多軌）、plottypes（元件 A–T）、official-panel-genomic、official-panel-general（非基因組：購車、化學反應性、約會趨勢）、official-panel-tableviewer、pmc-1639fig5／6／7（拷貝數多軌、區段拉出、連續刻度放大）、guide-conservation、sample-large-23／24、tut-tutorial-05-01／06-01／08-01、globalscale（刻度變換）、official-rules（執行期規則）、feature-americanscientist、feature-nyt-epigenome、conde-nast（Krzywinski 與 John Grimwade 合作設計，**不是** 23andMe 製作）、car-purchase；pycirclize-pyCirclize_gallery 與 circlize-examples 要標「同家族實作，不是官方 Circos」。對帳見 `ATTRIBUTION.md`。

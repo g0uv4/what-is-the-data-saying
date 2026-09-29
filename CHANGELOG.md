@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.16 — MA 圖 pattern
+
+- Add `examples/ma-plot.md` from Nazh teach-viz `2026-09-29-pm-ma.md` (approved skill pack; 方法教學); primary name **MA 圖**（MA plot；平均－差值圖／MD plot）. No MA example existed (only name-only mentions in volcano／heuristics) → new pattern; `ma-plot.md` does not clash with any existing file.
+- Core lesson: one point per feature; x = A (mean expression), y = M (log fold change), M = 0 line; diagnostic view (normalisation, shrinkage, low-count funnel) rather than candidate ranking. "Centred on M = 0" is an assumption, not a law. Parameter table (DESeq2 `alpha` 0.1 / `svalue` 0.005, HBC 0.05 & 0.58, NotchBio, biostatsquid |M| > 1, ±0.5 threshold tests, TMM ~30%) labelled 「範例，不是標準」.
+- Three facts pinned: (1) `lfcShrink` does not change p-values by default, significant points are only pulled toward zero — **labelled inference**; shrinkage is a deliberately zero-biased estimate, not the truth; (2) RA plot puts R on the y-axis like M — the difference is integer counts and the ε handling of zero-count points; (3) a website's "MA vs volcano" table wrongly says the volcano x-axis is significance (opposite to mainstream) — corrected and flagged "do not copy". Also: limma `plotMA` not removed (`plotMD` same function, different arguments).
+- Neighbour boundary table vs volcano, Manhattan, scatter, Bland–Altman (name only, no file), RA plot, Circos. `volcano-plot.md` and `manhattan-plot.md` now link MA instead of naming it; `correlation-scatter.md` back-link added.
+- Heuristics / how-to / data-shape check 26. Tool honesty: DESeq2 (LGPL ≥ 3), limma／edgeR (GPL ≥ 2), geneplotter (Artistic-2.0), Glimma (GPL-3), apeglm (GPL-2); other licences left blank; NotchBio all rights reserved (link only, images not used). Seven 404 sources (gallery／catalogue pages, Commons `Category:MA_plots`, rdrr `plotMA`) named only, unchecked; the only X result was workshop promo → none cited.
+- Fictional demo CSV `sample-ma-fictional.csv`（3,000 rows, ~230 KB; two `#` header lines; 數字未核）and self-check script `sample-ma-selfcheck.py` (stdlib only; documented in `examples/data/README.md`; ran OK before release).
+- `COMMERCIAL.md` pattern count 53 → 54. ATTRIBUTION cites final teach-viz + pack path and no longer says MA has no example file; images cited, not copied. Pattern count 53 → 54.
+
 ## 0.3.15 — 曼哈頓圖 pattern
 
 - Add `examples/manhattan-plot.md` from Nazh teach-viz `2026-09-29-am-manhattan.md` (approved skill pack; 方法教學); primary name **曼哈頓圖**（Manhattan plot）. No Manhattan example existed → new pattern.

@@ -34,7 +34,7 @@
 
 - **備選（何時改用哪一種）**：
   - 訊號落在哪條染色體、哪個區段 → **曼哈頓圖**（Manhattan plot；`manhattan-plot.md`）或區域放大圖
-  - 診斷低表現量特徵的倍數估計是否不穩、收縮或正規化是否偏差 → **MA 圖**（repo 尚無專檔；NotchBio："An MA plot in RNA-seq is primarily a diagnostic view, while a volcano plot is primarily a results-summary view."）
+  - 診斷低表現量特徵的倍數估計是否不穩、收縮或正規化是否偏差 → **MA 圖**（`ma-plot.md`；NotchBio："An MA plot in RNA-seq is primarily a diagnostic view, while a volcano plot is primarily a results-summary view."）
   - 只有原始計數矩陣、還沒做檢定 → 先做差異分析；火山圖不是任意兩欄交叉探索的圖（任意兩變數 → 一般散點 `correlation-scatter.md`）
   - 超過兩組又沒有明確對比 → 按每組對比分別畫，或改用多組比較方法
   - 讀者要精確名次、靜態標籤擠成一團 → 附可排序表格或互動版
@@ -46,7 +46,7 @@
 |---|---|---|---|---|
 | **一般散點圖**（`correlation-scatter.md`） | 任意數值變數 | 任意數值變數 | 兩變數是否相關 | 火山圖兩軸語意固定（效應量對比顯著性），不是任選兩欄 |
 | **曼哈頓圖**（`manhattan-plot.md`） | 基因體座標（染色體位置） | 多為 −log10(p) | 關聯訊號落在哪個區段 | 縱軸可能相同，但橫軸是位置不是倍數；外形像城市天際線，不是向兩翼展開 |
-| **MA 圖**（repo 尚無專檔；M＝對數比值，A＝平均值） | 平均表現量 | 對數倍數變化 | 變化發生在哪個表現量層級、收縮與正規化是否偏差 | 倍數在縱軸、沒有顯著性軸；偏診斷，火山圖偏結果摘要 |
+| **MA 圖**（`ma-plot.md`；M＝對數比值，A＝平均值） | 平均表現量 | 對數倍數變化 | 變化發生在哪個表現量層級、收縮與正規化是否偏差 | 倍數在縱軸、沒有顯著性軸；偏診斷，火山圖偏結果摘要 |
 | **地形等高線圖**（contour line map；repo 尚無專檔） | 地理座標 | 地理座標（高程線） | 地形高低 | 只是「火山」名稱偶合；也不同於統計等高線圖（二維密度，`contour-density.md`） |
 | **Circos**（`circos.md`） | 環狀參考軸 | 同心多軌 | 沿基因體的多層訊號與對位 | 環狀多軌的比較基因體視覺化；火山圖是差異分析的優先排序圖 |
 
@@ -65,7 +65,7 @@
 
 ## Produce checklist
 
-- [ ] 故事句是「差異候選的優先排序」；要看染色體位置 → 曼哈頓圖；要看表現量層級偏差 → 改看或並列 MA 圖
+- [ ] 故事句是「差異候選的優先排序」；要看染色體位置 → 曼哈頓圖（`manhattan-plot.md`）；要看表現量層級偏差 → 改看或並列 MA 圖（`ma-plot.md`）
 - [ ] 表：每列一個特徵；有 log2 倍數變化、原始 p 值和／或校正後 p 值（寫明校正法，例：Benjamini–Hochberg）；對比方向（誰相對於誰、誰是對照組）寫進圖說
 - [ ] 縱軸選原始或校正後 p 值並寫在軸標題；門檻用的 p 值若與縱軸不同，圖說寫明
 - [ ] **分析前**定好倍數與顯著性門檻（範例，不是標準），畫水平與垂直虛線；不事後改門檻
@@ -117,6 +117,6 @@
 
 X 教學原帖：本輪查無（搜尋結果多為模板化產品宣傳與工作坊廣告；不引用、不編造）。
 
-鄰居 pattern：`correlation-scatter.md`（任意兩變數）、`contour-density.md`（統計等高線＝二維密度，與「火山」名稱無關）、`circos.md`（環狀多軌比較基因體）、`manhattan-plot.md`（橫軸基因組位置、縱軸 −log10(p)）；MA 圖、地形等高線圖尚無專檔。
+鄰居 pattern：`correlation-scatter.md`（任意兩變數）、`contour-density.md`（統計等高線＝二維密度，與「火山」名稱無關）、`circos.md`（環狀多軌比較基因體）、`manhattan-plot.md`（橫軸基因組位置、縱軸 −log10(p)）、`ma-plot.md`（橫軸平均表現、縱軸倍數；診斷）；地形等高線圖尚無專檔。
 
 圖檔留在教圖／skill-pack（`/workspace/skill-packs/2026-09-28-pm-volcano/images/`，22 張，圖說用 SKILL-PACK.md 修正後版本，其中 6 張審稿更正），本 repo **不複製**大圖。火山圖範例對照：wiki-volcano-eg、bsq-slide4（解讀示意）、bsq-basic → bsq-thresholds → bsq-colour → bsq-fullplot（逐步）、enhancedvolcano-02／04／07／12、notch-volcano-labeled、metware-metabolomics、metware-proteomics、galaxy-volcanoplot、galaxy-volcanoplot_top10、plotly-thumb。對照圖：notch-what-they-show、notch-combined-volcano-ma、hbc-ma-plot（MA 圖）、wiki-manhattan-sp（曼哈頓圖）、contrast-topo-contour（地形等高線，**與統計火山圖無關**）。bsq-slide3 是情境投影片，**圖中沒有火山圖**。對帳見 `ATTRIBUTION.md`。

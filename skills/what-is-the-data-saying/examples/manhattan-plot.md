@@ -50,6 +50,7 @@
 | **火山圖**（`volcano-plot.md`） | 效應量（常用 log2 倍數變化） | −log10(p) | 變多大、往哪邊變、證據多強 | 縱軸相同，橫軸是效應量；外形是左右兩翼，不是天際線 |
 | **一般散點圖**（`correlation-scatter.md`） | 任意數值 | 任意數值 | 兩變數關係 | 曼哈頓圖兩軸意義固定為染色體座標 × −log10(p) |
 | **分位數－分位數圖（QQ 圖）**（repo 尚無專檔） | 期望 −log10(p) | 觀察 −log10(p) | 整體 p 值分佈是否校準、是否膨脹（常搭配 λ） | 不看位置；是曼哈頓圖的配套檢查圖 |
+| **MA 圖**（`ma-plot.md`） | 平均表現 A | 對數倍數 M | 在什麼豐度層級上變、正規化或收縮是否異常 | 橫軸是平均表現量不是位置，沒有顯著性軸，偏診斷 |
 | **Circos**（`circos.md`） | 環狀多軌 | 多種軌道與連結 | 比較基因體、多軌關係 | 環狀曼哈頓圖仍只是 −log10(p) 峰值，不是 Circos 的多軌連結故事 |
 | **區域放大圖（LocusZoom）**（repo 尚無專檔） | 單一區段的染色體位置 | −log10(p)，依與指標標記的 r² 著色，下方基因軌 | 峰值附近的連鎖不平衡與基因 | 曼哈頓圖找到尖塔之後的下一步，不是全基因組總覽 |
 | **邁阿密圖**（變體） | 基因組位置 | 上下兩張曼哈頓圖鏡像 | 兩個性狀或兩組結果比較 | 屬曼哈頓圖變體，不另開 pattern |
@@ -120,6 +121,6 @@
 
 X 教學原帖：本輪查無（搜尋結果主要是工作坊招生推廣；不引用、不編造）。
 
-鄰居 pattern：`volcano-plot.md`（橫軸效應量）、`circos.md`（環狀多軌，≠ 環狀曼哈頓圖）、`correlation-scatter.md`（任意兩變數）；QQ 圖、區域放大圖（LocusZoom）、染色體核型示意圖尚無專檔；邁阿密圖為本 pattern 變體。
+鄰居 pattern：`volcano-plot.md`（橫軸效應量）、`ma-plot.md`（橫軸平均表現、縱軸倍數；診斷）、`circos.md`（環狀多軌，≠ 環狀曼哈頓圖）、`correlation-scatter.md`（任意兩變數）；QQ 圖、區域放大圖（LocusZoom）、染色體核型示意圖尚無專檔；邁阿密圖為本 pattern 變體。
 
 圖檔留在教圖／skill-pack（`/workspace/skill-packs/2026-09-29-am-manhattan/images/`，21 張，圖說與終稿逐字相同），本 repo **不複製**大圖。曼哈頓圖範例對照：wiki-manhattan（真實資料；三條虛線門檻值原圖未標示，數字未核）、wiki-gwas-kidney（真實資料；紅虛線 5×10⁻⁸）、qqman-01／02／03／05（模擬資料；02 的「P」「Q」是自訂標籤示範，不是真實染色體）、rgg-chunk1／chunk3（chunk3 部分標籤重疊）、rgg-chunk7-redraw 與 pyg-01-redraw（以 Matplotlib 和模擬資料**重繪**，不是原頁面的圖；pyg 橫軸是資料列順序，不是鹼基位置）、rgg-circular、rgg-circular-multi（環狀，CMplot）、cmplot-1、cmplot-4_1（門檻 1×10⁻⁶／1×10⁻⁴ 為示例刻意設定）、manhattanly-demo（互動示範）。對照圖：qqman-09、cmplot-7（QQ 圖）、wiki-regional-locus、pmc2935401-fig1（區域放大圖；後者出自 LocusZoom 論文圖 1）、wiki-volcano-contrast（火山圖；最底刻度 6.68 疑為原圖錯誤）、wiki-gwas-illustration（概念插圖，不是曼哈頓圖）。對帳見 `ATTRIBUTION.md`。

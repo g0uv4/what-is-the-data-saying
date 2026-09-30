@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖另附一支自檢 .py）
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖與 QQ 圖各附一支自檢 .py）
 
 來自納茲已審 skill pack。**非真實產業資料；數字未核。**
 
@@ -27,8 +27,10 @@
 | `sample-manhattan-gwas.csv` | 曼哈頓圖全基因組關聯摘要：marker_id, chromosome, position, p_value, neg_log10_p（6,427 列、22 條染色體、約 230 KB；3 個虛構峰在 3、11、17 號染色體；虛構，數字未核） | `2026-09-29-am-manhattan` |
 | `sample-ma-fictional.csv` | MA 圖差異分析結果：gene_id, gene_name, base_mean, a_log2_mean, m_log2fc, m_log2fc_shrunk, lfc_se, pvalue, padj, sim_true_de（3,000 列、約 230 KB；檔頭兩行以 `#` 開頭要略過；`m_log2fc_shrunk` 是示意收縮，不是 apeglm 輸出；虛構，數字未核） | `2026-09-29-pm-ma` |
 | `sample-ma-selfcheck.py` | 上一檔的自檢腳本（純標準函式庫 Python，不是資料）；見下方「自檢腳本」 | 同上 |
+| `sample-qq-fictional.csv` | QQ 圖練習資料：row_id, group, value, pvalue_sim（220 列、約 6 KB；A 組近似常態 120 筆、B 組右偏 100 筆；檔頭兩行以 `#` 開頭要略過；虛構，數字未核） | `2026-09-30-am-qq` |
+| `sample-qq-selfcheck.py` | 上一檔的自檢腳本（需 numpy 與 scipy，不是資料）；見下方「QQ 圖自檢腳本」，**有一個讀檔陷阱** | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -42,3 +44,30 @@ python3 sample-ma-selfcheck.py
 ```
 
 通過時印一行（v0.3.16 上架前已在 python3 實跑，結束碼 0）：`OK 筆數 3000 | base_mean 1.01 ~ 99887.02 | M -4.745 ~ 5.784 | padj<0.05 筆數 197`；任一檢查不過會直接丟出 AssertionError。腳本內容與素材包版本逐位元相同，這個 pattern 的 CSV 與 .py 都未修改。
+
+## QQ 圖自檢腳本 `sample-qq-selfcheck.py`
+
+檢查 `sample-qq-fictional.csv`：共 220 列、`row_id` 不重複、A 組 120 筆與 B 組 100 筆、p 值介於 0 與 1（不含 0）、A 組對常態的相關係數高於 B 組且 B 組最大值離四分位參考線比 A 組遠；另輸出兩組互比的 19 組分位數配對與 −log10(p) 最大值。**需要 numpy 與 scipy**（MA 圖那支只用標準庫）。
+
+**陷阱**：腳本用 `glob.glob('*-fictional.csv')[0]` 找 CSV，也就是「當前資料夾裡第一個符合的檔」。本資料夾同時有 `sample-ma-fictional.csv` 與 `sample-qq-fictional.csv`，兩者都符合，`glob` 不保證順序：若先取到 MA 那份，會在 `assert len(rows) == 220` 失敗（3000 ≠ 220）。腳本內容必須與素材包逐位元相同，所以沒有改它，請這樣跑最穩：
+
+```bash
+mkdir -p /tmp/qqcheck
+cp skills/what-is-the-data-saying/examples/data/sample-qq-fictional.csv \
+   skills/what-is-the-data-saying/examples/data/sample-qq-selfcheck.py /tmp/qqcheck/
+cd /tmp/qqcheck && python3 sample-qq-selfcheck.py
+```
+
+直接在 `examples/data/` 內執行（`cd skills/what-is-the-data-saying/examples/data && python3 sample-qq-selfcheck.py`）在 v0.3.17 上架前的環境也通過，但那只是 `glob` 剛好先回傳 QQ 那份，換一台機器可能不同。
+
+預期輸出五行（v0.3.17 上架前實跑，結束碼 0，與素材包所附輸出完全一致）：
+
+```
+OK 筆數 220 | A 組 120 B 組 100
+A 組（近似常態）對常態的相關係數 0.9890；最大值離四分位參考線 0.79
+B 組（右偏）對常態的相關係數 0.9258；最大值離四分位參考線 11.92
+兩組互比的 19 組分位數配對：第 1 組 (34.76, 46.34)，第 10 組 (51.46, 49.44)，第 19 組 (61.12, 56.68)
+觀察 −log10(p) 最大 3.37，期望最大 2.64；p 值小於 0.001 的筆數 1
+```
+
+（實跑環境：numpy 2.2.4、scipy 1.18.1；小數位數固定，不同版本理論上可能差最後一位。）

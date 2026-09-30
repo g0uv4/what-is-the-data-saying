@@ -2,7 +2,7 @@
 name: what-is-the-data-saying
 description: >
   Given a table or report, recommend the chart and how to make it (資料在說什麼).
-  Nazh-grounded Taiwan zh-TW pedagogy plus 54 named patterns. Use when the user
+  Nazh-grounded Taiwan zh-TW pedagogy plus 55 named patterns. Use when the user
   pastes CSV / Excel / a table / 報表 and asks which chart, how to visualize,
   這份資料該怎麼畫, 推薦圖表, 視覺化, or runs /what-is-the-data-saying.
 when-to-use: >
@@ -13,7 +13,7 @@ argument-hint: paste a table or describe the report
 metadata:
   short-description: "Which chart? How to make it. 資料在說什麼"
   author: g0uv4
-  version: "0.3.16"
+  version: "0.3.17"
   lineage: "納茲 - 資料視覺 teach-viz 教圖"
   license: MIT
 ---
@@ -96,6 +96,7 @@ pattern：examples/<slug>.md（若有）
 | 差異分析結果（效應量＋顯著性，大量特徵） | 火山圖（橫軸 log2 倍數變化、縱軸 −log10 p 值，寫明原始或校正後；門檻為範例，不是標準）；看基因體位置用曼哈頓圖；看表現量層級偏差用 MA 圖 |
 | 全基因組關聯摘要（標記＋染色體＋位置＋p 值） | 曼哈頓圖（橫軸基因組位置、縱軸 −log10(p)；門檻為範例，不是標準）；兩性狀鏡像用邁阿密圖；並讀 QQ 圖查膨脹；單一峰值放大用區域放大圖（LocusZoom） |
 | 兩條件比較的診斷（平均表現＋對數倍數；正規化、收縮、低計數噪音） | MA 圖（橫軸 A 平均表現、縱軸 M 對數倍數；顏色寫明是檢定還是單純門檻；`lfcShrink` 預設不改 p 值〔推論〕）；要候選排序用火山圖；RA 圖＝整數計數版，軸語意同 MA 圖 |
+| 分布形狀像不像某個參考分布／兩批像不像（含 GWAS p 值的整體偏離） | QQ 圖（分位數對分位數；貼 y = x 才表示分布相近，貼任意直線只表示線性關係；參考線畫法要註明；不是假設檢定、沒有 p 值）；機率對機率用 P–P 圖；SciPy `probplot` 不是 QQ 圖；λ 沒有單一官方閾值 |
 | 多類別交叉／市場區隔×組成 | 馬賽克（獨立性）；商用變寬堆疊用馬里梅可；平行集合；集合交集用 UpSet |
 | 網路關係 | 力導向／弧線／鄰接矩陣／蜂巢圖；有階層+葉連線用 HEB；稠密成毛球、每條邊要可辨識或依類型分塊用 BioFabric（生物織布圖，暫譯） |
 | 地理量 | 等值區域圖（choropleth；先正規化，勿用總量填色）；計數疏密用點密度圖；總量規模用比例符號地圖；每區等權重、怕大區搶眼用圖塊地圖（一區一格）；面積＝資料用面積變形地圖；起迄用流向地圖 |

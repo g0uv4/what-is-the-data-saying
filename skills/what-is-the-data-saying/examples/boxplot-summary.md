@@ -58,6 +58,6 @@
 - https://help.flourish.studio/article/128-how-to-make-a-boxplot （深鏈可能改版）
 - https://www.datawrapper.de/charts （無原生 box-plot 產品頁）
 
-鄰居 pattern：`violin-distribution.md`、`raincloud-combo.md`、`beeswarm-points.md`。
+鄰居 pattern：`violin-distribution.md`、`raincloud-combo.md`、`beeswarm-points.md`、`qq-plot.md`（要檢查形狀像不像某個參考分布時的分位數診斷）。
 
 圖檔與截圖留在教圖／skill-pack（`/workspace/skill-packs/2026-09-23-pm-boxplot/images/`，稿內嵌約 24 張），本 repo **不複製**大圖；對帳見 `ATTRIBUTION.md`。

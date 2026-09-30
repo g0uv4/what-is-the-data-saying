@@ -117,6 +117,6 @@
 
 X 教學原帖：本輪查無（搜尋結果多為模板化產品宣傳與工作坊廣告；不引用、不編造）。
 
-鄰居 pattern：`correlation-scatter.md`（任意兩變數）、`contour-density.md`（統計等高線＝二維密度，與「火山」名稱無關）、`circos.md`（環狀多軌比較基因體）、`manhattan-plot.md`（橫軸基因組位置、縱軸 −log10(p)）、`ma-plot.md`（橫軸平均表現、縱軸倍數；診斷）；地形等高線圖尚無專檔。
+鄰居 pattern：`correlation-scatter.md`（任意兩變數）、`contour-density.md`（統計等高線＝二維密度，與「火山」名稱無關）、`circos.md`（環狀多軌比較基因體）、`manhattan-plot.md`（橫軸基因組位置、縱軸 −log10(p)）、`ma-plot.md`（橫軸平均表現、縱軸倍數；診斷）、`qq-plot.md`（分位數對分位數；看 p 值整體分布，不是候選排序）；地形等高線圖尚無專檔。
 
 圖檔留在教圖／skill-pack（`/workspace/skill-packs/2026-09-28-pm-volcano/images/`，22 張，圖說用 SKILL-PACK.md 修正後版本，其中 6 張審稿更正），本 repo **不複製**大圖。火山圖範例對照：wiki-volcano-eg、bsq-slide4（解讀示意）、bsq-basic → bsq-thresholds → bsq-colour → bsq-fullplot（逐步）、enhancedvolcano-02／04／07／12、notch-volcano-labeled、metware-metabolomics、metware-proteomics、galaxy-volcanoplot、galaxy-volcanoplot_top10、plotly-thumb。對照圖：notch-what-they-show、notch-combined-volcano-ma、hbc-ma-plot（MA 圖）、wiki-manhattan-sp（曼哈頓圖）、contrast-topo-contour（地形等高線，**與統計火山圖無關**）。bsq-slide3 是情境投影片，**圖中沒有火山圖**。對帳見 `ATTRIBUTION.md`。

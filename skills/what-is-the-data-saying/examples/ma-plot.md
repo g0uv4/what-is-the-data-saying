@@ -126,6 +126,6 @@
 
 X 教學原帖：素材包指出以 MA plot、plotMA、DESeq2、tutorial 等關鍵字檢索，只找到 OmicsLogic 工作坊招生貼文，沒有可當教材的原帖；不引用、不編造。
 
-鄰居 pattern：`volcano-plot.md`（橫軸效應量、縱軸顯著性；候選排序）、`manhattan-plot.md`（橫軸基因組位置）、`correlation-scatter.md`（任意兩變數）、`circos.md`（環狀多軌）；Bland–Altman 圖尚無專檔；RA 圖為 MA 圖的整數計數版，於本 pattern 內說明。
+鄰居 pattern：`volcano-plot.md`（橫軸效應量、縱軸顯著性；候選排序）、`manhattan-plot.md`（橫軸基因組位置）、`correlation-scatter.md`（任意兩變數）、`circos.md`（環狀多軌）、`qq-plot.md`（分位數對分位數；不看倍數）；Bland–Altman 圖尚無專檔；RA 圖為 MA 圖的整數計數版，於本 pattern 內說明。
 
 圖檔留在教圖／skill-pack（`/workspace/skill-packs/2026-09-29-pm-ma/images/`，24 張，圖說與終稿逐字相同），本 repo **不複製**大圖。可對照的圖：wiki-pre-norm-672／wiki-post-norm-672（微陣列正規化前後，真實資料，公有領域）、sim-anatomy、sim-classic-funnel、sim-pre-norm-bias、sim-post-norm、sim-shrink-before-after、sim-lfc-threshold-tests、sim-volcano-ma-side（皆為**模擬資料重繪**，數值僅供示意）、bsq-interpret-02／03（示意，資料來源頁面未說明）、bsq-r-02／03（airway 真實資料；粉紅只是 \|M\|>1，M 與 A 是 log1p，非 log2）、deseq2-01（未收縮）／deseq2-extra-02（apeglm 收縮後）／deseq2-02（三種收縮並排）、hbc-ma-unshrunken／hbc-ma-plot（收縮前後）、wiki-edger-smear、galaxy-mdsampleLA／LE、galaxy-mdvolplot_basalpregnant-basallactate（MD 圖與火山圖並排）；對照圖：contrast-bland-altman（原尺度，不是對數）、contrast-ra-orange（RA 圖，橫軸 A、縱軸 R）。對帳見 `ATTRIBUTION.md`。

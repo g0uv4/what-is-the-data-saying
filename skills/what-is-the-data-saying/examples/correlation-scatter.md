@@ -25,4 +25,4 @@
 - [ ] 離群點是否標註或截尾說明
 - [ ] 分組色有圖例
 
-鄰居 pattern：`volcano-plot.md`（兩軸語意固定：效應量 × 顯著性，不是任選兩欄）、`ma-plot.md`（兩軸固定為平均表現 A × 對數倍數 M）、`qq-plot.md`（兩軸是對齊同一累積比例的分位數）、`contour-density.md`、`hexbin-density.md`、`bubble-chart.md`、`connected-scatter.md`。
+鄰居 pattern：`volcano-plot.md`（兩軸語意固定：效應量 × 顯著性，不是任選兩欄）、`ma-plot.md`（兩軸固定為平均表現 A × 對數倍數 M）、`qq-plot.md`（兩軸是對齊同一累積比例的分位數）、`bland-altman.md`（兩欄是同一批樣本的配對量測：相關高不等於一致，要看差值對平均）、`contour-density.md`、`hexbin-density.md`、`bubble-chart.md`、`connected-scatter.md`。

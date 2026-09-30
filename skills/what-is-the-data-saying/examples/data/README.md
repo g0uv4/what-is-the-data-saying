@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖與 QQ 圖各附一支自檢 .py）
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖與 Bland–Altman 圖各附一支自檢 .py）
 
 來自納茲已審 skill pack。**非真實產業資料；數字未核。**
 
@@ -29,8 +29,10 @@
 | `sample-ma-selfcheck.py` | 上一檔的自檢腳本（純標準函式庫 Python，不是資料）；見下方「自檢腳本」 | 同上 |
 | `sample-qq-fictional.csv` | QQ 圖練習資料：row_id, group, value, pvalue_sim（220 列、約 6 KB；A 組近似常態 120 筆、B 組右偏 100 筆；檔頭兩行以 `#` 開頭要略過；虛構，數字未核） | `2026-09-30-am-qq` |
 | `sample-qq-selfcheck.py` | 上一檔的自檢腳本（需 numpy 與 scipy，不是資料）；見下方「QQ 圖自檢腳本」，**有一個讀檔陷阱** | 同上 |
+| `sample-ba-fictional.csv` | Bland–Altman 圖練習資料：row_id, dataset, method_a, method_b（220 列、約 6 KB；dataset＝good 100 對「一致性良好」＋ fan 120 對「誤差與大小成比例」；**差值一律是方法 B 減方法 A**；檔頭兩行以 `#` 開頭要略過；虛構，數字未核） | `2026-09-30-pm-ba` |
+| `sample-ba-selfcheck.py` | 上一檔的自檢腳本（需 numpy，不是資料）；見下方「Bland–Altman 自檢腳本」；以明確檔名讀 CSV，可直接在本資料夾跑 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -49,7 +51,7 @@ python3 sample-ma-selfcheck.py
 
 檢查 `sample-qq-fictional.csv`：共 220 列、`row_id` 不重複、A 組 120 筆與 B 組 100 筆、p 值介於 0 與 1（不含 0）、A 組對常態的相關係數高於 B 組且 B 組最大值離四分位參考線比 A 組遠；另輸出兩組互比的 19 組分位數配對與 −log10(p) 最大值。**需要 numpy 與 scipy**（MA 圖那支只用標準庫）。
 
-**陷阱**：腳本用 `glob.glob('*-fictional.csv')[0]` 找 CSV，也就是「當前資料夾裡第一個符合的檔」。本資料夾同時有 `sample-ma-fictional.csv` 與 `sample-qq-fictional.csv`，兩者都符合，`glob` 不保證順序：若先取到 MA 那份，會在 `assert len(rows) == 220` 失敗（3000 ≠ 220）。腳本內容必須與素材包逐位元相同，所以沒有改它，請這樣跑最穩：
+**陷阱**：腳本用 `glob.glob('*-fictional.csv')[0]` 找 CSV，也就是「當前資料夾裡第一個符合的檔」。本資料夾自 v0.3.18 起有**三個** `*-fictional.csv`（`sample-ma-fictional.csv`、`sample-qq-fictional.csv`、`sample-ba-fictional.csv`），三者都符合，`glob` 不保證順序：若先取到 MA 那份，會在 `assert len(rows) == 220` 失敗（3000 ≠ 220）；若先取到 Bland–Altman 那份，欄位名不同（沒有 `group`），會丟 `KeyError`。v0.3.18 加入第三個檔之後，在本資料夾直接跑 `sample-qq-selfcheck.py` 已實測會以 `KeyError: 'group'` 失敗，所以下面的「複製到暫存資料夾再跑」**現在是必要做法，不再只是保險**。腳本內容必須與素材包逐位元相同，所以沒有改它，請這樣跑最穩：
 
 ```bash
 mkdir -p /tmp/qqcheck
@@ -58,7 +60,7 @@ cp skills/what-is-the-data-saying/examples/data/sample-qq-fictional.csv \
 cd /tmp/qqcheck && python3 sample-qq-selfcheck.py
 ```
 
-直接在 `examples/data/` 內執行（`cd skills/what-is-the-data-saying/examples/data && python3 sample-qq-selfcheck.py`）在 v0.3.17 上架前的環境也通過，但那只是 `glob` 剛好先回傳 QQ 那份，換一台機器可能不同。
+直接在 `examples/data/` 內執行（`cd skills/what-is-the-data-saying/examples/data && python3 sample-qq-selfcheck.py`）在 v0.3.17 上架前的環境（當時只有兩個 `*-fictional.csv`）曾經通過，但那只是 `glob` 剛好先回傳 QQ 那份；加入第三個檔後已不再通過，請勿這樣跑。
 
 預期輸出五行（v0.3.17 上架前實跑，結束碼 0，與素材包所附輸出完全一致）：
 
@@ -71,3 +73,28 @@ B 組（右偏）對常態的相關係數 0.9258；最大值離四分位參考�
 ```
 
 （實跑環境：numpy 2.2.4、scipy 1.18.1；小數位數固定，不同版本理論上可能差最後一位。）
+
+## Bland–Altman 自檢腳本 `sample-ba-selfcheck.py`
+
+檢查 `sample-ba-fictional.csv`：共 220 列、`row_id` 不重複、good 100 對與 fan 120 對、差值一律是方法 B 減方法 A；輸出 good 的平均差、差值標準差、一致性界限與界限外點數，平均差與兩條界限各自的 95% 信賴區間（**近似式**：平均差標準誤 ＝ s／√n，界限標準誤約 √(3s²／n)，t 臨界值固定用 1.984），以及界限連同信賴區間是否都落在**假設的**可接受範圍 ±8 內（範圍是示範假設，不是臨床標準）；fan 輸出平均差、界限，平均值較小與較大兩半的差值標準差（比值約 2，扇形），以及改看百分比差異後兩半的標準差（大致相等）。**需要 numpy**。
+
+腳本以 `os.path.dirname(__file__)` 加明確檔名讀同資料夾的 CSV，**不搜尋檔案**，沒有 QQ 腳本的 `glob` 陷阱，在任何資料夾執行都可以；直接在本資料夾跑：
+
+```bash
+cd skills/what-is-the-data-saying/examples/data
+python3 sample-ba-selfcheck.py
+```
+
+預期輸出七行（v0.3.18 上架前實跑，結束碼 0，與素材包所附輸出完全一致）：
+
+```
+OK 筆數 220 | good 100 fan 120 （差值方向：方法 B 減方法 A）
+good：平均差 0.703，差值標準差 2.424，一致性界限 5.454 與 -4.047，界限外 7 點
+good：平均差的 95% 信賴區間 0.222 到 1.184；上界的信賴區間 4.621 到 6.286；下界的信賴區間 -4.880 到 -3.214
+good：界限連同信賴區間是否都在假設的可接受範圍 ±8 內：是（範圍是假設，非臨床標準）
+fan：平均差 0.583，差值標準差 5.375，一致性界限 11.118 與 -9.952
+fan：平均值較小一半的差值標準差 3.391，較大一半 6.799，比值 2.01（扇形）
+fan：改看百分比差異，兩半標準差 4.81 與 4.32 個百分點（大致相等）
+```
+
+**以實際計數為準**：素材包腳本註解寫 good「落在界限外的點很少（約 5%，不是 0）」，實際是 7／100＝7%；腳本沒有輸出 fan 的界限外點數，獨立重算為 5／120。本 repo 另以 numpy／scipy 獨立重算上列各數字，全部一致（以精確 t 臨界值重算 good 的信賴區間與腳本的 1.984 結果相同到小數第三位）。

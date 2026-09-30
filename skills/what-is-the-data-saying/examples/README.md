@@ -45,6 +45,7 @@
 | 曼哈頓圖（全基因組關聯；含邁阿密圖變體） | `manhattan-plot.md` | 2026-09-29-am-manhattan.md |
 | MA 圖（平均－差值圖；含 RA 圖分界） | `ma-plot.md` | 2026-09-29-pm-ma.md |
 | QQ 圖（分位數對分位數；含 P–P 圖分界） | `qq-plot.md` | 2026-09-30-am-qq.md |
+| Bland–Altman 圖（兩種量測方法的一致性；≠ MA 圖、≠ 相關係數） | `bland-altman.md` | 2026-09-30-pm-ba.md |
 | 力導向網路 | `force-network.md` | 2026-09-17-pm-force.md |
 | 弧線圖 | `arc-diagram.md` | 2026-09-17-am-arc.md |
 | 鄰接矩陣 | `adjacency-matrix.md` | 2026-09-18-am-adjacency.md |

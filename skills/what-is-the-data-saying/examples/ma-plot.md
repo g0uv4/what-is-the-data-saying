@@ -38,7 +38,7 @@
   - 要做「變化幅度夠大且證據充分」的候選排序 → **火山圖**（`volcano-plot.md`）
   - 要看關聯訊號落在基因組哪一段 → **曼哈頓圖**（`manhattan-plot.md`）
   - 超過兩組又沒有清楚成對對比 → 先定義對比，或改用主成分分析、熱圖
-  - 評估臨床兩種量測方法的一致性界限 → **Bland–Altman 圖**（repo 尚無專檔；走專文脈絡，別貼 RNA 定序 MA 圖充數）
+  - 評估臨床兩種量測方法的一致性界限 → [**Bland–Altman 圖**](bland-altman.md)（走專文脈絡，別貼 RNA 定序 MA 圖充數）
   - 只有 p 值、沒有表現量或倍數欄 → 資料前提不足，畫不了 MA 圖
   - 任意兩欄關係 → 一般散點（`correlation-scatter.md`），不要稱為 MA 圖
 
@@ -55,11 +55,11 @@
 | **火山圖**（`volcano-plot.md`） | 變化幅度（常用 log2 倍數變化） | 顯著性（−log10 p 值或 q 值） | 變多大、證據多強，用於候選排序 | 橫軸是效應量、縱軸是顯著性；MA 圖橫軸是平均豐度，用於診斷 |
 | **曼哈頓圖**（`manhattan-plot.md`） | 基因組位置 | −log10(p) | 關聯訊號落在基因組哪一段 | MA 圖橫軸是平均表現量，不是位置 |
 | **一般散點圖**（`correlation-scatter.md`） | 任意數值 | 任意數值 | 兩變數關係 | MA 圖兩軸語意固定為 A × M |
-| **Bland–Altman 圖**（repo 尚無專檔） | 兩種量測的平均（原尺度） | 兩種量測的差（原尺度），常畫平均差與 ±1.96 個標準差 | 兩種量測方法的一致性 | MA 圖是它在基因體資料上的應用，建立在對數尺度上（"This version of the plot is used in MA plot."；「MA 是 Bland–Altman 的對數版」為維基百科敘述，延伸解釋屬推論） |
+| [**Bland–Altman 圖**](bland-altman.md) | 兩種量測的平均（原尺度） | 兩種量測的差（原尺度），常畫平均差與 ±1.96 個標準差 | 兩種量測方法的一致性 | MA 圖是它在基因體資料上的應用，建立在對數尺度上（"This version of the plot is used in MA plot."；「MA 是 Bland–Altman 的對數版」為維基百科敘述，延伸解釋屬推論） |
 | **RA 圖** | A：平均 | R：對數比值（和 M 一樣放縱軸） | 整數計數資料的雙條件比較 | 只用於非負整數計數，用 ε 納入單邊為零的點，呈箭頭狀（見上「三個事實」第 2 條） |
 | **Circos**（`circos.md`） | 環狀多軌 | 多種軌道與連結 | 比較基因體、多軌關係 | Circos 是環狀多軌視覺化，MA 圖是診斷用散點圖 |
 
-判斷口訣：**橫軸平均表現、縱軸對數倍數 → MA 圖；橫軸倍數、縱軸顯著性 → 火山圖；橫軸位置 → 曼哈頓圖；兩種量測方法的一致性 → Bland–Altman；任意兩變數 → 一般散點圖。**
+判斷口訣：**橫軸平均表現、縱軸對數倍數 → MA 圖；橫軸倍數、縱軸顯著性 → 火山圖；橫軸位置 → 曼哈頓圖；兩種量測方法的一致性 → [Bland–Altman 圖](bland-altman.md)；任意兩變數 → 一般散點圖。**
 
 ## Avoid
 
@@ -126,6 +126,6 @@
 
 X 教學原帖：素材包指出以 MA plot、plotMA、DESeq2、tutorial 等關鍵字檢索，只找到 OmicsLogic 工作坊招生貼文，沒有可當教材的原帖；不引用、不編造。
 
-鄰居 pattern：`volcano-plot.md`（橫軸效應量、縱軸顯著性；候選排序）、`manhattan-plot.md`（橫軸基因組位置）、`correlation-scatter.md`（任意兩變數）、`circos.md`（環狀多軌）、`qq-plot.md`（分位數對分位數；不看倍數）；Bland–Altman 圖尚無專檔；RA 圖為 MA 圖的整數計數版，於本 pattern 內說明。
+鄰居 pattern：`volcano-plot.md`（橫軸效應量、縱軸顯著性；候選排序）、`manhattan-plot.md`（橫軸基因組位置）、`correlation-scatter.md`（任意兩變數）、`circos.md`（環狀多軌）、`qq-plot.md`（分位數對分位數；不看倍數）、`bland-altman.md`（兩種量測方法的一致性；用途不同，不是同一種圖）；RA 圖為 MA 圖的整數計數版，於本 pattern 內說明。
 
 圖檔留在教圖／skill-pack（`/workspace/skill-packs/2026-09-29-pm-ma/images/`，24 張，圖說與終稿逐字相同），本 repo **不複製**大圖。可對照的圖：wiki-pre-norm-672／wiki-post-norm-672（微陣列正規化前後，真實資料，公有領域）、sim-anatomy、sim-classic-funnel、sim-pre-norm-bias、sim-post-norm、sim-shrink-before-after、sim-lfc-threshold-tests、sim-volcano-ma-side（皆為**模擬資料重繪**，數值僅供示意）、bsq-interpret-02／03（示意，資料來源頁面未說明）、bsq-r-02／03（airway 真實資料；粉紅只是 \|M\|>1，M 與 A 是 log1p，非 log2）、deseq2-01（未收縮）／deseq2-extra-02（apeglm 收縮後）／deseq2-02（三種收縮並排）、hbc-ma-unshrunken／hbc-ma-plot（收縮前後）、wiki-edger-smear、galaxy-mdsampleLA／LE、galaxy-mdvolplot_basalpregnant-basallactate（MD 圖與火山圖並排）；對照圖：contrast-bland-altman（原尺度，不是對數）、contrast-ra-orange（RA 圖，橫軸 A、縱軸 R）。對帳見 `ATTRIBUTION.md`。

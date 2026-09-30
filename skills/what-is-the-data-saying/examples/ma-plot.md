@@ -44,9 +44,9 @@
 
 ## 三個必須釘清的事實
 
-1. **`lfcShrink` 預設不改 p 值，顯著點收縮後只是被拉向零，不會消失**（**推論**，依 `plotMA` 前後只差在餵進去的結果表、收縮不動校正後 p 值推得；素材包終稿已標推論，具體以你用的收縮方法輸出欄位為準，例如含 `svalue` 欄時著色門檻另計）。所以「收縮後顯著點消失」不會自動發生；要降級極低 A 區、收縮後貼近零線的顯著點，是判讀時的決策（同樣是推論：官方文件沒有直接載明這條準則）。收縮是**有意偏向零**的估計（Love 等人 2014："The resulting MAP LFCs are biased toward zero in a manner that removes the problem of 'exaggerated' LFCs for low counts."），不等於真值；NotchBio 說收縮後 "reveals the true pattern" 是過度宣稱。
+1. **`lfcShrink` 預設不改 p 值，顯著點收縮後只是被拉向零，不會消失**（**推論**，依 `plotMA` 前後只差在餵進去的結果表、收縮不動校正後 p 值推得；素材包終稿已標推論，具體以你用的收縮方法輸出欄位為準，例如含 `svalue` 欄時著色門檻另計）。所以「收縮後顯著點消失」不會自動發生；要降級極低 A 區、收縮後貼近零線的顯著點，是判讀時的決策（同樣是推論：官方文件沒有直接載明這條準則）。收縮是**有意偏向零**的估計（Love 等人 2014："The resulting MAP LFCs are biased toward zero in a manner that removes the problem of exaggerated LFCs for low counts."），不等於真值；NotchBio 說收縮後 "reveals the true pattern" 是過度宣稱。
 2. **RA 圖的軸語意和 MA 圖相同**：R（對數比值）和 M 一樣放縱軸，A 放橫軸（維基百科 RA plot 條目 "R, like M, is plotted on the y-axis"）。差別只在：RA 圖是 MA 圖的**整數計數版**（"an integer-based version of an MA plot for visualizing two-condition count data"），用微小數值 ε 把「其中一組計數為零」的點納入圖中，因此呈箭頭狀。不要說 RA 圖軸語意不同。
-3. **有網站把「MA 圖 vs 火山圖」比較表的火山圖軸寫反（已更正，請勿抄）**：biostatsquid 該頁比較表把火山圖橫軸寫成統計顯著性（"Statistical significance (e.g. –log10(p-value))"）、縱軸寫成 "Log2 fold change"，與主流慣例相反。正確：**火山圖橫軸是效應量（倍數變化）、縱軸是 −log10(p)**（英文維基百科火山圖條目圖說："large magnitude fold-changes (x axis) and high statistical significance (-log10 of p value, y axis)"；該條目內文另有自相矛盾的一句，以前面明確的軸說明為準）。
+3. **有網站把「MA 圖 vs 火山圖」比較表的火山圖軸寫反（已更正，請勿抄）**：biostatsquid 該頁比較表把火山圖橫軸寫成統計顯著性（"Statistical significance (e.g. –log10(p-value))"）、縱軸寫成 "Log2 fold change"，與主流慣例相反。正確：**火山圖橫軸是效應量（倍數變化）、縱軸是 −log10(p)**（英文維基百科火山圖條目圖說："large magnitude fold-changes (x axis) and high statistical significance (-log10 of p value, y axis)"；該條目內文也一致：−log10 p 值在縱軸、對數倍數變化在橫軸）。
 
 ## 與鄰近圖種的區別
 
@@ -85,7 +85,7 @@
 - [ ] 圖注：「橫軸不是基因組位置，也不是 −log10(p)；愈右表示平均表現愈高，上下才是倍數方向」
 - [ ] 工具誠實（只寫素材包證實的；版本為 2026-09-29 查核值）：
   - **DESeq2**（R，Bioconductor 1.52.0，LGPL (>= 3)）：`plotMA`、`lfcShrink`（apeglm、normal、ashr）
-  - **limma**（Bioconductor，GPL (>=2)；頁面 3.68.4）：`plotMD`、`plotMA`；**edgeR**（GPL (>=2)；頁面 4.10.1）：`plotMD`，歷史函式 `maPlot`、`plotSmear`（把倍數無限大的點「抹開」）
+  - **limma**（Bioconductor，GPL (>=2)；頁面與手冊 3.68.5）：`plotMD`、`plotMA`；**edgeR**（GPL (>=2)；頁面與手冊 4.10.5）：`plotMD`，另有 `maPlot`、`plotSmear`（把倍數無限大的點「抹開」）
   - **geneplotter**（Artistic-2.0；`plotMA`，DESeq2 底層曾用）；**Glimma**（GPL-3，2.22.1；互動 `glimmaMA`，舊名 `glMDPlot`，兩者皆存在）
   - **apeglm**（GPL-2，1.34.0）、**ashr**（CRAN；授權未寫）：倍數收縮估計方法
   - **ggplot2**、**Matplotlib**：手作 MA 圖，授權素材包未寫，不代填

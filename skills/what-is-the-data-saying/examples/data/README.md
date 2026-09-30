@@ -28,7 +28,7 @@
 | `sample-ma-fictional.csv` | MA 圖差異分析結果：gene_id, gene_name, base_mean, a_log2_mean, m_log2fc, m_log2fc_shrunk, lfc_se, pvalue, padj, sim_true_de（3,000 列、約 230 KB；檔頭兩行以 `#` 開頭要略過；`m_log2fc_shrunk` 是示意收縮，不是 apeglm 輸出；虛構，數字未核） | `2026-09-29-pm-ma` |
 | `sample-ma-selfcheck.py` | 上一檔的自檢腳本（純標準函式庫 Python，不是資料）；見下方「自檢腳本」 | 同上 |
 | `sample-qq-fictional.csv` | QQ 圖練習資料：row_id, group, value, pvalue_sim（220 列、約 6 KB；A 組近似常態 120 筆、B 組右偏 100 筆；檔頭兩行以 `#` 開頭要略過；虛構，數字未核） | `2026-09-30-am-qq` |
-| `sample-qq-selfcheck.py` | 上一檔的自檢腳本（需 numpy 與 scipy，不是資料）；見下方「QQ 圖自檢腳本」，**有一個讀檔陷阱** | 同上 |
+| `sample-qq-selfcheck.py` | 上一檔的自檢腳本（需 numpy 與 scipy，不是資料）；見下方「QQ 圖自檢腳本」，（v0.3.18 已修正讀檔方式） | 同上 |
 | `sample-ba-fictional.csv` | Bland–Altman 圖練習資料：row_id, dataset, method_a, method_b（220 列、約 6 KB；dataset＝good 100 對「一致性良好」＋ fan 120 對「誤差與大小成比例」；**差值一律是方法 B 減方法 A**；檔頭兩行以 `#` 開頭要略過；虛構，數字未核） | `2026-09-30-pm-ba` |
 | `sample-ba-selfcheck.py` | 上一檔的自檢腳本（需 numpy，不是資料）；見下方「Bland–Altman 自檢腳本」；以明確檔名讀 CSV，可直接在本資料夾跑 | 同上 |
 
@@ -51,16 +51,13 @@ python3 sample-ma-selfcheck.py
 
 檢查 `sample-qq-fictional.csv`：共 220 列、`row_id` 不重複、A 組 120 筆與 B 組 100 筆、p 值介於 0 與 1（不含 0）、A 組對常態的相關係數高於 B 組且 B 組最大值離四分位參考線比 A 組遠；另輸出兩組互比的 19 組分位數配對與 −log10(p) 最大值。**需要 numpy 與 scipy**（MA 圖那支只用標準庫）。
 
-**陷阱**：腳本用 `glob.glob('*-fictional.csv')[0]` 找 CSV，也就是「當前資料夾裡第一個符合的檔」。本資料夾自 v0.3.18 起有**三個** `*-fictional.csv`（`sample-ma-fictional.csv`、`sample-qq-fictional.csv`、`sample-ba-fictional.csv`），三者都符合，`glob` 不保證順序：若先取到 MA 那份，會在 `assert len(rows) == 220` 失敗（3000 ≠ 220）；若先取到 Bland–Altman 那份，欄位名不同（沒有 `group`），會丟 `KeyError`。v0.3.18 加入第三個檔之後，在本資料夾直接跑 `sample-qq-selfcheck.py` 已實測會以 `KeyError: 'group'` 失敗，所以下面的「複製到暫存資料夾再跑」**現在是必要做法，不再只是保險**。腳本內容必須與素材包逐位元相同，所以沒有改它，請這樣跑最穩：
+**讀檔方式（v0.3.18 後修正）**：早期版本用 `glob.glob('*-fictional.csv')[0]` 找 CSV，資料夾裡有第二、第三個 `*-fictional.csv` 後會抓錯檔（MA 那份筆數不符，Bland–Altman 那份欄位不同，會丟 `KeyError: 'group'`）。現在腳本直接指定 `sample-qq-fictional.csv`，在 `examples/data/` 內執行即可，輸出與素材包所附完全一致：
 
 ```bash
-mkdir -p /tmp/qqcheck
-cp skills/what-is-the-data-saying/examples/data/sample-qq-fictional.csv \
-   skills/what-is-the-data-saying/examples/data/sample-qq-selfcheck.py /tmp/qqcheck/
-cd /tmp/qqcheck && python3 sample-qq-selfcheck.py
+cd skills/what-is-the-data-saying/examples/data && python3 sample-qq-selfcheck.py
 ```
 
-直接在 `examples/data/` 內執行（`cd skills/what-is-the-data-saying/examples/data && python3 sample-qq-selfcheck.py`）在 v0.3.17 上架前的環境（當時只有兩個 `*-fictional.csv`）曾經通過，但那只是 `glob` 剛好先回傳 QQ 那份；加入第三個檔後已不再通過，請勿這樣跑。
+注意：此腳本與納茲素材包版本不再逐位元相同，唯一差別是那一行讀檔；資料與檢查邏輯未動。
 
 預期輸出五行（v0.3.17 上架前實跑，結束碼 0，與素材包所附輸出完全一致）：
 

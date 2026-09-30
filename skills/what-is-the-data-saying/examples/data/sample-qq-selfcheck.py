@@ -1,10 +1,10 @@
 # 練習資料檢查程式：檢查同資料夾的虛構練習資料檔（筆數、範圍、欄位關係），並輸出分位數配對供畫 QQ 圖練習
 # 用法：在本檔所在資料夾執行 python3 加本檔名（需要 numpy 與 scipy）
-import csv, glob
+import csv
 import numpy as np
 from scipy import stats
 
-csv_path = glob.glob('*-fictional.csv')[0]
+csv_path = 'sample-qq-fictional.csv'
 rows = list(csv.DictReader(l for l in open(csv_path, encoding='utf8') if not l.startswith('#')))
 assert len(rows) == 220, len(rows)
 assert len({r['row_id'] for r in rows}) == 220

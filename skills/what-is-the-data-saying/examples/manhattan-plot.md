@@ -121,6 +121,6 @@
 
 X 教學原帖：本輪查無（搜尋結果主要是工作坊招生推廣；不引用、不編造）。
 
-鄰居 pattern：`volcano-plot.md`（橫軸效應量）、`ma-plot.md`（橫軸平均表現、縱軸倍數；診斷）、`circos.md`（環狀多軌，≠ 環狀曼哈頓圖）、`correlation-scatter.md`（任意兩變數）；`qq-plot.md`（配套：期望對觀察 −log10(p)）；`locuszoom.md`（區域關聯圖；總覽 → 放大，前後相接）；染色體核型示意圖尚無專檔；邁阿密圖為本 pattern 變體。
+鄰居 pattern：`volcano-plot.md`（橫軸效應量）、`ma-plot.md`（橫軸平均表現、縱軸倍數；診斷）、`circos.md`（環狀多軌，≠ 環狀曼哈頓圖）、`correlation-scatter.md`（任意兩變數）；`qq-plot.md`（配套：期望對觀察 −log10(p)）；`locuszoom.md`（區域關聯圖；總覽 → 放大，前後相接）；`pp-plot.md`（機率對機率；Davidson 與 MacKinnon 的「P value plot」是 P–P 結構，≠ 曼哈頓圖）；染色體核型示意圖尚無專檔；邁阿密圖為本 pattern 變體。
 
 圖檔留在教圖／skill-pack（`/workspace/skill-packs/2026-09-29-am-manhattan/images/`，21 張，圖說與終稿逐字相同），本 repo **不複製**大圖。曼哈頓圖範例對照：wiki-manhattan（真實資料；三條虛線門檻值原圖未標示，數字未核）、wiki-gwas-kidney（真實資料；紅虛線 5×10⁻⁸）、qqman-01／02／03／05（模擬資料；02 的「P」「Q」是自訂標籤示範，不是真實染色體）、rgg-chunk1／chunk3（chunk3 部分標籤重疊）、rgg-chunk7-redraw 與 pyg-01-redraw（以 Matplotlib 和模擬資料**重繪**，不是原頁面的圖；pyg 橫軸是資料列順序，不是鹼基位置）、rgg-circular、rgg-circular-multi（環狀，CMplot）、cmplot-1、cmplot-4_1（門檻 1×10⁻⁶／1×10⁻⁴ 為示例刻意設定）、manhattanly-demo（互動示範）。對照圖：qqman-09、cmplot-7（QQ 圖）、wiki-regional-locus、pmc2935401-fig1（區域關聯圖；後者出自 LocusZoom 論文圖 1，CC BY-NC 僅限非商業）、wiki-volcano-contrast（火山圖；最底刻度 6.68 疑為原圖錯誤）、wiki-gwas-illustration（概念插圖，不是曼哈頓圖）。對帳見 `ATTRIBUTION.md`。

@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖與 LocusZoom 圖各附一支自檢 .py）
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖與 P–P 圖各附一支自檢 .py）
 
 來自納茲已審 skill pack。**非真實產業資料；數字未核。**
 
@@ -33,8 +33,10 @@
 | `sample-ba-selfcheck.py` | 上一檔的自檢腳本（需 numpy，不是資料）；見下方「Bland–Altman 自檢腳本」；以明確檔名讀 CSV，可直接在本資料夾跑 | 同上 |
 | `sample-locuszoom-fictional.csv` | LocusZoom 圖（區域關聯圖）練習資料：row_id, record_type, dataset, chrom, position_bp, end_bp, neg_log10_p, ld_r2_to_index, ld_band, is_index, gene_name, strand, recomb_rate_schematic（2,306 列、約 112 KB；record_type＝variant 變異位點 2,239、gene 基因軌 11、recomb 重組率示意取樣點 56；dataset＝genome 全基因組背景 1,760 點＋第 10 號染色體 45.0–45.55 Mb 四段虛構區間 single／following／second／readcolors；檔頭兩行以 `#` 開頭要略過；虛構，數字未核） | `2026-10-01-am-locuszoom` |
 | `sample-locuszoom-selfcheck.py` | 上一檔的自檢腳本（需 numpy，不是資料）；見下方「LocusZoom 自檢腳本」；以明確檔名讀 CSV，可直接在本資料夾跑 | 同上 |
+| `sample-pp-fictional.csv` | P–P 圖虛構資料（1,000 列、約 30 KB；欄位 row_id, dataset, group, obs_index, value, value2；8 個 dataset：anatomy 20、good 100、heavy 200、loc 100、skew 200、two 200、resid 80、sm 100 列；檔頭**三行以 # 開頭要略過**） | 2026-10-01-pm-pp.md |
+| `sample-pp-selfcheck.py` | 上一檔的自檢腳本（需 numpy 與 scipy，不是資料）；見下方「P–P 自檢腳本」；以明確檔名讀 CSV，可直接在本資料夾跑 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -123,3 +125,31 @@ recomb：最高 46.48 在 45.48 Mb（示意曲線，非真實資料）
 ```
 
 **以實際計數為準**（本 repo 另以獨立腳本重算，全部一致），兩點要小心讀：(1)「超過顯著門檻」的點數（17／28／17／17）**包含領先變異本身**，扣掉後是 16／27／16／16；(2) `second` 那行「第二個峰共 14 個點……仍高於顯著門檻」指的是**最高點 8.4**，14 個點中只有 3 個（7.736、7.919、8.4）高於 7.30。背景點最高 3.654，沒有任何一個超過門檻。
+
+## P–P 自檢腳本 `sample-pp-selfcheck.py`
+
+檢查 `sample-pp-fictional.csv`：共 1,000 列、八個 dataset 的列數；`anatomy` 第 14 個排序值的橫縱座標；`good` 的最大垂直距離小於 0.07；`heavy` 標準化前後 S 形方向相反；`loc` 全部點在對角線下方；`skew` 的 P–P 與 QQ 圖尾端對照；`two` 兩批樣本；`resid` 殘差；`sm` 擬合常態後的最大垂直距離。**需要 numpy 與 scipy**。
+
+腳本以 `os.path.abspath(__file__)` 加明確檔名讀同資料夾的 CSV，**不搜尋檔案**，在任何資料夾執行都可以；直接在本資料夾跑：
+
+```bash
+cd skills/what-is-the-data-saying/examples/data
+python3 sample-pp-selfcheck.py
+```
+
+預期輸出九行（v0.3.20 上架前實跑，結束碼 0，與素材包 §11 所附輸出逐行完全一致）：
+
+```
+OK 全檔 1000 列；各資料集列數：anatomy 20、good 100、heavy 200、loc 100、skew 200、two 200、resid 80、sm 100
+anatomy：n=20；第 14 個排序值 z=0.69，橫座標 Φ(z)=0.754，縱座標 (14−0.5)/20=0.675；全部點到對角線的最大垂直距離 0.102
+good：n=100；樣本平均 49.4、標準差 11.1；點到對角線的最大垂直距離 0.068（小於 0.07）
+heavy：n=200；標準化後，橫軸 [0.05, 0.45) 的 81 個點全在對角線下方，[0.55, 0.95) 的 66 個點全在對角線上方
+heavy（不標準化）：橫軸小於 0.5 的 105 個點中有 104 個在線上方；大於 0.5 的 95 個點中有 88 個在線下方（方向與標準化後相反）
+loc：n=100；樣本平均 1.45；全部 100 個點都在對角線下方；橫軸 0.5 處縱軸約 0.08（沒有通過 (0.5, 0.5)）
+skew：n=200；橫軸 [0.3, 0.85) 的 111 個點全在對角線上方；最大垂直距離 0.171（橫軸 0.43 處）；Q–Q 圖最右邊的點：樣本標準化值 6.19，對應的理論分位數只有 2.81
+two：每批 n=100；平均數 A -0.01、B 0.03；標準差 A 1.18、B 1.88；橫軸小於 0.4 的 79 個點全在線上方；橫軸大於 0.6 的 82 個點中有 81 個在線下方、1 個剛好在線上；橫軸 0.5 處縱軸約 0.52
+resid：n=80；配出的直線 y=3.19+0.73x；殘差標準差 1.05；點到對角線的最大垂直距離 0.097（小於 0.1）
+sm：n=100；擬合常態平均 6.29、標準差 2.95；橫軸 [0.45, 0.85) 的 40 個點全在對角線下方（縱軸小於橫軸）；最大垂直距離 0.125
+```
+
+**以實際計數為準**（本 repo 另以獨立程式重算，自算 Φ，全部一致，未發現素材包文字與 CSV 不一致），要小心讀：「全在對角線上方／下方」只計**指定橫軸區間內**的點——`heavy` 標準化後 [0.05, 0.45) 的 81 點與 [0.55, 0.95) 的 66 點，共 147 點，不是全部 200 點；`skew` 全批 127 點在線上方、73 點在線下方，「111 點全在線上方」只指橫軸 [0.3, 0.85) 區間；`two` 橫軸大於 0.6 的 82 點中有 1 點剛好在線上。`heavy` 樣本標準差約 2.46（t 分布自由度 2，變異數無限大，數值不穩定）。示範數字標「數字未核」，不是真實資料。

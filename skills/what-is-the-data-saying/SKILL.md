@@ -2,7 +2,7 @@
 name: what-is-the-data-saying
 description: >
   Given a table or report, recommend the chart and how to make it (資料在說什麼).
-  Nazh-grounded Taiwan zh-TW pedagogy plus 57 named patterns. Use when the user
+  Nazh-grounded Taiwan zh-TW pedagogy plus 58 named patterns. Use when the user
   pastes CSV / Excel / a table / 報表 and asks which chart, how to visualize,
   這份資料該怎麼畫, 推薦圖表, 視覺化, or runs /what-is-the-data-saying.
 when-to-use: >
@@ -13,7 +13,7 @@ argument-hint: paste a table or describe the report
 metadata:
   short-description: "Which chart? How to make it. 資料在說什麼"
   author: g0uv4
-  version: "0.3.19"
+  version: "0.3.20"
   lineage: "納茲 - 資料視覺 teach-viz 教圖"
   license: MIT
 ---
@@ -96,7 +96,8 @@ pattern：examples/<slug>.md（若有）
 | 差異分析結果（效應量＋顯著性，大量特徵） | 火山圖（橫軸 log2 倍數變化、縱軸 −log10 p 值，寫明原始或校正後；門檻為範例，不是標準）；看基因體位置用曼哈頓圖；看表現量層級偏差用 MA 圖 |
 | 全基因組關聯摘要（標記＋染色體＋位置＋p 值） | 曼哈頓圖（橫軸基因組位置、縱軸 −log10(p)；門檻為範例，不是標準）；兩性狀鏡像用邁阿密圖；並讀 QQ 圖查膨脹；單一峰值放大用 LocusZoom 圖（區域關聯圖；領先變異不等於因果、一叢高 LD 紅點不等於多個獨立訊號、低 LD 第二峰要條件分析；LD 依參考面板與族群；不要寫「鉛變體」） |
 | 兩條件比較的診斷（平均表現＋對數倍數；正規化、收縮、低計數噪音） | MA 圖（橫軸 A 平均表現、縱軸 M 對數倍數；顏色寫明是檢定還是單純門檻；`lfcShrink` 預設不改 p 值〔推論〕）；要候選排序用火山圖；RA 圖＝整數計數版，軸語意同 MA 圖 |
-| 分布形狀像不像某個參考分布／兩批像不像（含 GWAS p 值的整體偏離） | QQ 圖（分位數對分位數；貼 y = x 才表示分布相近，貼任意直線只表示線性關係；參考線畫法要註明；不是假設檢定、沒有 p 值）；機率對機率用 P–P 圖；SciPy `probplot` 不是 QQ 圖；λ 沒有單一官方閾值 |
+| 分布形狀像不像某個參考分布／兩批像不像（含 GWAS p 值的整體偏離） | QQ 圖（分位數對分位數；貼 y = x 才表示分布相近，貼任意直線只表示線性關係；參考線畫法要註明；不是假設檢定、沒有 p 值）；機率對機率用 P–P 圖（`examples/pp-plot.md`）；SciPy `probplot` 不是 QQ 圖；λ 沒有單一官方閾值 |
+| 同一個數值上比兩邊的累積機率（累積形狀像不像已完全指定的參考分布，或兩批位置相近的樣本） | P–P 圖（機率—機率圖；兩軸都是 0 到 1 的累積機率，加對角線、等軸比例；**圖題寫哪個軸放誰**，各來源不一致，statsmodels `ppplot` 軸標與實際內容相反；繪點公式 i/n、(i−0.5)/n、i/(n+1) 要寫；中央較敏感、尾部較被壓縮是定性說法不是定理，講尾巴並陳 QQ 圖；NIST「Probability Plot」與 SciPy `probplot` 軸是數值，不是 P–P；「P value plot」是 P–P 結構不是曼哈頓圖；GeostatsGuy 圖 CC BY-NC-ND）；分位數對分位數 → QQ 圖 |
 | 兩種量測方法的一致性（同一批樣本各測兩次的配對連續量測；能不能互換） | Bland–Altman 圖（橫軸 (A＋B)／2、縱軸差值，畫平均差與 ±1.96 SD 一致性界限；**圖題寫差值方向**；一致性界限不是信賴區間，平均差與界限各有信賴區間；能否互換看界限連同信賴區間是否落在事先訂好的可接受範圍，那是臨床／專業判斷；相關高不等於一致，也不是「95% 的點必在界限內」；MA 圖是取對數後的基因體應用，用途不同，不是同一種圖）；兩獨立組平均差用 Gardner–Altman 圖（尚無專檔） |
 | 曼哈頓圖找到尖塔後，想放大單一染色體區間看峰形、LD 與基因（GWAS 區域細讀） | LocusZoom 圖（區域關聯圖；橫軸區間位置、縱軸 −log10(p)、依對領先變異的 r² 著色、下方基因軌；圖註寫 LD 參考面板與族群與領先變異怎麼選；「領先（lead）變異」不是因果變異，不寫「鉛變體」；一叢高 LD 紅點與單一訊號一致但不能證明，低 LD 的第二個峰要條件分析才能說獨立；共定位、精細定位、條件分析是不同的事；各工具顏色與右軸單位不同；Pruim 2010 圖僅限非商業）；全基因組哪裡有峰 → 曼哈頓圖 |
 | 多類別交叉／市場區隔×組成 | 馬賽克（獨立性）；商用變寬堆疊用馬里梅可；平行集合；集合交集用 UpSet |

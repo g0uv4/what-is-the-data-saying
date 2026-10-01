@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖與 Bland–Altman 圖各附一支自檢 .py）
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖與 LocusZoom 圖各附一支自檢 .py）
 
 來自納茲已審 skill pack。**非真實產業資料；數字未核。**
 
@@ -31,8 +31,10 @@
 | `sample-qq-selfcheck.py` | 上一檔的自檢腳本（需 numpy 與 scipy，不是資料）；見下方「QQ 圖自檢腳本」，（v0.3.18 已修正讀檔方式） | 同上 |
 | `sample-ba-fictional.csv` | Bland–Altman 圖練習資料：row_id, dataset, method_a, method_b（220 列、約 6 KB；dataset＝good 100 對「一致性良好」＋ fan 120 對「誤差與大小成比例」；**差值一律是方法 B 減方法 A**；檔頭兩行以 `#` 開頭要略過；虛構，數字未核） | `2026-09-30-pm-ba` |
 | `sample-ba-selfcheck.py` | 上一檔的自檢腳本（需 numpy，不是資料）；見下方「Bland–Altman 自檢腳本」；以明確檔名讀 CSV，可直接在本資料夾跑 | 同上 |
+| `sample-locuszoom-fictional.csv` | LocusZoom 圖（區域關聯圖）練習資料：row_id, record_type, dataset, chrom, position_bp, end_bp, neg_log10_p, ld_r2_to_index, ld_band, is_index, gene_name, strand, recomb_rate_schematic（2,306 列、約 112 KB；record_type＝variant 變異位點 2,239、gene 基因軌 11、recomb 重組率示意取樣點 56；dataset＝genome 全基因組背景 1,760 點＋第 10 號染色體 45.0–45.55 Mb 四段虛構區間 single／following／second／readcolors；檔頭兩行以 `#` 開頭要略過；虛構，數字未核） | `2026-10-01-am-locuszoom` |
+| `sample-locuszoom-selfcheck.py` | 上一檔的自檢腳本（需 numpy，不是資料）；見下方「LocusZoom 自檢腳本」；以明確檔名讀 CSV，可直接在本資料夾跑 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -95,3 +97,29 @@ fan：改看百分比差異，兩半標準差 4.81 與 4.32 個百分點（大�
 ```
 
 **以實際計數為準**：素材包腳本註解寫 good「落在界限外的點很少（約 5%，不是 0）」，實際是 7／100＝7%；腳本沒有輸出 fan 的界限外點數，獨立重算為 5／120。本 repo 另以 numpy／scipy 獨立重算上列各數字，全部一致（以精確 t 臨界值重算 good 的信賴區間與腳本的 1.984 結果相同到小數第三位）。
+
+## LocusZoom 自檢腳本 `sample-locuszoom-selfcheck.py`
+
+檢查 `sample-locuszoom-fictional.csv`：共 2,306 列、`row_id` 不重複、全基因組背景點 1,760 個（染色體 1 到 22 各 80 個）；四段區間（single、following、second、readcolors）各只有一個領先變異、且它是該段最高的點；顏色等級與 r² 數值一致；輸出各區間的點數、領先變異位置與高度、其餘點最高值、超過顯著門檻（−log10(5×10⁻⁸)≈7.30）的點數與各顏色點數；第二個峰（second 區間）14 個點；readcolors 補的 3 個高處深藍點；重組率示意曲線最高處。**需要 numpy**。
+
+腳本以 `os.path.abspath(__file__)` 加明確檔名讀同資料夾的 CSV，**不搜尋檔案**，在任何資料夾執行都可以；直接在本資料夾跑：
+
+```bash
+cd skills/what-is-the-data-saying/examples/data
+python3 sample-locuszoom-selfcheck.py
+```
+
+預期輸出八行（v0.3.19 上架前實跑，結束碼 0，與素材包所附輸出完全一致）：
+
+```
+OK 全檔 2306 列；全基因組背景點 1760 個（染色體 22 條，各 80 個）；基因軌 11 筆；重組率示意取樣點 56 個
+single：114 個點；指標變異在 45.235 Mb、高度 9.4；其餘點最高 8.887（低於指標變異）；超過顯著門檻 17 點；顏色等級 紅 18、橙 10、綠 12、淺藍 11、深藍 62
+following：121 個點；指標變異在 45.230 Mb、高度 10.0；其餘點最高 9.477（低於指標變異）；超過顯著門檻 28 點；顏色等級 紅 24、橙 10、綠 17、淺藍 7、深藍 62
+second：127 個點；指標變異在 45.190 Mb、高度 9.0；其餘點最高 8.400（低於指標變異）；超過顯著門檻 17 點；顏色等級 紅 16、橙 9、綠 11、淺藍 21、深藍 69
+readcolors：117 個點；指標變異在 45.230 Mb、高度 9.0；其餘點最高 8.529（低於指標變異）；超過顯著門檻 17 點；顏色等級 紅 18、橙 7、綠 16、淺藍 10、深藍 65
+second：第二個峰共 14 個點，r² 都小於 0.35（深藍 8、淺藍 6），最高 8.4，仍高於顯著門檻但低於指標變異；需條件分析確認，不能直接說獨立
+readcolors：高處的深藍點 3 個（高度 7.0、7.6、8.1），其中 2 個高於顯著門檻
+recomb：最高 46.48 在 45.48 Mb（示意曲線，非真實資料）
+```
+
+**以實際計數為準**（本 repo 另以獨立腳本重算，全部一致），兩點要小心讀：(1)「超過顯著門檻」的點數（17／28／17／17）**包含領先變異本身**，扣掉後是 16／27／16／16；(2) `second` 那行「第二個峰共 14 個點……仍高於顯著門檻」指的是**最高點 8.4**，14 個點中只有 3 個（7.736、7.919、8.4）高於 7.30。背景點最高 3.654，沒有任何一個超過門檻。

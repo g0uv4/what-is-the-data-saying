@@ -33,7 +33,7 @@
   上表是**範例，不是標準**：門檻要依實驗設計、樣本數、檢定力與驗證成本在分析前決定。註：EnhancedVolcano 說明文件內文寫預設倍數門檻 "log2FC is >|2|"，與手冊 FCcutoff = 1 矛盾，快速範例圖的垂直線也在 ±1，以手冊為準。
 
 - **備選（何時改用哪一種）**：
-  - 訊號落在哪條染色體、哪個區段 → **曼哈頓圖**（Manhattan plot；`manhattan-plot.md`）或區域放大圖
+  - 訊號落在哪條染色體、哪個區段 → **曼哈頓圖**（Manhattan plot；`manhattan-plot.md`）或 [LocusZoom 圖（區域關聯圖）](locuszoom.md)
   - 診斷低表現量特徵的倍數估計是否不穩、收縮或正規化是否偏差 → **MA 圖**（`ma-plot.md`；NotchBio："An MA plot in RNA-seq is primarily a diagnostic view, while a volcano plot is primarily a results-summary view."）
   - 只有原始計數矩陣、還沒做檢定 → 先做差異分析；火山圖不是任意兩欄交叉探索的圖（任意兩變數 → 一般散點 `correlation-scatter.md`）
   - 超過兩組又沒有明確對比 → 按每組對比分別畫，或改用多組比較方法

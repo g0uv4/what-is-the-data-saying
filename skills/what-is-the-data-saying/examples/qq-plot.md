@@ -52,7 +52,7 @@
   - 變化幅度與顯著性 → **火山圖**（`volcano-plot.md`）；豐度與倍數 → **MA 圖**（`ma-plot.md`）
   - 只想看分布輪廓、峰數、離群 → 箱形圖／小提琴／山脊／雨雲（`boxplot-summary.md`、`violin-distribution.md`、`ridgeline-density.md`、`raincloud-combo.md`）；本 repo 尚無專檔的直方圖也可
   - 兩種量測方法的一致性界限 → [**Bland–Altman 圖**](bland-altman.md)
-  - 染色體局部區間細看 → **區域放大圖（LocusZoom）**（repo 尚無專檔）
+  - 染色體局部區間細看 → [**LocusZoom 圖（區域關聯圖）**](locuszoom.md)
   - 想比較的是累積機率曲線是否重合 → **P–P 圖**（repo 尚無專檔）；不要把 P–P 圖叫成 QQ 圖
   - 只有類別標籤、沒有可排序數量或 p 值 → 資料前提不夠
 
@@ -63,7 +63,7 @@
 | **曼哈頓圖**（`manhattan-plot.md`） | 基因組位置 | −log10(p) | 關聯訊號落在基因組哪一段 | 橫軸是位置不是期望值；兩者常並列（QQ 回答「整體有沒有偏」，曼哈頓回答「在哪裡」） |
 | **P–P 圖**（repo 尚無專檔） | 理論累積機率 | 經驗累積機率 | 兩條累積分布曲線是否重合 | 軸是 0 到 1 的機率，比較線是 (0,0) 到 (1,1) 的 45 度線；QQ 圖的軸是分位數實際數值。兩者常被混淆（維基百科 P–P 條目："with which it is often confused"） |
 | [**Bland–Altman 圖**](bland-altman.md) | 兩種量測的平均 | 兩種量測的差 | 兩種量測方法的一致性 | 用途不同 |
-| **區域放大圖（LocusZoom）**（repo 尚無專檔） | 染色體局部位置 | −log10(p) 等 | 局部區間細看 | 局部關聯圖，不是分布診斷 |
+| [**LocusZoom 圖（區域關聯圖）**](locuszoom.md) | 染色體局部位置 | −log10(p) 等 | 局部區間細看 | 局部關聯圖，不是分布診斷 |
 | **一般散點圖**（`correlation-scatter.md`） | 任意數值 | 任意數值 | 兩變數關係 | QQ 圖的軸不是任意兩欄，而是對齊同一累積比例後的分位數 |
 | **火山圖**（`volcano-plot.md`） | 倍數 | 顯著性 | 變多大、證據多強 | 不是分位數對分位數 |
 | **MA 圖**（`ma-plot.md`） | 平均豐度 | 對數倍數 | 正規化或收縮是否異常 | 不是分位數對分位數 |
@@ -129,6 +129,6 @@
 - 查核限制（未核；僅記名、不列連結）：R Graph Gallery `quantile-quantile-plot.html`、Python Graph Gallery `quantile-quantile-plot/`、From Data to Viz `graph/qq.html`、Dataviz Catalogue `methods/qq_plot.html`、Dataviz Project `data-type/quantile-quantile-plot/`、Commons `Category:Q-Q_plots`、Seaborn `seaborn.qqplot`（以上 7 條 404）；Statology `q-q-plot`（202，回應近乎空白，不可用）；賓州州立大學 STAT 462 `node/123`（000，連線失敗）。另 Khan Academy 該篇雖回 200，但該站對任何路徑都回同一個要求啟用網頁腳本的驗證頁，文章是否存在無法證實，不作為來源、不列連結
 - 已對照但素材包未列網址的次級來源：MetricGate、grGWAS 文件對 λ 閾值的說法（互相不一致，非官方標準）；不引用、不連結
 
-鄰居 pattern：`manhattan-plot.md`（配套：位置 × −log10(p)）、`volcano-plot.md`、`ma-plot.md`、`correlation-scatter.md`（任意兩變數）、`violin-distribution.md`、`boxplot-summary.md`、`ridgeline-density.md`、`raincloud-combo.md`（分布輪廓的其他看法）、`bland-altman.md`（兩種量測方法的一致性；QQ 圖可用來檢查差值是否近似常態）；P–P 圖、區域放大圖（LocusZoom）、直方圖尚無專檔。
+鄰居 pattern：`manhattan-plot.md`（配套：位置 × −log10(p)）、`volcano-plot.md`、`ma-plot.md`、`correlation-scatter.md`（任意兩變數）、`violin-distribution.md`、`boxplot-summary.md`、`ridgeline-density.md`、`raincloud-combo.md`（分布輪廓的其他看法）、`bland-altman.md`（兩種量測方法的一致性；QQ 圖可用來檢查差值是否近似常態）、`locuszoom.md`（局部區間細看，不是分布診斷）；P–P 圖、直方圖尚無專檔。
 
 圖檔留在教圖／skill-pack（`/workspace/skill-packs/2026-09-30-am-qq/images/`，25 張，圖說與教學稿逐字相同），本 repo **不複製**任何圖。可對照的圖：wiki-normal-normal／wiki-normal-exp／wiki-weibull／wiki-ohio-temps（維基百科，需標作者與授權；ohio-temps 是兩樣本 QQ，不是對理論分布）、wiki-normprob／wiki-normexpprob／wiki-normunifprob（常態機率圖）、sim-anatomy-normal／sim-right-skew／sim-heavy-tails／sim-short-tails／sim-ref-lines／sim-gwas-inflation／sim-gwas-early-lift／sim-residual-qq（皆為**模擬資料重繪**；sim-residual-qq 顯示的是非常態殘差；gwas 兩張的 λ 約 1.08 與 1.30 是模擬值、數字未核、不是判斷門檻）、nist-qqplot、qqman-qq-basic／qqman-qq-titled、statsmodels-02（兩樣本 QQ）、scipy-probplot-note（**機率圖，不是 QQ 圖**）、ggplot2-geom-qq-1-note／2-note、x-juanlu（皆授權未明示，僅作教學示意引用）；對照圖：statsmodels-03（P–P 圖）、contrast-manhattan-qqman（曼哈頓圖，不是 QQ 圖）。對帳見 `ATTRIBUTION.md`。

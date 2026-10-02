@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖與 P–P 圖各附一支自檢 .py）
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖與核型圖各附一支自檢 .py）
 
 來自納茲已審 skill pack。**非真實產業資料；數字未核。**
 
@@ -35,8 +35,10 @@
 | `sample-locuszoom-selfcheck.py` | 上一檔的自檢腳本（需 numpy，不是資料）；見下方「LocusZoom 自檢腳本」；以明確檔名讀 CSV，可直接在本資料夾跑 | 同上 |
 | `sample-pp-fictional.csv` | P–P 圖虛構資料（1,000 列、約 30 KB；欄位 row_id, dataset, group, obs_index, value, value2；8 個 dataset：anatomy 20、good 100、heavy 200、loc 100、skew 200、two 200、resid 80、sm 100 列；檔頭**三行以 # 開頭要略過**） | 2026-10-01-pm-pp.md |
 | `sample-pp-selfcheck.py` | 上一檔的自檢腳本（需 numpy 與 scipy，不是資料）；見下方「P–P 自檢腳本」；以明確檔名讀 CSV，可直接在本資料夾跑 | 同上 |
+| `sample-karyotype-fictional.csv` | 核型圖／染色體帶型示意圖虛構資料（1,548 列、約 80 KB；欄位 row_id, record_type, dataset, chrom, start_bp, end_bp, name, gstain, value, chrom2, start2_bp；record_type：chrom 24、band 320、interval 5、density 631、assoc 560、link 8；檔頭**兩行以 # 開頭要略過**） | 2026-10-02-am-karyotype.md |
+| `sample-karyotype-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「核型圖自檢腳本」；以明確檔名讀 CSV，可直接在本資料夾跑 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -153,3 +155,34 @@ sm：n=100；擬合常態平均 6.29、標準差 2.95；橫軸 [0.45, 0.85) 的 
 ```
 
 **以實際計數為準**（本 repo 另以獨立程式重算，自算 Φ，全部一致，未發現素材包文字與 CSV 不一致），要小心讀：「全在對角線上方／下方」只計**指定橫軸區間內**的點——`heavy` 標準化後 [0.05, 0.45) 的 81 點與 [0.55, 0.95) 的 66 點，共 147 點，不是全部 200 點；`skew` 全批 127 點在線上方、73 點在線下方，「111 點全在線上方」只指橫軸 [0.3, 0.85) 區間；`two` 橫軸大於 0.6 的 82 點中有 1 點剛好在線上。`heavy` 樣本標準差約 2.46（t 分布自由度 2，變異數無限大，數值不穩定）。示範數字標「數字未核」，不是真實資料。
+
+## 核型圖自檢腳本 `sample-karyotype-selfcheck.py`
+
+檢查 `sample-karyotype-fictional.csv`：共 1,548 列、`row_id` 不重複、各類列數；24 條染色體的帶從 0 鋪到全長、無縫隙無重疊，每條 2 個 acen 帶且在著絲點位置相接；柄（stalk）與可變區（gvar）的位置；深淺等級計數；p 臂與 q 臂帶號方向；第 7 號與第 5 號的帶數、長度與著絲點比例；第 5 號 q21–q23 缺失／重複的區段與依比例長度；區間 A、B、C；條數 46 與 47；著絲點類型的臂比；密度格範圍；假關聯點（門檻 7.30）與假連線。**只需 Python 標準函式庫**（不需 numpy）。
+
+腳本以 `os.path.abspath(__file__)` 的資料夾加明確檔名讀同資料夾的 CSV，**不搜尋檔案**，在任何資料夾執行都可以；直接在本資料夾跑：
+
+```bash
+cd skills/what-is-the-data-saying/examples/data
+python3 sample-karyotype-selfcheck.py
+```
+
+預期輸出十三行（v0.3.21 上架前實跑，結束碼 0，與素材包 §7 所附輸出逐行完全一致）：
+
+```
+OK 全檔 1548 列；各類列數：chrom 24、band 320、interval 5、density 631、assoc 560、link 8
+帶：24 條染色體共 320 個帶，每條都從 0 鋪到全長；acen 帶 48 個（每條 2 個）；stalk 5 個（13、14、15、21、22 號短臂各 1 個）；gvar 6 個（上述 5 條短臂各 1 個，加 Y 染色體長臂 1 個）；gneg 69、gpos25 46、gpos50 50、gpos75 63、gpos100 33
+帶號：24 條染色體的 p 臂（由頂端端粒往下）帶號由大到小、到著絲點為 p11；q 臂（由著絲點往下）由 q11 依序變大，往端粒方向帶號都是變大
+第 7 號：16 個帶（p 臂 6 個含 p11，q 臂 10 個含 q11），頂端最外層 p23、底端最外層 q41；著絲點在全長 37.7% 處
+第 5 號：18 個帶，長度 181.54 Mb，著絲點在全長 26.9% 處；長臂 gpos100 的帶只有 q42；長臂第一個 gneg 帶是 q22（圖例拿它當淺色帶）
+缺失／重複：第 5 號 q21、q22、q23 三個帶，73.29 到 98.56 Mb，長度 25.27 Mb；缺失後該段拷貝數 1（2−1）、重複後 3（2+1）；若依比例，缺失那一條約 156.27 Mb、重複那一條約 206.81 Mb
+區間：A 20–35 Mb（在第 5 號短臂，著絲點 48.8 Mb 之前）、B 100–118 Mb、C 140–165 Mb（B、C 在長臂，且 C 的終點小於全長 181.54 Mb）
+條數：男性示意 22×2＋X＋Y＝46；女性示意 22×2＋XX＝46（23 對）；21 號由 2 份變 3 份，整套由 46 變 47
+著絲點類型：著絲點在全長 50%、33%、13% 處時，長臂÷短臂＝1.0、2.1、7.1
+密度：631 格；最小 0.05（有 6 格剛好在下限 0.05），最大 0.977（沒有任何一格達到上限 1），平均 0.497
+曼哈頓：560 個點（第 6 號 31 個、第 12 號 29 個、其餘 1–22 號各 25 個，X、Y 沒有點）；高於門檻 7.30 的共 8 個，第 6 號 5 個（位置 30.6–31.2 Mb）、第 12 號 3 個（位置 61.7–62.3 Mb），其餘染色體 0 個；其餘染色體最高只有 3.283
+連線 8 條，每條連到不同的兩條染色體；21 號長度約為 1 號的 18.8%、6 號約為 1 號的 68.6%
+全部檢查通過
+```
+
+**以實際計數為準**（本 repo 另以獨立程式〔pandas〕重算，全部一致，未發現素材包文字與 CSV 不一致），要小心讀：(1) 這是虛構資料，染色體長度與著絲點位置是憑印象取的近似值，21、22 號著絲點位置是示意取值，帶、帶號與染色深淺全是模擬，**不能當真實數據引用**；(2) 著絲點類型的臂比 1.0、2.1、7.1 是「總長 120 單位、著絲點帶各寬 1 單位、臂長不含著絲點帶」算出來的教學示意，若直接用著絲點位置算會是 1.0、2.0、6.7，它們**不是 ISCN 的分類門檻**；(3) 教學稿與素材包說每條臂其餘的帶數是臂長 ÷ 11 Mb「取整數」，實際資料是**四捨五入**（改成無條件捨去，48 條臂中有 17 條對不上）；(4) 密度最大值 0.977，沒有任何一格達到上限 1，最小值 0.05 有 6 格剛好在下限；(5) 「曼哈頓」那行的 8 個高於門檻的點都在第 6 號與第 12 號，其餘染色體最高只有 3.283。

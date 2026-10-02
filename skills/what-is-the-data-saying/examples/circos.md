@@ -3,7 +3,7 @@
 > **圖種**：Circos（環狀多軌圖）
 > **來源（納茲教圖）**：`teach-viz/2026-09-28-am-circos.md`（方法教學；正式課程）
 > **亦稱**：環形比較基因組視覺、圓形多軌關係圖；英文固定寫 **Circos**（同時是軟體名稱與圖種傳統；Martin Krzywinski 於 Canada's Michael Smith Genome Sciences Centre 開發）
-> **核心（三層讀法）**：**環＝參考軸**（染色體、序列重疊群 contig 或任何有長度刻度的扇區排成一圈；染色體示意圖稱 ideogram）→ **徑向軌道＝同一角度的多層訊號**（散點、折線、直方圖、熱圖、磚塊、文字同心疊放，同一角度＝同一位置）→ **內部連線與寬帶＝成對關係**（兩個位置之間的對應、重組、共線性；寬度、透明度、顏色表示區間大小、方向與強度）
+> **核心（三層讀法）**：**環＝參考軸**（染色體、序列重疊群 contig 或任何有長度刻度的扇區排成一圈；染色體示意圖稱 ideogram；單獨的帶型示意圖見 `karyotype-ideogram.md`）→ **徑向軌道＝同一角度的多層訊號**（散點、折線、直方圖、熱圖、磚塊、文字同心疊放，同一角度＝同一位置）→ **內部連線與寬帶＝成對關係**（兩個位置之間的對應、重組、共線性；寬度、透明度、顏色表示區間大小、方向與強度）
 > **出處**：Krzywinski M, Schein J, Birol I, Connors J, Gascoyne R, Horsman D, Jones SJ, Marra MA. "Circos: an information aesthetic for comparative genomics." *Genome Research* 2009;19(9):1639–1645；DOI 10.1101/gr.092759.109（DOI 與期刊頁本輪打不開，以 PubMed Central 全文為準）
 
 ## When
@@ -112,6 +112,6 @@
 
 X 教學原帖：本輪查無可用教學原帖（搜尋結果多為工具閒聊、「Circos 風格」弦圖推廣或新工具發表；不編造）。
 
-鄰居 pattern：`chord-matrix.md`（只有類別流量）、`arc-diagram.md`（直線版面拓撲）、`circular-bar.md`（單層類別長條）、`sunburst-hierarchy.md`（同心環＝階層）、`sankey-flow.md`、`biofabric.md`、`adjacency-matrix.md`、`force-network.md`、`hierarchy-icicle.md`、`flame-graph.md`、`volcano-plot.md`（同屬基因體學常見圖，但火山圖是差異分析的優先排序散點）、`manhattan-plot.md`（環狀曼哈頓圖只是 −log10(p) 峰值，不是 Circos 多軌連結）、`locuszoom.md`（單一染色體區間的關聯放大，不是環狀多軌全景）；階層邊捆綁尚無專檔。
+鄰居 pattern：`chord-matrix.md`（只有類別流量）、`arc-diagram.md`（直線版面拓撲）、`circular-bar.md`（單層類別長條）、`sunburst-hierarchy.md`（同心環＝階層）、`sankey-flow.md`、`biofabric.md`、`adjacency-matrix.md`、`force-network.md`、`hierarchy-icicle.md`、`flame-graph.md`、`volcano-plot.md`（同屬基因體學常見圖，但火山圖是差異分析的優先排序散點）、`manhattan-plot.md`（環狀曼哈頓圖只是 −log10(p) 峰值，不是 Circos 多軌連結）、`locuszoom.md`（單一染色體區間的關聯放大，不是環狀多軌全景）、`karyotype-ideogram.md`（染色體形態與帶型的線性或成對示意，不是環狀多軌）；階層邊捆綁尚無專檔。
 
 圖檔留在教圖／skill-pack（`/workspace/skill-packs/2026-09-28-am-circos/images/`，22 張，圖說用 SKILL-PACK.md 修正後版本），本 repo **不複製**大圖。可當範例對照的是 official-sample-panel（四格：細連線、寬帶、多軌加扇出、只有多軌）、plottypes（元件 A–T）、official-panel-genomic、official-panel-general（非基因組：購車、化學反應性、約會趨勢）、official-panel-tableviewer、pmc-1639fig5／6／7（拷貝數多軌、區段拉出、連續刻度放大）、guide-conservation、sample-large-23／24、tut-tutorial-05-01／06-01／08-01、globalscale（刻度變換）、official-rules（執行期規則）、feature-americanscientist、feature-nyt-epigenome、conde-nast（Krzywinski 與 John Grimwade 合作設計，**不是** 23andMe 製作）、car-purchase；pycirclize-pyCirclize_gallery 與 circlize-examples 要標「同家族實作，不是官方 Circos」。對帳見 `ATTRIBUTION.md`。

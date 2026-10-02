@@ -2,7 +2,7 @@
 name: what-is-the-data-saying
 description: >
   Given a table or report, recommend the chart and how to make it (資料在說什麼).
-  Nazh-grounded Taiwan zh-TW pedagogy plus 58 named patterns. Use when the user
+  Nazh-grounded Taiwan zh-TW pedagogy plus 59 named patterns. Use when the user
   pastes CSV / Excel / a table / 報表 and asks which chart, how to visualize,
   這份資料該怎麼畫, 推薦圖表, 視覺化, or runs /what-is-the-data-saying.
 when-to-use: >
@@ -13,7 +13,7 @@ argument-hint: paste a table or describe the report
 metadata:
   short-description: "Which chart? How to make it. 資料在說什麼"
   author: g0uv4
-  version: "0.3.20"
+  version: "0.3.21"
   lineage: "納茲 - 資料視覺 teach-viz 教圖"
   license: MIT
 ---
@@ -100,6 +100,7 @@ pattern：examples/<slug>.md（若有）
 | 同一個數值上比兩邊的累積機率（累積形狀像不像已完全指定的參考分布，或兩批位置相近的樣本） | P–P 圖（機率—機率圖；兩軸都是 0 到 1 的累積機率，加對角線、等軸比例；**圖題寫哪個軸放誰**，各來源不一致，statsmodels `ppplot` 軸標與實際內容相反；繪點公式 i/n、(i−0.5)/n、i/(n+1) 要寫；中央較敏感、尾部較被壓縮是定性說法不是定理，講尾巴並陳 QQ 圖；NIST「Probability Plot」與 SciPy `probplot` 軸是數值，不是 P–P；「P value plot」是 P–P 結構不是曼哈頓圖；GeostatsGuy 圖 CC BY-NC-ND）；分位數對分位數 → QQ 圖 |
 | 兩種量測方法的一致性（同一批樣本各測兩次的配對連續量測；能不能互換） | Bland–Altman 圖（橫軸 (A＋B)／2、縱軸差值，畫平均差與 ±1.96 SD 一致性界限；**圖題寫差值方向**；一致性界限不是信賴區間，平均差與界限各有信賴區間；能否互換看界限連同信賴區間是否落在事先訂好的可接受範圍，那是臨床／專業判斷；相關高不等於一致，也不是「95% 的點必在界限內」；MA 圖是取對數後的基因體應用，用途不同，不是同一種圖）；兩獨立組平均差用 Gardner–Altman 圖（尚無專檔） |
 | 曼哈頓圖找到尖塔後，想放大單一染色體區間看峰形、LD 與基因（GWAS 區域細讀） | LocusZoom 圖（區域關聯圖；橫軸區間位置、縱軸 −log10(p)、依對領先變異的 r² 著色、下方基因軌；圖註寫 LD 參考面板與族群與領先變異怎麼選；「領先（lead）變異」不是因果變異，不寫「鉛變體」；一叢高 LD 紅點與單一訊號一致但不能證明，低 LD 的第二個峰要條件分析才能說獨立；共定位、精細定位、條件分析是不同的事；各工具顏色與右軸單位不同；Pruim 2010 圖僅限非商業）；全基因組哪裡有峰 → 曼哈頓圖 |
+| 讓讀者看到整套或單條染色體的長度、著絲點、帶型，以及異常或註解落在哪一臂哪一帶（細胞遺傳學示意、整條染色體地圖、全基因體骨架） | 核型圖／染色體帶型示意圖（`examples/karyotype-ideogram.md`；karyogram 與 idiogram 在英文維基百科是同義詞，都涵蓋照片與示意圖，不要說成「karyogram＝照片、ideogram＝示意圖」；短臂 p 在上、長臂 q 在下，帶號由著絲點往端粒遞增；人類 46 條；缺失或重複的色框只框有變化的那一條；帶型表與標註座標同一基因體版本；只畫中央、亞中央、近端著絲點，人類無端著絲點為單一來源；示意不是診斷；AGeremia 圖 CC BY-SA 3.0、karyoploteR 教學圖 CC BY 4.0、IdeoViz GPL-2）；關聯尖峰 → 曼哈頓圖；環狀多軌 → Circos |
 | 多類別交叉／市場區隔×組成 | 馬賽克（獨立性）；商用變寬堆疊用馬里梅可；平行集合；集合交集用 UpSet |
 | 網路關係 | 力導向／弧線／鄰接矩陣／蜂巢圖；有階層+葉連線用 HEB；稠密成毛球、每條邊要可辨識或依類型分塊用 BioFabric（生物織布圖，暫譯） |
 | 地理量 | 等值區域圖（choropleth；先正規化，勿用總量填色）；計數疏密用點密度圖；總量規模用比例符號地圖；每區等權重、怕大區搶眼用圖塊地圖（一區一格）；面積＝資料用面積變形地圖；起迄用流向地圖 |

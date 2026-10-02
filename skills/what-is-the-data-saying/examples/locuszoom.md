@@ -48,7 +48,7 @@
   - 要看「全基因組哪裡有峰」→ [曼哈頓圖](manhattan-plot.md)
   - p 值整體像不像期望、有沒有膨脹 → [QQ 圖](qq-plot.md)
   - 倍數對顯著性 → [火山圖](volcano-plot.md)；豐度對倍數 → [MA 圖](ma-plot.md)；兩種量測方法是否一致 → [Bland–Altman 圖](bland-altman.md)
-  - 染色體形態與帶型 → 核型圖（karyotype／ideogram；repo 尚無專檔，不應稱為 LocusZoom）
+  - 染色體形態與帶型 → [核型圖](karyotype-ideogram.md)（karyotype／ideogram，不應稱為 LocusZoom）
   - 沒有基因組座標與關聯統計量 → 資料前提不足；只是比較任意兩欄 → [一般散點圖](correlation-scatter.md)，不應稱為區域關聯圖
 
 ## 與鄰近圖種的區別
@@ -63,7 +63,7 @@
 | Circos（`circos.md`） | 環狀參考軸 | 多軌 | 全景與連結 | 環狀多軌全景，不是單一區間的關聯放大 |
 | 精細定位圖（repo 尚無專檔） | 區間內位置 | 變異是因果的機率（可信集合）等 | 最可能影響性狀的變異是哪幾個 | LocusZoom.js 可顯示 95% 可信集合，但 LocusZoom 圖本身不是精細定位 |
 | 共定位圖（如 locuscomparer；repo 尚無專檔） | 區間內位置 | 兩種性狀的關聯 | 兩個訊號是否與同一個共享因果變異一致 | 說明文件載明為 GWAS 與 eQTL 共定位的視覺化；屬相近工具，不改題 |
-| 核型圖（repo 尚無專檔） | 染色體 | 帶型 | 染色體長什麼樣子 | 不是關聯 p 值的區間圖 |
+| [核型圖](karyotype-ideogram.md) | 染色體 | 帶型 | 染色體長什麼樣子 | 不是關聯 p 值的區間圖 |
 
 判斷口訣：**全基因組看哪裡有峰 → 曼哈頓圖；選定區間＋LD 著色＋基因軌 → LocusZoom 圖；p 值整體膨脹 → QQ 圖；任意兩欄 → 一般散點圖。**
 
@@ -128,6 +128,6 @@
 - 論文原文僅引述、素材包未列連結：Schaid 等 2018（Nat Rev Genet 19:491–504）、Giambartolomei 等 2014（PLoS Genet 10(5):e1004383）、Yang 等 2012（Nat Genet 44:369–375）；Bentham 2015（GCST003156）為 locuszoomr 說明文件範例資料的出處
 - X：素材包以多種關鍵字查 LocusZoom、"regional association plot"、"locus zoom" GWAS，結果皆為 0 筆，**找不到教學向原帖，沒有編造連結**
 
-鄰居 pattern：`manhattan-plot.md`（前後相接：總覽 → 放大）、`qq-plot.md`、`volcano-plot.md`、`ma-plot.md`、`bland-altman.md`、`correlation-scatter.md`、`circos.md`；精細定位圖、共定位圖、核型圖尚無專檔。
+鄰居 pattern：`manhattan-plot.md`（前後相接：總覽 → 放大）、`qq-plot.md`、`volcano-plot.md`、`ma-plot.md`、`bland-altman.md`、`correlation-scatter.md`、`circos.md`；`karyotype-ideogram.md`（染色體核型與帶型；告訴你區間在整條染色體哪裡）；精細定位圖、共定位圖尚無專檔。
 
 圖檔留在教圖／skill-pack（`/workspace/skill-packs/2026-10-01-am-locuszoom/images/`，20 張，圖說與教學稿逐字相同），本 repo **不複製**任何圖。可對照的圖：wiki-Regional_Association_Plot（CC BY-SA 2.5；第 19 號染色體；指標變異為圓點加箭頭，圖內另有未附圖例的方塊、倒三角）、pmc2010-btq419f1（Pruim 2010 圖 1，CC BY-NC 2.5 僅限非商業；圖內 "nonsyn"、"utr" 縮寫未定義）、pmc2021-lzjs-btab186f1（CC BY 4.0；裁切後未附 r² 圖例）、github-standard-association（LocusZoom.js 截圖，授權未明示）、locuszoomr-v01（無 LD 著色）／v02／v03（右軸單位 %）／v07（縱軸是 beta）／v12／v04（**只有基因軌，不是區域關聯圖**）／v06（顏色是 eQTL 效應，**不是 LD**）／v08／v13（互動版截圖）、sim-anatomy／sim-manhattan-vs-region／sim-following-ld／sim-second-peak-lowld／sim-read-ld-colors／sim-recomb-overlay（皆**模擬資料重繪**，數字未核；「跟隨」是本課教學比喻，非來源術語；重組率為示意曲線）、wiki-manhattan-contrast（真正的曼哈頓圖，CC BY 2.5）。除上列明示授權者外皆授權未明示，僅作教學示意引用。對帳見 `ATTRIBUTION.md`。

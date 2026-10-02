@@ -47,6 +47,7 @@
 | QQ 圖（分位數對分位數；含 P–P 圖分界） | `qq-plot.md` | 2026-09-30-am-qq.md |
 | P–P 圖（機率對機率；≠ QQ 圖；軸放誰各來源不一致） | `pp-plot.md` | 2026-10-01-pm-pp.md |
 | 核型圖／染色體帶型示意圖（karyotype／ideogram；p、q 臂與著絲點、帶號；≠ 曼哈頓圖、≠ Circos） | `karyotype-ideogram.md` | 2026-10-02-am-karyotype.md |
+| 森林圖（Forest plot；一列一項研究：方塊＝估計、橫線＝信賴區間、菱形＝合併；比值類對數軸；≠ 統合分析漏斗圖〔Funnel plot〕、≠ 商業漏斗圖〔Funnel chart〕） | `forest-plot.md` | 2026-10-02-pm-forest.md |
 | Bland–Altman 圖（兩種量測方法的一致性；≠ MA 圖、≠ 相關係數） | `bland-altman.md` | 2026-09-30-pm-ba.md |
 | LocusZoom 圖（區域關聯圖；曼哈頓圖的區間細節層；≠ 曼哈頓圖；領先變異≠因果） | `locuszoom.md` | 2026-10-01-am-locuszoom.md |
 | 力導向網路 | `force-network.md` | 2026-09-17-pm-force.md |

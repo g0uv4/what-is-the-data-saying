@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖與核型圖各附一支自檢 .py）
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖與森林圖各附一支自檢 .py）
 
 來自納茲已審 skill pack。**非真實產業資料；數字未核。**
 
@@ -37,8 +37,10 @@
 | `sample-pp-selfcheck.py` | 上一檔的自檢腳本（需 numpy 與 scipy，不是資料）；見下方「P–P 自檢腳本」；以明確檔名讀 CSV，可直接在本資料夾跑 | 同上 |
 | `sample-karyotype-fictional.csv` | 核型圖／染色體帶型示意圖虛構資料（1,548 列、約 80 KB；欄位 row_id, record_type, dataset, chrom, start_bp, end_bp, name, gstain, value, chrom2, start2_bp；record_type：chrom 24、band 320、interval 5、density 631、assoc 560、link 8；檔頭**兩行以 # 開頭要略過**） | 2026-10-02-am-karyotype.md |
 | `sample-karyotype-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「核型圖自檢腳本」；以明確檔名讀 CSV，可直接在本資料夾跑 | 同上 |
+| `sample-forest-fictional.csv` | 森林圖虛構資料（61 列資料、約 5.5 KB、檔頭 8 行 `#` 說明；欄位 dataset, panel, study, subgroup, measure, effect, analysis_value, se, ci_lower, ci_upper, weight_fixed_pct；8 個資料集 S1–S8、10 個分析單位；**數字未核**，後 3 欄是推導欄） | `../forest-plot.md` |
+| `sample-forest-selfcheck.py` | 上一檔的自檢腳本（需 numpy，有 statsmodels 才多一行交叉核對，不是資料）；見下方「森林圖自檢腳本」；以明確檔名讀 CSV，可直接在本資料夾跑 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -186,3 +188,34 @@ OK 全檔 1548 列；各類列數：chrom 24、band 320、interval 5、density 6
 ```
 
 **以實際計數為準**（本 repo 另以獨立程式〔pandas〕重算，全部一致，未發現素材包文字與 CSV 不一致），要小心讀：(1) 這是虛構資料，染色體長度與著絲點位置是憑印象取的近似值，21、22 號著絲點位置是示意取值，帶、帶號與染色深淺全是模擬，**不能當真實數據引用**；(2) 著絲點類型的臂比 1.0、2.1、7.1 是「總長 120 單位、著絲點帶各寬 1 單位、臂長不含著絲點帶」算出來的教學示意，若直接用著絲點位置算會是 1.0、2.0、6.7，它們**不是 ISCN 的分類門檻**；(3) 教學稿與素材包說每條臂其餘的帶數是臂長 ÷ 11 Mb「取整數」，實際資料是**四捨五入**（改成無條件捨去，48 條臂中有 17 條對不上）；(4) 密度最大值 0.977，沒有任何一格達到上限 1，最小值 0.05 有 6 格剛好在下限；(5) 「曼哈頓」那行的 8 個高於門檻的點都在第 6 號與第 12 號，其餘染色體最高只有 3.283。
+
+## 森林圖自檢腳本 `sample-forest-selfcheck.py`
+
+檢查 `sample-forest-fictional.csv`：61 列、8 個資料集、10 個分析單位，區間欄（ci_lower、ci_upper）與固定效應權重欄（weight_fixed_pct）重算相符；S1 到 S8 各自的合併估計、Q、df、I²、DL 的 τ²、區間跨不跨 1（或 0）、亞組間檢定、權重比與漏斗圖的 ±1.96 標準誤範圍。**只需 numpy**；環境裡有 statsmodels 時多一行交叉核對（以 `method_re='dl'` 對照，並列出 S5 預設 Paule–Mandel 與 DL 的 τ²），沒有就略過。
+
+腳本以明確檔名讀同資料夾的 CSV，**不搜尋檔案**；直接在本資料夾跑：
+
+```bash
+cd skills/what-is-the-data-saying/examples/data
+python3 sample-forest-selfcheck.py
+```
+
+預期輸出十一行（v0.3.22 上架前實跑，結束碼 0）。以下是**有安裝 statsmodels 0.15.0** 的輸出，與素材包 §7 所附輸出逐行完全一致：
+
+```
+[CSV] 61 列、8 個資料集、10 個分析單位；區間欄與權重欄重算相符
+[S1] 合併 RR 0.81 [0.70, 0.94]；Q=4.11，df=5，I²=0.0%（原始值 -21.7% 截為 0），τ²=0.000（DL 原始值 -0.0064 截為 0）；95% 區間不跨過 1 的研究 2 項、含 1 的 4 項
+[S2] 前 2 項 95% 區間不含 1、後 3 項含 1；固定效應合併 RR 0.82 [0.72, 0.93]（上限 < 1）；I²=54.9%（落在 30–60% 與 50–90% 兩個重疊區間）
+[S3] RR 合併 0.92 [0.76, 1.13]（含 1）；研究 D 線性軸左 0.84、右 1.46，對數軸等長；差值合併 -1.68 [-2.67, -0.70]（上限 < 0）
+[S4] (a) Q=0.36，I²=0.0%，τ²=0.000，合併 0.70；(b) Q=35.43，I²=85.9%，τ²(DL)=0.138，合併 0.63；用顯示的兩位數 RR 重算 (b) 的 Q=34.75
+[S5] Q=16.05，df=6，I²=62.6%，τ²(DL)=0.060（實際 0.05965）；固定 0.75 [0.66, 0.85] 寬 0.255；隨機(DL) 0.72 [0.56, 0.92] 寬 0.495（1.94 倍）；第七項權重 2.6%→7.2%
+[S6] 亞組 A 0.64 [0.51, 0.79]（I²=0.0%），亞組 B 1.00 [0.83, 1.21]，全部 0.83 [0.72, 0.95]；亞組間 Q=9.68（df=1，兩種算法相同），p=0.0019→0.002
+[S7] 權重 86.6／1.0／7.8／3.0／1.5（%）；最大權重研究 RR 0.96，RR 最小研究 0.35（區間 [0.12, 1.03] 含 1），權重比 84.0 倍；合併 0.92 [0.82, 1.02]（上限 > 1）
+[S8] 10 項（種子 9）合併 0.76 [0.68, 0.84]，I²=0.0%；落在「合併估計 ±1.96×標準誤」之內的點 10／10（兩條虛線之間，含研究 1 本身）
+[statsmodels 0.15.0] 10 個分析單位的固定效應合併值、Q、I²、τ²（method_re="dl"，DL 原始值不截斷）與本程式相符；S5 的 τ²：DL=0.05965，預設 Paule–Mandel=0.03435（不同方法，不要混用）
+全部 assert 通過
+```
+
+**沒有安裝 statsmodels** 時，倒數第二行改為「[statsmodels] 未安裝，略過交叉核對（只做 numpy 重算）」，其餘十行完全相同（已用不含 statsmodels 的 Python 與 numpy 2.2.4 實測，結束碼 0）。
+
+**以實際計數為準**（本 repo 另以獨立程式〔pandas、scipy，不用腳本的函式〕重算合併估計、Q、I²、DL 與 Paule–Mandel 的 τ²、亞組間 Q，全部一致，未發現素材包文字與 CSV 不一致），要小心讀：(1) 這是虛構資料，**數字未核，不能當真實數據引用**；(2) S4 高異質性組的 Q 是 35.43，若直接用圖上顯示的兩位數風險比重算則約 34.75，不是錯誤，是四捨五入；(3) S5 的 τ² 在 DL 是 0.05965、在 statsmodels 預設的 Paule–Mandel 是 0.03435，隨機效應合併 RR 前者 0.7189 [0.561, 0.921]、後者 0.7226 [0.585, 0.892]，兩者要分開寫；(4) S2 的 I²＝54.9% 同時落在 Cochrane 30–60% 與 50–90% 兩個重疊區間，不要硬分類；(5) S1、S4 低異質性組與 S8 的 DL τ² 原始值是負的（例如 S1 為 −0.0064），表示 Q 小於自由度，τ² 與 I² 取 0，而 statsmodels 的 DL **不截為 0**；(6) 腳本裡的 S8 漏斗圖範圍是「合併估計 ± 1.96 × 標準誤」，10 個點全在其內，10 項只是剛好達到 Cochrane 建議的下限，不足以判斷發表偏差。

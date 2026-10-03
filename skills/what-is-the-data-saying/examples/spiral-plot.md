@@ -19,7 +19,7 @@
   - 比振幅高峰 → **螺旋長條／condegram** 或棒棒糖
   - 看連續起伏 → **螺旋折線／面積**（氣候螺旋多屬此類，半徑同時表示氣溫異常幅度）
   - 分級強度 → **螺旋熱圖**（每圈切固定弧段著色）；仍是螺旋時間軸，不是日曆方格牆或矩陣熱圖
-  - 軌道窄又要看分布 → 軌道上的地平線圖編碼（進階；spiralize 有 `spiral_horizon`）
+  - 軌道窄又要看分布 → 軌道上的地平線圖編碼（進階；spiralize 有 `spiral_horizon`；地平線圖本身見 [`horizon-chart.md`](horizon-chart.md)）
   - **多軌螺旋**：同一螺旋疊長條、文字、地平線等軌道（spiralize 範例常見）
   - **氣候螺旋**：角度＝月份，半徑與顏色＝相對基準期的氣溫異常，常做成動畫
 - **輔助圖**：要精確比較兩個時間點（「今年七月比去年七月增減多少百分比」）→ 另附兩點數值對照表或線性折線局部放大；圈數太密 → 縮減年份、拉大軌道間距或做成動畫
@@ -89,6 +89,6 @@
 - X 解說／展示原帖（非程式教學）：https://x.com/Stellarixorine/status/2092833497723609199 （**注意**：原帖寫「每一圈＝一個月」有誤，應為一圈＝一年、角度＝月份）、https://x.com/MyZeroCarbon/status/2100623403065491568 （1880–2022 每月氣溫異常螺旋，附 NASA 連結）；本輪查無程式教學類原帖（不編造）
 - 查核限制（未核內容）：https://datavizproject.com/data-type/spiral/ 、https://datavizproject.com/data-type/spiral-histogram/ 、https://datavizproject.com/data-type/spiral-heat-map/ （curl 讀取 403，Cloudflare 阻擋）；https://jokergoooo.shinyapps.io/covid19/ （spiralize COVID 互動應用，2026-09-26 查核時逾時）。另 Wikipedia 無 Spiral_plot 條目（404）、Observable condegram 等 notebook 429、原 Climate Lab Book 2016 文章無法連線、spiralize CRAN vignette 路徑 404（改用 GitHub Pages），僅記名不列為來源
 
-鄰居 pattern：`time-series-trend.md`（線性折線；精讀差值、只看趨勢）、`calendar-heatmap.md`（日曆方格；螺旋熱圖的格子嵌在弧段上）、`matrix-heatmap.md`（任意行列交叉）、`circular-bar.md`（類別繞一圈，不是連續時間多圈）、`radar-profile.md`（多軸封閉形狀）、`streamgraph-composition.md`、`gantt-schedule.md`（線性時間軸）。
+鄰居 pattern：`time-series-trend.md`（線性折線；精讀差值、只看趨勢）、`calendar-heatmap.md`（日曆方格；螺旋熱圖的格子嵌在弧段上）、`matrix-heatmap.md`（任意行列交叉）、`circular-bar.md`（類別繞一圈，不是連續時間多圈）、`radar-profile.md`（多軸封閉形狀）、`streamgraph-composition.md`、`gantt-schedule.md`（線性時間軸）；`horizon-chart.md`（地平線圖：本身不等於螺旋圖，可當螺旋軌道上的一種編碼）。
 
 圖檔留在教圖／skill-pack（`/workspace/skill-packs/2026-09-26-pm-spiral/images/`，稿內嵌 26 張），本 repo **不複製**大圖。圖說照審稿修正版：nasa-spiral-sr 出自 NASA SVS 5383〈Slow Reveal Graphs: Climate Spiral〉無標示版、nasa-spiral-60s 出自 5057〈NASA Climate Spiral 1880–2022〉舊版（兩張都**不是** 5190）；spiralize 首頁的下載螺旋用 spiralize-ggplot2-downloads；intro-48＝沿軌道的 0 到 1 資料刻度、intro-3＝阿基米德螺旋基本曲線（圈距 d）、intro-35＝色塊（不是長條）、intro-37＝長條與依基準線分色長條、intro-38＝堆疊長條、intro-29＝折線、intro-32＝面積、intro-55＝地平線。其餘可對照 catalogue-top／catalogue-anatomy、wiki-hawkins-early-still／wiki-hawkins-2017／wiki-line-before（同資料線性折線對照）、hawkins-temp-still、hawkins-arctic-still、spiralize-example_*、spiralize-git_commit_r、spiralize-app-still、d3-spiral-heatmap。對帳見 `ATTRIBUTION.md`。

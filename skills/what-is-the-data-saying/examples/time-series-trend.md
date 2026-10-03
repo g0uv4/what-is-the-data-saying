@@ -25,4 +25,4 @@
 - [ ] 標事件註記（若有）
 - [ ] 單位／來源 zh-TW
 
-鄰居 pattern：`flame-graph.md`（效能剖面：火焰圖橫軸不是時間；要呼叫的時間順序看火焰時序圖）、`spiral-plot.md`（把長時間軸捲成一圈＝一個週期）、`streamgraph-composition.md`、`slope-two-period.md`、`small-multiples.md`。
+鄰居 pattern：`flame-graph.md`（效能剖面：火焰圖橫軸不是時間；要呼叫的時間順序看火焰時序圖）、`spiral-plot.md`（把長時間軸捲成一圈＝一個週期）、`streamgraph-composition.md`、`slope-two-period.md`、`small-multiples.md`；`horizon-chart.md`（地平線圖：很多條對齊時間軸又要壓在矮列裡掃相對基準的偏離）。

@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖與森林圖各附一支自檢 .py）
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖與地平線圖各附一支自檢 .py）
 
 來自納茲已審 skill pack。**非真實產業資料；數字未核。**
 
@@ -39,8 +39,10 @@
 | `sample-karyotype-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「核型圖自檢腳本」；以明確檔名讀 CSV，可直接在本資料夾跑 | 同上 |
 | `sample-forest-fictional.csv` | 森林圖虛構資料（61 列資料、約 5.5 KB、檔頭 8 行 `#` 說明；欄位 dataset, panel, study, subgroup, measure, effect, analysis_value, se, ci_lower, ci_upper, weight_fixed_pct；8 個資料集 S1–S8、10 個分析單位；**數字未核**，後 3 欄是推導欄） | `../forest-plot.md` |
 | `sample-forest-selfcheck.py` | 上一檔的自檢腳本（需 numpy，有 statsmodels 才多一行交叉核對，不是資料）；見下方「森林圖自檢腳本」；以明確檔名讀 CSV，可直接在本資料夾跑 | 同上 |
+| `sample-horizon-fictional.csv` | 地平線圖虛構資料（288 筆、約 13.7 KB、沒有 `#` 說明行；欄位 hour, series, cpu_percent, data_status；12 台機器 × 第 0 到 23 小時；處理器使用率虛構，**數字未核**） | `../horizon-chart.md` |
+| `sample-horizon-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「地平線圖自檢腳本」；以明確檔名讀 CSV，可直接在本資料夾跑 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -219,3 +221,22 @@ python3 sample-forest-selfcheck.py
 **沒有安裝 statsmodels** 時，倒數第二行改為「[statsmodels] 未安裝，略過交叉核對（只做 numpy 重算）」，其餘十行完全相同（已用不含 statsmodels 的 Python 與 numpy 2.2.4 實測，結束碼 0）。
 
 **以實際計數為準**（本 repo 另以獨立程式〔pandas、scipy，不用腳本的函式〕重算合併估計、Q、I²、DL 與 Paule–Mandel 的 τ²、亞組間 Q，全部一致，未發現素材包文字與 CSV 不一致），要小心讀：(1) 這是虛構資料，**數字未核，不能當真實數據引用**；(2) S4 高異質性組的 Q 是 35.43，若直接用圖上顯示的兩位數風險比重算則約 34.75，不是錯誤，是四捨五入；(3) S5 的 τ² 在 DL 是 0.05965、在 statsmodels 預設的 Paule–Mandel 是 0.03435，隨機效應合併 RR 前者 0.7189 [0.561, 0.921]、後者 0.7226 [0.585, 0.892]，兩者要分開寫；(4) S2 的 I²＝54.9% 同時落在 Cochrane 30–60% 與 50–90% 兩個重疊區間，不要硬分類；(5) S1、S4 低異質性組與 S8 的 DL τ² 原始值是負的（例如 S1 為 −0.0064），表示 Q 小於自由度，τ² 與 I² 取 0，而 statsmodels 的 DL **不截為 0**；(6) 腳本裡的 S8 漏斗圖範圍是「合併估計 ± 1.96 × 標準誤」，10 個點全在其內，10 項只是剛好達到 Cochrane 建議的下限，不足以判斷發表偏差。
+
+## 地平線圖自檢腳本 `sample-horizon-selfcheck.py`
+
+檢查 `sample-horizon-fictional.csv`：288 筆（12 台 × 第 0 到 23 小時）、欄位順序、每列 `data_status` 都是「虛構資料，數字未核」、每台都有 24 個時間點；基準 50 之上／之下／剛好等於的筆數與比例；外層帶（與基準相差超過 25，也就是大於 75 或小於 25）的筆數與位置；第 14 小時 3 台同步、其餘小時最多 1 台；2 帶切帶疊回的高度與矮條高度＝全距的 1/4；各列各自縮放時第 14 小時變成 5 台的對照。**只需 Python 標準函式庫**。
+
+腳本以 `Path(__file__)` 的資料夾加明確檔名讀同資料夾的 CSV，**不搜尋檔案**；直接在本資料夾跑：
+
+```bash
+cd skills/what-is-the-data-saying/examples/data
+python3 sample-horizon-selfcheck.py
+```
+
+預期輸出一行（v0.3.23 上架前實跑，結束碼 0）：
+
+```
+全部檢查通過：288 筆、12 台、第 0 到 23 小時；外層帶 5 筆；第 14 小時 3 台同步；共用量尺 3 台 vs 各自縮放 5 台。
+```
+
+**以實際計數為準**（本 repo 另以獨立程式〔pandas，不用腳本的函式〕重算，全部一致，未發現素材包文字與 CSV 不一致），要小心讀：(1) 這是虛構資料，**數字未核，不能當真實數據引用**；(2) 高於 50 的有 **102** 筆（35.4%）、低於 50 的 185 筆（64.2%）、剛好等於 50 的 1 筆（0.3%，machine_07 第 3 小時）；(3) 外層帶合計 **5** 筆（約 1.7%）：第 14 小時 machine_03（92.1）、machine_06（100.0）、machine_09（89.6），以及 machine_11 第 3、4 小時（0.0、5.0）；(4) 第 14 小時進入外層帶的是 **3 台**，各自縮放時變成 5 台，多出來的 machine_07（59.4）與 machine_12（58.0）只比基準高約 9.4 與 8.0 個百分點，這是「跨列比較但尺度不同」的示範；(5) 數值範圍剛好是 0.0 到 100.0（百分比的上下限），machine_06 有一筆 100.0、machine_11 有一筆 0.0；(6) 模擬圖用的波形是 `draw_horizon.py` 內產生的，不是這份 CSV，兩者不能互相驗證。

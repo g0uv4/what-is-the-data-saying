@@ -2,7 +2,7 @@
 name: what-is-the-data-saying
 description: >
   Given a table or report, recommend the chart and how to make it (資料在說什麼).
-  Nazh-grounded Taiwan zh-TW pedagogy plus 61 named patterns. Use when the user
+  Nazh-grounded Taiwan zh-TW pedagogy plus 62 named patterns. Use when the user
   pastes CSV / Excel / a table / 報表 and asks which chart, how to visualize,
   這份資料該怎麼畫, 推薦圖表, 視覺化, or runs /what-is-the-data-saying.
 when-to-use: >
@@ -13,7 +13,7 @@ argument-hint: paste a table or describe the report
 metadata:
   short-description: "Which chart? How to make it. 資料在說什麼"
   author: g0uv4
-  version: "0.3.23"
+  version: "0.3.24"
   lineage: "納茲 - 資料視覺 teach-viz 教圖"
   license: MIT
 ---
@@ -78,7 +78,7 @@ pattern：examples/<slug>.md（若有）
 
 | 任務 | 優先圖型（zh-TW） |
 |------|------------------|
-| 類別比大小 | 長條圖；減墨水單值用棒棒糖；類別多可考慮圓形長條 |
+| 類別比大小 | 長條圖；減墨水單值用棒棒糖；類別多可考慮圓形長條；要看「哪幾類加起來占大部分」→ 柏拉圖 |
 | 兩期／兩條件差距 | 啞鈴圖；兩期軌跡用坡度圖 |
 | 年齡×雙側結構 | 人口金字塔（勿與龍捲風混） |
 | 時間趨勢 | 折線；多實體小多圖；很多條對齊時間軸又要壓在矮列裡掃相對基準的偏離用地平線圖；組成隨時間用河流圖（溪流圖）；長序列＋穩定週期要看季節對齊用螺旋圖（一圈＝一個週期） |
@@ -103,6 +103,7 @@ pattern：examples/<slug>.md（若有）
 | 讓讀者看到整套或單條染色體的長度、著絲點、帶型，以及異常或註解落在哪一臂哪一帶（細胞遺傳學示意、整條染色體地圖、全基因體骨架） | 核型圖／染色體帶型示意圖（`examples/karyotype-ideogram.md`；karyogram 與 idiogram 在英文維基百科是同義詞，都涵蓋照片與示意圖，不要說成「karyogram＝照片、ideogram＝示意圖」；短臂 p 在上、長臂 q 在下，帶號由著絲點往端粒遞增；人類 46 條；缺失或重複的色框只框有變化的那一條；帶型表與標註座標同一基因體版本；只畫中央、亞中央、近端著絲點，人類無端著絲點為單一來源；示意不是診斷；AGeremia 圖 CC BY-SA 3.0、karyoploteR 教學圖 CC BY 4.0、IdeoViz GPL-2）；關聯尖峰 → 曼哈頓圖；環狀多軌 → Circos |
 | 把同一個問題的多項研究（各有效應量與信賴區間）放在同一張圖，比較每項估計與不確定性、看合併結果與一致性（統合分析、亞組、迴歸係數的森林圖式排版） | 森林圖（forest plot；`examples/forest-plot.md`；別名 Blobbogram；一列一項研究：方塊＝估計、橫線＝信賴區間、直線＝無效線、菱形＝合併；**比值類 RR／OR／HR 先取對數、畫對數軸、無效線在 1，差值類線性軸、無效線在 0**；**方塊面積（不是邊長）∝ 權重**，權重只反映精確度，不是效果大小或研究品質；菱形中心＝合併估計、寬度＝合併信賴區間，不是第 N+1 項研究；statsmodels `combine_effects` 預設是 Paule–Mandel，DerSimonian–Laird 要設 `method_re='dl'`（範例 τ² 0.05965 對 0.03435）；I² 粗略分級刻意重疊，不要硬分類；**統合分析的漏斗圖〔Funnel plot，檢查發表偏差〕≠ 商業轉換漏斗圖〔Funnel chart，`funnel-stages.md`〕，不要混用**；圖授權 R5 僅限非商業、R2 GPL-2、R4／R6／R7／R8 未明示）；單組原始資料分布 → 箱形圖；兩點差距 → 啞鈴圖；兩種量測方法一致性 → Bland–Altman 圖 |
 | 同一條時間軸上有很多條序列（經驗上十幾條以上，這是沒有出處的經驗法則），每列只能給幾十像素，要掃出誰偏離基準、哪裡極端、哪個時間點很多條一起變深（監控牆、感測器、多條百分比變化） | 地平線圖（horizon chart；`examples/horizon-chart.md`；把相對基準的面積圖切成等高色帶再疊回同一條矮條，用色層換高度；**基準要寫在圖說**；以 2 帶為主，Heer 等人 CHI 2009 只測兩點數值比較、受試者 18／30／8 位、圖高低於約 24 像素時 2 帶才比折線準、鏡射與 offset 無顯著差異、不建議 4 帶以上；**各函式庫預設不同**：Cubism 與 d3-horizon 預設 offset，latticeExtra 預設鏡射，ggHoriPlot 鏡射要自己打開，不要寫「多數預設鏡射」；**各列各自縮放時跨列不可比，要比就共用帶寬**；矮條高度不是真實振幅；顏色以圖例為準，深度＝層數＝幅度；「Saito 發明」是 Heer 論文的說法，Few 2008 把主要設計者寫成 Reijner；≠ 河流圖、≠ 山脊圖、≠ 熱圖；RAWGraphs 教學頁 CC BY-NC-SA 4.0 僅限非商業、三張 Commons 圖 CC BY-SA 4.0）；只有一到三條或要讀精確值 → 折線加游標；圖夠高 → 折線小多圖 |
+| 一堆類別（問題、原因、客訴、停機機台、退貨原因）想知道先處理哪幾項：既要看每類多大、又要看前幾類加起來占多少 | 柏拉圖（Pareto chart、帕累托圖；`examples/pareto-chart.md`；直條由大到小＋累計百分比折線放右軸 0–100%；**左軸最大值要設成總數**，柱頂才對上折線第一點；**80/20 只是經驗法則，讀法是看累計線第一次到達或越過 80% 是第幾項**；「其他」**通常**放最右（文字出處只有 Six Sigma Material，ASQ 並未規定；Excel 內建 Pareto 圖會自動重排、固定不了，要固定請用直條＋折線組合圖）；起源有據可查的年份是 1951（Juran 1975 自述），1941 只見英文維基百科與 Lean Enterprise Institute、與自述不一致，「誰第一個畫出」無法證實；Juran 自己承認手冊的累計曲線其實是 Lorenz 曲線；Google 試算表官方圖表清單沒有 Pareto，但官方沒明文說沒有（這是推論）；只是快照、看不出趨勢也不證明因果；≠ 一般長條圖、≠ 瀑布圖、≠ 漏斗圖、≠ Pareto 前沿；R9–R20 圖版權所有、不要複製）；各類差不多大 → 一般長條圖；要看趨勢 → 折線或管制圖 |
 | 多類別交叉／市場區隔×組成 | 馬賽克（獨立性）；商用變寬堆疊用馬里梅可；平行集合；集合交集用 UpSet |
 | 網路關係 | 力導向／弧線／鄰接矩陣／蜂巢圖；有階層+葉連線用 HEB；稠密成毛球、每條邊要可辨識或依類型分塊用 BioFabric（生物織布圖，暫譯） |
 | 地理量 | 等值區域圖（choropleth；先正規化，勿用總量填色）；計數疏密用點密度圖；總量規模用比例符號地圖；每區等權重、怕大區搶眼用圖塊地圖（一區一格）；面積＝資料用面積變形地圖；起迄用流向地圖 |

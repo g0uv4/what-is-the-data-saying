@@ -1,6 +1,6 @@
 # ATTRIBUTION（納茲教圖來源）
 
-本 skill **0.3.23** 的圖種啟發式、口述產出步驟與 `examples/` pattern，提煉自 **納茲 - 資料視覺**（agent id `41759b08-68d8-455a-8d45-22730ad6bd40`）的教圖與相關素材。
+本 skill **0.3.24** 的圖種啟發式、口述產出步驟與 `examples/` pattern，提煉自 **納茲 - 資料視覺**（agent id `41759b08-68d8-455a-8d45-22730ad6bd40`）的教圖與相關素材。
 
 技能文字為摘要與可執行 checklist，**不是**教圖全文轉貼；數字案例仍以原教圖「未核」標註習慣為準。
 原教圖草稿／截圖**不在這個公開 repo**。下表的路徑是作者當時的取材位置，方便內部對帳，不是給 clone 的人去開的檔。
@@ -85,6 +85,7 @@
 | 2026-10-02-am-karyotype.md | 核型圖／染色體帶型示意圖（Karyotype plot／Chromosome ideogram／Ideogram；含曼哈頓圖、LocusZoom、Circos、樹狀圖、長條圖、FISH 分界） | `examples/karyotype-ideogram.md`；demo CSV 與自檢腳本見 `examples/data/` |
 | 2026-10-02-pm-forest.md | 森林圖（Forest plot；Blobbogram；含統合分析漏斗圖〔Funnel plot〕、商業漏斗圖〔Funnel chart〕、箱形圖、啞鈴圖、Bland–Altman 分界） | `examples/forest-plot.md`；demo CSV 與自檢腳本見 `examples/data/` |
 | 2026-10-03-am-horizon.md | 地平線圖（Horizon Chart；horizon graph；含折線小多圖、矩陣熱圖、河流圖、山脊圖、螺旋圖分界） | `examples/horizon-chart.md`；demo CSV 與自檢腳本見 `examples/data/` |
+| 2026-10-03-pm-pareto.md | 柏拉圖（Pareto chart／帕累托圖；含一般長條圖、瀑布圖、漏斗圖、Lorenz 曲線、ABC 分析分界） | `examples/pareto-chart.md`；demo CSV 與自檢腳本見 `examples/data/` |
 
 另有同日前綴之 `*-research.md`、截圖檔（png/jpg）作為教圖研究與圖例依據，未逐一複製進 repo。
 點密度圖另經已審 skill pack `/workspace/skill-packs/2026-09-21-pm-dotdensity/`（SKILL-PACK.md、sources.txt、images/）；公開 repo 只收 pattern 摘要與虛構 demo CSV，大圖不入庫。
@@ -116,10 +117,12 @@ P–P 圖另經已審 skill pack `/workspace/skill-packs/2026-10-01-pm-pp/`（SK
 
 地平線圖另經已審 skill pack `/workspace/skill-packs/2026-10-03-am-horizon/`（SKILL-PACK.md、sources.txt 32 條每行標狀態、sample-horizon-fictional.csv 288 筆＋自檢腳本 sample-horizon-selfcheck.py、draw_horizon.py、images/ 21 張＝13 張真實／示意圖加 8 張模擬圖；素材包與教學稿原規劃的第 14 張真實圖〔Data Viz Catalogue 部落格截圖〕因沒拍到 Horizon 小節而未採用，所以是 21 張，不是 22 張；由納茲提供、經 Liora 通過、已交給老闆）；終稿為 `teach-viz/2026-10-03-am-horizon.md`，僅供交叉核對；公開 repo 只收 pattern 摘要、虛構 demo CSV 與自檢腳本，大圖不入庫。**Gemini 潤稿：素材包與教學稿都明確寫「Gemini 登入失效，沒有經過 Gemini 潤稿，也沒有改用其他模型潤稿」，文字是審稿後由人工整理的原稿，不是已潤稿版本。** **`draw_horizon.py`（可重跑、畫出 8 張模擬圖的產生器）只存在於素材包，本 repo 沒有收**：它**預設把圖寫進 `/workspace/teach-viz/`**（會覆蓋教學稿圖檔），只有給第一個參數才改輸出資料夾，且不讀 CSV（資料是腳本內產生的虛構波形）；我只在暫存資料夾執行、輸出指向 `/tmp`，8 張圖與素材包 `images/` 內的模擬圖 MD5 逐一相同。重點：(1) 各函式庫預設不同：Cubism 與 d3-horizon（vasturiano）預設 offset，latticeExtra 預設鏡射，ggHoriPlot 的鏡射要自己打開，kmandov 預設未找到，**不要寫「多數預設鏡射」**；(2) Heer 等人 CHI 2009：受試者 18／30／8 位，只測兩點數值比較，圖高低於約 24 像素時 2 帶較準，鏡射與 offset 無顯著差異，不建議 4 帶以上（我另外下載論文全文檔核對過）；(3)「Saito 發明」是 Heer 論文的說法，Few 2008 寫 Hannes Reijner 是主要設計者，Saito 2005 全文打不開；(4)「十幾條以上才划算」是沒有出處的經驗法則；(5) 各列各自縮放跨列不可比；(6) 矮條高度不等於真實振幅；(7) 授權：Commons 三張圖（Alessandra Facchin）CC BY-SA 4.0；RAWGraphs 教學頁 CC BY-NC-SA 4.0 **僅限非商業**；Cubism.js Apache-2.0；d3-horizon-chart 與 d3-horizon MIT；ggHoriPlot GPL-3；latticeExtra GPL-2 或 GPL-3；Heer 論文 ACM 版權（個人或課堂用途可免費複製、不得營利散布）；Observable Plot 頁面未標授權；kmandov 首圖授權站方未標。sources.txt 32 條中 22 條可打開（範例連結 22 條，沒有刻意不連結的可開網址），其餘 10 條只記名稱、未核、**不是已驗證的來源**：ACM 的 Heer 論文 DOI（403）、IEEE 的 Saito 2005 DOI（要機器人驗證）、Observable Plot 的 horizon 示範頁（429；素材包改讀公開筆記原始碼，本 repo 沒有另行開啟）、Data Viz Project、data-to-viz、Plotly、Data Viz Catalogue 的 methods 頁（404）、Commons 舊檔名頁與分類頁（404）、kjytay 作者站（404）。X 搜尋找不到教學向原帖，未引用，也不能推論「X 上沒人談」。素材包自檢輸出與本 repo 實跑一致，並以獨立程式（pandas）重算：高於 50 共 102 筆、外層帶 5 筆、第 14 小時 3 台，未發現素材包文字與 CSV 不一致；模擬圖 S1、S3、S4、S6、S7 的數字也由腳本的產生器重算相符。逐條連結見 `examples/horizon-chart.md`。
 
+柏拉圖另經已審 skill pack `/workspace/skill-packs/2026-10-03-pm-pareto/`（SKILL-PACK.md、sources.txt 46 條每行標狀態、sample-pareto-fictional.csv 8 列＋自檢腳本 sample-pareto-selfcheck.py、draw_pareto.py、images/ 28 張＝20 張真實／示意圖〔R1–R20〕加 8 張模擬圖〔S1–S8〕；由納茲提供、經 Liora 通過、已交給老闆）；終稿為 `teach-viz/2026-10-03-pm-pareto.md`，僅供交叉核對；原定當天下午的階層式邊捆綁圖已作廢，改教本題；公開 repo 只收 pattern 摘要、虛構 demo CSV 與自檢腳本，大圖不入庫。**Gemini 潤稿：素材包與教學稿都明確寫「Gemini 登入失效，沒有經過 Gemini 潤稿，也沒有改用其他模型潤稿」，文字是審稿後由人工整理的原稿，不是已潤稿版本。** **`draw_pareto.py`（可重跑、畫出 8 張模擬圖的產生器）只存在於素材包，本 repo 沒有收**：它**預設把圖寫進 `/workspace/teach-viz/`**（已存在的檔案預設略過，加 `--force` 才會覆蓋教學稿圖檔），`--outdir` 才改輸出資料夾，且不讀 CSV（件數是腳本內寫死的虛構數字，與 CSV 的 8 類相同）；我只在暫存資料夾執行、`--outdir` 指向 `/tmp`，8 張圖與素材包 `images/` 內的模擬圖 MD5 逐一相同。重點：(1) 80/20 只是經驗法則，讀法是看累計線第一次到達或越過 80% 是第幾項（樣本是 8 類中的第 4 項）；(2)「其他」放最右的文字出處只有 Six Sigma Material，ASQ 不規定，Excel 內建 Pareto 圖自動重排、固定不了，寫「通常」不寫「永遠」；(3) 起源有據可查的年份是 1951（Juran 1975 自述：1930 年代末在通用汽車接觸 Merle Hale 的 Pareto 模型、1940 年代末準備手冊時命名），1941 只見英文維基百科與 Lean Enterprise Institute、與自述不一致，「誰第一個畫出長條加累計折線」無法證實；Juran 1975 全文與 Persky 1992 我另外下載核對過上述說法；(4) Juran 承認手冊的累計曲線其實是 Lorenz 曲線；(5) 左軸最大值要設成總數；(6) Google 試算表官方圖表清單沒有 Pareto，但官方沒有明文，這是推論；(7) 授權：R1–R8 為 Commons（R1 CC BY-SA 3.0、R2 CC0、R3 CC BY 4.0、R4 CC BY 4.0、R5 CC BY-SA 4.0、R6 CC BY-SA 3.0、R7 CC BY-SA 3.0 與 GFDL 雙授權但作者不詳、R8 公眾領域）；R9–R20（ASQ、Juran Institute、Lean Enterprise Institute、Six Sigma Material、Excel Easy）頁面載明版權所有、未見轉載許可，只能內部使用、不複製；S1–S8 自繪虛構資料，無外部授權限制。R12 逐柱數字未核；R13 與 R12 柱高逐柱相同，不是獨立資料；R16 的圖說仍附有來源頁面的表內數字，**本 repo 不引用那些頁面數字**。素材包的模擬圖 S3 錯誤版標題寫「按大小插在第 5 位」，但該圖的「其他」36 比前一項 30 大，按大小應排第 4，其實是「插在中間」，範例改寫成後者；S5 平坦型前 6 項剛好等於 80.0%（不是超過），所以讀法寫「到達或越過」。sources.txt 46 條中 45 條可打開（範例連結 43 條，含 4 則只作連結、不當正式教材的 X 貼文，另 2 條 X 貼文刻意不連結：一則附圖表工具網站屬推廣性質、一則數字無來源），1 條打不開：Wilkinson 2006 DOI（導到出版社驗證頁，時開時不開），只以書目資訊記名、經 Crossref 連結查證、標未核，**不是已驗證的來源**。X 搜尋找到的教學向貼文熱度都不高，不能推論「X 上沒人談」。素材包自檢輸出與本 repo 實跑一致，並以獨立程式（pandas）重算：合計 340、第 4 項首次達 80%、5 個累計點高於 80% 與 3 個低於、最小 3 項 9.1%、單項超過 20% 只有 2 項，未發現素材包文字與 CSV 不一致；模擬圖 S2、S3、S4、S5、S7、S8 的數字也由腳本資料重算相符。逐條連結見 `examples/pareto-chart.md`。
+
 ## 尚未獨立成 pattern 的缺口（可請 Liora／納茲補）
 
 - 南丁格爾玫瑰、三元圖、樹狀譜系、蜂巢圖、HEB、流量地圖、比例符號地圖、平行集合：目前多半只在 `chart-heuristics.md`，尚無專檔 example。
-- 點密度圖、河流圖、人口金字塔、棒棒糖圖、箱形圖、氣泡圖、馬里梅可圖、等值區域圖、圖塊地圖、矩陣熱圖、螺旋圖、BioFabric、火焰圖、Circos、火山圖、曼哈頓圖、MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖 已有專檔 example + 虛構 demo CSV；其餘教圖「適合使用的範例」三小節樣本尚未全面打包。
+- 點密度圖、河流圖、人口金字塔、棒棒糖圖、箱形圖、氣泡圖、馬里梅可圖、等值區域圖、圖塊地圖、矩陣熱圖、螺旋圖、BioFabric、火焰圖、Circos、火山圖、曼哈頓圖、MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖、柏拉圖 已有專檔 example + 虛構 demo CSV；其餘教圖「適合使用的範例」三小節樣本尚未全面打包。
 - X 社群卡 skill／fox-card 產線未併入本 plugin（敘事卡 ≠ 資料形狀推薦）。
 
 ## 授權與改寫

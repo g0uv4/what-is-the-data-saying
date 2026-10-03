@@ -51,3 +51,5 @@
 - https://en.wikipedia.org/wiki/Dot_plot_(statistics) （相近；Lollipop_chart 專條＝404）
 
 圖檔與截圖留在教圖／skill-pack（`/workspace/skill-packs/2026-09-23-am-lollipop/images/`，稿內嵌約 24 張），本 repo **不複製**大圖；對帳見 `ATTRIBUTION.md`。
+
+鄰居 pattern：`pareto-chart.md`（柏拉圖：排序之外再加累計占比，找先處理哪幾項；各類差不多大時改回排序長條或棒棒糖）。

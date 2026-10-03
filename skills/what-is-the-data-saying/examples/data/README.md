@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖與地平線圖各附一支自檢 .py）
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py）
 
 來自納茲已審 skill pack。**非真實產業資料；數字未核。**
 
@@ -41,8 +41,10 @@
 | `sample-forest-selfcheck.py` | 上一檔的自檢腳本（需 numpy，有 statsmodels 才多一行交叉核對，不是資料）；見下方「森林圖自檢腳本」；以明確檔名讀 CSV，可直接在本資料夾跑 | 同上 |
 | `sample-horizon-fictional.csv` | 地平線圖虛構資料（288 筆、約 13.7 KB、沒有 `#` 說明行；欄位 hour, series, cpu_percent, data_status；12 台機器 × 第 0 到 23 小時；處理器使用率虛構，**數字未核**） | `../horizon-chart.md` |
 | `sample-horizon-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「地平線圖自檢腳本」；以明確檔名讀 CSV，可直接在本資料夾跑 | 同上 |
+| `sample-pareto-fictional.csv` | 柏拉圖虛構資料（8 列、366 位元組、沒有 `#` 說明行；欄位 category, count, data_status；進貨驗收不合格 8 個原因，件數合計 340；**數字未核**） | `../pareto-chart.md` |
+| `sample-pareto-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「柏拉圖自檢腳本」；以明確檔名讀 CSV，可直接在本資料夾跑 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -240,3 +242,22 @@ python3 sample-horizon-selfcheck.py
 ```
 
 **以實際計數為準**（本 repo 另以獨立程式〔pandas，不用腳本的函式〕重算，全部一致，未發現素材包文字與 CSV 不一致），要小心讀：(1) 這是虛構資料，**數字未核，不能當真實數據引用**；(2) 高於 50 的有 **102** 筆（35.4%）、低於 50 的 185 筆（64.2%）、剛好等於 50 的 1 筆（0.3%，machine_07 第 3 小時）；(3) 外層帶合計 **5** 筆（約 1.7%）：第 14 小時 machine_03（92.1）、machine_06（100.0）、machine_09（89.6），以及 machine_11 第 3、4 小時（0.0、5.0）；(4) 第 14 小時進入外層帶的是 **3 台**，各自縮放時變成 5 台，多出來的 machine_07（59.4）與 machine_12（58.0）只比基準高約 9.4 與 8.0 個百分點，這是「跨列比較但尺度不同」的示範；(5) 數值範圍剛好是 0.0 到 100.0（百分比的上下限），machine_06 有一筆 100.0、machine_11 有一筆 0.0；(6) 模擬圖用的波形是 `draw_horizon.py` 內產生的，不是這份 CSV，兩者不能互相驗證。
+
+## 柏拉圖自檢腳本 `sample-pareto-selfcheck.py`
+
+檢查 `sample-pareto-fictional.csv`：8 列、欄位順序（category, count, data_status）、每列 `data_status` 都是「虛構資料，數字未核」、類別不重複、件數合計 340、第 1 到第 7 列由大到小且「其他」固定在最後、累計百分比最後等於 100%、第一次到達 80% 的是第幾項、8 個累計點中高於／低於／剛好等於 80% 的個數、單項占比超過 20% 的項數，以及最小 3 項合計占比。**只需 Python 標準函式庫**。
+
+腳本以 `Path(__file__)` 的資料夾加明確檔名讀同資料夾的 CSV，**不搜尋檔案**，與其他 `*-fictional.csv` 檔名不重複；直接在本資料夾跑：
+
+```bash
+cd skills/what-is-the-data-saying/examples/data
+python3 sample-pareto-selfcheck.py
+```
+
+預期輸出一行（v0.3.24 上架前實跑，結束碼 0）：
+
+```
+全部檢查通過：8 列、合計 340、第 4 項首次達 80%、8 個累計點中 5 個高於 80% 且 3 個低於 80%。
+```
+
+**以實際計數為準**（本 repo 另以獨立程式〔pandas，不用腳本的函式〕重算，全部一致，未發現素材包文字與 CSV 不一致），要小心讀：(1) 這是虛構資料，**數字未核，不能當真實數據引用**；(2) 累計件數 118／204／256／287／309／323／332／340，累計百分比 34.7%／60.0%／75.3%／84.4%／90.9%／95.0%／97.6%／100.0%；(3) 第一次到達 80% 的是第 **4** 項（含越過 80% 的那一項本身），前 3 項只有 75.3%；8 個累計點中高於 80% 的 **5** 個（第 4 到第 8 項）、低於 80% 的 **3** 個（第 1 到第 3 項）、剛好等於 80% 的 0 個，不能說「全部累計點都高於 80%」；(4) 單項占比超過 20% 的只有 **2** 項（34.7%、25.3%），第 3 項是 15.3%；(5) 最小的 3 項（14、9、8 件）合計 31 件，**9.1%**；最小的 4 項 15.6%、最大的 4 項 84.4%，相加 100.0%；(6) 「其他」（8 件）剛好也是最小的一項，所以這份資料**看不出**「其他比別的類別大仍放最右」，那種情況要看模擬圖 S3 的另一份虛構資料；(7) 加權版（虛構單件損失）合計 29,910 元，依損失排序前 3 項（尺寸超差、數量短少、受潮）累計 80.2%，外觀刮傷降到第 4（7.9%）；(8) 模擬圖用的數字是素材包 `draw_pareto.py` 內寫死的，與這份 CSV 的 8 類件數相同，但 S3、S5 等圖用的是另外的虛構資料，不能用這份 CSV 驗證。

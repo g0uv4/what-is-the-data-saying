@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖附 8 組 CSV 與 8 支自檢 .py）
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖與洛倫茲曲線各附 8 組 CSV 與 8 支自檢 .py）
 
 來自納茲已審 skill pack。**非真實產業資料；數字未核。**
 
@@ -59,8 +59,24 @@
 | `sample-s7-misread-specs-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「管制圖自檢腳本」 | 同上 |
 | `sample-s8-before-after.csv` | 管制圖虛構資料（S8；phase 欄分 before／after，各 18 組；目標 10；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**） | `../control-chart.md` |
 | `sample-s8-before-after-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「管制圖自檢腳本」 | 同上 |
+| `sample-lorenz-s1-anatomy.csv` | 洛倫茲曲線虛構資料（S1 解剖；10 戶 2、3、4、5、6、8、10、14、20、28（合計 100）；最貧 40%（前 4 戶）累計 14%；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**；素材包原名 `sample-s1-anatomy.csv`） | `../lorenz-curve.md` |
+| `sample-lorenz-s1-anatomy-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「洛倫茲曲線資料與自檢腳本」 | 同上 |
+| `sample-lorenz-s2-equal-vs-unequal.csv` | 洛倫茲曲線虛構資料（S2；group 分 more_equal（合計 105，以合計為 100%，基尼約 0.08）與 more_unequal（合計 100，基尼約 0.55），各 10 戶；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**；素材包原名 `sample-s2-equal-vs-unequal.csv`） | `../lorenz-curve.md` |
+| `sample-lorenz-s2-equal-vs-unequal-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「洛倫茲曲線資料與自檢腳本」 | 同上 |
+| `sample-lorenz-s3-gini-area.csv` | 洛倫茲曲線虛構資料（S3（Liora 重畫的新版）；10 戶 2、3、4、5、7、9、12、16、20、22（合計 100）；折線下面積法基尼 0.382，乘 10／9 得 0.424；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**；素材包原名 `sample-s3-gini-area.csv`） | `../lorenz-curve.md` |
+| `sample-lorenz-s3-gini-area-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「洛倫茲曲線資料與自檢腳本」 | 同上 |
+| `sample-lorenz-s4-steps.csv` | 洛倫茲曲線虛構資料（S4；group 分 step1_unsorted（未排序，累計欄為空）與 step2_sorted（排序後，累計 20%→4%、50%→18%、90%→72%），各 10 戶；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**；素材包原名 `sample-s4-steps.csv`） | `../lorenz-curve.md` |
+| `sample-lorenz-s4-steps-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「洛倫茲曲線資料與自檢腳本」 | 同上 |
+| `sample-lorenz-s5-extremes.csv` | 洛倫茲曲線虛構資料（S5（Liora 新版）；group 分 equal（人人相同，基尼 0）與 one_takes_all（一人全拿，10 戶基尼 0.90，修正後 1.0），各 10 戶；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**；素材包原名 `sample-s5-extremes.csv`） | `../lorenz-curve.md` |
+| `sample-lorenz-s5-extremes-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「洛倫茲曲線資料與自檢腳本」 | 同上 |
+| `sample-lorenz-s6-misread-pareto.csv` | 洛倫茲曲線虛構資料（S6（Liora 新版）；group 分 pareto 與 lorenz；同一組 40、25、15、12、8，柏拉圖累計 40、65、80、92、100，洛倫茲累計 8、20、35、60、100；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**；素材包原名 `sample-s6-misread-pareto.csv`） | `../lorenz-curve.md` |
+| `sample-lorenz-s6-misread-pareto-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「洛倫茲曲線資料與自檢腳本」 | 同上 |
+| `sample-lorenz-s7-same-shape.csv` | 洛倫茲曲線虛構資料（S7（Liora 新版）；甲、乙各 10 戶，基尼都是 0.34，曲線在 70% 處相交（都累計 45%）；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**；素材包原名 `sample-s7-same-shape.csv`） | `../lorenz-curve.md` |
+| `sample-lorenz-s7-same-shape-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「洛倫茲曲線資料與自檢腳本」 | 同上 |
+| `sample-lorenz-s8-two-groups.csv` | 洛倫茲曲線虛構資料（S8；甲、乙各 10 戶，甲基尼約 0.21、乙約 0.46，甲在第 1–9 戶全程高於乙（洛倫茲優勢）；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**；素材包原名 `sample-s8-two-groups.csv`） | `../lorenz-curve.md` |
+| `sample-lorenz-s8-two-groups-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「洛倫茲曲線資料與自檢腳本」 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -299,3 +315,36 @@ OK： sample-s3-run-same-side.csv 全部檢查通過（虛構資料，數字未�
 ```
 
 **以實際計數為準**（本 repo 另以獨立程式〔pandas／numpy，不用腳本的函式〕重算，全部一致，未發現素材包文字與 CSV 不一致），要小心讀：(1) 這是虛構資料，**數字未核，不能當真實數據引用**；(2) **界限都是預先設定的，不是由資料算出的**（S1 設 σ＝2、點的標準差約 1.1；S6 用 24 點自估界限約 44.9–55.0；S5 的 R 圖下界 0.15 只是示意，真實 D3＝0）；(3) **S3 是 Liora 重畫的新版**：第 1–9 組連續 9 點都在中心線上方、第 10 組（19.8）回到下方，Western Electric 的「連續 8 點」規則在第 8 組命中、Nelson 的「連續 9 點」規則在第 9 組命中；全部 18 點中高於中心線 12、低於 5、剛好等於 1（第 15 組＝20.0），所以「高於／低於」的計數要看第 1–9 組，不是全體；(4) S2 右欄只有第 15 組（110.8）超出上界 109；S7 只有第 17 組（57.5）超出管制上界 56、仍在規格上限 60 之內；S8 改善前第 6 組（18.2）超出上界 17.4，改善後沒有點超界；(5) S4 第 1–12 組嚴格遞增（38.1 到 43.2）、都沒超過上界，6 點遞增規則在第 6 組起命中；用「σ＝(UCL−CL)/3」重算，S4 的第 13 組還命中 Western Electric「連續 8 點同側」，S1、S3 第 15–18 組與 S5 的 X̄ 圖第 15、16 組命中 Nelson「連續 15 點在 1σ 以內」（預先設定的 σ 比點的實際離散大），這些素材包沒寫；(6) 模擬圖的數字就是這些 CSV（`export_samples.py` 從畫圖資料匯出），重跑 `draw_control.py` 的 8 張圖與素材包 `images/` MD5 一致。
+
+## 洛倫茲曲線資料與自檢腳本 `sample-lorenz-s1-…` 到 `sample-lorenz-s8-…`
+
+**收錄哪些：** 素材包 `2026-10-04-pm-lorenz` 有 8 份虛構資料（S1–S8，各對應一張模擬圖）和 8 支自檢腳本，一一對應；素材包沒有指定哪一份給 repo，也沒有合併版樣本，所以 **8 組全部收錄**（共 16 個檔）。素材包的 `draw_lorenz.py`（畫 8 張模擬圖）與 `export_samples.py`（匯出這 8 個 CSV）**沒有收**。
+
+**檔名衝突與改名（重要）：** 素材包的原名是 `sample-s1-anatomy.csv`、`sample-s1-anatomy-selfcheck.py` 這類。其中 **s1 的兩個檔與管制圖現有檔案完全同名**（管制圖的 s2–s8 名稱雖不同，但同樣以 `sample-sN-` 開頭）。所以**洛倫茲曲線 8 組全部加 `lorenz-` 前綴**（只改檔名，不改內容），對照表：
+
+| 素材包原名（CSV 與 `-selfcheck.py` 同） | 本 repo 檔名 |
+|---|---|
+| `sample-s1-anatomy` | `sample-lorenz-s1-anatomy` |
+| `sample-s2-equal-vs-unequal` | `sample-lorenz-s2-equal-vs-unequal` |
+| `sample-s3-gini-area` | `sample-lorenz-s3-gini-area` |
+| `sample-s4-steps` | `sample-lorenz-s4-steps` |
+| `sample-s5-extremes` | `sample-lorenz-s5-extremes` |
+| `sample-s6-misread-pareto` | `sample-lorenz-s6-misread-pareto` |
+| `sample-s7-same-shape` | `sample-lorenz-s7-same-shape` |
+| `sample-s8-two-groups` | `sample-lorenz-s8-two-groups` |
+
+自檢腳本內讀取的 CSV 檔名（`CSV_NAME`、說明文字與用法裡的檔名，每支 3 處）同步改成新名字，其餘一字未改。**可驗證：** 8 個 CSV 與素材包 `cmp` 逐位元相同；8 支自檢把 `sample-lorenz-` 還原成 `sample-` 後與素材包的檔案 `cmp` 逐位元相同。請用明確檔名，不要用 `sample-s?-*` 或 `sample-*.csv` 之類的萬用字元（會同時撈到管制圖與其他圖種的檔案）。每個 CSV 第 1 行是 `#` 開頭的說明行（pandas 用 `comment='#'`；自檢腳本會略過 `#` 行），第 2 行是欄位名 `group, label, rank, value, cum_units, cum_value_share, data_status`（素材包 SKILL-PACK 第 12 節把欄位列成六個，漏了 `data_status`，實際 CSV 是七欄）。
+
+```bash
+cd skills/what-is-the-data-saying/examples/data
+python3 sample-lorenz-s3-gini-area-selfcheck.py
+python3 sample-lorenz-s7-same-shape-selfcheck.py   # 其餘同理，共 8 支
+```
+
+預期每支輸出一行（v0.3.26 上架前實跑，結束碼 0），例如：
+
+```
+OK： sample-lorenz-s7-same-shape.csv 全部檢查通過（虛構資料，數字未核）
+```
+
+**以實際計數為準**（本 repo 另以獨立程式〔pandas／numpy，不用腳本的函式〕重算累計份額與基尼係數，全部一致，未發現素材包文字與 CSV 不一致），要小心讀：(1) 這是虛構資料，**數字未核，不能當真實數據引用**；(2) **基尼係數一定要註明算法**：折線下面積法 S3 是 0.382，乘 n／(n−1)＝10／9 的小樣本修正後 0.424；一人全拿（S5）10 戶是 0.90，不是 1，修正後 1.0；(3) S1 的折線下面積法基尼是 0.420（修正後 0.467，素材包沒寫，別與 S3 修正後的 0.42 混淆）；(4) S2 的 more_equal 組合計 105，累計欄以合計為 100% 計算；(5) S4 的 step1_unsorted 組累計欄是空的（未排序，設計如此）；(6) S6 柏拉圖累計 40、65、80、92、100 與洛倫茲累計 8、20、35、60、100，柏拉圖第 k 點＝1−洛倫茲在 1−k／5 處，五點全成立；(7) **S7 兩組基尼都是 0.340，但曲線在 70%（前 7 戶）處相交、都累計 45%，之前（10%–60%）乙較高、之後（80%、90%）甲較高**，素材包圖面寫「約 50%～80% 之間」交叉，兩者並陳；(8) S8 甲在累計 10%–90% 每個位置都高於乙；(9) 模擬圖的數字就是這些 CSV（`export_samples.py` 從畫圖資料匯出），重跑 `draw_lorenz.py` 的 8 張圖與素材包 `images/` MD5 一致。

@@ -51,6 +51,7 @@
 | 地平線圖（Horizon chart；很多條時間序列相對基準的色帶疊層；≠ 河流圖、≠ 山脊圖、≠ 熱圖；各列各自縮放跨列不可比） | `horizon-chart.md` | 2026-10-03-am-horizon.md |
 | 柏拉圖（Pareto chart／帕累托圖；類別由大到小的直條＋累計百分比折線；≠ 一般長條圖、≠ 瀑布圖、≠ 漏斗圖；左軸最大值＝總數；80/20 只是經驗法則） | `pareto-chart.md` | 2026-10-03-pm-pareto.md |
 | 管制圖（Control chart／Shewhart chart；時間順序的點＋中心線＋上下管制界限；≠ 折線圖、≠ 柏拉圖、≠ 規格界限；連續同側 Western Electric 8 點、Nelson 9 點） | `control-chart.md` | 2026-10-04-am-control.md |
+| 洛倫茲曲線（Lorenz curve，含基尼係數；單位由小到大排序、兩軸累計百分比、附對角線；≠ 柏拉圖〔相通但不同，轉半圈關係〕、≠ 折線圖、≠ 分位數圖；基尼要註明有無小樣本修正，一人全拿 10 戶是 0.90；同基尼可曲線交叉） | `lorenz-curve.md` | 2026-10-04-pm-lorenz.md |
 | Bland–Altman 圖（兩種量測方法的一致性；≠ MA 圖、≠ 相關係數） | `bland-altman.md` | 2026-09-30-pm-ba.md |
 | LocusZoom 圖（區域關聯圖；曼哈頓圖的區間細節層；≠ 曼哈頓圖；領先變異≠因果） | `locuszoom.md` | 2026-10-01-am-locuszoom.md |
 | 力導向網路 | `force-network.md` | 2026-09-17-pm-force.md |

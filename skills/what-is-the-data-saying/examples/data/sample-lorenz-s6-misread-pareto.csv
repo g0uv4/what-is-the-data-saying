@@ -1,0 +1,12 @@
+# 虛構資料，數字未核｜圖 S6：同一組數字 40、25、15、12、8；pareto 由大到小排，lorenz 由小到大排｜由 draw_lorenz.py 的 S 圖資料匯出（export_samples.py）
+group,label,rank,value,cum_units,cum_value_share,data_status
+pareto,類別A,1,40,0.2,0.4,虛構資料，數字未核
+pareto,類別B,2,25,0.4,0.65,虛構資料，數字未核
+pareto,類別C,3,15,0.6,0.8,虛構資料，數字未核
+pareto,類別D,4,12,0.8,0.92,虛構資料，數字未核
+pareto,類別E,5,8,1,1,虛構資料，數字未核
+lorenz,單位1,1,8,0.2,0.08,虛構資料，數字未核
+lorenz,單位2,2,12,0.4,0.2,虛構資料，數字未核
+lorenz,單位3,3,15,0.6,0.35,虛構資料，數字未核
+lorenz,單位4,4,25,0.8,0.6,虛構資料，數字未核
+lorenz,單位5,5,40,1,1,虛構資料，數字未核

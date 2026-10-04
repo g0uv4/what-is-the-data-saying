@@ -25,4 +25,4 @@
 - [ ] 標事件註記（若有）
 - [ ] 單位／來源 zh-TW
 
-鄰居 pattern：`flame-graph.md`（效能剖面：火焰圖橫軸不是時間；要呼叫的時間順序看火焰時序圖）、`spiral-plot.md`（把長時間軸捲成一圈＝一個週期）、`streamgraph-composition.md`、`slope-two-period.md`、`small-multiples.md`；`horizon-chart.md`（地平線圖：很多條對齊時間軸又要壓在矮列裡掃相對基準的偏離）；`pareto-chart.md`（柏拉圖只是某段期間的快照、看不出趨勢；要看趨勢用本檔的折線）；`control-chart.md`（管制圖：在折線上加中心線、管制界限與判異規則，判斷流程穩不穩；只看趨勢用本檔）。
+鄰居 pattern：`flame-graph.md`（效能剖面：火焰圖橫軸不是時間；要呼叫的時間順序看火焰時序圖）、`spiral-plot.md`（把長時間軸捲成一圈＝一個週期）、`streamgraph-composition.md`、`slope-two-period.md`、`small-multiples.md`；`horizon-chart.md`（地平線圖：很多條對齊時間軸又要壓在矮列裡掃相對基準的偏離）；`pareto-chart.md`（柏拉圖只是某段期間的快照、看不出趨勢；要看趨勢用本檔的折線）；`control-chart.md`（管制圖：在折線上加中心線、管制界限與判異規則，判斷流程穩不穩；只看趨勢用本檔）、`lorenz-curve.md`（洛倫茲曲線：橫軸是排序後的名次比例、不是時間，不是趨勢線）。

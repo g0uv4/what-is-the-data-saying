@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py）
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖附 8 組 CSV 與 8 支自檢 .py）
 
 來自納茲已審 skill pack。**非真實產業資料；數字未核。**
 
@@ -43,8 +43,24 @@
 | `sample-horizon-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「地平線圖自檢腳本」；以明確檔名讀 CSV，可直接在本資料夾跑 | 同上 |
 | `sample-pareto-fictional.csv` | 柏拉圖虛構資料（8 列、366 位元組、沒有 `#` 說明行；欄位 category, count, data_status；進貨驗收不合格 8 個原因，件數合計 340；**數字未核**） | `../pareto-chart.md` |
 | `sample-pareto-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「柏拉圖自檢腳本」；以明確檔名讀 CSV，可直接在本資料夾跑 | 同上 |
+| `sample-s1-anatomy.csv` | 管制圖虛構資料（S1 解剖；25 組；中心線 50、上界 56、下界 44（σ 設 2）；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**） | `../control-chart.md` |
+| `sample-s1-anatomy-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「管制圖自檢腳本」 | 同上 |
+| `sample-s2-out-of-control.csv` | 管制圖虛構資料（S2；20 組，left_value 與 right_value 兩欄；中心線 100、上界 109、下界 91；右欄第 15 組超界；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**） | `../control-chart.md` |
+| `sample-s2-out-of-control-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「管制圖自檢腳本」 | 同上 |
+| `sample-s3-run-same-side.csv` | 管制圖虛構資料（S3（Liora 重畫的新版）；18 組；中心線 20、上界 23.6、下界 16.4；第 1–9 組連續 9 點在中心線上方；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**） | `../control-chart.md` |
+| `sample-s3-run-same-side-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「管制圖自檢腳本」 | 同上 |
+| `sample-s4-trend.csv` | 管制圖虛構資料（S4；18 組；中心線 40、上界 44.5、下界 35.5；第 1–12 組一路上升；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**） | `../control-chart.md` |
+| `sample-s4-trend-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「管制圖自檢腳本」 | 同上 |
+| `sample-s5-xbar-r.csv` | 管制圖虛構資料（S5；20 組，xbar 與 range 兩欄；X̄ 界限 8.8／10／11.2、R 界限 0.15／1.2／2.25（示意，不是係數算的）；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**） | `../control-chart.md` |
+| `sample-s5-xbar-r-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「管制圖自檢腳本」 | 同上 |
+| `sample-s6-spec-vs-control.csv` | 管制圖虛構資料（S6；24 組；管制界限 44／50／56，規格 USL 58、LSL 42；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**） | `../control-chart.md` |
+| `sample-s6-spec-vs-control-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「管制圖自檢腳本」 | 同上 |
+| `sample-s7-misread-specs.csv` | 管制圖虛構資料（S7；22 組；管制界限 44／50／56，規格 USL 60、LSL 40；第 17 組超出管制上界但仍在規格內；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**） | `../control-chart.md` |
+| `sample-s7-misread-specs-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「管制圖自檢腳本」 | 同上 |
+| `sample-s8-before-after.csv` | 管制圖虛構資料（S8；phase 欄分 before／after，各 18 組；目標 10；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**） | `../control-chart.md` |
+| `sample-s8-before-after-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「管制圖自檢腳本」 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -261,3 +277,25 @@ python3 sample-pareto-selfcheck.py
 ```
 
 **以實際計數為準**（本 repo 另以獨立程式〔pandas，不用腳本的函式〕重算，全部一致，未發現素材包文字與 CSV 不一致），要小心讀：(1) 這是虛構資料，**數字未核，不能當真實數據引用**；(2) 累計件數 118／204／256／287／309／323／332／340，累計百分比 34.7%／60.0%／75.3%／84.4%／90.9%／95.0%／97.6%／100.0%；(3) 第一次到達 80% 的是第 **4** 項（含越過 80% 的那一項本身），前 3 項只有 75.3%；8 個累計點中高於 80% 的 **5** 個（第 4 到第 8 項）、低於 80% 的 **3** 個（第 1 到第 3 項）、剛好等於 80% 的 0 個，不能說「全部累計點都高於 80%」；(4) 單項占比超過 20% 的只有 **2** 項（34.7%、25.3%），第 3 項是 15.3%；(5) 最小的 3 項（14、9、8 件）合計 31 件，**9.1%**；最小的 4 項 15.6%、最大的 4 項 84.4%，相加 100.0%；(6) 「其他」（8 件）剛好也是最小的一項，所以這份資料**看不出**「其他比別的類別大仍放最右」，那種情況要看模擬圖 S3 的另一份虛構資料；(7) 加權版（虛構單件損失）合計 29,910 元，依損失排序前 3 項（尺寸超差、數量短少、受潮）累計 80.2%，外觀刮傷降到第 4（7.9%）；(8) 模擬圖用的數字是素材包 `draw_pareto.py` 內寫死的，與這份 CSV 的 8 類件數相同，但 S3、S5 等圖用的是另外的虛構資料，不能用這份 CSV 驗證。
+
+## 管制圖資料與自檢腳本 `sample-s1-…` 到 `sample-s8-…`
+
+**收錄哪些：** 素材包 `2026-10-04-am-control` 有 8 份虛構資料（S1–S8，各對應一張模擬圖）和 8 支自檢腳本，一一對應；素材包沒有指定哪一份給 repo，也沒有合併版樣本，所以 **8 組全部收錄**（共 16 個檔，與素材包逐位元相同）。素材包的 `draw_control.py`（畫 8 張模擬圖）與 `export_samples.py`（匯出這 8 個 CSV）**沒有收**。
+
+**檔名提醒：** 檔名是 `sample-s1-anatomy.csv` 這種，**沒有 `fictional`，也沒有 `control` 字樣**，與其他圖種的 `*-fictional.csv`、`sample-*.csv` 不重複；讀取請用**明確檔名**，不要用 `sample-*.csv` 之類的萬用字元（本資料夾還有其他圖種的 `sample-*.csv`，欄位不同）。每個 CSV 第 1 行是 `#` 開頭的說明行（pandas 用 `comment='#'`；自檢腳本會略過 `#` 行），第 2 行是欄位名。
+
+**自檢腳本做什麼：** 每支都以 `Path(__file__)` 的資料夾加明確檔名讀同資料夾的 CSV（也可在命令列最後接另一個 CSV 檔名），只用 Python 標準函式庫，全部用 `assert`；註解寫明每個百分比、點數、「全部／高於／低於」適用的區間（第幾組到第幾組）；取整是四捨五入（逢 5 進位），不是 Python 內建 `round` 的銀行家捨入。
+
+```bash
+cd skills/what-is-the-data-saying/examples/data
+python3 sample-s1-anatomy-selfcheck.py
+python3 sample-s3-run-same-side-selfcheck.py   # 其餘同理，共 8 支
+```
+
+預期每支輸出一行（v0.3.25 上架前實跑，結束碼 0），例如：
+
+```
+OK： sample-s3-run-same-side.csv 全部檢查通過（虛構資料，數字未核）
+```
+
+**以實際計數為準**（本 repo 另以獨立程式〔pandas／numpy，不用腳本的函式〕重算，全部一致，未發現素材包文字與 CSV 不一致），要小心讀：(1) 這是虛構資料，**數字未核，不能當真實數據引用**；(2) **界限都是預先設定的，不是由資料算出的**（S1 設 σ＝2、點的標準差約 1.1；S6 用 24 點自估界限約 44.9–55.0；S5 的 R 圖下界 0.15 只是示意，真實 D3＝0）；(3) **S3 是 Liora 重畫的新版**：第 1–9 組連續 9 點都在中心線上方、第 10 組（19.8）回到下方，Western Electric 的「連續 8 點」規則在第 8 組命中、Nelson 的「連續 9 點」規則在第 9 組命中；全部 18 點中高於中心線 12、低於 5、剛好等於 1（第 15 組＝20.0），所以「高於／低於」的計數要看第 1–9 組，不是全體；(4) S2 右欄只有第 15 組（110.8）超出上界 109；S7 只有第 17 組（57.5）超出管制上界 56、仍在規格上限 60 之內；S8 改善前第 6 組（18.2）超出上界 17.4，改善後沒有點超界；(5) S4 第 1–12 組嚴格遞增（38.1 到 43.2）、都沒超過上界，6 點遞增規則在第 6 組起命中；用「σ＝(UCL−CL)/3」重算，S4 的第 13 組還命中 Western Electric「連續 8 點同側」，S1、S3 第 15–18 組與 S5 的 X̄ 圖第 15、16 組命中 Nelson「連續 15 點在 1σ 以內」（預先設定的 σ 比點的實際離散大），這些素材包沒寫；(6) 模擬圖的數字就是這些 CSV（`export_samples.py` 從畫圖資料匯出），重跑 `draw_control.py` 的 8 張圖與素材包 `images/` MD5 一致。

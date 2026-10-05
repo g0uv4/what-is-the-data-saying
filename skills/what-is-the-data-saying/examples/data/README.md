@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線與馬雷圖各附 8 組 CSV 與 8 支自檢 .py）
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖與存活曲線各附 8 組 CSV 與 8 支自檢 .py）
 
 來自納茲已審 skill pack。**非真實產業資料；數字未核。**
 
@@ -91,8 +91,24 @@
 | `sample-marey-s7-too-dense-zoom-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「馬雷圖資料與自檢腳本」 | 同上 |
 | `sample-marey-s8-steps.csv` | 馬雷圖虛構資料（S8；製作步驟範例，甲到丁四站（0、6、9、20 公里），501 次下行、502 次上行；只交叉一次（10:13:30，11.5 公里）；第 1 行為 `#` 說明；數字未核） | `../marey-chart.md` |
 | `sample-marey-s8-steps-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「馬雷圖資料與自檢腳本」 | 同上 |
+| `sample-km-s1-anatomy.csv` | 存活曲線虛構資料（S1；單一組 30 人，中位 10.3 月；第 6／12／24 月存活 0.783／0.491／0.409；風險人數每 6 月 30、21、8、6、2、1；第 1 行為 `#` 說明；數字未核） | `../kaplan-meier-survival.md` |
+| `sample-km-s1-anatomy-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫＋numpy，不是資料）；見下方「存活曲線資料與自檢腳本」 | 同上 |
+| `sample-km-s2-two-groups.csv` | 存活曲線虛構資料（S2；新療法與標準療法各 100 人；中位 20.4 對 14.5 月；風險比 0.65；對數等級 P=0.0223；第 1 行為 `#` 說明；數字未核） | `../kaplan-meier-survival.md` |
+| `sample-km-s2-two-groups-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫＋numpy，不是資料）；見下方「存活曲線資料與自檢腳本」 | 同上 |
+| `sample-km-s3-censoring.csv` | 存活曲線虛構資料（S3；同一份 200 人三種設限處理；正確第 12 月 0.637、當事件 0.42、刪掉 0.312；中位 16.9／9.7／7.0；第 1 行為 `#` 說明；數字未核） | `../kaplan-meier-survival.md` |
+| `sample-km-s3-censoring-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫＋numpy，不是資料）；見下方「存活曲線資料與自檢腳本」 | 同上 |
+| `sample-km-s4-confidence-band.csv` | 存活曲線虛構資料（S4；60 人；第 6／18／30 月區間寬 0.144／0.222／0.316；第 1 行為 `#` 說明；數字未核） | `../kaplan-meier-survival.md` |
+| `sample-km-s4-confidence-band-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫＋numpy，不是資料）；見下方「存活曲線資料與自檢腳本」 | 同上 |
+| `sample-km-s5-tail.csv` | 存活曲線虛構資料（S5；40 人；中位 8.5 月；風險人數少於 5 自 22.2 月；末事件 27.3 月時風險 3；第 1 行為 `#` 說明；數字未核） | `../kaplan-meier-survival.md` |
+| `sample-km-s5-tail-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫＋numpy，不是資料）；見下方「存活曲線資料與自檢腳本」 | 同上 |
+| `sample-km-s6-crossing.csv` | 存活曲線虛構資料（S6；手術／藥物各 150 人；交叉精確 20.0 月；整段風險比 0.88，前段 1.20、後段 0.32；中位 25.7／21.4；第 1 行為 `#` 說明；數字未核） | `../kaplan-meier-survival.md` |
+| `sample-km-s6-crossing-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫＋numpy，不是資料）；見下方「存活曲線資料與自檢腳本」 | 同上 |
+| `sample-km-s7-y-axis.csv` | 存活曲線虛構資料（S7；甲乙各 400 人；第 24 月 0.923 對 0.888（差 3.5 百分點）；P=0.0917；第 1 行為 `#` 說明；數字未核） | `../kaplan-meier-survival.md` |
+| `sample-km-s7-y-axis-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫＋numpy，不是資料）；見下方「存活曲線資料與自檢腳本」 | 同上 |
+| `sample-km-s8-step-by-step.csv` | 存活曲線虛構資料（S8；8 人手算步驟；階梯 0.875→0.750→0.600→0.450→0.225；中位第 7 月；6 欄含 name；第 1 行為 `#` 說明；數字未核） | `../kaplan-meier-survival.md` |
+| `sample-km-s8-step-by-step-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫＋numpy，不是資料）；見下方「存活曲線資料與自檢腳本」 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -386,3 +402,21 @@ OK： sample-marey-s3-single-track-meet.csv 全部檢查通過（虛構資料，
 ```
 
 自檢腳本用精確分數（`Fraction`）計算，且我另以獨立程式（pandas／numpy／fractions，不用腳本的函式）重算，**全部一致，沒有發現素材包文字與 CSV 不一致**。要小心讀：(1) 這是虛構資料，**數字未核，不能當真實時刻表引用**；(2) S1 只交叉一次：06:24:30、21.5 公里；S8 只交叉一次：10:13:30、11.5 公里；兩者圖說寫「約」，而「約」值就等於精確值；(3) S2 只在 07:24:00 的丁站超車；301 次若不待避（201-nowait）則 07:25:00、22 公里追上，201 次在己站的差距是 9.5 分鐘（07:31:30 對 07:41:00）；(4) S3 的 401 次與 402 次只在戊站（08:27–08:28）重合，402 次若不等（402-nowait）就在 08:23:30、離起點 20.5 公里處交叉，落在丁站與戊站之間＝單線上的衝突；(5) S4 的七分鐘誤點：到站晚 1、2、7、7、7 分鐘，離站晚（甲到戊）0、2、4、7、7 分鐘，組成是乙站停站 +1、丙站停站 +2、甲→乙行駛 +1、丙→丁行駛 +3，合計 7，其中丙站停站加丙→丁行駛共 5 分鐘＝5／7＝71.4%；(6) **S5 的「間隔」有兩個不同的量**：圖上的 headway 是相鄰兩輛公車的到站時刻差，3→4 號車依序為 5、4.5、3.95、3.37、2.77、2.15、1.5、0.81、0.2、0.2、0.2、0.2、0.2 分鐘（第 7 站首次小於 1 分鐘，最後五站是模型規定的 0.2，不是觀測）；程式停站模型的 g 是「本車到站時刻減前車離站時刻」，兩者不同（3→4 號車 g 在第 0 站是 4.17，第 7 站起為負，停站取 0.3 分鐘下限）；4→5 號車的 headway 從 8.0 分鐘先增到最大 11.18（第 8 站）再回到 9.76，所以圖說「拉大到 9.8」只是起點對終點的比較，不是一路拉大；(7) S6 各段是 2、2、14、2、10 公里，每段時速都是 60 公里，等距排列時視覺斜率是 1／2、1／2、1／14、1／2、1／10，最平的是丙→丁；(8) S7 共 284 班＝普通 218（下行 109、上行 109）＋快車 66（33、33），放大區（07:00–09:00 下行）16 班＝普通 12＋快車 4，占 16／284＝5.6%，同時在線最多 10 班。
+
+## 存活曲線資料與自檢腳本 `sample-km-s1-…` 到 `sample-km-s8-…`
+
+**收錄哪些：** 素材包 `2026-10-05-pm-km` 有 8 份虛構資料（S1–S8）和 8 支自檢腳本；素材包沒有指定哪一份給 repo，所以 **8 組全部收錄**（共 16 個檔）。素材包的 `draw_km.py` 與 `export_samples.py` **沒有收**。
+
+**檔名：** 素材包檔名本來就有 `km` 前綴，與本 repo `examples/data/` 既有檔案**沒有撞名**，所以**沒有改名、內容一字未改**（16 個檔與素材包 `cmp` 逐位元相同）。每支自檢以明確檔名讀 CSV（`CSV_NAME`＋腳本所在資料夾），沒有萬用字元；取整一律四捨五入（逢 5 進位）。
+
+**CSV 格式：** 第 1 行是 `#` 開頭的說明行；之後是表頭。S1–S7 共 5 欄：`subject, time, event, group, data_status`。S8 共 6 欄：`subject, name, time, event, group, data_status`。`event`＝1 事件、0 設限。讀入時跳過 `#` 行。
+
+```bash
+cd skills/what-is-the-data-saying/examples/data
+python3 sample-km-s3-censoring-selfcheck.py
+python3 sample-km-s6-crossing-selfcheck.py   # 其餘同理，共 8 支
+```
+
+預期每支輸出一行 `PASS sample-km-sN-…-selfcheck`（v0.3.28 上架前實跑，結束碼 0）。
+
+**以實際計數為準**（本 repo 另以獨立程式重算，與 selfcheck 精確值一致，未發現素材包文字與 CSV 不一致）：(1) 虛構資料，**數字未核**；(2) 圖說「約」對應精確值見素材包第 12 節（S3 的 0.64＝0.637、S2 的 0.022＝0.0223、S6 交叉＝20.0、S7 的 0.092＝0.0917）；(3) S5 風險人數少於 5 的起點是以 0.1 月步進掃描得到的 22.2 月；(4) S6 交叉後必須看分段風險比；(5) 教科書 aml 例子（非本 CSV）中位 27 週、組別 31 對 23、對數等級 P≈0.065，已用公開資料與 lifelines 重算一致。

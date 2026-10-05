@@ -1,12 +1,12 @@
 # What is the data saying（資料在說什麼）
 
-**Open-core [Grok Build](https://github.com/xai-org/grok-build) skill — v0.3.27.**
+**Open-core [Grok Build](https://github.com/xai-org/grok-build) skill — v0.3.28.**
 
 Paste a table or report. Get **which chart**, **why not the usual pie**, and **how to make it**.
 
-The differentiator is not another chart-chooser flowchart. It is **Nazh-grounded Taiwan zh-TW pedagogy** plus **65 named patterns** from real teach-viz lessons: 中文圖種名, 適不適合, 口述怎麼做.
+The differentiator is not another chart-chooser flowchart. It is **Nazh-grounded Taiwan zh-TW pedagogy** plus **66 named patterns** from real teach-viz lessons: 中文圖種名, 適不適合, 口述怎麼做.
 
-[Install](#install-grok-build) · [30-second demo](#try-this-first) · [65 patterns](#65-named-patterns) · [Teams](COMMERCIAL.md) · [中文說明](#資料在說什麼)
+[Install](#install-grok-build) · [30-second demo](#try-this-first) · [66 patterns](#66-named-patterns) · [Teams](COMMERCIAL.md) · [中文說明](#資料在說什麼)
 
 > Star or fork if a first paste already beats your default pie.  
 > Need a chart for *your* table? [Open a chart request](https://github.com/g0uv4/what-is-the-data-saying/issues/new?template=chart-request.yml).
@@ -64,11 +64,11 @@ Reply format the skill always uses:
 pattern：examples/<slug>.md
 ```
 
-## 65 named patterns
+## 66 named patterns
 
 Full table: [`skills/what-is-the-data-saying/examples/README.md`](skills/what-is-the-data-saying/examples/README.md). Heuristics: [`references/chart-heuristics.md`](skills/what-is-the-data-saying/references/chart-heuristics.md).
 
-Highlights: icicle / sunburst / treemap / voronoi tree · **flame graph／火焰圖**（≠ flame chart, ≠ icicle） · waterfall · funnel · dumbbell / slope / bump · **lollipop／棒棒糖** · **streamgraph／河流圖** · sankey / alluvial / chord · **circos／環狀多軌圖** · **boxplot／箱形圖** · **bubble／氣泡圖** · **marimekko／馬里梅可** · raincloud / ridgeline / beeswarm / violin · hexbin / contour · **volcano plot／火山圖**（≠ Manhattan, ≠ MA plot） · **Manhattan plot／曼哈頓圖**（+ Miami variant; ≠ volcano, ≠ QQ） · **MA plot／MA 圖**（≠ volcano; RA plot = count version） · **QQ plot／QQ 圖**（≠ P–P, ≠ probplot; y = x vs any line） · **Bland–Altman plot／Bland–Altman 圖**（≠ MA plot, ≠ correlation; limits ≠ CI） · **P–P plot／P–P 圖**（≠ QQ; probability vs probability; axes vary by source） · **Marey chart／馬雷圖／列車運行圖**（train graph, stringline, time–distance diagram; one line per vehicle, stations on the axis in real distance order so slope = speed — equal spacing breaks that; crossings mean meets or overtakes; on a single track a crossing must fall inside a station that can host a meet; ≠ line chart, ≠ Gantt chart, and the Chinese Wikipedia redirect 「运行图」 goes to run chart; attribution wording: Tufte p.31 credits Ibry, the book's first edition is 1878 and "1885" is an edition year, Sergeev 1854 is a single-source claim later than Petiet 1843 and Ibry 1847; do not use the licence-doubtful R14 image） · **Lorenz curve／洛倫茲曲線**（with the Gini coefficient; sort units from smallest to largest and plot cumulative % of units against cumulative % of income/wealth, with the equality diagonal; always say whether the Gini has the n/(n−1) small-sample correction — 10 households, S3: 0.38 → 0.42; one person taking everything is (n−1)/n = 0.90 for 10 households, not 1; two groups can share a Gini yet have crossing curves, so do not rank them by Gini alone; related to but not the same chart as the Pareto chart: the Pareto cumulative line turned half a turn is the Lorenz curve of the same numbers） · **control chart／管制圖**（Shewhart chart; ≠ line chart, ≠ Pareto, ≠ spec limits; control limits come from process data, not from specs; the "same-side run" rule is 8 points in Western Electric but 9 in Nelson, so agree the rule set first） · **Pareto chart／柏拉圖／帕累托圖**（≠ plain bar chart, ≠ waterfall, ≠ funnel; related to but not the same chart as the Lorenz curve (the cumulative line turned half a turn is the Lorenz curve of the same numbers); cumulative-% line on a 0–100% right axis; set the left-axis max to the total; 80/20 is a rule of thumb, read at which item the line first reaches 80%; 「其他」 usually goes far right） · **horizon chart／地平線圖**（≠ streamgraph, ≠ ridgeline, ≠ heatmap; colour bands trade layers for height; write the baseline; rows are not comparable unless they share a band width） · **forest plot／森林圖**（≠ funnel plot for meta-analysis, ≠ business Funnel chart; log axis for ratio measures; square area ∝ weight） · **karyotype／ideogram plot／核型圖／染色體帶型示意圖**（≠ Manhattan, ≠ Circos; karyogram and idiogram are synonyms） · **LocusZoom plot／LocusZoom 圖**（區域關聯圖; ≠ Manhattan; lead variant ≠ causal） · **choropleth／等值區域** · **tile map／圖塊地圖** · **dot density** · **population pyramid／人口金字塔** · **BioFabric／生物織布圖** · UpSet · bullet KPI · **matrix heatmap／矩陣熱圖** · calendar heatmap · **spiral plot／螺旋圖** · cartogram.
+Highlights: icicle / sunburst / treemap / voronoi tree · **flame graph／火焰圖**（≠ flame chart, ≠ icicle） · waterfall · funnel · dumbbell / slope / bump · **lollipop／棒棒糖** · **streamgraph／河流圖** · sankey / alluvial / chord · **circos／環狀多軌圖** · **boxplot／箱形圖** · **bubble／氣泡圖** · **marimekko／馬里梅可** · raincloud / ridgeline / beeswarm / violin · hexbin / contour · **volcano plot／火山圖**（≠ Manhattan, ≠ MA plot） · **Manhattan plot／曼哈頓圖**（+ Miami variant; ≠ volcano, ≠ QQ） · **MA plot／MA 圖**（≠ volcano; RA plot = count version） · **QQ plot／QQ 圖**（≠ P–P, ≠ probplot; y = x vs any line） · **Bland–Altman plot／Bland–Altman 圖**（≠ MA plot, ≠ correlation; limits ≠ CI） · **P–P plot／P–P 圖**（≠ QQ; probability vs probability; axes vary by source） · **Marey chart／馬雷圖／列車運行圖**（train graph, stringline, time–distance diagram; one line per vehicle, stations on the axis in real distance order so slope = speed — equal spacing breaks that; crossings mean meets or overtakes; on a single track a crossing must fall inside a station that can host a meet; ≠ line chart, ≠ Gantt chart, and the Chinese Wikipedia redirect 「运行图」 goes to run chart; attribution wording: Tufte p.31 credits Ibry, the book's first edition is 1878 and "1885" is an edition year, Sergeev 1854 is a single-source claim later than Petiet 1843 and Ibry 1847; do not use the licence-doubtful R14 image） · **Kaplan–Meier survival curve／存活曲線**（product-limit estimator; one step down per event, censoring marks do not drop the curve; median = first time S≤0.5; needs time+event/censor columns; ≠ line chart, ≠ ecological survivorship curve; do NOT adopt Wikipedia's "editor was Tukey" — use Stalpers & Kaplan 2018: graduate students under Tukey who merged on the *journal editor's* advice; AML textbook example median 27 weeks, groups 31 vs 23, log-rank P≈0.065; R13 Commons author field OWID but figure credits Saloni Dattani; crossing curves need stratified HRs; confidence bands + number-at-risk table） · **Lorenz curve／洛倫茲曲線**（with the Gini coefficient; sort units from smallest to largest and plot cumulative % of units against cumulative % of income/wealth, with the equality diagonal; always say whether the Gini has the n/(n−1) small-sample correction — 10 households, S3: 0.38 → 0.42; one person taking everything is (n−1)/n = 0.90 for 10 households, not 1; two groups can share a Gini yet have crossing curves, so do not rank them by Gini alone; related to but not the same chart as the Pareto chart: the Pareto cumulative line turned half a turn is the Lorenz curve of the same numbers） · **control chart／管制圖**（Shewhart chart; ≠ line chart, ≠ Pareto, ≠ spec limits; control limits come from process data, not from specs; the "same-side run" rule is 8 points in Western Electric but 9 in Nelson, so agree the rule set first） · **Pareto chart／柏拉圖／帕累托圖**（≠ plain bar chart, ≠ waterfall, ≠ funnel; related to but not the same chart as the Lorenz curve (the cumulative line turned half a turn is the Lorenz curve of the same numbers); cumulative-% line on a 0–100% right axis; set the left-axis max to the total; 80/20 is a rule of thumb, read at which item the line first reaches 80%; 「其他」 usually goes far right） · **horizon chart／地平線圖**（≠ streamgraph, ≠ ridgeline, ≠ heatmap; colour bands trade layers for height; write the baseline; rows are not comparable unless they share a band width） · **forest plot／森林圖**（≠ funnel plot for meta-analysis, ≠ business Funnel chart; log axis for ratio measures; square area ∝ weight） · **karyotype／ideogram plot／核型圖／染色體帶型示意圖**（≠ Manhattan, ≠ Circos; karyogram and idiogram are synonyms） · **LocusZoom plot／LocusZoom 圖**（區域關聯圖; ≠ Manhattan; lead variant ≠ causal） · **choropleth／等值區域** · **tile map／圖塊地圖** · **dot density** · **population pyramid／人口金字塔** · **BioFabric／生物織布圖** · UpSet · bullet KPI · **matrix heatmap／矩陣熱圖** · calendar heatmap · **spiral plot／螺旋圖** · cartogram.
 
 ## For teams (hours, not a paywall)
 
@@ -91,7 +91,7 @@ The **core skill stays MIT**. No hosted login wall.
 |------|------|
 | `skills/what-is-the-data-saying/SKILL.md` | When to fire + the three-step loop |
 | `references/` | Heuristics, produce-how, shape checks, Taiwan readers |
-| `examples/` | 65 patterns (when / recommend / avoid / checklist) |
+| `examples/` | 66 patterns (when / recommend / avoid / checklist) |
 | `demos/` | Copy-paste first-run prompts |
 | `COMMERCIAL.md` | Team use cases |
 | `ATTRIBUTION.md` | Nazh teach-viz mapping |
@@ -108,9 +108,9 @@ Pedagogy and pattern names come from **納茲 - 資料視覺** teach-viz lessons
 
 ## 資料在說什麼
 
-**開源核心的 Grok Build skill（v0.3.27）。** 丟進一張表或一份報表，它回答兩件事：**該畫哪種圖**、**怎麼做得出來**。
+**開源核心的 Grok Build skill（v0.3.28）。** 丟進一張表或一份報表，它回答兩件事：**該畫哪種圖**、**怎麼做得出來**。
 
-和一般「圖表選擇器」的差別：對齊納茲教圖的台灣繁體中文教學——先給中文圖種名（英文名）、適不適合、口述怎麼做，再給工具。內建 **65 個具名 pattern**，不是示意三張長條圖。
+和一般「圖表選擇器」的差別：對齊納茲教圖的台灣繁體中文教學——先給中文圖種名（英文名）、適不適合、口述怎麼做，再給工具。內建 **66 個具名 pattern**，不是示意三張長條圖。
 
 ### 安裝
 

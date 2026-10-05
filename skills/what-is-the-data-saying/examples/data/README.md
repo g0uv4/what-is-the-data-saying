@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖與洛倫茲曲線各附 8 組 CSV 與 8 支自檢 .py）
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線與馬雷圖各附 8 組 CSV 與 8 支自檢 .py）
 
 來自納茲已審 skill pack。**非真實產業資料；數字未核。**
 
@@ -75,8 +75,24 @@
 | `sample-lorenz-s7-same-shape-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「洛倫茲曲線資料與自檢腳本」 | 同上 |
 | `sample-lorenz-s8-two-groups.csv` | 洛倫茲曲線虛構資料（S8；甲、乙各 10 戶，甲基尼約 0.21、乙約 0.46，甲在第 1–9 戶全程高於乙（洛倫茲優勢）；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**；素材包原名 `sample-s8-two-groups.csv`） | `../lorenz-curve.md` |
 | `sample-lorenz-s8-two-groups-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「洛倫茲曲線資料與自檢腳本」 | 同上 |
+| `sample-marey-s1-anatomy.csv` | 馬雷圖虛構資料（S1；101 次下行、102 次上行對開，每站停 1 分鐘，每分鐘 1 公里；只交叉一次（06:24:30，21.5 公里，丁站與戊站之間）；第 1 行為 `#` 說明；數字未核） | `../marey-chart.md` |
+| `sample-marey-s1-anatomy-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「馬雷圖資料與自檢腳本」 | 同上 |
+| `sample-marey-s2-local-vs-express.csv` | 馬雷圖虛構資料（S2；普通車 201 次（丁站待避 3 分鐘）、快車 301 次（不停站，時速 120 公里）與不待避對照線 201-nowait；07:24:00 在丁站超車，不待避則 07:25:00、22 公里追上；第 1 行為 `#` 說明；數字未核） | `../marey-chart.md` |
+| `sample-marey-s2-local-vs-express-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「馬雷圖資料與自檢腳本」 | 同上 |
+| `sample-marey-s3-single-track-meet.csv` | 馬雷圖虛構資料（S3；單線雙向，402 次在戊站等 9 分鐘；08:27–08:28 同在戊站會車，不等就開（402-nowait）則 08:23:30、20.5 公里在丁站與戊站之間交叉＝衝突；第 1 行為 `#` 說明；數字未核） | `../marey-chart.md` |
+| `sample-marey-s3-single-track-meet-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「馬雷圖資料與自檢腳本」 | 同上 |
+| `sample-marey-s4-plan-vs-actual.csv` | 馬雷圖虛構資料（S4；同一班車的計畫線與實際線；到站晚 1、2、7、7、7 分鐘，誤點組成加起來 7 分鐘；第 1 行為 `#` 說明；數字未核） | `../marey-chart.md` |
+| `sample-marey-s4-plan-vs-actual-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「馬雷圖資料與自檢腳本」 | 同上 |
+| `sample-marey-s5-bus-bunching.csv` | 馬雷圖虛構資料（S5；5 輛公車、13 個站牌（每站相隔 1 公里），3 號車晚 3 分鐘出發；3→4 號車到站時刻差 5→0.2 分鐘（第 7 站 0.81 首次小於 1）；第 1 行為 `#` 說明；數字未核） | `../marey-chart.md` |
+| `sample-marey-s5-bus-bunching-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「馬雷圖資料與自檢腳本」 | 同上 |
+| `sample-marey-s6-misread-equal-spacing.csv` | 馬雷圖虛構資料（S6；同一班車每段時速 60 公里，站點在 0、2、4、18、20、30 公里；等距排列時丙→丁看起來最平；第 1 行為 `#` 說明；數字未核） | `../marey-chart.md` |
+| `sample-marey-s6-misread-equal-spacing-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「馬雷圖資料與自檢腳本」 | 同上 |
+| `sample-marey-s7-too-dense-zoom.csv` | 馬雷圖虛構資料（S7；每班車一列（不是站點長表，9 欄）：全天雙向 284 班＝普通 218＋快車 66，放大區 07:00–09:00 下行 16 班（5.6%），同時在線最多 10 班；第 1 行為 `#` 說明；數字未核） | `../marey-chart.md` |
+| `sample-marey-s7-too-dense-zoom-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「馬雷圖資料與自檢腳本」 | 同上 |
+| `sample-marey-s8-steps.csv` | 馬雷圖虛構資料（S8；製作步驟範例，甲到丁四站（0、6、9、20 公里），501 次下行、502 次上行；只交叉一次（10:13:30，11.5 公里）；第 1 行為 `#` 說明；數字未核） | `../marey-chart.md` |
+| `sample-marey-s8-steps-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「馬雷圖資料與自檢腳本」 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -348,3 +364,25 @@ OK： sample-lorenz-s7-same-shape.csv 全部檢查通過（虛構資料，數字
 ```
 
 **以實際計數為準**（本 repo 另以獨立程式〔pandas／numpy，不用腳本的函式〕重算累計份額與基尼係數，全部一致，未發現素材包文字與 CSV 不一致），要小心讀：(1) 這是虛構資料，**數字未核，不能當真實數據引用**；(2) **基尼係數一定要註明算法**：折線下面積法 S3 是 0.382，乘 n／(n−1)＝10／9 的小樣本修正後 0.424；一人全拿（S5）10 戶是 0.90，不是 1，修正後 1.0；(3) S1 的折線下面積法基尼是 0.420（修正後 0.467，素材包沒寫，別與 S3 修正後的 0.42 混淆）；(4) S2 的 more_equal 組合計 105，累計欄以合計為 100% 計算；(5) S4 的 step1_unsorted 組累計欄是空的（未排序，設計如此）；(6) S6 柏拉圖累計 40、65、80、92、100 與洛倫茲累計 8、20、35、60、100，柏拉圖第 k 點＝1−洛倫茲在 1−k／5 處，五點全成立；(7) **S7 兩組基尼都是 0.340，但曲線在 70%（前 7 戶）處相交、都累計 45%，之前（10%–60%）乙較高、之後（80%、90%）甲較高**，素材包圖面寫「約 50%～80% 之間」交叉，兩者並陳；(8) S8 甲在累計 10%–90% 每個位置都高於乙；(9) 模擬圖的數字就是這些 CSV（`export_samples.py` 從畫圖資料匯出），重跑 `draw_lorenz.py` 的 8 張圖與素材包 `images/` MD5 一致。
+
+## 馬雷圖資料與自檢腳本 `sample-marey-s1-…` 到 `sample-marey-s8-…`
+
+**收錄哪些：** 素材包 `2026-10-05-am-marey` 有 8 份虛構資料（S1–S8，各對應一張模擬圖）和 8 支自檢腳本，一一對應；素材包沒有指定哪一份給 repo，也沒有合併版樣本，所以 **8 組全部收錄**（共 16 個檔）。素材包的 `draw_marey.py`（畫 8 張模擬圖）與 `export_samples.py`（匯出這 8 個 CSV）**沒有收**。
+
+**檔名：** 素材包檔名本來就有 `marey` 前綴，與本 repo `examples/data/` 既有檔案**沒有撞名**，所以**沒有改名、內容一字未改**（16 個檔與素材包 `cmp` 逐位元相同）。每支自檢以明確檔名讀 CSV（腳本內 `CSV_NAME` 加上腳本所在資料夾），沒有萬用字元；可選用命令列參數指定別的 CSV 路徑。
+
+**CSV 格式：** 第 1 行是 `#` 開頭的說明行（虛構資料，數字未核；指向哪一張圖）；之後是表頭。S1–S6 與 S8 是站點長表，共 10 欄：`group, train, seq, station, km, arrive, depart, arrive_min, depart_min, data_status`（每班車每站一列；`arrive_min`／`depart_min` 是從某個基準時刻起算的分鐘數）。S7 每班車一列，共 9 欄：`group, train, direction, kind, stops, first_depart_min, last_arrive_min, in_zoom, data_status`。讀入時要跳過 `#` 行（例如 pandas 的 `comment='#'`）。
+
+```bash
+cd skills/what-is-the-data-saying/examples/data
+python3 sample-marey-s3-single-track-meet-selfcheck.py
+python3 sample-marey-s7-too-dense-zoom-selfcheck.py   # 其餘同理，共 8 支
+```
+
+預期每支輸出一行（v0.3.27 上架前實跑，結束碼 0），例如：
+
+```
+OK： sample-marey-s3-single-track-meet.csv 全部檢查通過（虛構資料，數字未核）；會車 08:27 – 08:28 在戊站 ；若不等 08:23:30 20.5 公里 丁站與戊站之間
+```
+
+自檢腳本用精確分數（`Fraction`）計算，且我另以獨立程式（pandas／numpy／fractions，不用腳本的函式）重算，**全部一致，沒有發現素材包文字與 CSV 不一致**。要小心讀：(1) 這是虛構資料，**數字未核，不能當真實時刻表引用**；(2) S1 只交叉一次：06:24:30、21.5 公里；S8 只交叉一次：10:13:30、11.5 公里；兩者圖說寫「約」，而「約」值就等於精確值；(3) S2 只在 07:24:00 的丁站超車；301 次若不待避（201-nowait）則 07:25:00、22 公里追上，201 次在己站的差距是 9.5 分鐘（07:31:30 對 07:41:00）；(4) S3 的 401 次與 402 次只在戊站（08:27–08:28）重合，402 次若不等（402-nowait）就在 08:23:30、離起點 20.5 公里處交叉，落在丁站與戊站之間＝單線上的衝突；(5) S4 的七分鐘誤點：到站晚 1、2、7、7、7 分鐘，離站晚（甲到戊）0、2、4、7、7 分鐘，組成是乙站停站 +1、丙站停站 +2、甲→乙行駛 +1、丙→丁行駛 +3，合計 7，其中丙站停站加丙→丁行駛共 5 分鐘＝5／7＝71.4%；(6) **S5 的「間隔」有兩個不同的量**：圖上的 headway 是相鄰兩輛公車的到站時刻差，3→4 號車依序為 5、4.5、3.95、3.37、2.77、2.15、1.5、0.81、0.2、0.2、0.2、0.2、0.2 分鐘（第 7 站首次小於 1 分鐘，最後五站是模型規定的 0.2，不是觀測）；程式停站模型的 g 是「本車到站時刻減前車離站時刻」，兩者不同（3→4 號車 g 在第 0 站是 4.17，第 7 站起為負，停站取 0.3 分鐘下限）；4→5 號車的 headway 從 8.0 分鐘先增到最大 11.18（第 8 站）再回到 9.76，所以圖說「拉大到 9.8」只是起點對終點的比較，不是一路拉大；(7) S6 各段是 2、2、14、2、10 公里，每段時速都是 60 公里，等距排列時視覺斜率是 1／2、1／2、1／14、1／2、1／10，最平的是丙→丁；(8) S7 共 284 班＝普通 218（下行 109、上行 109）＋快車 66（33、33），放大區（07:00–09:00 下行）16 班＝普通 12＋快車 4，占 16／284＝5.6%，同時在線最多 10 班。

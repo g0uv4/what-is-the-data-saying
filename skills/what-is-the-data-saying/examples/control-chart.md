@@ -151,7 +151,7 @@
 
 要寫「圖怎麼畫、規則怎麼記」，仍以維基百科、NIST 手冊、ResearchMFG 與本稿的 Commons 圖／模擬圖為主。
 
-鄰居 pattern：`time-series-trend.md`（只看趨勢、不判斷異常時用折線）、`pareto-chart.md`（類別排名與累計占比；管制圖看同一指標隨時間穩不穩）、`horizon-chart.md`（並排比較很多條時間序列的起伏）、`small-multiples.md`（多條序列各畫一張管制圖時的排法）；直方圖、Levey–Jennings 圖只在本檔說明邊界，不另立專檔、`lorenz-curve.md`（洛倫茲曲線：分配形狀的橫斷面比較，不判斷流程穩不穩）。
+鄰居 pattern：`time-series-trend.md`（只看趨勢、不判斷異常時用折線）、`pareto-chart.md`（類別排名與累計占比；管制圖看同一指標隨時間穩不穩）、`horizon-chart.md`（並排比較很多條時間序列的起伏）、`small-multiples.md`（多條序列各畫一張管制圖時的排法）；直方圖、Levey–Jennings 圖只在本檔說明邊界，不另立專檔、`lorenz-curve.md`（洛倫茲曲線：分配形狀的橫斷面比較，不判斷流程穩不穩）、`marey-chart.md`（馬雷圖：列車運行圖；中文維基「运行图」轉址到趨勢圖 run chart，兩者不同）。
 
 圖檔留在教圖／skill-pack（`/workspace/skill-packs/2026-10-04-am-control/images/`，26 張＝18 張真實／示意圖加 8 張模擬圖，與終稿使用的檔案 MD5 逐一一致），本 repo **不複製**任何圖，只列連結與授權；對帳見 `ATTRIBUTION.md`。**Commons 圖 R1–R18 各有個別作者與授權，我另外查了每個 Commons 頁面的授權欄，與素材包相符**；使用時必須標作者與授權：CC BY-SA 要標示作者與授權、衍生作品用同樣授權；GFDL（GNU 自由文件授權）通常要求附授權全文或連結；公眾領域可自由使用。向量圖（SVG）以 Commons 提供的縮圖（PNG）存檔，除此之外沒有修改；R14 本地檔是縮圖，與 Commons 原檔不同。對外轉載前建議再確認各授權的要求。
 

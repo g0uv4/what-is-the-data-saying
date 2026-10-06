@@ -2,7 +2,7 @@
 name: what-is-the-data-saying
 description: >
   Given a table or report, recommend the chart and how to make it (資料在說什麼).
-  Nazh-grounded Taiwan zh-TW pedagogy plus 67 named patterns. Use when the user
+  Nazh-grounded Taiwan zh-TW pedagogy plus 68 named patterns. Use when the user
   pastes CSV / Excel / a table / 報表 and asks which chart, how to visualize,
   這份資料該怎麼畫, 推薦圖表, 視覺化, or runs /what-is-the-data-saying.
 when-to-use: >
@@ -13,7 +13,7 @@ argument-hint: paste a table or describe the report
 metadata:
   short-description: "Which chart? How to make it. 資料在說什麼"
   author: g0uv4
-  version: "0.3.29"
+  version: "0.3.30"
   lineage: "納茲 - 資料視覺 teach-viz 教圖"
   license: MIT
 ---
@@ -109,6 +109,7 @@ pattern：examples/<slug>.md（若有）
 | 一條可排成一維順序的路線（鐵路、捷運、公車線）上有多班車，每班車在每站有到離站時刻，想同時看每班車在每個時間到了哪裡、速度、停站、班距、超車與會車、計畫對實際、公車串車 | 馬雷圖（Marey chart、列車運行圖、train graph、time–distance diagram、stringline；`examples/marey-chart.md`；橫軸時刻、縱軸依**實際距離**排站，每班車一條線，**斜率＝速度、水平段＝停站、交叉＝相遇或超車**；站點等距排列會讓斜率不再代表速度（S6：同一班時速 60 公里的車，丙到丁看起來最平）；單線區間交叉點落在有會車設備的站內才是交會，落在站間（例 S3 不等就開的 08:23:30、20.5 公里）就是衝突；圖面寫「約」時附精確值（S1 06:24:30／21.5 公里、S8 10:13:30／11.5 公里）；S5 串車的圖說「間隔」是到站時刻差，程式裡停站模型的 g 是到站減前車離站，不同；4→5 號車的間隔是 8→最大 11.18→9.76，不是一路拉大；班次太密要拆圖（S7：284 班＝普通 218＋快車 66，放大 16 班＝5.6%）；歷史用限定語：Tufte 第 31 頁圖說把方法歸給 Ibry、Marey 書首版 1878 年而「1885」是版次年份、Tufte 封面是 Niijima 依 Marey 書重繪的雙色版、Sergeev 1854 單一來源且晚於 Petiet 1843 與 Ibry 1847、「因為 Tufte 才叫馬雷圖」只是推論；中文維基「运行图」會轉到趨勢圖（run chart）；R2 已刪、編號不重排；R14 授權有效性無法證實、不放進對外 skill；X 貼文不當依據）；≠ 折線圖（一條線是一個指標）、≠ 甘特圖（沒有空間軸）；縱軸排不出一維順序 → 地圖或流量地圖 |
 | 每個人（或零件、客戶）有觀察時間與事件／設限狀態，想看群體「撐多久還會發生事件」、某個時間點的存活比例、中位存活時間、兩組差距隨時間怎麼變 | 存活曲線／Kaplan–Meier 曲線（`examples/kaplan-meier-survival.md`；階梯只在事件時下降，設限短直線不下降；加信賴區間帶與風險人數表；交叉時不要只報一個風險比；尾端人少不要當治癒平台；有競爭風險改畫累積發生率、不用 1−KM；歷史用 Stalpers 2018，不採用「編輯＝Tukey」；≠ 折線圖、≠ 生態學 survivorship curve） |
 | 每位受試者（病人、客戶、設備）一條觀察到的時間區間，想看每個人撐多久、何時有反應、為什麼停止、誰到截止日還在，人數約 50 以內 | 游泳圖（`examples/swimmer-plot.md`；一人一條橫棒、棒長＝治療或追蹤時間；符號標反應與事件、棒尾箭頭＝截止仍在；依長度排序成階梯；註明資料截止日，晚入組者棒短不是失敗；超過約 50 人改 Kaplan–Meier 或分面；≠ 泳道流程圖、≠ 甘特圖〔計畫時程〕、≠ 腫瘤學瀑布圖／蜘蛛圖；繁中無公認譯名、命名起源未能確認） |
+| 很多個體（病人、受試者、國家）在同一組等距時間點各有一個量測值或類別，想同時看個人（誰一直偏高、誰中途退出）與整群（何時一起變化、哪幾期很多人一起缺） | 千層麵圖（lasagna plot，暫譯；`examples/lasagna-plot.md`；一列一人、一欄一時間點；排序方式寫在圖上；單色漸層、各面板同一範圍；缺值另標、不補 0；每列約 10 像素以上〔Wicklin 2016〕，人多分組、抽樣或改比例版；下方加平均折線；≠ 義大利麵圖、≠ 一般熱圖〔欄不是時間〕、≠ 游泳圖〔事件與持續時間〕） |
 | 多類別交叉／市場區隔×組成 | 馬賽克（獨立性）；商用變寬堆疊用馬里梅可；平行集合；集合交集用 UpSet |
 | 網路關係 | 力導向／弧線／鄰接矩陣／蜂巢圖；有階層+葉連線用 HEB；稠密成毛球、每條邊要可辨識或依類型分塊用 BioFabric（生物織布圖，暫譯） |
 | 地理量 | 等值區域圖（choropleth；先正規化，勿用總量填色）；計數疏密用點密度圖；總量規模用比例符號地圖；每區等權重、怕大區搶眼用圖塊地圖（一區一格）；面積＝資料用面積變形地圖；起迄用流向地圖 |

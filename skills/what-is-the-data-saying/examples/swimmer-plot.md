@@ -213,7 +213,7 @@
 18. [@sasyupi（日文）](https://x.com/sasyupi/status/1706976735869489609)
 19. [@ShingoHatakeya1（日文）](https://x.com/ShingoHatakeya1/status/1564983091894005764)
 
-鄰居 pattern：`kaplan-meier-survival.md`（族群層級存活曲線；人多時改用它，R15 示範兩者並排）、`gantt-schedule.md`（棒是計畫時程，不是觀察時間；R19 對照）、`marey-chart.md`（一條線是一班車的位置隨時間）、`time-series-trend.md`（單一指標隨時間）、`small-multiples.md`（人多時依組別分面）、`waterfall-bridge.md`（財務累加瀑布圖；腫瘤學瀑布圖不同，見上表）、`forest-plot.md`（次族群風險比點估計，沒有個人軌跡）。
+鄰居 pattern：`kaplan-meier-survival.md`（族群層級存活曲線；人多時改用它，R15 示範兩者並排）、`gantt-schedule.md`（棒是計畫時程，不是觀察時間；R19 對照）、`marey-chart.md`（一條線是一班車的位置隨時間）、`time-series-trend.md`（單一指標隨時間）、`small-multiples.md`（人多時依組別分面）、`waterfall-bridge.md`（財務累加瀑布圖；腫瘤學瀑布圖不同，見上表）、`forest-plot.md`（次族群風險比點估計，沒有個人軌跡）、`lasagna-plot.md`（千層麵圖：每人一列、每格一次量測值；游泳圖畫事件與持續時間）。
 
 ## 圖檔與授權（不複製，只連結）
 

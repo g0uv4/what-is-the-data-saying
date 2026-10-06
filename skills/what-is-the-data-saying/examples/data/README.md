@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線與游泳圖各附 8 組 CSV 與 8 支自檢 .py）
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖與千層麵圖各附 8 組 CSV 與 8 支自檢 .py）
 
 來自納茲已審 skill pack。**非真實產業資料；數字未核。**
 
@@ -123,8 +123,24 @@
 | `sample-swimmer-s7-too-many-vs-km-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「游泳圖資料與自檢腳本」 | 同上 |
 | `sample-swimmer-s8-steps.csv` | 游泳圖虛構資料（S8；取最早入組 6 人 P01–P06 的手繪步驟；排序 P02 22.5 → P06 2.6；9 欄；第 1 行為 `#` 說明；數字未核） | `../swimmer-plot.md` |
 | `sample-swimmer-s8-steps-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「游泳圖資料與自檢腳本」 | 同上 |
+| `sample-lasagna-s1-anatomy.csv` | 千層麵圖虛構資料（S1；40 人 × 12 週＝480 格長表；缺值 33（退出 4 人 21 格＋零星 12 格）；P07 第 5 週 153；第 1 行為 `#` 說明；數字未核） | `../lasagna-plot.md` |
+| `sample-lasagna-s1-anatomy-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「千層麵圖資料與自檢腳本」 | 同上 |
+| `sample-lasagna-s2-spaghetti-vs-lasagna.csv` | 千層麵圖虛構資料（S2；一人一列寬表；個人平均最高 P19 164.0、最低 P33 121.4；第 1 行為 `#` 說明；數字未核） | `../lasagna-plot.md` |
+| `sample-lasagna-s2-spaghetti-vs-lasagna-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「千層麵圖資料與自檢腳本」 | 同上 |
+| `sample-lasagna-s3-sorting.csv` | 千層麵圖虛構資料（S3；三種列排序；前 10 名介入組 2、後 10 名 9；組平均 149.7／138.8；第 1 行為 `#` 說明；數字未核） | `../lasagna-plot.md` |
+| `sample-lasagna-s3-sorting-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「千層麵圖資料與自檢腳本」 | 同上 |
+| `sample-lasagna-s4-categorical.csv` | 千層麵圖虛構資料（S4；教學用四級（非臨床標準）；第 1 週 0／1／5／32 缺 2、第 12 週 2／5／9／19 缺 5；第 1 行為 `#` 說明；數字未核） | `../lasagna-plot.md` |
+| `sample-lasagna-s4-categorical-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「千層麵圖資料與自檢腳本」 | 同上 |
+| `sample-lasagna-s5-missing.csv` | 千層麵圖虛構資料（S5；缺值留白 vs 錯誤補 0；第 12 週 140.5／122.9；第 8 週差 21.4；第 1 行為 `#` 說明；數字未核） | `../lasagna-plot.md` |
+| `sample-lasagna-s5-missing-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「千層麵圖資料與自檢腳本」 | 同上 |
+| `sample-lasagna-s6-colormap.csv` | 千層麵圖虛構資料（S6；彩虹 vs 單色同一排序；觀測 447 格、135–145 之間 128 格；第 1 行為 `#` 說明；數字未核） | `../lasagna-plot.md` |
+| `sample-lasagna-s6-colormap-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「千層麵圖資料與自檢腳本」 | 同上 |
+| `sample-lasagna-s7-groups-mean.csv` | 千層麵圖虛構資料（S7；分組面板＋每週平均；對照組 148.35 → 148.4（逢 5 進位）→ 150.2（＋1.8）、介入組 147.2 → 130.2；第 1 行為 `#` 說明；數字未核） | `../lasagna-plot.md` |
+| `sample-lasagna-s7-groups-mean-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「千層麵圖資料與自檢腳本」 | 同上 |
+| `sample-lasagna-s8-steps.csv` | 千層麵圖虛構資料（S8；P01、P03、P04、P06 前 4 週長表 16 列；排序 P06、P04、P01、P03；第 1 行為 `#` 說明；數字未核） | `../lasagna-plot.md` |
+| `sample-lasagna-s8-steps-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「千層麵圖資料與自檢腳本」 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -465,3 +481,32 @@ python3 sample-swimmer-s6-cutoff-misread-selfcheck.py   # 其餘同理，共 8 �
 預期每支輸出一行 `PASS sample-swimmer-sN-…-selfcheck`（S3 另先印 `Spearman（平均名次）= -0.3185`；v0.3.29 上架前實跑，結束碼 0）。
 
 **以實際計數為準**（本 repo 另以 pandas／numpy／scipy／lifelines 獨立重算，與 selfcheck 一致，未發現素材包文字與 CSV 不一致）：(1) 虛構資料，**數字未核**，不代表任何真實藥物或病人；(2) S1 第一次緩解第 2 月 5 人（P01、P04、P08、P10、P13）、第 4 月 3 人、第 6 月 1 人（每 2 個月評估一次）；(3) S3 排序與入組月的秩相關＝**−0.32**（scipy `spearmanr` 與 pandas `rank(method='average')` 皆 −0.3185；同分 4 個 2.0、3 個 6.0、2 個 14.0 月）——同分必須取平均名次；(4) S4 設限 4 人：P13 12.2、P04 10.5（副作用停藥）、P14 10.0、P16 9.3；(5) S6 第 12 月截止時 P13、P14、P16 棒短是因為晚入組，到第 24 月分別 14.2、14.0、13.3 月仍在治療；(6) S7 KM 第 6／12／18 月 0.433／0.202／0.061、風險人數每 6 月 150、79、28、7、0；(7) S8 用修正版圖（取最早入組 6 人）。
+
+## 千層麵圖資料與自檢腳本 `sample-lasagna-s1-…` 到 `sample-lasagna-s8-…`
+
+**收錄哪些：** 素材包 `2026-10-06-pm-lasagna` 有 8 份虛構資料（S1–S8，種子 20261006）和 8 支自檢腳本；素材包沒有指定哪一份給 repo，所以 **8 組全部收錄**（共 16 個檔）。素材包的 `draw_lasagna.py` 與 `export_samples.py` **沒有收**。
+
+**檔名：** 素材包檔名本來就有 `lasagna` 前綴，與本 repo `examples/data/` 既有檔案**沒有撞名**，所以**沒有改名、內容一字未改**（16 個檔與素材包 `cmp` 逐位元相同）。每支自檢以明確檔名讀 CSV（`read_rows("sample-lasagna-sN-….csv")`，從腳本所在資料夾讀），沒有萬用字元；只用 Python 標準函式庫，以分數精確計算平均、逢 5 進位到小數一位。
+
+**CSV 格式：** 第 1 行是 `#` 開頭的說明行；之後是表頭，最後一欄都是 `data_status`（「虛構資料，數字未核」）。收縮壓單位毫米汞柱，空白＝缺值。
+
+| 檔 | 列數 | 欄位 |
+|---|---|---|
+| S1 | 480 | `subject, group, week, sbp, missing_type, highlight, data_status` |
+| S2 | 40 | `subject, group, w1…w12, n_observed, person_mean, row_in_lasagna, data_status` |
+| S3 | 40 | `subject, group, w1…w12, person_mean, row_A_by_id, row_B_by_mean, row_C_group_then_mean, data_status` |
+| S4 | 40 | `subject, group, sbp_w1…sbp_w12, cat_w1…cat_w12, row_in_plot, data_status` |
+| S5 | 480 | `subject, group, week, sbp, sbp_if_zero_filled, is_missing, data_status` |
+| S6 | 40 | `row_in_plot, subject, group, w1…w12, person_mean, data_status` |
+| S7 | 480 | `subject, group, row_in_group_panel, week, sbp, data_status` |
+| S8 | 16 | `subject, group, week, sbp, data_status` |
+
+```bash
+cd skills/what-is-the-data-saying/examples/data
+python3 sample-lasagna-s5-missing-selfcheck.py
+python3 sample-lasagna-s7-groups-mean-selfcheck.py   # 其餘同理，共 8 支
+```
+
+預期每支逐項印出 `PASS｜…`，最後一行 `RESULT: PASS（N 項通過、0 項失敗）`（v0.3.30 上架前實跑，結束碼 0）。
+
+**以實際計數為準**（本 repo 另以 pandas／numpy＋分數精確平均獨立重算，與 selfcheck 一致，未發現素材包文字與 CSV 不一致）：(1) 虛構資料，**數字未核**；(2) S7 對照組第 1 週精確值 148.35（2967／20），逢 5 進位＝**148.4**、到第 12 週 150.2 變化 **＋1.8**；S7 圖上標籤顯示 148.3 是另一種進位方式，圖沒有重畫，以 148.4 為準；(3) S5 有三個每週平均落在進位邊界：第 5 週 145.95 → 146.0（無缺值，正確與補 0 相同）、補 0 第 4 週 138.95 → 139.0、補 0 第 10 週 127.25 → 127.3——課程文字與圖都沒有用到這三個值；(4) S4 的四級分法是教學簡化，不是臨床標準；(5) 中途退出：P12 第 8 週起、P15 第 7 週起（對照組），P32 第 7 週起、P34 第 9 週起（介入組）。

@@ -8,7 +8,7 @@
 - Images: 28 = R1–R18 PMC (CC BY 4.0; Europe PMC API `license` = cc by for all 17 source papers) + R19/R20 Commons (CC BY-SA 3.0 Dbsheajr / CC0 Paul Kerr; Commons API matched) + 8 simulated (S8 = redrawn `-sim-s8-steps-fixed.png`). Link only, no image copied.
 - Fictional demo data: **all 8 pairs** `sample-swimmer-s1-anatomy` … `sample-swimmer-s8-steps` (16 files, byte-identical by `cmp`) — pack designates none. No collisions. Explicit-filename CSV reads; all PASS from `examples/data/` and a scratch folder. Independent recount: **no pack-vs-CSV mismatch**. The S3 selfcheck is kept byte-identical; it names the rejected tie-breaking value only to assert against it.
 - `draw_swimmer.py` / `export_samples.py` **not** copied (defaults `./out` and own folder); run from scratch with `--outdir /tmp/...`: 8 PNGs (S8 fixed filename) and 8 CSVs byte-identical; pack `images/` identical to `teach-viz/`.
-- Pack-internal contradictions noted in ATTRIBUTION (lesson §7 「橫向泳道圖（即俗稱的游泳圖）」; step 8 responders-only subgroup; pack §4.1 overstates the tie-breaking result).
+- Pack-internal issues noted in ATTRIBUTION: lesson §7 swimlane wording and pack §4.1 tie-breaking wording (both since fixed by 納茲 — synced in 0.3.30); step 8 responders-only subgroup (still open with Liora).
 - Cross-links: `kaplan-meier-survival.md` (neighbour table row corrected + neighbour line), `gantt-schedule.md`, `marey-chart.md`, `time-series-trend.md`, `forest-plot.md`, `waterfall-bridge.md`, `small-multiples.md`. Gap list unchanged.
 - Checklist: `plugin.json`, both READMEs, `COMMERCIAL.md` (66→67), `SKILL.md`, `ATTRIBUTION.md`, `references/chart-heuristics.md`, `references/data-shape-checks.md` (item **39**), `references/how-to-produce.md`, `examples/README.md`, `examples/data/README.md`.
 

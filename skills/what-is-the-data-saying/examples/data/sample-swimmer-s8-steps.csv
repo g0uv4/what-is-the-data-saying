@@ -1,0 +1,8 @@
+# 虛構資料，數字未核｜圖 S8：編號最前（最早入組）的 6 位受試者 P01–P06｜由 draw_swimmer.py 相同種子重算匯出（export_samples.py）
+subject,group,start_month,end_month,first_response_month,cr_month,stop_reason,ongoing,data_status
+P01,低劑量,0,8.0,2,4,疾病惡化,否,虛構資料，數字未核
+P02,高劑量,0,22.5,,,,是,虛構資料，數字未核
+P03,低劑量,0,14.0,6,8,疾病惡化,否,虛構資料，數字未核
+P04,高劑量,0,12.5,2,4,副作用,否,虛構資料，數字未核
+P05,低劑量,0,6.0,,,疾病惡化,否,虛構資料，數字未核
+P06,低劑量,0,2.6,,,撤回同意,否,虛構資料，數字未核

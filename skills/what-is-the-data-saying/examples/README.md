@@ -54,6 +54,7 @@
 | 洛倫茲曲線（Lorenz curve，含基尼係數；單位由小到大排序、兩軸累計百分比、附對角線；≠ 柏拉圖〔相通但不同，轉半圈關係〕、≠ 折線圖、≠ 分位數圖；基尼要註明有無小樣本修正，一人全拿 10 戶是 0.90；同基尼可曲線交叉） | `lorenz-curve.md` | 2026-10-04-pm-lorenz.md |
 | 馬雷圖／列車運行圖（Marey chart；一班車一條線、站點依實際距離、斜率＝速度、交叉＝相遇或超車；≠ 折線圖、≠ 甘特圖；歷史歸屬用限定語；R14 授權存疑不用） | `marey-chart.md` | 2026-10-05-am-marey.md |
 | 存活曲線／Kaplan–Meier（階梯、設限短直線、信賴區間、風險人數表；≠ 折線圖、≠ 生態學 survivorship curve；不採用「編輯＝Tukey」；aml 中位 27 週） | `kaplan-meier-survival.md` | 2026-10-05-pm-km.md |
+| 游泳圖（swimmer plot；一人一條觀察到的治療棒、事件符號、棒尾箭頭、依長度排序、註明截止日；≠ 泳道流程圖、≠ 甘特圖、≠ 腫瘤學瀑布圖／蜘蛛圖；繁中無公認譯名；超過約 50 人改 KM） | `swimmer-plot.md` | 2026-10-06-am-swimmer.md |
 | Bland–Altman 圖（兩種量測方法的一致性；≠ MA 圖、≠ 相關係數） | `bland-altman.md` | 2026-09-30-pm-ba.md |
 | LocusZoom 圖（區域關聯圖；曼哈頓圖的區間細節層；≠ 曼哈頓圖；領先變異≠因果） | `locuszoom.md` | 2026-10-01-am-locuszoom.md |
 | 力導向網路 | `force-network.md` | 2026-09-17-pm-force.md |

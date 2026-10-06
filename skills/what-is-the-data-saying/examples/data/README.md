@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖與存活曲線各附 8 組 CSV 與 8 支自檢 .py）
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線與游泳圖各附 8 組 CSV 與 8 支自檢 .py）
 
 來自納茲已審 skill pack。**非真實產業資料；數字未核。**
 
@@ -107,8 +107,24 @@
 | `sample-km-s7-y-axis-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫＋numpy，不是資料）；見下方「存活曲線資料與自檢腳本」 | 同上 |
 | `sample-km-s8-step-by-step.csv` | 存活曲線虛構資料（S8；8 人手算步驟；階梯 0.875→0.750→0.600→0.450→0.225；中位第 7 月；6 欄含 name；第 1 行為 `#` 說明；數字未核） | `../kaplan-meier-survival.md` |
 | `sample-km-s8-step-by-step-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫＋numpy，不是資料）；見下方「存活曲線資料與自檢腳本」 | 同上 |
+| `sample-swimmer-s1-anatomy.csv` | 游泳圖虛構資料（S1；20 位受試者構造示範；最長 P02 22.5 月仍在、最短 P18 1.7 月副作用；仍在 4、有緩解 9、完全緩解 3；中位 7.0；10 欄；第 1 行為 `#` 說明；數字未核） | `../swimmer-plot.md` |
+| `sample-swimmer-s1-anatomy-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「游泳圖資料與自檢腳本」 | 同上 |
+| `sample-swimmer-s2-grouped-color.csv` | 游泳圖虛構資料（S2；低劑量／高劑量各 10 人；中位 4.3 對 11.25 月；有緩解 2 對 7；前 10 長棒高 6 低 4；7 欄；第 1 行為 `#` 說明；數字未核） | `../swimmer-plot.md` |
+| `sample-swimmer-s2-grouped-color-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「游泳圖資料與自檢腳本」 | 同上 |
+| `sample-swimmer-s3-sorting.csv` | 游泳圖虛構資料（S3；依長度排序 vs 依編號排序；排序與入組月 Spearman −0.32（同分取平均名次，精確 −0.3185）；6 欄；第 1 行為 `#` 說明；數字未核） | `../swimmer-plot.md` |
+| `sample-swimmer-s3-sorting-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫；有 scipy 時另交叉核對，不是資料）；見下方「游泳圖資料與自檢腳本」 | 同上 |
+| `sample-swimmer-s4-duration-of-response.csv` | 游泳圖虛構資料（S4；9 位有緩解者的反應持續時間；結束於惡化 5、設限 4；最長 P13 12.2 月；9 欄；第 1 行為 `#` 說明；數字未核） | `../swimmer-plot.md` |
+| `sample-swimmer-s4-duration-of-response-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「游泳圖資料與自檢腳本」 | 同上 |
+| `sample-swimmer-s5-stop-reasons.csv` | 游泳圖虛構資料（S5；停止原因：惡化 13、副作用 2、退出 1、仍在 4；5 欄；第 1 行為 `#` 說明；數字未核） | `../swimmer-plot.md` |
+| `sample-swimmer-s5-stop-reasons-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「游泳圖資料與自檢腳本」 | 同上 |
+| `sample-swimmer-s6-cutoff-misread.csv` | 游泳圖虛構資料（S6；同一批人在第 12 月與第 24 月兩個截止日；第 12 月入組 17、仍在 11；7 欄；第 1 行為 `#` 說明；數字未核） | `../swimmer-plot.md` |
+| `sample-swimmer-s6-cutoff-misread-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「游泳圖資料與自檢腳本」 | 同上 |
+| `sample-swimmer-s7-too-many-vs-km.csv` | 游泳圖虛構資料（S7；150 人太多改 KM；停止 84／26／24／16、事件 134、中位 6.0；6 欄；第 1 行為 `#` 說明；數字未核） | `../swimmer-plot.md` |
+| `sample-swimmer-s7-too-many-vs-km-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「游泳圖資料與自檢腳本」 | 同上 |
+| `sample-swimmer-s8-steps.csv` | 游泳圖虛構資料（S8；取最早入組 6 人 P01–P06 的手繪步驟；排序 P02 22.5 → P06 2.6；9 欄；第 1 行為 `#` 說明；數字未核） | `../swimmer-plot.md` |
+| `sample-swimmer-s8-steps-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「游泳圖資料與自檢腳本」 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -420,3 +436,32 @@ python3 sample-km-s6-crossing-selfcheck.py   # 其餘同理，共 8 支
 預期每支輸出一行 `PASS sample-km-sN-…-selfcheck`（v0.3.28 上架前實跑，結束碼 0）。
 
 **以實際計數為準**（本 repo 另以獨立程式重算，與 selfcheck 精確值一致，未發現素材包文字與 CSV 不一致）：(1) 虛構資料，**數字未核**；(2) 圖說「約」對應精確值見素材包第 12 節（S3 的 0.64＝0.637、S2 的 0.022＝0.0223、S6 交叉＝20.0、S7 的 0.092＝0.0917）；(3) S5 風險人數少於 5 的起點是以 0.1 月步進掃描得到的 22.2 月；(4) S6 交叉後必須看分段風險比；(5) 教科書 aml 例子（非本 CSV）中位 27 週、組別 31 對 23、對數等級 P≈0.065，已用公開資料與 lifelines 重算一致。
+
+## 游泳圖資料與自檢腳本 `sample-swimmer-s1-…` 到 `sample-swimmer-s8-…`
+
+**收錄哪些：** 素材包 `2026-10-06-am-swimmer` 有 8 份虛構資料（S1–S8，種子 20261026）和 8 支自檢腳本；素材包沒有指定哪一份給 repo，所以 **8 組全部收錄**（共 16 個檔）。素材包的 `draw_swimmer.py` 與 `export_samples.py` **沒有收**。
+
+**檔名：** 素材包檔名本來就有 `swimmer` 前綴，與本 repo `examples/data/` 既有檔案**沒有撞名**，所以**沒有改名、內容一字未改**（16 個檔與素材包 `cmp` 逐位元相同）。每支自檢以明確檔名讀 CSV（`CSV_NAME`＋腳本所在資料夾，也可在命令列給檔名），沒有萬用字元；只用 Python 標準函式庫，S3 有 scipy 時另以 `spearmanr` 交叉核對、沒有就略過。
+
+**CSV 格式：** 第 1 行是 `#` 開頭的說明行；之後是表頭，最後一欄都是 `data_status`。時間單位都是「月」。
+
+| 檔 | 列數 | 欄位 |
+|---|---|---|
+| S1 | 20 | `subject, group, enroll_month, treatment_months, stop_reason, ongoing, first_response_month, cr_month, progression_month, data_status` |
+| S2 | 20 | `subject, group, treatment_months, stop_reason, responder, ongoing, data_status` |
+| S3 | 20 | `subject, enroll_month, treatment_months, row_if_sorted_by_duration, row_if_sorted_by_id, data_status` |
+| S4 | 20（有緩解 9） | `subject, group, treatment_months, stop_reason, dor_start_month, dor_end_month, dor_months, dor_status, data_status` |
+| S5 | 20 | `subject, group, treatment_months, stop_reason, data_status` |
+| S6 | 20 | `subject, enroll_month, months_at_cutoff_12, status_at_cutoff_12, months_at_cutoff_24, status_at_cutoff_24, data_status` |
+| S7 | 150 | `subject, group, treatment_months, stop_reason, event, data_status` |
+| S8 | 6 | `subject, group, start_month, end_month, first_response_month, cr_month, stop_reason, ongoing, data_status` |
+
+```bash
+cd skills/what-is-the-data-saying/examples/data
+python3 sample-swimmer-s3-sorting-selfcheck.py
+python3 sample-swimmer-s6-cutoff-misread-selfcheck.py   # 其餘同理，共 8 支
+```
+
+預期每支輸出一行 `PASS sample-swimmer-sN-…-selfcheck`（S3 另先印 `Spearman（平均名次）= -0.3185`；v0.3.29 上架前實跑，結束碼 0）。
+
+**以實際計數為準**（本 repo 另以 pandas／numpy／scipy／lifelines 獨立重算，與 selfcheck 一致，未發現素材包文字與 CSV 不一致）：(1) 虛構資料，**數字未核**，不代表任何真實藥物或病人；(2) S1 第一次緩解第 2 月 5 人（P01、P04、P08、P10、P13）、第 4 月 3 人、第 6 月 1 人（每 2 個月評估一次）；(3) S3 排序與入組月的秩相關＝**−0.32**（scipy `spearmanr` 與 pandas `rank(method='average')` 皆 −0.3185；同分 4 個 2.0、3 個 6.0、2 個 14.0 月）——同分必須取平均名次；(4) S4 設限 4 人：P13 12.2、P04 10.5（副作用停藥）、P14 10.0、P16 9.3；(5) S6 第 12 月截止時 P13、P14、P16 棒短是因為晚入組，到第 24 月分別 14.2、14.0、13.3 月仍在治療；(6) S7 KM 第 6／12／18 月 0.433／0.202／0.061、風險人數每 6 月 150、79、28、7、0；(7) S8 用修正版圖（取最早入組 6 人）。

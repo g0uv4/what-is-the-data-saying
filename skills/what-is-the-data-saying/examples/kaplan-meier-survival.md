@@ -67,7 +67,7 @@
 |---|---|---|
 | 折線圖（[`time-series-trend.md`](time-series-trend.md)） | 每個時間點一個觀察值、斜線相連 | 折線圖可上可下；存活曲線是**階梯**，只會往下或持平，兩次事件之間是平的 |
 | 累積發生率曲線 | 往上畫「已經發生事件的比例」 | 沒有競爭風險時約等於 1−KM；有競爭風險時兩者不同（Austin 2016）。事件很少見時往上畫往往比較清楚 |
-| 游泳圖（swimlane／swimmer plot） | 每人一條水平時間軸（泳道），標治療區間、事件與設限 | 強調個別軌跡；KM 是把一群人收成族群存活比例曲線。本 repo 暫無游泳圖專檔 |
+| 游泳圖（swimmer plot；≠ 泳道流程圖 swimlane） | 每人一條水平橫棒（像游泳池的一條水道），標治療區間、事件與截止時仍在 | 強調個別軌跡；KM 是把一群人收成族群存活比例曲線；見 [`swimmer-plot.md`](swimmer-plot.md) |
 | 森林圖（[`forest-plot.md`](forest-plot.md)） | 風險比與信賴區間排成點與橫線 | **沒有時間軸**；常見搭配是 KM 看整體形狀，再用森林圖看各次族群風險比 |
 | P–P 圖（[`pp-plot.md`](pp-plot.md)） | 診斷經驗分布是否符合理論 | 半參數式 P–P 可能用 KM 估經驗累積分布當一軸，但是診斷圖，不是給讀者看存活結果的圖 |
 | Q–Q 圖（[`qq-plot.md`](qq-plot.md)） | 分位數對分位數的診斷 | 與存活時間分布的診斷有關，但不是 KM 曲線本身 |
@@ -201,7 +201,7 @@
 - https://x.com/ShingoHatakeya1/status/1979092619767509434
 - https://x.com/theosanderson/status/1357806104412114954
 
-鄰居 pattern：`forest-plot.md`（風險比與信賴區間的點估計，沒有時間軸；常與 KM 搭配）、`time-series-trend.md`（一般折線可上可下；KM 是只降不升的階梯）、`pp-plot.md`／`qq-plot.md`（診斷圖，可能用到 KM 估經驗分布，但不是給讀者看存活結果）、`control-chart.md`（流程是否受控；與存活時間分析不同）、`marey-chart.md`（移動物體沿路線的時刻，不是事件發生時間的群體估計）。
+鄰居 pattern：`forest-plot.md`（風險比與信賴區間的點估計，沒有時間軸；常與 KM 搭配）、`time-series-trend.md`（一般折線可上可下；KM 是只降不升的階梯）、`pp-plot.md`／`qq-plot.md`（診斷圖，可能用到 KM 估經驗分布，但不是給讀者看存活結果）、`control-chart.md`（流程是否受控；與存活時間分析不同）、`marey-chart.md`（移動物體沿路線的時刻，不是事件發生時間的群體估計）、`swimmer-plot.md`（游泳圖：每人一條觀察到的治療棒；人多時改用 KM）。
 
 ## 圖檔與授權（不複製，只連結）
 

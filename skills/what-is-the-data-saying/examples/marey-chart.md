@@ -161,7 +161,7 @@
 
 要寫「圖怎麼畫、怎麼讀」，仍以維基百科、datavis.ca、Rendgen、Chartography、素材包的 Commons 圖與模擬圖為主。
 
-鄰居 pattern：`time-series-trend.md`（折線圖：一個指標隨時間，不是移動物體的位置）、`gantt-schedule.md`（甘特圖：工作起訖，沒有空間軸）、`small-multiples.md`（班次太密時依方向、車種拆成多張）、`control-chart.md`（管制圖／趨勢圖 run chart 與「运行图」撞名，看的是流程是否受控）、`slope-two-period.md`（坡度圖：兩期升降，與馬雷圖的速度斜率不同）；整個路網（縱軸排不出一維順序）改用地圖或流量地圖，本 repo 暫無流量地圖專檔（仍在缺口清單）、`kaplan-meier-survival.md`（時間到事件的群體存活曲線；馬雷圖是移動物體沿路線的位置）。
+鄰居 pattern：`time-series-trend.md`（折線圖：一個指標隨時間，不是移動物體的位置）、`gantt-schedule.md`（甘特圖：工作起訖，沒有空間軸）、`small-multiples.md`（班次太密時依方向、車種拆成多張）、`control-chart.md`（管制圖／趨勢圖 run chart 與「运行图」撞名，看的是流程是否受控）、`slope-two-period.md`（坡度圖：兩期升降，與馬雷圖的速度斜率不同）；整個路網（縱軸排不出一維順序）改用地圖或流量地圖，本 repo 暫無流量地圖專檔（仍在缺口清單）、`kaplan-meier-survival.md`（時間到事件的群體存活曲線；馬雷圖是移動物體沿路線的位置）、`swimmer-plot.md`（游泳圖：縱軸是受試者清單、橫軸是自起點的時間；馬雷圖縱軸是實際距離）。
 
 圖檔留在教圖／skill-pack（`/workspace/skill-packs/2026-10-05-am-marey/images/`，28 張＝20 張真實／示意圖加 8 張模擬圖，與終稿使用的檔案 MD5 逐一一致〔我另外用 `cmp` 逐一對照 `/workspace/teach-viz/` 同名檔，28 張全部相同〕），本 repo **不複製**任何圖，只列連結與授權；對帳見 `ATTRIBUTION.md`。**Commons 圖是 R1、R3–R21 共 20 張（沒有 R2，編號不重排），各有個別作者與授權**，我另外用 Commons API（2026-10-05，台北）逐張查了 21 個檔案頁（含已刪除 R2 的來源頁）的授權簡稱、作者欄、尺寸與授權分類：授權簡稱與作者都與素材包相符（公有領域：R1、R3、R4、R7，另 R2 的來源頁；CC BY-SA 4.0：R5、R6、R15–R21；CC BY-SA 3.0：R8、R9、R10、R11、R13；CC BY-SA 2.5：R12），分類確認多重授權：R8（GFDL＋CC BY-SA 3.0／2.5／2.0／1.0）、R9、R11、R13 都有 GFDL；R10 只有 CC BY-SA 3.0、沒有 GFDL。兩點照實記：R10 的 API 作者欄是上傳帳號 PlaneMad（素材包寫作者是 Arun Ganesh、PlaneMad 上傳，作者署名以圖面為準，我沒有重讀頁面）；R14 的 API 授權簡稱是 CC BY 3.0，分類同時有 CC-BY-3.0、CC-BY-SA-3.0-migrated 與 GFDL，與素材包說的「授權欄與說明欄不一致」相符，這也是本檔不採用它的原因。R4 的 API 分類為 PD-old-70-expired，R1／R2 為 PD-old-100-expired；各圖的歷史來源說明（Ibry 設計、翻拍屬衍生等）我沒有逐頁重讀；使用時必須標作者與授權：CC BY-SA 要標示作者與授權、衍生作品用同樣授權；GFDL（GNU 自由文件授權）通常要求附授權全文或連結；公眾領域可自由使用。對外轉載前建議再確認各授權的要求。
 

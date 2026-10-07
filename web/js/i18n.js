@@ -41,7 +41,7 @@
       unsupportedType: 'This file type is not supported. Supported formats: CSV, Excel (.xlsx / .xls / .ods), JSON.',
       truncated: 'More than 50,000 rows ({total} total); keeping the first 50,000.',
       encoding: 'encoding',
-      rows: 'rows', cols: 'columns', delimiter: 'delimiter', preview: 'Preview (first 8 rows)', noData: 'No data yet. Load a sample, upload a file or paste text.',
+      rows: 'rows', cols: 'columns', delimiter: 'delimiter', preview: 'Preview (first 8 rows)', noData: 'No data yet. Load a sample, or upload or paste your table, to see recommended charts.',
       colName: 'Column', colType: 'Type', colMissing: 'Missing', colDistinct: 'Distinct', colSamples: 'Samples', inferred: 'inferred',
       t_number: 'Number', t_category: 'Category', t_date: 'Date/time', t_boolean: 'Boolean', t_id: 'Identifier',
       showAll: 'Show all {n} (incl. not matching)', showEligible: 'Only matching', eligibleN: '{n} of {total} match',

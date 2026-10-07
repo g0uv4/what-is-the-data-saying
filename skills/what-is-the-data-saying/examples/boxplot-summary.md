@@ -1,7 +1,7 @@
 # Pattern: boxplot-summary
 
 > **圖種**：箱形圖（Box plot／Box-and-whisker plot）
-> **來源（納茲教圖）**：`teach-viz/2026-09-23-pm-boxplot.md`（正式專題；雨雲／小提琴僅當鄰居）
+> **來源（專案維護者整理）**：`teach-viz/2026-09-23-pm-boxplot.md`（正式專題；雨雲／小提琴僅當鄰居）
 > **亦稱**：盒鬚圖、箱線圖；工具常寫 Boxplot
 > **核心**：五數摘要＋（可選）離群——箱＝IQR、中線＝中位數、鬚＝規則內非離群範圍、點＝離群；拿手**並排比多組分布**
 

@@ -1,7 +1,7 @@
 # Pattern: streamgraph-composition
 
 > **圖種**：河流圖（Streamgraph／ThemeRiver）
-> **來源（納茲教圖）**：`teach-viz/2026-09-22-am-streamgraph.md`（正式專題；取代草稿 `2026-08-28-pm-streamgraph-draft.md`）
+> **來源（專案維護者整理）**：`teach-viz/2026-09-22-am-streamgraph.md`（正式專題；取代草稿 `2026-08-28-pm-streamgraph-draft.md`）
 > **亦稱**：溪流圖、stream graph、ThemeRiver、trend river
 
 ## When

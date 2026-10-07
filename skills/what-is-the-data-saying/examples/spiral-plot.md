@@ -1,7 +1,7 @@
 # Pattern: spiral-plot
 
 > **圖種**：螺旋圖（Spiral plot／Time series spiral）
-> **來源（納茲教圖）**：`teach-viz/2026-09-26-pm-spiral.md`（方法教學；首次正式主課）
+> **來源（專案維護者整理）**：`teach-viz/2026-09-26-pm-spiral.md`（方法教學；首次正式主課）
 > **亦稱**：時間序列螺旋、時間螺旋；氣候傳播常見變體叫 climate spiral／temperature spiral（氣候螺旋）；Dataviz Project 另分出 Spiral Histogram（condegram）與 Spiral Heat Map
 > **核心**：把時間（或具週期的序列）排在**阿基米德螺旋**上，**一圈＝一個週期**；通常中心較早、外圈較新；**同一角度對齊同一週期位置**（每年一月都在同一條放射線上），一眼看出季節性與跨年趨勢，並把很長的序列收進單一圓形版面
 

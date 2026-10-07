@@ -1,7 +1,7 @@
 # Pattern: dot-density-map
 
 > **圖種**：點密度圖（Dot density map／Dot distribution map）
-> **來源（納茲教圖）**：`teach-viz/2026-09-21-pm-dotdensity.md`
+> **來源（專案維護者整理）**：`teach-viz/2026-09-21-pm-dotdensity.md`
 > **亦稱**：點描圖、地理脈絡下的 dot map／point map
 
 ## When

@@ -1,7 +1,7 @@
 # Pattern: pp-plot
 
 > **圖種**：P–P 圖（P–P plot；機率—機率圖，Probability–Probability plot）
-> **來源（納茲教圖）**：`teach-viz/2026-10-01-pm-pp.md`（方法教學；正式課程）
+> **來源（專案維護者整理）**：`teach-viz/2026-10-01-pm-pp.md`（方法教學；正式課程）
 > **亦稱**：英文維基百科條目首句還寫了 percent–percent plot 與 P value plot 兩個別名（"probability–probability plot or percent–percent plot or P value plot"）；「P value plot」要小心，見第 4 項
 > **核心**：把兩個累積分布函數（CDF，指「數值小於等於某個值的機率」）對在一起看；可以是樣本對理論分布，也可以是樣本對樣本。**每個點的兩個座標都是 0 到 1 的累積機率**，點落在邊長為 1 的正方形裡；貼近 (0,0) 到 (1,1) 的對角線，表示兩邊的累積機率相近。
 > **一句話**：同一個**數值**上，兩邊的累積機率像不像；不是 QQ 圖（同一個累積機率上，兩邊的數值像不像）。
@@ -10,7 +10,7 @@
 ## 七件必須釘清的事
 
 1. **P–P 是機率對機率（兩軸 0 到 1），QQ 是分位數對分位數（兩軸是數值）。** 敏感位置的差別是**定性說法，不是定理**：GeostatsGuy、reliability 文件、SAS 說明三份來源都寫 P–P 在分布中央（機率密度高處）鑑別力較好、QQ 在尾部較好；英文維基百科 P–P 條目本身**沒有**寫這一點。尾部差異在 P–P 圖上是「被壓縮、不顯眼」，**不是「看不到」**；P–P 圖兩端被迫收在 (0,0) 與 (1,1)（GeostatsGuy："low and upper tails are forced to be 0.0, 0.0 and 1.0, 1.0"）。講尾巴請並陳 QQ 圖。
-2. **各來源對「哪個變數放哪個軸」不一致，圖題一定要寫。** 多數來源是橫軸理論、縱軸樣本（SAS、Statistica、Triveri、Commons 示例圖）；reliability 的半參數圖橫軸是經驗 CDF、縱軸是擬合分布；GeostatsGuy 是 X1 橫軸、X2 縱軸；Kass 講義文中沒明寫。**statsmodels 0.15.0 的 `ppplot` 軸標字面（橫軸 "Theoretical Probabilities"、縱軸 "Sample Probabilities"）與實際放的內容相反**：依原始碼與實際繪出的圖，橫軸放的是繪圖位置（預設 i/(n+1)），縱軸放的是理論分布在排序資料上的 CDF 值；傳入 `other` 時，縱軸是另一組資料的經驗累積機率，卻標成 "Probabilities of 1st Sample"，標籤與內容也不一致。素材包的 statsmodels 圖已依實際計算改正軸標。（本 repo 另在暫存虛擬環境安裝 statsmodels 0.15.0，對 `sample-pp-fictional.csv` 的 `sm` 資料集實際呼叫 `ProbPlot(...,fit=True).ppplot()` 驗證：軸標確為 "Theoretical Probabilities"（橫）與 "Sample Probabilities"（縱），但畫出的橫座標等於 i/(n+1)、縱座標等於擬合常態在排序值的 CDF，與軸標字面相反，和納茲稿一致。）換軸會讓曲線對對角線鏡射，「點在線上方」的意思反過來。本 repo 慣例：**橫軸＝參考（理論）累積機率，縱軸＝比較（樣本）累積機率**；照此寫法，點在線上方表示樣本在該數值的累積機率比參考分布高，也就是樣本偏小。
+2. **各來源對「哪個變數放哪個軸」不一致，圖題一定要寫。** 多數來源是橫軸理論、縱軸樣本（SAS、Statistica、Triveri、Commons 示例圖）；reliability 的半參數圖橫軸是經驗 CDF、縱軸是擬合分布；GeostatsGuy 是 X1 橫軸、X2 縱軸；Kass 講義文中沒明寫。**statsmodels 0.15.0 的 `ppplot` 軸標字面（橫軸 "Theoretical Probabilities"、縱軸 "Sample Probabilities"）與實際放的內容相反**：依原始碼與實際繪出的圖，橫軸放的是繪圖位置（預設 i/(n+1)），縱軸放的是理論分布在排序資料上的 CDF 值；傳入 `other` 時，縱軸是另一組資料的經驗累積機率，卻標成 "Probabilities of 1st Sample"，標籤與內容也不一致。素材包的 statsmodels 圖已依實際計算改正軸標。（本 repo 另在暫存虛擬環境安裝 statsmodels 0.15.0，對 `sample-pp-fictional.csv` 的 `sm` 資料集實際呼叫 `ProbPlot(...,fit=True).ppplot()` 驗證：軸標確為 "Theoretical Probabilities"（橫）與 "Sample Probabilities"（縱），但畫出的橫座標等於 i/(n+1)、縱座標等於擬合常態在排序值的 CDF，與軸標字面相反，和專案維護者整理的稿一致。）換軸會讓曲線對對角線鏡射，「點在線上方」的意思反過來。本 repo 慣例：**橫軸＝參考（理論）累積機率，縱軸＝比較（樣本）累積機率**；照此寫法，點在線上方表示樣本在該數值的累積機率比參考分布高，也就是樣本偏小。
 3. **NIST「Probability Plot」與 SciPy `probplot` 的軸是數值，屬 QQ 類，不是 P–P 圖。** NIST 縱軸有序觀測值、橫軸理論次序統計量中位數，頁面完全沒提 P–P 圖（「不是 P–P」是依軸語意的判斷）；SciPy 文件明寫 "should not be confused with a Q-Q or a P-P plot"。NIST QQ 頁把 quantile 解釋成「低於某值的比例」、Dataplot 頁寫 percentiles，用字容易讀成 P–P，但實際畫的軸仍是數值。**來源自己也會混名：Kass 講義圖 5 的說明文字寫 P–P，圖內標題卻寫 "QQ Plot for Front Average"**（教學稿以兩種解析度判讀一致，未用文字辨識軟體複核）。
 4. **「P value plot」是 P–P 結構，不是曼哈頓圖。** Davidson 與 MacKinnon（1998，*The Manchester School* 66 卷 1 期，第 1 到 26 頁）把模擬得到的 p 值的經驗分布對名目水準畫圖，稱 "P value plot"，檢定表現正確時應貼近 45° 線——結構上等同「p 值分布對均勻分布」的 P–P 圖（這個對應是推論）。它不是把 p 值逐點畫成天際線的曼哈頓圖。
 5. **繪點位置（經驗累積機率的算法）各來源不同，圖註要寫你用哪一種**：i/n（SAS 說明、Triveri 範例）、(i−0.5)/n（Kass 的變體）、i/(n+1)（Kass、英文維基百科、statsmodels 預設；statsmodels 可用參數 a 調成 (i−a)/(n+1−2a)）。**畫面不是正方形、軸超出 0 到 1，對角線在螢幕上就不是 45°**（Commons 示例圖軸範圍超出 0 到 1，紅線約 29°），務必等軸比例。

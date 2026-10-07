@@ -1,7 +1,7 @@
 # Pattern: circle-packing
 
 > **圖種**：圓堆圖（Circle packing）
-> **來源（納茲教圖）**：`teach-viz/2026-09-03-pm-circle-packing.md`
+> **來源（專案維護者整理）**：`teach-viz/2026-09-03-pm-circle-packing.md`
 
 ## When
 

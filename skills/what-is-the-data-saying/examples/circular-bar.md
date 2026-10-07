@@ -1,7 +1,7 @@
 # Pattern: circular-bar
 
 > **圖種**：圓形長條圖（Circular barplot）
-> **來源（納茲教圖）**：`teach-viz/2026-09-08-am-circular-bar.md`
+> **來源（專案維護者整理）**：`teach-viz/2026-09-08-am-circular-bar.md`
 
 ## When
 

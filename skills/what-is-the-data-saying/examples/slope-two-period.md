@@ -1,7 +1,7 @@
 # Pattern: slope-two-period
 
 > **圖種**：坡度圖（Slope chart）
-> **來源（納茲教圖）**：`teach-viz/2026-09-20-am-slope.md`
+> **來源（專案維護者整理）**：`teach-viz/2026-09-20-am-slope.md`
 
 ## When
 

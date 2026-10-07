@@ -1,7 +1,7 @@
 # Pattern: bump-ranking
 
 > **圖種**：凹凸圖（Bump chart）
-> **來源（納茲教圖）**：`teach-viz/2026-08-28-am-bump-draft.md`
+> **來源（專案維護者整理）**：`teach-viz/2026-08-28-am-bump-draft.md`
 
 ## When
 

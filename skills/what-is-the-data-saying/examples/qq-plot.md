@@ -1,14 +1,14 @@
 # Pattern: qq-plot
 
 > **圖種**：QQ 圖（Q–Q plot；全名分位數－分位數圖 Quantile–Quantile plot；也寫作 QQ plot、qqplot）
-> **來源（納茲教圖）**：`teach-viz/2026-09-30-am-qq.md`（方法教學；正式課程）
+> **來源（專案維護者整理）**：`teach-viz/2026-09-30-am-qq.md`（方法教學；正式課程）
 > **定義**：比較兩個機率分布的分位數。把兩個分布的分位數放在同一張圖上：一批樣本對理論分布，或一批樣本對另一批樣本。**兩批資料不必成對，筆數也不必相等**（英文維基百科原句）。
 > **核心**：每個點代表「同一個累積比例」在兩邊各自對應的數值；樣本對理論時常見約定是橫軸理論分位數、縱軸樣本分位數，但**不是通則**（R 的 `qqnorm` 有 `datax=TRUE`）；兩樣本比較時哪批放哪軸是作者約定（NIST 範例是第一批在縱軸）。**讀別人的圖，先看軸標題。**
 > **一句話**：貼線提示分位數形狀相近，但這不是假設檢定，沒有 p 值；偏離是證據，不是證明（NIST 用字是 evidence）
 
 ## 三件必須釘清的事
 
-1. **貼在 y = x 線上，才表示兩個分布相近；點貼在「任何一條直線」上，只表示兩者呈線性關係**（位置、尺度可以不同），不一定相同。位置差是直線上下平移，尺度差是斜率不同；**曲線彎曲才是形狀不同**（偏態、尾部厚薄）。貼線也不等於形狀相近之外的其他事都沒問題。（Liora 修正）
+1. **貼在 y = x 線上，才表示兩個分布相近；點貼在「任何一條直線」上，只表示兩者呈線性關係**（位置、尺度可以不同），不一定相同。位置差是直線上下平移，尺度差是斜率不同；**曲線彎曲才是形狀不同**（偏態、尾部厚薄）。貼線也不等於形狀相近之外的其他事都沒問題。（審稿修正）
 2. **SciPy 官方文件明寫**："probplot generates a probability plot, which should not be confused with a Q-Q or a P-P plot."　所以不要把 `scipy.stats.probplot` 的圖直接叫做 QQ 圖（它畫的是機率圖，紅線是最小平方擬合線）。**qqman 的 `qq()` 只畫圖，不計算基因組膨脹係數 λ，也不畫信賴帶**（教學稿對照原始碼與說明文件確認）。**λ 沒有單一官方閾值**：估計式是 λ̂ = median(Y²) ÷ 0.456（英文維基百科 Genomic control 條目；0.456 約等於卡方一自由度的中位數，教學稿以 SciPy 自算約 0.4549）；次級來源有「1.05」與「1.10」兩種說法且互相不一致，均非官方標準或原始論文，本 pattern 不採任何單一閾值。λ 偏高也可能是多基因遺傳造成的真實訊號，不一定是壞事（PubMed 21407268 摘要："in the absence of population structure and other technical artefacts, but in the presence of polygenic inheritance, substantial genomic inflation is expected."）。
 3. **圖檔授權大多不是可自由再用**：NIST、SciPy、statsmodels、ggplot2、qqman 的文件圖與 X 貼文圖，授權都未明示，素材包一律註「授權未明示，僅作教學示意引用」；Getting Genetics Done 的圖是 CC BY-NC 3.0，只能非商業使用；維基百科與 Commons 的圖須標作者與授權。本 repo 不複製任何圖檔，詳見 `ATTRIBUTION.md`。
 

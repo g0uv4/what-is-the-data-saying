@@ -1,7 +1,7 @@
 # Pattern: hierarchy-icicle
 
 > **圖種**：冰柱圖（Icicle diagram）
-> **來源（納茲教圖）**：`teach-viz/2026-09-01-am-icicle-draft.md`
+> **來源（專案維護者整理）**：`teach-viz/2026-09-01-am-icicle-draft.md`
 
 ## When
 

@@ -1,11 +1,11 @@
 # Pattern: marey-chart
 
 > **圖種**：馬雷圖／列車運行圖（Marey chart；train graph；time–distance diagram；stringline）
-> **來源（納茲教圖）**：`teach-viz/2026-10-05-am-marey.md`（方法教學；正式課程；首次以馬雷圖為主題）
+> **來源（專案維護者整理）**：`teach-viz/2026-10-05-am-marey.md`（方法教學；正式課程；首次以馬雷圖為主題）
 > **亦稱**：列車運行圖（train graph，列車圖）；英文別名 Marey diagram、time–distance diagram（時間－距離圖）、time–space diagram（時空圖）、stringline／string line chart（美國交通業者的貼文與開源工具常用）、graphical timetable（圖形時刻表）；德文 Bildfahrplan（亦稱 grafischer Fahrplan、Trassengrafik、Zeit-Weg-Diagramm）；日文ダイヤグラム（簡稱ダイヤ，也叫運行図表、列車運行図表；日本說「ダイヤ改正」就是改這張圖）。「拉線圖」是課程稿自己的譯法，沒有通用中文名。英文維基百科以「Time–distance diagram」為條目名，該條目沒有提到 Marey、Ibry 或 Petiet。
 > **核心**：橫軸放一天中的時刻，縱軸依**實際距離**排出沿線各站，每一班車畫成一條線；線越陡車越快，水平段是停站，兩條線交叉就是兩班車在那個時間、那個地點相遇。
 > **一句話**：這條路線上每一班車在每個時間到了哪裡？——它**不是**單一指標隨時間的走勢（折線圖），也**不是**專案每項工作的起訖（甘特圖）。
-> **誠實提醒**：本課是方法教學；模擬圖與本 repo 的練習資料都是虛構，**數字未核**（納茲未核），不代替任何鐵路公司的正式時刻表或事故調查。素材包**沒有實測任何軟體**。
+> **誠實提醒**：本課是方法教學；模擬圖與本 repo 的練習資料都是虛構，**數字未核**（專案維護者整理時未核），不代替任何鐵路公司的正式時刻表或事故調查。素材包**沒有實測任何軟體**。
 > **潤稿狀態**：素材包與課程終稿都明說**沒有經過 Gemini 潤稿**（Gemini 登入失效），也沒有改用其他模型潤稿；課程終稿只由手工調整措辭（把縮寫與工作用語改成白話），文字是審後由人工整理的原稿。
 > **撞名**：中文維基百科輸入「运行图」會被重新導向到「趨勢圖」（run chart，品質管理用的時間序列折線圖），與列車運行圖是不同東西；中國新聞常見的「實行新的列車運行圖」指的是**營運計畫本身**（哪些車、幾點開），不是圖表畫法。馬雷圖的「斜率」是速度，與「坡度圖」（`slope-two-period.md`，兩期升降比較）也不是同一件事。
 
@@ -108,12 +108,12 @@
 |---|---|---|
 | `sample-marey-s1-anatomy.csv` | S1 解剖 | 101 次下行、102 次上行；12 列；站點甲 0、乙 6、丙 9、丁 20、戊 24、己 35 公里 |
 | `sample-marey-s2-local-vs-express.csv` | S2 | 普通 201、快車 301、201-nowait（不待避的對照）；14 列 |
-| `sample-marey-s3-single-track-meet.csv` | S3（Liora 外觀修正版） | 401、402、402-nowait（不等就開的對照）；15 列 |
+| `sample-marey-s3-single-track-meet.csv` | S3（審稿外觀修正版） | 401、402、402-nowait（不等就開的對照）；15 列 |
 | `sample-marey-s4-plan-vs-actual.csv` | S4 | plan 與 actual 兩線；12 列 |
 | `sample-marey-s5-bus-bunching.csv` | S5 | bus1–bus5、第 0–12 站；65 列；arrive_min／depart_min 保留 6 位小數 |
 | `sample-marey-s6-misread-equal-spacing.csv` | S6 | 601 次；站點 0、2、4、18、20、30 公里；6 列 |
 | `sample-marey-s7-too-dense-zoom.csv` | S7 | 每班一列共 284 列；欄位另有 direction、kind、stops、in_zoom |
-| `sample-marey-s8-steps.csv` | S8（Liora 外觀修正版） | 501、502；甲到丁四站；8 列 |
+| `sample-marey-s8-steps.csv` | S8（審稿外觀修正版） | 501、502；甲到丁四站；8 列 |
 
 欄位（素材包第 12 節）：S1–S4、S6、S8 與 S5 共 10 欄：group、train、seq（沿行駛方向第幾站，0 起）、station、km（距甲站公里）、arrive、depart（HH:MM 或 HH:MM:SS，起點沒有 arrive、終點沒有 depart）、arrive_min、depart_min（從 00:00 起算的分鐘）、data_status；S7 共 9 欄：group、train、direction（down／up）、kind（local／express）、stops、first_depart_min、last_arrive_min、in_zoom（1＝放大圖挑出的班次）、data_status。
 
@@ -127,7 +127,7 @@
 - **S6**：各段 2、2、14、2、10 公里＝2、2、14、2、10 分鐘，時速都是 60；等距視覺斜率 1／2、1／2、1／14、1／2、1／10，最平的是丙→丁
 - **S7**：284＝普通 218（下行 109、上行 109）＋快車 66（下行 33、上行 33）；放大圖 16（普通 12＋快車 4，全部下行），占 5.6%；普通車每 10 分鐘、快車每 30 分鐘一班；同時在線最多 10 班
 - **S8**：501 與 502 只交叉一次，10:13:30、11.5 公里
-- **圖與腳本的實跑**：selfcheck 8 支都在暫存資料夾與 `examples/data/` 各實跑一次，結束碼 0、各輸出一行「OK」。`draw_marey.py` 預設輸出到**它自己旁邊的 `out/`**（不會寫進 teach-viz），並另寫 `sim_facts.json`；`export_samples.py` 預設寫回它自己所在的資料夾，且需要與 `draw_marey.py` 同一資料夾（它載入該檔取資料）。我只在暫存資料夾執行並用 `--outdir /tmp/…` 指定輸出，8 張模擬圖與素材包 `images/` 逐位元相同（`cmp`，含 Liora 修正的 S3、S8），匯出的 8 個 CSV 與素材包逐位元相同。兩支腳本**本 repo 不收**，只在 `ATTRIBUTION.md` 註明
+- **圖與腳本的實跑**：selfcheck 8 支都在暫存資料夾與 `examples/data/` 各實跑一次，結束碼 0、各輸出一行「OK」。`draw_marey.py` 預設輸出到**它自己旁邊的 `out/`**（不會寫進 teach-viz），並另寫 `sim_facts.json`；`export_samples.py` 預設寫回它自己所在的資料夾，且需要與 `draw_marey.py` 同一資料夾（它載入該檔取資料）。我只在暫存資料夾執行並用 `--outdir /tmp/…` 指定輸出，8 張模擬圖與素材包 `images/` 逐位元相同（`cmp`，含審稿修正的 S3、S8），匯出的 8 個 CSV 與素材包逐位元相同。兩支腳本**本 repo 不收**，只在 `ATTRIBUTION.md` 註明
 
 ## 參考連結（可點；皆出自素材包 sources.txt 且標可開；R14 不連結）
 
@@ -155,7 +155,7 @@
 8. @nturail，2026-09-28 18:32：臺大鐵道暨火車研習社社課預告（2026-09-30 週三 19:00），講如何把表列式時刻表視覺化成列車運行圖；只是預告，沒有課程內容，不能當方法依據。https://x.com/nturail/status/2104519638642303345
 9. @WalkAroundTokyo，2026-09-29 19:52：西武控股總部大樓外觀以列車運行圖為設計（日文）；是發文者自己的說法，僅轉載，無法證實。https://x.com/WalkAroundTokyo/status/2104902234517754156
 10. @series_223，2026-10-04 08:00：貼文原文是「北陸新幹線金澤開業前」的北陸本線運行圖滿是紅色特急線（日文），不是「延伸通車前」；內容是發文者的觀感。https://x.com/series_223/status/2106535000896307357
-11. @e_finder，2026-10-05 06:32（世界標準時間 10-04 22:32，換算後跨日）：單線運行圖交會的動腦謎題（日文）；貼文是導向部落格的謎題，曝光只有 6，**參考價值低，Liora 建議刪，終稿先保留並註明**，本檔只列入、不使用。https://x.com/e_finder/status/2106875007494426979
+11. @e_finder，2026-10-05 06:32（世界標準時間 10-04 22:32，換算後跨日）：單線運行圖交會的動腦謎題（日文）；貼文是導向部落格的謎題，曝光只有 6，**參考價值低，審稿人建議刪，終稿先保留並註明**，本檔只列入、不使用。https://x.com/e_finder/status/2106875007494426979
 12. @navitimeRailfan，2026-10-01 17:00：帳號開設公告，提到 NAVITIME「ダイヤグラム時刻表」功能（日文）。https://x.com/navitimeRailfan/status/2105583510849270118
 13. @SeasideExp，2025-12-11 12:20：堺市立圖書館提供昭和 4 年南海鐵道難波到和歌山市運行圖表的可讀解析度影像（日文）。https://x.com/SeasideExp/status/1998971093659639846
 
@@ -181,5 +181,5 @@
 - R18 只有普通車的運行圖、R19 快慢車混跑的運行圖：Hemmers，CC BY-SA 4.0
 - R20 Andria–Corato 相撞事故運行圖：Phoenix7777，CC BY-SA 4.0
 - R21 印尼車站調度室牆上的運行圖印本：NFarras（Naufal Farras），CC BY-SA 4.0
-- S1 解剖、S2 普通車與快車、S3 單線交會、S4 計畫對實際、S5 公車串車、S6 等距排站的誤讀、S7 班次太密要拆圖、S8 製作步驟：素材包自畫的**模擬圖**，虛構資料、數字未核，無外部授權限制，右下角有浮水印「模擬｜範例數字未核（虛構資料）」；其中 S3、S8 是 Liora 的外觀修正圖（S3 圖例改放座標軸下方、S8 浮水印下移；圖說與數字沒變），`draw_marey.py` 已併入修正
+- S1 解剖、S2 普通車與快車、S3 單線交會、S4 計畫對實際、S5 公車串車、S6 等距排站的誤讀、S7 班次太密要拆圖、S8 製作步驟：素材包自畫的**模擬圖**，虛構資料、數字未核，無外部授權限制，右下角有浮水印「模擬｜範例數字未核（虛構資料）」；其中 S3、S8 是審稿人的外觀修正圖（S3 圖例改放座標軸下方、S8 浮水印下移；圖說與數字沒變），`draw_marey.py` 已併入修正
 - 版權所有、未見轉載許可的圖：本包 28 張**沒有**頁面載明版權所有的圖（20 張 Commons 圖都有授權標示，其中 R14 的有效性存疑；8 張自繪）；Bostock 範例（GPL-3.0）、gtfs-marey（MIT）、billy1125 專案（MIT）、政府資料開放平臺鐵路時刻表只放連結，沒有複製其內容或圖；Chartography.net、Rendgen 部落格、Tufte 書頁只引述與連結，不轉載圖。

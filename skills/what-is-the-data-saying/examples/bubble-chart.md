@@ -1,7 +1,7 @@
 # Pattern: bubble-chart
 
 > **圖種**：氣泡圖（Bubble chart／Bubble plot）
-> **來源（納茲教圖）**：`teach-viz/2026-09-24-am-bubble.md`（正式專題；比例符號地圖／bubble map 僅當鄰居）
+> **來源（專案維護者整理）**：`teach-viz/2026-09-24-am-bubble.md`（正式專題；比例符號地圖／bubble map 僅當鄰居）
 > **亦稱**：氣泡散點圖
 > **核心**：笛卡兒 X／Y 上每個實體一個圓；圓的**面積**＝第三數值（**非**半徑／直徑）；顏色可選；眼睛先讀散點關係，大小只宜粗比量級
 

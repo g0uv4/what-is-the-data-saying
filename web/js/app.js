@@ -2,13 +2,13 @@
 (function () {
   'use strict';
   var I = window.WIDS_I18N, t = I.t;
-  var CSV = window.WIDS_CSV, TY = window.WIDS_TYPES, RU = window.WIDS_RULES, MD = window.WIDS_MD, CH = window.WIDS_CHARTS;
+  var IN = window.WIDS_INPUT, TY = window.WIDS_TYPES, RU = window.WIDS_RULES, MD = window.WIDS_MD, CH = window.WIDS_CHARTS;
   var API_MOD = window.WIDS_API, ENT = window.WIDS_ENTITLEMENT;
   var CONTENT = window.WIDS_CONTENT || { patterns: {} };
   var SAMPLES = window.WIDS_SAMPLES || [];
   var GH = 'https://github.com/g0uv4/what-is-the-data-saying/blob/main/skills/what-is-the-data-saying/';
 
-  var state = { parsed: null, source: '', overrides: {}, profile: null, rec: null, pattern: null, renderer: null, preset: null, sel: {}, chart: null, showAll: false };
+  var state = { parsed: null, source: '', overrides: {}, profile: null, rec: null, pattern: null, renderer: null, preset: null, sel: {}, chart: null, showAll: false, workbook: null, sheetNames: [] };
   var api = API_MOD.createApi();
   var guestQuota = ENT.createGuestQuota();
   var account = { file: !api.canUseApi(), offline: true, me: null, remaining: guestQuota.remaining(), message: '', busy: false };
@@ -142,6 +142,68 @@
   }
 
   // ------------------------------------------------------------ data loading
+  function hideSheetSelect() {
+    var field = $('sheetField');
+    if (field) field.hidden = true;
+    state.workbook = null;
+    state.sheetNames = [];
+  }
+
+  function fillSheetSelect(names, selected) {
+    var field = $('sheetField'), sel = $('sheetSelect');
+    if (!field || !sel) return;
+    clear(sel);
+    (names || []).forEach(function (name) {
+      sel.appendChild(el('option', { value: name }, name));
+    });
+    sel.value = selected || (names && names[0]) || '';
+    field.hidden = !(names && names.length > 1);
+  }
+
+  function formatStatus(parsed, source) {
+    var delim = parsed.delimiter === '\t' ? 'TAB' : (parsed.format === 'json' || parsed.format === 'xlsx' ? '—' : '「' + parsed.delimiter + '」');
+    var msg = source + ' · ' + parsed.rows.length + ' ' + t('rows') + ' × ' + parsed.headers.length + ' ' + t('cols');
+    if (parsed.format === 'csv') msg += ' · ' + t('delimiter') + ' ' + delim;
+    if (parsed.encoding && parsed.format === 'csv') msg += ' · ' + t('encoding') + ' ' + parsed.encoding.toUpperCase();
+    if (parsed.sheetName) msg += ' · ' + t('sheet') + ' ' + parsed.sheetName;
+    var rag = (parsed.warnings || []).filter(function (w) { return /^ragged:/.test(w); })[0];
+    if (rag) msg += ' · ⚠ ' + t('ragged', { n: rag.split(':')[1] });
+    var trunc = (parsed.warnings || []).filter(function (w) { return /^truncated:/.test(w); })[0];
+    if (trunc) msg += ' · ⚠ ' + t('truncated', { total: trunc.split(':')[1] });
+    return msg;
+  }
+
+  function showParseError(err) {
+    var status = $('dataStatus');
+    status.className = 'status error';
+    var msg = err && err.message ? String(err.message) : String(err || '');
+    if (/larger than 10 MB/i.test(msg)) status.textContent = t('fileTooLarge');
+    else if (/unsupported/i.test(msg)) status.textContent = t('unsupportedType');
+    else status.textContent = t('parseError') + msg + ' ' + t('supportedFormats');
+  }
+
+  function applyParsed(parsed, source, kind) {
+    var status = $('dataStatus');
+    status.className = 'status';
+    if (!kind) kind = isDemoSource(source) ? 'demo' : 'upload';
+    if (!parsed || !parsed.headers.length || !parsed.rows.length) {
+      status.textContent = t('emptyCsv');
+      status.className = 'status error';
+      return false;
+    }
+    state.parsed = parsed;
+    state.source = source;
+    if (kind !== 'sheet') {
+      state.overrides = {};
+      state.pattern = null;
+    }
+    status.textContent = formatStatus(parsed, source);
+    renderPreview();
+    recompute(kind !== 'sheet');
+    if (kind !== 'sheet') afterSuccessfulLoad(source, parsed, kind);
+    return true;
+  }
+
   function loadText(text, source, kind) {
     var status = $('dataStatus');
     status.className = 'status';
@@ -151,20 +213,63 @@
       status.className = 'status error';
       return;
     }
+    if (kind !== 'sheet') hideSheetSelect();
     try {
-      var parsed = CSV.parseCSV(text);
-      if (!parsed.headers.length || !parsed.rows.length) { status.textContent = t('emptyCsv'); status.className = 'status error'; return; }
-      state.parsed = parsed; state.source = source; state.overrides = {}; state.pattern = null;
-      var msg = source + ' · ' + parsed.rows.length + ' ' + t('rows') + ' × ' + parsed.headers.length + ' ' + t('cols') + ' · ' + t('delimiter') + ' ' + (parsed.delimiter === '\t' ? 'TAB' : '「' + parsed.delimiter + '」');
-      var rag = parsed.warnings.filter(function (w) { return /^ragged:/.test(w); })[0];
-      if (rag) msg += ' · ⚠ ' + t('ragged', { n: rag.split(':')[1] });
-      status.textContent = msg;
-      renderPreview();
-      recompute(true);
-      afterSuccessfulLoad(source, parsed, kind);
+      applyParsed(IN.parseText(text), source, kind);
     } catch (e) {
-      status.textContent = t('parseError') + e.message; status.className = 'status error';
+      showParseError(e);
     }
+  }
+
+  function loadParsedTable(parsed, source, kind) {
+    var status = $('dataStatus');
+    status.className = 'status';
+    if (!kind) kind = isDemoSource(source) ? 'demo' : 'upload';
+    if (kind === 'upload' && guestBlocked()) {
+      status.textContent = t('guestLimit');
+      status.className = 'status error';
+      return;
+    }
+    try {
+      applyParsed(parsed, source, kind);
+    } catch (e) {
+      showParseError(e);
+    }
+  }
+
+  function loadFile(file) {
+    var status = $('dataStatus');
+    status.className = 'status';
+    if (guestBlocked()) {
+      status.textContent = t('guestLimit');
+      status.className = 'status error';
+      return;
+    }
+    if (file.size > IN.MAX_BYTES) {
+      status.textContent = t('fileTooLarge');
+      status.className = 'status error';
+      return;
+    }
+    hideSheetSelect();
+    var rd = new FileReader();
+    rd.onload = function () {
+      try {
+        var parsed = IN.parseFile(file.name, rd.result);
+        if (parsed.workbook && parsed.sheetNames && parsed.sheetNames.length) {
+          state.workbook = parsed.workbook;
+          state.sheetNames = parsed.sheetNames;
+          fillSheetSelect(parsed.sheetNames, parsed.sheetName);
+        } else {
+          hideSheetSelect();
+        }
+        loadParsedTable(parsed, file.name, 'upload');
+      } catch (e) {
+        hideSheetSelect();
+        showParseError(e);
+      }
+    };
+    rd.onerror = function () { showParseError(rd.error || new Error('read failed')); };
+    rd.readAsArrayBuffer(file);
   }
 
   function renderPreview() {
@@ -414,10 +519,15 @@
     });
     $('fileInput').addEventListener('change', function (e) {
       var f = e.target.files && e.target.files[0]; if (!f) return;
-      var rd = new FileReader();
-      rd.onload = function () { $('sampleSelect').value = ''; loadText(String(rd.result), f.name, 'upload'); };
-      rd.onerror = function () { $('dataStatus').textContent = t('parseError') + (rd.error && rd.error.message); };
-      rd.readAsText(f, 'utf-8');
+      $('sampleSelect').value = '';
+      loadFile(f);
+    });
+    $('sheetSelect').addEventListener('change', function (e) {
+      if (!state.workbook) return;
+      var table = IN.limitRows(IN.sheetToTable(state.workbook, e.target.value));
+      table.workbook = state.workbook;
+      table.sheetNames = state.sheetNames;
+      loadParsedTable(table, state.source, 'sheet');
     });
     $('parseBtn').addEventListener('click', function () { $('sampleSelect').value = ''; loadText($('pasteArea').value, lang() === 'zh' ? '貼上的文字' : 'pasted text', 'upload'); });
     $('loginBtn').addEventListener('click', function () {
@@ -481,5 +591,5 @@
   renderChartArea();
   renderTutorial(null);
   loadMe().then(function () { fromHash(); });
-  window.WIDS_APP = { state: state, loadText: loadText, selectPattern: selectPattern, api: api, account: account };
+  window.WIDS_APP = { state: state, loadText: loadText, loadFile: loadFile, selectPattern: selectPattern, api: api, account: account };
 })();

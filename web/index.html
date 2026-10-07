@@ -35,12 +35,16 @@
           <select id="sampleSelect"></select>
         </label>
         <label class="field">
-          <span data-i18n="upload">上傳 CSV 檔</span>
-          <input type="file" id="fileInput" accept=".csv,.tsv,.txt,text/csv">
+          <span data-i18n="upload">上傳 CSV、Excel、JSON</span>
+          <input type="file" id="fileInput" accept=".csv,.tsv,.txt,.xlsx,.xls,.ods,.json,text/csv,application/json,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.oasis.opendocument.spreadsheet">
+        </label>
+        <label class="field" id="sheetField" hidden>
+          <span data-i18n="sheet">工作表</span>
+          <select id="sheetSelect"></select>
         </label>
       </div>
       <details id="pasteBox">
-        <summary data-i18n="paste">或貼上 CSV 文字</summary>
+        <summary data-i18n="paste">或貼上 CSV／JSON 文字</summary>
         <textarea id="pasteArea" rows="6" spellcheck="false" placeholder="date,category,value&#10;2024-01,A,12"></textarea>
         <button type="button" id="parseBtn" class="btn" data-i18n="parse">解析貼上的文字</button>
       </details>
@@ -85,6 +89,7 @@
 
 <!-- Plain scripts (no ES modules) so the page works from file:// -->
 <script src="vendor/chart.umd.min.js"></script>
+<script src="vendor/xlsx.full.min.js"></script>
 <script src="data/content.js"></script>
 <script src="data/samples.js"></script>
 <script src="js/config.js"></script>
@@ -92,6 +97,7 @@
 <script src="js/entitlement.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/csv.js"></script>
+<script src="js/input.js"></script>
 <script src="js/types.js"></script>
 <script src="js/rules.js"></script>
 <script src="js/markdown.js"></script>

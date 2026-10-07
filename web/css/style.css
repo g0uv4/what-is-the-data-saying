@@ -28,6 +28,7 @@ a { color: var(--accent); }
 .data-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 @media (max-width: 560px) { .data-inputs { grid-template-columns: 1fr; } }
 .field { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); min-width: 0; }
+.field[hidden] { display: none !important; }
 select, input[type=file], textarea { font: inherit; color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; background: #fff; max-width: 100%; }
 textarea { width: 100%; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; margin: 8px 0; }
 details { margin-top: 10px; }

@@ -89,15 +89,47 @@
       return id;
     }
 
-    function captureTokenFromSearch(search) {
-      if (!search) return false;
+    function readSearchParams(search) {
+      if (!search) return new URLSearchParams();
       var raw = String(search);
       if (raw.charAt(0) === '?') raw = raw.slice(1);
-      var params = new URLSearchParams(raw);
-      var token = params.get('access_token');
-      if (!token) return false;
-      setToken(token);
-      return true;
+      return new URLSearchParams(raw);
+    }
+
+    function stripAuthParams(href, replaceState) {
+      if (!href || typeof replaceState !== 'function') return '';
+      var clean = new URL(href, 'http://127.0.0.1');
+      clean.searchParams.delete('code');
+      clean.searchParams.delete('access_token');
+      var next = clean.pathname + clean.search + clean.hash;
+      replaceState(null, '', next);
+      return next;
+    }
+
+    function exchangeCode(code) {
+      return request('POST', '/v1/auth/exchange', { code: code }).then(function (res) {
+        if (res.skipped) return res;
+        var token = res.json && res.json.access_token;
+        if (!token) throw new Error('missing access_token');
+        setToken(token);
+        return res;
+      });
+    }
+
+    function consumeAuthCodeFromSearch(search, href, replaceState) {
+      var params = readSearchParams(search);
+      var code = params.get('code');
+      if (!code) {
+        if (params.get('access_token')) stripAuthParams(href, replaceState);
+        return Promise.resolve({ consumed: false, exchanged: false });
+      }
+      return exchangeCode(code).then(function (res) {
+        stripAuthParams(href, replaceState);
+        return { consumed: true, exchanged: !res.skipped, res: res };
+      }, function (err) {
+        stripAuthParams(href, replaceState);
+        throw err;
+      });
     }
 
     function headers(extra) {
@@ -168,10 +200,9 @@
         }
         return request('GET', path).then(function (callback) {
           if (callback.skipped) return callback;
-          var token = callback.json && callback.json.access_token;
-          if (!token) throw new Error('missing access_token');
-          setToken(token);
-          return callback;
+          var code = callback.json && callback.json.code;
+          if (!code) throw new Error('missing code');
+          return exchangeCode(code);
         });
       });
     }
@@ -191,7 +222,6 @@
         source_name: summary.source_name,
         row_count: summary.row_count
       };
-      if (summary.note != null) body.note = summary.note;
       return request('POST', '/v1/history', body);
     }
 
@@ -211,7 +241,9 @@
       getToken: getToken,
       setToken: setToken,
       getGuestId: getGuestId,
-      captureTokenFromSearch: captureTokenFromSearch,
+      consumeAuthCodeFromSearch: consumeAuthCodeFromSearch,
+      exchangeCode: exchangeCode,
+      stripAuthParams: stripAuthParams,
       request: request,
       health: health,
       me: me,

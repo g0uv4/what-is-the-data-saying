@@ -468,18 +468,28 @@
     if (q.pattern && CONTENT.patterns[q.pattern]) selectPattern(q.pattern, q.renderer && CH.renderers[q.renderer] ? q.renderer : undefined);
   }
 
-  if (typeof location !== 'undefined' && api.captureTokenFromSearch(location.search)) {
+  function stripAuthFromAddress() {
     try {
-      var clean = new URL(location.href);
-      clean.searchParams.delete('access_token');
-      history.replaceState(null, '', clean.pathname + clean.search + clean.hash);
+      api.stripAuthParams(location.href, function (_state, _title, next) {
+        history.replaceState(null, '', next);
+      });
     } catch (e) { /* ignore */ }
   }
+
+  function afterAuthRedirect() {
+    if (typeof location === 'undefined') return Promise.resolve();
+    return api.consumeAuthCodeFromSearch(location.search, location.href, function (_state, _title, next) {
+      try { history.replaceState(null, '', next); } catch (e) { /* ignore */ }
+    }).catch(function () {
+      stripAuthFromAddress();
+    });
+  }
+
   applyStatic();
   bind();
   renderColumns();
   renderChartArea();
   renderTutorial(null);
-  loadMe().then(function () { fromHash(); });
+  afterAuthRedirect().then(function () { return loadMe(); }).then(function () { fromHash(); });
   window.WIDS_APP = { state: state, loadText: loadText, selectPattern: selectPattern, api: api, account: account };
 })();

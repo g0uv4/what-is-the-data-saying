@@ -79,9 +79,11 @@ test('request sends Bearer + X-Guest-Id; 429 surfaces Retry-After and reset_at',
   assert.equal(seen[0].init.headers['X-Guest-Id'], 'g_fixed');
 });
 
-test('loginGithub stores opaque token from callback JSON', async () => {
+test('loginGithub stores opaque token from exchange', async () => {
   const storage = memoryStorage();
-  const fetchFn = async (url) => {
+  const seen = [];
+  const fetchFn = async (url, init) => {
+    seen.push({ url: String(url), method: init && init.method, body: init && init.body });
     if (String(url).endsWith('/v1/auth/github')) {
       return {
         ok: true,
@@ -90,7 +92,18 @@ test('loginGithub stores opaque token from callback JSON', async () => {
         text: async () => JSON.stringify({ authorize_url: 'http://127.0.0.1:8787/v1/auth/github/callback?code=mock' })
       };
     }
-    assert.match(String(url), /\/v1\/auth\/github\/callback\?code=mock.*format=json/);
+    if (String(url).includes('/v1/auth/github/callback')) {
+      assert.match(String(url), /\/v1\/auth\/github\/callback\?code=mock.*format=json/);
+      return {
+        ok: true,
+        status: 200,
+        headers: { get: () => null },
+        text: async () => JSON.stringify({ code: 'once-code', expires_in: 60 })
+      };
+    }
+    assert.match(String(url), /\/v1\/auth\/exchange$/);
+    assert.equal(init.method, 'POST');
+    assert.deepEqual(JSON.parse(init.body), { code: 'once-code' });
     return {
       ok: true,
       status: 200,
@@ -103,6 +116,7 @@ test('loginGithub stores opaque token from callback JSON', async () => {
   assert.equal(res.json.access_token, 'opaque_token_no_dots');
   assert.equal(client.getToken(), 'opaque_token_no_dots');
   assert.ok(!client.getToken().includes('.'));
+  assert.equal(seen[2].url, 'http://127.0.0.1:8787/v1/auth/exchange');
 });
 
 test('upgrade posts session then mock-complete and never opens checkout_url', async () => {
@@ -172,9 +186,62 @@ test('saveHistory sends summary only (no raw CSV keys)', async () => {
   assert.equal(body.pattern_id, 'lollipop-rank');
 });
 
-test('captureTokenFromSearch stores access_token', () => {
+test('consumeAuthCodeFromSearch exchanges code and strips it from the URL', async () => {
   const storage = memoryStorage();
-  const client = API.createApi({ location: httpLoc(), fetch: async () => { throw new Error('no'); }, storage });
-  assert.equal(client.captureTokenFromSearch('?access_token=from_redirect&x=1'), true);
-  assert.equal(client.getToken(), 'from_redirect');
+  let replaced = '';
+  const fetchFn = async (url, init) => {
+    assert.equal(url, 'http://127.0.0.1:8787/v1/auth/exchange');
+    assert.equal(init.method, 'POST');
+    assert.deepEqual(JSON.parse(init.body), { code: 'once-code' });
+    return {
+      ok: true,
+      status: 200,
+      headers: { get: () => null },
+      text: async () => JSON.stringify({ access_token: 'tok_from_code', token_type: 'Bearer' })
+    };
+  };
+  const client = API.createApi({ location: httpLoc(), fetch: fetchFn, storage, apiBase: 'http://127.0.0.1:8787' });
+  const href = 'http://127.0.0.1:4173/app/?code=once-code&x=1#sample=demo.csv';
+  const result = await client.consumeAuthCodeFromSearch('?code=once-code&x=1', href, function (_state, _title, next) {
+    replaced = next;
+  });
+  assert.equal(result.consumed, true);
+  assert.equal(client.getToken(), 'tok_from_code');
+  assert.equal(replaced, '/app/?x=1#sample=demo.csv');
+});
+
+test('consumeAuthCodeFromSearch ignores access_token and still strips code on failure', async () => {
+  const storage = memoryStorage();
+  let replaced = '';
+  const fetchFn = async () => ({
+    ok: false,
+    status: 400,
+    headers: { get: () => null },
+    text: async () => JSON.stringify({ error: { code: 'invalid_grant', message: 'authorization code is invalid or already used' } })
+  });
+  const client = API.createApi({ location: httpLoc(), fetch: fetchFn, storage, apiBase: 'http://127.0.0.1:8787' });
+  assert.equal(typeof client.captureTokenFromSearch, 'undefined');
+  const ignored = await client.consumeAuthCodeFromSearch(
+    '?access_token=from_redirect&x=1',
+    'http://127.0.0.1:4173/?access_token=from_redirect&x=1',
+    function (_state, _title, next) { replaced = next; }
+  );
+  assert.equal(ignored.consumed, false);
+  assert.equal(client.getToken(), '');
+  assert.equal(replaced, '/?x=1');
+
+  await assert.rejects(
+    () => client.consumeAuthCodeFromSearch(
+      '?code=used-code&keep=yes',
+      'http://127.0.0.1:4173/?code=used-code&keep=yes#hash',
+      function (_state, _title, next) { replaced = next; }
+    ),
+    (err) => {
+      assert.equal(err.status, 400);
+      assert.equal(err.code, 'invalid_grant');
+      return true;
+    }
+  );
+  assert.equal(client.getToken(), '');
+  assert.equal(replaced, '/?keep=yes#hash');
 });

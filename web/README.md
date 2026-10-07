@@ -49,7 +49,8 @@ python3 -m http.server 4173
 瀏覽器開 `http://127.0.0.1:4173/`：
 
 - 頁面載入會 `GET /v1/health` 再 `GET /v1/me`，顯示訪客今日剩餘自貼（3／天）。
-- 「用 GitHub 登入」走 mock OAuth（JSON callback），Bearer 存在 `localStorage` 的 `wids_token`。
+- 「用 GitHub 登入」走 mock OAuth：回調只帶一次性授權碼，前端用 `POST /v1/auth/exchange` 換憑證後存在 `localStorage` 的 `wids_token`。網址不會出現存取憑證。
+- 若從回調落地時網址帶 `code`，換票後立刻從網址拿掉（失敗也拿掉），再照舊打 `/v1/me`。
 - 「升級」會 `POST /v1/checkout/session` 後立刻 `POST /v1/checkout/mock-complete`，**不會打開 `checkout_url` 當網頁**。
 - 已登入且有 `save_history` 時，成功分析後只 POST 摘要（`pattern_id`、`source_name`、`row_count`），絕不送原始 CSV。
 

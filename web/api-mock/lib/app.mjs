@@ -3,6 +3,7 @@ import { applyCors, HttpError, readJsonBody, sendError, sendJson } from './http.
 import { formatTaipei, nextTaipeiMidnight, secondsUntil } from './time.mjs';
 
 const RAW_CSV_KEYS = ['csv', 'raw_csv', 'rawCsv', 'csv_text', 'raw', 'file', 'content'];
+const HISTORY_FIELDS = ['pattern_id', 'source_name', 'row_count'];
 
 export function createRequestListener(options = {}) {
   const store = createStore(options);
@@ -117,6 +118,10 @@ async function dispatch(req, res, url, path, ctx) {
       assertMethod(req, ['GET']);
       handleGithubCallback(req, res, url, ctx);
       return;
+    case '/v1/auth/exchange':
+      assertMethod(req, ['POST']);
+      await handleAuthExchange(req, res, ctx);
+      return;
     case '/v1/checkout/session':
       assertMethod(req, ['POST']);
       await handleCheckoutSession(req, res, ctx);
@@ -181,26 +186,44 @@ function handleGithubAuth(req, res, url, ctx) {
 }
 
 function handleGithubCallback(req, res, url, ctx) {
-  const code = url.searchParams.get('code');
-  if (!code) {
+  const githubCode = url.searchParams.get('code');
+  if (!githubCode) {
     throw new HttpError(400, 'missing_code', 'code is required');
   }
-  const { token, user } = ctx.store.loginMockUser();
-  const entitlement = ctx.store.entitlementOf(user, guestIdOf(req));
+  const { user } = ctx.store.loginMockUser();
+  const issued = ctx.store.issueAuthCode(user);
   const body = {
-    access_token: token,
-    token_type: 'Bearer',
-    user: ctx.store.publicUser(user),
-    entitlement,
+    code: issued.code,
+    expires_in: issued.expires_in,
   };
   if (wantsJson(req, url) || url.searchParams.get('redirect') === '0') {
     sendJson(res, 200, body);
     return;
   }
   const redirectTo = new URL(`${ctx.frontendOrigin}/`);
-  redirectTo.searchParams.set('access_token', token);
+  redirectTo.searchParams.set('code', issued.code);
   res.writeHead(302, { location: redirectTo.toString() });
   res.end();
+}
+
+async function handleAuthExchange(req, res, ctx) {
+  const body = await readJsonBody(req);
+  const result = ctx.store.consumeAuthCode(body.code);
+  if (!result.ok) {
+    throw new HttpError(400, 'invalid_grant', grantMessage(result.reason));
+  }
+  sendJson(res, 200, {
+    access_token: result.token,
+    token_type: 'Bearer',
+    user: ctx.store.publicUser(result.user),
+    entitlement: ctx.store.entitlementOf(result.user, guestIdOf(req)),
+  });
+}
+
+function grantMessage(reason) {
+  if (reason === 'missing') return 'code is required';
+  if (reason === 'expired') return 'authorization code has expired';
+  return 'authorization code is invalid or already used';
 }
 
 async function handleCheckoutSession(req, res, ctx) {
@@ -279,6 +302,10 @@ async function handleHistoryPost(req, res, ctx) {
       throw new HttpError(400, 'raw_csv_rejected', 'history stores summary only; never send raw CSV');
     }
   }
+  const extra = Object.keys(body).filter((key) => !HISTORY_FIELDS.includes(key));
+  if (extra.length) {
+    throw new HttpError(400, 'unknown_field', 'history only accepts pattern_id, source_name, row_count');
+  }
   if (typeof body.pattern_id !== 'string' || !body.pattern_id.trim()) {
     throw new HttpError(400, 'invalid_body', 'pattern_id is required');
   }
@@ -288,14 +315,10 @@ async function handleHistoryPost(req, res, ctx) {
   if (typeof body.row_count !== 'number' || !Number.isFinite(body.row_count) || body.row_count < 0) {
     throw new HttpError(400, 'invalid_body', 'row_count must be a non-negative number');
   }
-  if (body.note != null && typeof body.note !== 'string') {
-    throw new HttpError(400, 'invalid_body', 'note must be a string');
-  }
   const record = ctx.store.addHistory(user, {
     pattern_id: body.pattern_id.trim(),
     source_name: body.source_name.trim(),
     row_count: body.row_count,
-    note: body.note != null ? body.note : null,
   });
   sendJson(res, 201, { id: record.id, created_at: record.created_at });
 }

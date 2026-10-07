@@ -9,11 +9,18 @@ export const DEFAULT_MOCK_USER = Object.freeze({
   login: 'wids-mock',
   avatar_url: 'https://avatars.githubusercontent.com/u/0?v=4',
 });
+export const DEFAULT_AUTH_CODE_TTL_MS = 60_000;
 
 export function parseMockPlan(value) {
   const plan = (value || '').trim().toLowerCase();
   if (plan === 'free' || plan === 'trial' || plan === 'active') return plan;
   return null;
+}
+
+function parsePositiveMs(value, fallback) {
+  const n = Number(value);
+  if (Number.isFinite(n) && n > 0) return n;
+  return fallback;
 }
 
 export function parseIdList(value) {
@@ -39,9 +46,14 @@ export function createStore(options = {}) {
     ...DEFAULT_MOCK_USER,
     ...(options.mockUser || {}),
   };
+  const authCodeTtlMs = parsePositiveMs(
+    options.authCodeTtlMs ?? process.env.AUTH_CODE_TTL_MS,
+    DEFAULT_AUTH_CODE_TTL_MS,
+  );
 
   const users = new Map();
   const tokens = new Map();
+  const authCodes = new Map();
   const sessions = new Map();
   const history = new Map();
   const guestUploads = new Map();
@@ -211,8 +223,37 @@ export function createStore(options = {}) {
 
   function loginMockUser() {
     const user = getOrCreateUser();
-    const token = issueToken(user);
-    return { token, user: refreshUser(user) };
+    return { user: refreshUser(user) };
+  }
+
+  function issueAuthCode(user) {
+    const code = randomBytes(24).toString('base64url');
+    authCodes.set(code, {
+      userId: user.id,
+      expiresAt: now().getTime() + authCodeTtlMs,
+    });
+    return { code, expires_in: Math.round(authCodeTtlMs / 1000) };
+  }
+
+  function consumeAuthCode(code) {
+    if (typeof code !== 'string' || !code.trim()) {
+      return { ok: false, reason: 'missing' };
+    }
+    const key = code.trim();
+    const entry = authCodes.get(key);
+    if (!entry) {
+      return { ok: false, reason: 'unknown' };
+    }
+    authCodes.delete(key);
+    if (now().getTime() > entry.expiresAt) {
+      return { ok: false, reason: 'expired' };
+    }
+    const user = users.get(entry.userId);
+    if (!user) {
+      return { ok: false, reason: 'unknown' };
+    }
+    const live = refreshUser(user);
+    return { ok: true, token: issueToken(live), user: live };
   }
 
   function createCheckout(user, plan, interval) {
@@ -262,7 +303,6 @@ export function createStore(options = {}) {
       pattern_id: item.pattern_id,
       source_name: item.source_name,
       row_count: item.row_count,
-      note: item.note ?? null,
       created_at: formatTaipei(now()),
     };
     list.unshift(record);
@@ -301,6 +341,9 @@ export function createStore(options = {}) {
     publicUser,
     userFromToken,
     loginMockUser,
+    issueAuthCode,
+    consumeAuthCode,
+    authCodeTtlMs,
     createCheckout,
     completeCheckout,
     cancelCheckout,

@@ -47,7 +47,13 @@ async function call(base, path, options = {}) {
 }
 
 async function login(base, extra = {}) {
-  const { res, json } = await call(base, '/v1/auth/github/callback?code=mock&format=json');
+  const callback = await call(base, '/v1/auth/github/callback?code=mock&format=json');
+  assert.equal(callback.res.status, 200);
+  assert.equal(typeof callback.json.code, 'string');
+  const { res, json } = await call(base, '/v1/auth/exchange', {
+    method: 'POST',
+    body: { code: callback.json.code },
+  });
   assert.equal(res.status, 200);
   return { token: json.access_token, me: json, ...extra };
 }
@@ -90,7 +96,17 @@ test('GitHub mock authorize + first login grants 7-day trial', async () => {
   const missing = await call(base, '/v1/auth/github/callback');
   assert.equal(missing.res.status, 400);
 
-  const { res, json } = await call(base, '/v1/auth/github/callback?code=mock&format=json');
+  const callback = await call(base, '/v1/auth/github/callback?code=mock&format=json');
+  assert.equal(callback.res.status, 200);
+  assert.equal(typeof callback.json.code, 'string');
+  assert.ok(callback.json.code.length > 16);
+  assert.equal(callback.json.expires_in, 60);
+  assert.equal(callback.json.access_token, undefined);
+
+  const { res, json } = await call(base, '/v1/auth/exchange', {
+    method: 'POST',
+    body: { code: callback.json.code },
+  });
   assert.equal(res.status, 200);
   assert.equal(typeof json.access_token, 'string');
   assert.ok(json.access_token.length > 16);
@@ -126,7 +142,7 @@ test('history requires save_history; POST returns 201; raw CSV rejected', async 
   const created = await call(base, '/v1/history', {
     method: 'POST',
     headers: auth(token),
-    body: { pattern_id: 'lollipop-rank', source_name: 'demo.csv', row_count: 12, note: '摘要' },
+    body: { pattern_id: 'lollipop-rank', source_name: 'demo.csv', row_count: 12 },
   });
   assert.equal(created.res.status, 201);
   assert.equal(typeof created.json.id, 'string');
@@ -137,7 +153,84 @@ test('history requires save_history; POST returns 201; raw CSV rejected', async 
   assert.equal(list.res.status, 200);
   assert.equal(list.json.items.length, 1);
   assert.equal(list.json.items[0].pattern_id, 'lollipop-rank');
-  assert.equal(list.json.items[0].note, '摘要');
+  assert.equal(list.json.items[0].source_name, 'demo.csv');
+  assert.equal(list.json.items[0].row_count, 12);
+  assert.ok(!Object.hasOwn(list.json.items[0], 'note'));
+});
+
+test('login redirect carries a one-time code and never an access token', async () => {
+  const { base } = await listen({ frontendOrigin: 'http://127.0.0.1:4173' });
+  const { res } = await call(base, '/v1/auth/github/callback?code=mock');
+  assert.equal(res.status, 302);
+  const location = res.headers.get('location');
+  assert.ok(location);
+  assert.doesNotMatch(location, /access_token/);
+  const redirectTo = new URL(location);
+  const code = redirectTo.searchParams.get('code');
+  assert.equal(typeof code, 'string');
+  assert.ok(code.length > 16);
+  assert.equal(redirectTo.searchParams.get('access_token'), null);
+
+  const first = await call(base, '/v1/auth/exchange', { method: 'POST', body: { code } });
+  assert.equal(first.res.status, 200);
+  assert.ok(!location.includes(first.json.access_token));
+});
+
+test('authorization code can be exchanged only once; expired and missing codes fail', async () => {
+  let nowMs = Date.parse('2026-10-07T12:00:00+08:00');
+  const { base } = await listen({
+    now: () => new Date(nowMs),
+    authCodeTtlMs: 60_000,
+  });
+  const callback = await call(base, '/v1/auth/github/callback?code=mock&format=json');
+  assert.equal(callback.res.status, 200);
+  const code = callback.json.code;
+
+  const first = await call(base, '/v1/auth/exchange', { method: 'POST', body: { code } });
+  assert.equal(first.res.status, 200);
+  assert.equal(typeof first.json.access_token, 'string');
+
+  const reuse = await call(base, '/v1/auth/exchange', { method: 'POST', body: { code } });
+  assert.equal(reuse.res.status, 400);
+  assert.equal(reuse.json.error.code, 'invalid_grant');
+
+  const missing = await call(base, '/v1/auth/exchange', { method: 'POST', body: {} });
+  assert.equal(missing.res.status, 400);
+  assert.equal(missing.json.error.code, 'invalid_grant');
+
+  const unknown = await call(base, '/v1/auth/exchange', { method: 'POST', body: { code: 'no-such-code' } });
+  assert.equal(unknown.res.status, 400);
+  assert.equal(unknown.json.error.code, 'invalid_grant');
+
+  const later = await call(base, '/v1/auth/github/callback?code=mock&format=json');
+  nowMs += 61_000;
+  const expired = await call(base, '/v1/auth/exchange', {
+    method: 'POST',
+    body: { code: later.json.code },
+  });
+  assert.equal(expired.res.status, 400);
+  assert.equal(expired.json.error.code, 'invalid_grant');
+});
+
+test('POST /v1/history rejects note and any unknown field', async () => {
+  const { base } = await listen();
+  const { token } = await login(base);
+
+  const withNote = await call(base, '/v1/history', {
+    method: 'POST',
+    headers: auth(token),
+    body: { pattern_id: 'lollipop-rank', source_name: 'demo.csv', row_count: 12, note: '摘要' },
+  });
+  assert.equal(withNote.res.status, 400);
+  assert.equal(withNote.json.error.code, 'unknown_field');
+
+  const unknown = await call(base, '/v1/history', {
+    method: 'POST',
+    headers: auth(token),
+    body: { pattern_id: 'lollipop-rank', source_name: 'demo.csv', row_count: 12, extra: 'nope' },
+  });
+  assert.equal(unknown.res.status, 400);
+  assert.equal(unknown.json.error.code, 'unknown_field');
 });
 
 test('checkout mock complete upgrades to pro active; already-active is 403', async () => {
@@ -277,6 +370,19 @@ test('CORS allows configured origin and Authorization header', async () => {
   });
   assert.equal(res.headers.get('access-control-allow-origin'), 'http://127.0.0.1:4173');
   assert.match(res.headers.get('access-control-allow-headers') || '', /Authorization/);
+
+  const preflight = await call(base, '/v1/auth/exchange', {
+    method: 'OPTIONS',
+    headers: {
+      origin: 'http://127.0.0.1:4173',
+      'access-control-request-method': 'POST',
+      'access-control-request-headers': 'authorization,content-type',
+    },
+  });
+  assert.equal(preflight.res.status, 204);
+  assert.equal(preflight.res.headers.get('access-control-allow-origin'), 'http://127.0.0.1:4173');
+  assert.match(preflight.res.headers.get('access-control-allow-headers') || '', /Authorization/);
+  assert.match(preflight.res.headers.get('access-control-allow-headers') || '', /Content-Type/);
 });
 
 test('invalid bearer is 401', async () => {

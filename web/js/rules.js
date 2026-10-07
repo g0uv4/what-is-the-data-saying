@@ -67,8 +67,12 @@
     edgeGroups:         { zh: '邊有類型／條件欄可分組', en: 'edges have a type/condition column' },
     squareExchange:     { zh: '來源與去向是同一組節點（方陣交換）', en: 'same node set on both ends (square exchange)' },
     hierarchy:          { zh: '階層（父子／路徑／巢狀類別）', en: 'hierarchy (parent/child, path, nested categories)' },
+    deepHierarchy:      { zh: '階層深度 ≥ 3（可往下鑽）', en: 'hierarchy depth ≥ 3 (drill-down)' },
     delta:              { zh: '有符號增減量', en: 'signed increments' },
+    waterfallBridge:    { zh: '起點＋有號增減＝終點（橋）', en: 'start + signed steps = end (bridge)' },
     stages:             { zh: '有序階段（漏斗）', en: 'ordered stages (funnel)' },
+    monotoneStages:     { zh: '有序階段且通過量單調不增', en: 'ordered stages with monotone non-increasing counts' },
+    pairedPeriods:      { zh: '恰好兩期／兩條件的同單位欄', en: 'exactly two same-unit period/condition columns' },
     target:             { zh: '有目標／預算欄', en: 'has target / budget column' },
     startEnd:           { zh: '開始 + 結束日期', en: 'start + end dates' },
     sets:               { zh: '≥ 3 個布林欄（集合成員）', en: '≥ 3 boolean membership columns' },
@@ -86,7 +90,7 @@
   var RULES = [
     R('categorical-comparison', '長條圖（排序／分組／堆疊）', 'Bar chart (sorted / grouped / stacked)', {
       requires: { label: [1], measure: [1] }, base: 60,
-      prefer: ['oneRowPerCat', 'fewCats', 'crossTab'], avoid: ['manyCats', 'time', 'bigMatrix', 'network', 'geo'],
+      prefer: ['oneRowPerCat', 'fewCats', 'crossTab'], avoid: ['manyCats', 'time', 'bigMatrix', 'network', 'geo', 'hierarchy', 'monotoneStages', 'waterfallBridge'],
       fields: { zh: '1 類別 + 1 數值（可先聚合）；第二類別 → 分組／堆疊', en: '1 category + 1 number; 2nd category → grouped/stacked' },
       why: { zh: '少數類別比大小，最直接的是排序長條', en: 'Comparing a few categories: sorted bars are most direct' },
       render: [{ r: 'barSorted' }, { r: 'barGrouped' }] }),
@@ -109,7 +113,8 @@
       why: { zh: '類別 × 類別 + 值 → 看哪裡熱／冷', en: 'Category × category + value → where is hot/cold' },
       render: [{ r: 'heatmap' }] }),
     R('hierarchy-icicle', '冰柱圖', 'Icicle chart', {
-      requires: { label: [1], measure: [1] }, base: 34, need: ['hierarchy'],
+      requires: { label: [1], measure: [1] }, base: 42, need: ['hierarchy'],
+      prefer: ['deepHierarchy', 'nonNegative'],
       fields: { zh: '父子／路徑（或巢狀類別）+ 數值', en: 'parent/child or path + number' },
       why: { zh: '階層組成、要標籤 → 冰柱', en: 'Labelled hierarchy composition → icicle' } }),
     R('small-multiples', '小多圖', 'Small multiples', {
@@ -117,21 +122,23 @@
       fields: { zh: '時間 + 實體（> 8）+ 數值', en: 'time + many entities + number' },
       why: { zh: '多實體時間趨勢 → 同尺度小多圖，避免義大利麵', en: 'Many entities over time → aligned small multiples' } }),
     R('waterfall-bridge', '瀑布圖', 'Waterfall chart', {
-      requires: { label: [1], measure: [1] }, base: 34, need: ['delta'],
-      prefer: ['oneRowPerCat'],
+      requires: { label: [1], measure: [1] }, base: 38, need: ['waterfallBridge'],
+      prefer: ['delta', 'oneRowPerCat'],
       fields: { zh: '起點 + 一串有符號增減 + 終點', en: 'start + signed steps + end' },
       why: { zh: '從 A 到 B 的因子橋 → 瀑布', en: 'Bridge from A to B → waterfall' } }),
     R('funnel-stages', '漏斗圖', 'Funnel chart', {
-      requires: { label: [1], measure: [1] }, base: 34, need: ['stages'],
+      requires: { label: [1], measure: [1] }, base: 38, need: ['monotoneStages'],
+      prefer: ['oneRowPerCat', 'countLike'],
       fields: { zh: '有序階段 + 通過量（單調不增）', en: 'ordered stages + monotone non-increasing count' },
       why: { zh: '階段漏損／轉換率 → 漏斗', en: 'Stage drop-off → funnel' } }),
     R('dumbbell-gap', '啞鈴圖', 'Dumbbell chart', {
       requires: { label: [1], measure: [2] }, base: 34, need: ['sameUnitPair', 'oneRowPerCat'],
-      prefer: ['twoPeriods'],
+      prefer: ['twoPeriods', 'pairedPeriods'],
       fields: { zh: '類別 + 兩個同單位數值', en: 'category + two same-unit numbers' },
       why: { zh: '兩期／兩條件差距 → 啞鈴', en: 'Gap between two conditions → dumbbell' } }),
     R('slope-two-period', '坡度圖', 'Slope chart', {
       requires: { label: [1], measure: [1] }, base: 32, need: ['twoPeriods'],
+      avoid: ['pairedPeriods'],
       fields: { zh: '實體 + 恰好兩期數值', en: 'entity + exactly two periods' },
       why: { zh: '兩期軌跡交錯 → 坡度圖', en: 'Two-period crossings → slope chart' } }),
     R('bump-ranking', '凹凸圖', 'Bump chart', {
@@ -152,11 +159,12 @@
       why: { zh: '有序階段重分組 → 沖積', en: 'Regrouping across ordered stages → alluvial' } }),
     R('sunburst-hierarchy', '旭日圖', 'Sunburst', {
       requires: { label: [1], measure: [1] }, base: 30, need: ['hierarchy'],
+      prefer: ['deepHierarchy'],
       fields: { zh: '父子／路徑 + 數值', en: 'parent/child or path + number' },
       why: { zh: '階層組成、緊湊總覽 → 旭日', en: 'Compact hierarchy overview → sunburst' } }),
     R('treemap-composition', '矩形樹狀圖', 'Treemap', {
       requires: { label: [1], measure: [1] }, base: 26, need: ['nonNegative'],
-      prefer: ['hierarchy', 'manyCats'], avoid: ['time'],
+      prefer: ['hierarchy', 'deepHierarchy', 'manyCats'], avoid: ['time'],
       fields: { zh: '（階層）類別 + 非負數值', en: '(hierarchical) category + non-negative number' },
       why: { zh: '階層／組成、鋪滿面積 → treemap', en: 'Space-filling composition → treemap' } }),
     R('circle-packing', '圓堆圖', 'Circle packing', {
@@ -218,6 +226,7 @@
       why: { zh: '專案時程 → 甘特', en: 'Project schedule → Gantt' } }),
     R('waffle-percent', '華夫圖', 'Waffle chart', {
       requires: { label: [1], measure: [1] }, base: 30, need: ['partOfWhole'],
+      avoid: ['hierarchy'],
       fields: { zh: '少數類別 + 占比（加總 100%）', en: 'few categories + shares (sum 100%)' },
       why: { zh: '平級組成、少塊 → 華夫', en: 'Flat composition, few parts → waffle' } }),
     R('mosaic-crosstab', '馬賽克圖', 'Mosaic plot', {
@@ -271,7 +280,7 @@
       why: { zh: '面積＝資料量 → 統計變形地圖', en: 'Area = value → cartogram' } }),
     R('choropleth-map', '等值區域圖', 'Choropleth map', {
       requires: { label: [1], measure: [1] }, base: 56, need: ['geo'],
-      prefer: ['ratio'], avoid: ['gridRowCol', '!ratio'],
+      prefer: ['ratio'], avoid: ['gridRowCol', '!ratio', 'pairedPeriods', 'twoPeriods'],
       fields: { zh: '地理區塊（代碼）+ 已正規化比率', en: 'geo unit (code) + normalised rate' },
       why: { zh: '地理比率 → 等值區域（先正規化）', en: 'Geographic rate → choropleth (normalise first)' } }),
     R('tile-map', '圖塊地圖', 'Tile map', {
@@ -291,7 +300,7 @@
       render: [{ r: 'pyramid' }] }),
     R('lollipop-rank', '棒棒糖圖', 'Lollipop chart', {
       requires: { label: [1], measure: [1] }, base: 52, need: ['oneRowPerCat'],
-      prefer: ['fewCats'], avoid: ['time', 'geo'],
+      prefer: ['fewCats'], avoid: ['time', 'geo', 'deepHierarchy', 'monotoneStages', 'waterfallBridge'],
       fields: { zh: '1 類別 + 1 數值（一類一列）', en: '1 category + 1 number (one row each)' },
       why: { zh: '同長條任務、高值齊頭時減墨水 → 棒棒糖', en: 'Same task as bars, less ink → lollipop' },
       render: [{ r: 'barSorted', preset: { style: 'lollipop' } }] }),
@@ -378,7 +387,7 @@
       why: { zh: '很多條時間序列緊湊比較 → 地平線圖（教學）', en: 'Many dense time series → horizon (teach)' } }),
     R('pareto-chart', '柏拉圖', 'Pareto chart', {
       requires: { label: [1], measure: [1] }, base: 28, need: ['oneRowPerCat', 'nonNegative'],
-      prefer: ['fewCats', 'manyCats'], avoid: ['time', 'geo', 'network', 'signed'],
+      prefer: ['fewCats', 'manyCats'], avoid: ['time', 'geo', 'network', 'signed', 'hierarchy', 'monotoneStages'],
       fields: { zh: '類別 + 件數／金額（一類一列）', en: 'category + count/amount (one row each)' },
       why: { zh: '聚焦少數主因 → 柏拉圖（教學）', en: 'Focus vital few → Pareto (teach)' } }),
     R('control-chart', '管制圖', 'Control chart', {
@@ -388,7 +397,7 @@
       why: { zh: '流程穩定性／異常偵測 → 管制圖（教學）', en: 'Process stability → control chart (teach)' } }),
     R('lorenz-curve', '洛倫茲曲線', 'Lorenz curve', {
       requires: { measure: [1] }, base: 20, need: ['nonNegative', 'oneRowPerCat|smallN'],
-      prefer: ['fewCats'], avoid: ['time', 'network', 'geo', 'signed'],
+      prefer: ['fewCats'], avoid: ['time', 'network', 'geo', 'signed', 'hierarchy', 'monotoneStages'],
       fields: { zh: '單位 + 非負可累計量（所得／財富等）', en: 'units + non-negative accumulable amounts' },
       why: { zh: '分配不均（含基尼）→ 洛倫茲（教學）', en: 'Inequality (+ Gini) → Lorenz (teach)' } }),
     R('marey-chart', '馬雷圖／列車運行圖', 'Marey chart', {
@@ -421,7 +430,8 @@
 
   // ---------------------------------------------------------------- shape
   var RX = {
-    geo: /(county|state|province|region|country|city|district|town|zip|postal|iso|geo|prefecture|縣|市|區域|地區|省|州|鄉|鎮|行政區|郵遞|國家)/i,
+    geo: /(county|state|province|region|country|city|district|town|zip|postal|iso|geo|prefecture|縣市|城市|區域|地區|省|州|鄉|鎮|行政區|郵遞|國家|縣)/i,
+    geoStore: /(門市|店面|店鋪|超商|分行|據點|stores?|shops?)/i,
     geoValue: /(市|縣|區|省|州|鄉|鎮)$/,
     lat: /^(lat|latitude|緯度)$/i,
     lon: /^(lon|lng|long|longitude|經度)$/i,
@@ -432,14 +442,14 @@
     hierarchy: /(parent|child|path|level|lvl|tier|層|科目|上層|父|子)/i,
     delta: /(change|delta|diff|increment|impact|contribution|增減|變動|差額|增量|貢獻)/i,
     stage: /(stage|step|phase|funnel|階段|步驟|漏斗|流程)/i,
-    stageValue: /(曝光|點擊|瀏覽|加入購物車|結帳|購買|註冊|訪問|visit|impression|click|signup|sign.?up|cart|checkout|purchase|lead|trial)/i,
+    stageValue: /(曝光|點擊|瀏覽|造訪|落地|開通|付費|續約|加入購物車|結帳|購買|註冊|訪問|visit|impression|click|signup|sign.?up|cart|checkout|purchase|lead|trial)/i,
     targetName: /(target|goal|budget|plan|quota|目標|預算|計畫|標準)/i,
     start: /(start|begin|from|開始|起始|起)/i,
     end: /(end|finish|until|due|結束|完成|截止|迄)/i,
     age: /(age|年齡|歲)/i,
     ageValue: /^(\d+\s*[-~–—至]\s*\d+|\d+\s*\+|\d+\s*歲.*|\d+\s*(以上|以下)|under\s*\d+|\d+\s*and\s*over)$/i,
     sides: /^(male|female|men|women|m|f|男|女|男性|女性|left|right)$/i,
-    period: /^(\d{4}|fy\s?\d{2,4}|before|after|pre|post|前|後|去年|今年|base|baseline|current|previous|prior|q[1-4]|h[12])/i,
+    period: /^(\d{4}|fy\s?\d{2,4}|before|after|pre|post|前|後|去年|今年|base|baseline|current|previous|prior|q[1-4]|h[12]|上半年|下半年|上期|下期)/i,
     size: /(size|pop|population|volume|weight|規模|人口|大小|量體)/i,
     grid: { row: /^(row|r|列)$/i, col: /^(col|column|c|欄|行)$/i },
     cycleCol: /^(month_?num|month|weekday|dow|hour|week|週|星期|月份|小時)$/i
@@ -447,6 +457,122 @@
 
   function uniq(arr) { var s = {}, out = []; arr.forEach(function (v) { if (v !== null && v !== undefined && !s.hasOwnProperty(v)) { s[v] = 1; out.push(v); } }); return out; }
   function median(xs) { var s = xs.filter(function (x) { return x !== null; }).sort(function (a, b) { return a - b; }); if (!s.length) return 0; var m = Math.floor(s.length / 2); return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; }
+
+  function prefixKey(cols, row, lastIdx) {
+    var key = '', i, v;
+    for (i = 0; i <= lastIdx; i++) {
+      v = cols[i].values[row];
+      if (v === null || v === undefined) return null;
+      key += (i ? '\u0001' : '') + String(v);
+    }
+    return key;
+  }
+
+  function uniquePrefixCounts(cols, rows) {
+    var counts = [], d, r, key, seen, n;
+    for (d = 0; d < cols.length; d++) {
+      seen = {}; n = 0;
+      for (r = 0; r < rows; r++) {
+        key = prefixKey(cols, r, d);
+        if (key === null) continue;
+        if (!seen.hasOwnProperty(key)) { seen[key] = 1; n++; }
+      }
+      counts.push(n);
+    }
+    return counts;
+  }
+
+  function valueNestedPair(coarse, fine, rows) {
+    if (!coarse || !fine || fine.distinct < 2 || coarse.distinct < 2) return false;
+    if (fine.distinct <= coarse.distinct) return false;
+    var map = {}, r, fv, cv;
+    for (r = 0; r < rows; r++) {
+      fv = fine.values[r]; cv = coarse.values[r];
+      if (fv === null || cv === null) continue;
+      if (map.hasOwnProperty(fv) && map[fv] !== cv) return false;
+      map[fv] = cv;
+    }
+    return Object.keys(map).length >= 2;
+  }
+
+  /**
+   * True nested drill-down: original column order, distinct ≥ 2 only.
+   * Every adjacent step must refine, branch, and have unique child→parent
+   * when the child is keyed by its full prefix path (so the same leaf label
+   * may appear under two parents). Sparsity alone never qualifies.
+   */
+  function detectHierarchyPath(cols, rows) {
+    if (!cols || cols.length < 2 || rows < 2) return null;
+    cols = cols.filter(function (c) { return c.distinct >= 2; });
+    if (cols.length < 2) return null;
+    var prefixes = uniquePrefixCounts(cols, rows);
+    var i, r, parent, child, map, parentKids, branched, kidCount;
+    branched = false;
+    for (i = 1; i < cols.length; i++) {
+      if (prefixes[i] <= prefixes[i - 1]) return null;
+      map = {};
+      parentKids = {};
+      for (r = 0; r < rows; r++) {
+        parent = prefixKey(cols, r, i - 1);
+        child = prefixKey(cols, r, i);
+        if (parent === null || child === null) continue;
+        if (map.hasOwnProperty(child) && map[child] !== parent) return null;
+        map[child] = parent;
+        if (!parentKids[parent]) parentKids[parent] = {};
+        parentKids[parent][child] = 1;
+      }
+      if (Object.keys(map).length < 2) return null;
+      for (parent in parentKids) {
+        if (!Object.prototype.hasOwnProperty.call(parentKids, parent)) continue;
+        kidCount = 0;
+        for (child in parentKids[parent]) {
+          if (Object.prototype.hasOwnProperty.call(parentKids[parent], child)) kidCount++;
+        }
+        if (kidCount >= 2) branched = true;
+      }
+    }
+    if (!branched) return null;
+    var depth = cols.length;
+    if (depth >= 3) {
+      return { names: cols.map(function (c) { return c.name; }), depth: depth };
+    }
+    if (valueNestedPair(cols[0], cols[1], rows) && cols[1].distinct < rows) {
+      return { names: cols.map(function (c) { return c.name; }), depth: 2 };
+    }
+    return null;
+  }
+
+  function detectWaterfallBridge(measure, rows) {
+    if (!measure || rows < 4) return false;
+    var vals = [], i, v;
+    for (i = 0; i < rows; i++) {
+      v = measure.values[i];
+      if (v === null || v === undefined) return false;
+      vals.push(v);
+    }
+    var first = vals[0], last = vals[vals.length - 1];
+    if (!(first > 0 && last > 0)) return false;
+    var midSum = 0, hasNeg = false;
+    for (i = 1; i < vals.length - 1; i++) {
+      midSum += vals[i];
+      if (vals[i] < 0) hasNeg = true;
+    }
+    if (!hasNeg) return false;
+    var tol = Math.max(0.51, Math.abs(first) * 0.005);
+    return Math.abs(first + midSum - last) <= tol;
+  }
+
+  function isMonotoneNonIncreasing(measure, rows) {
+    if (!measure || rows < 3) return false;
+    var prev = null, i, v;
+    for (i = 0; i < rows; i++) {
+      v = measure.values[i];
+      if (v === null || v === undefined) return false;
+      if (prev !== null && v > prev + 1e-9) return false;
+      prev = v;
+    }
+    return measure.values[0] > measure.values[rows - 1];
+  }
 
   /**
    * Compute shape features from a WIDS_TYPES.profileTable() result.
@@ -563,7 +689,10 @@
         }
       }
       var periodCols = measures.filter(function (c) { return RX.period.test(c.name.trim()); });
-      if (periodCols.length === 2) h.twoPeriods = true;
+      if (periodCols.length === 2) {
+        h.twoPeriods = true;
+        if (h.sameUnitPair) h.pairedPeriods = true;
+      }
     }
     if (h.twoPeriods && !labels.length) delete h.twoPeriods;
 
@@ -576,10 +705,11 @@
     if (ageCol) { h.ageGroup = true; roles.age = ageCol.name; }
     var sideCat = cat.filter(function (c) { return c !== ageCol && c.distinct === 2; })[0];
     var sideNums = measures.filter(function (c) { return RX.sides.test(c.name.trim()); });
-    if (sideCat || sideNums.length === 2) h.twoSides = true;
+    if ((ageCol && sideCat) || sideNums.length === 2) h.twoSides = true;
 
     // geo
     var geoCol = labels.filter(function (c) {
+      if (RX.geoStore.test(c.name)) return false;
       var perUnit = c.distinct >= 0.8 * rows;
       var vals = uniq(c.values);
       var valueGeo = vals.length >= 2 && vals.filter(function (v) { return RX.geoValue.test(String(v)); }).length / vals.length >= 0.6;
@@ -621,15 +751,24 @@
       delete h.crossTab; delete h.repeatedGroups; delete h.bigGroups; delete h.bigMatrix; delete h.smallCross;
     }
 
-    // hierarchy
+    // hierarchy: named parent/path, unique child→parent, or multi-column drill-down
+    var hierCols = cat.filter(function (c) { return c.distinct >= 2; });
+    var path = !h.network ? detectHierarchyPath(hierCols, rows) : null;
     if (labels.some(function (c) { return RX.hierarchy.test(c.name); }) ||
         labels.some(function (c) { var v = uniq(c.values); return v.length >= 3 && v.filter(function (s) { return /\s[/>›]\s|\//.test(String(s)); }).length / v.length >= 0.6; })) {
       h.hierarchy = true;
-    } else if (catsByCard.length >= 2 && !h.network) {
+    }
+    if (path) {
+      h.hierarchy = true;
+      roles.hierarchy = path.names;
+      roles.hierarchyDepth = path.depth;
+      if (path.depth >= 3) h.deepHierarchy = true;
+    } else if (!h.hierarchy && catsByCard.length >= 2 && !h.network) {
       // nested categories: every finer value maps to exactly one coarser value
       for (var ci = 0; ci < catsByCard.length && !h.hierarchy; ci++) {
         for (var cj = ci + 1; cj < catsByCard.length; cj++) {
           var coarse = catsByCard[ci], fine = catsByCard[cj];
+          if (fine.distinct < 2 || coarse.distinct < 2) continue;
           if (fine.distinct <= coarse.distinct || fine.distinct >= rows) continue;
           var map = {}, ok = true;
           for (var r = 0; r < rows && ok; r++) {
@@ -641,15 +780,24 @@
         }
       }
     }
+    // Only a real nested path (not a name-token match) drops distribution hints
+    if (path) {
+      delete h.repeatedGroups; delete h.bigGroups; delete h.multiCatStages;
+      if (!h.ageGroup) delete h.twoSides;
+    }
 
     // misc
     if (measures.some(function (c) { return RX.delta.test(c.name); }) || (h.signed && h.oneRowPerCat)) h.delta = true;
+    if (measures.length && detectWaterfallBridge(measures[0], rows)) h.waterfallBridge = true;
     var stageCol = labels.filter(function (c) {
       if (RX.stage.test(c.name)) return true;
       var v = uniq(c.values);
       return v.length >= 3 && v.filter(function (s) { return RX.stageValue.test(String(s)); }).length / v.length >= 0.5;
     })[0];
-    if (stageCol && measures.length) h.stages = true;
+    if (stageCol && measures.length) {
+      h.stages = true;
+      if (isMonotoneNonIncreasing(measures[0], rows)) h.monotoneStages = true;
+    }
     if (measures.some(function (c) { return RX.targetName.test(c.name); }) && measures.length >= 2) h.target = true;
     var startCol = date.filter(function (c) { return RX.start.test(c.name); })[0];
     var endCol = date.filter(function (c) { return c !== startCol && RX.end.test(c.name); })[0];

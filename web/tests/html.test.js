@@ -14,7 +14,7 @@ test('CSP connect-src allows local mock API and is not none', () => {
 });
 
 test('page loads api client + entitlement scripts before app.js', () => {
-  const order = ['js/config.js', 'js/api.js', 'js/entitlement.js', 'js/i18n.js', 'js/app.js'];
+  const order = ['js/config.js', 'js/api.js', 'js/entitlement.js', 'js/i18n.js', 'js/csv.js', 'js/input.js', 'js/app.js'];
   let last = -1;
   for (const src of order) {
     const idx = html.indexOf('src="' + src + '"');
@@ -26,4 +26,16 @@ test('page loads api client + entitlement scripts before app.js', () => {
   assert.match(html, /用 GitHub 登入/);
   assert.match(html, /id="upgradeBtn"/);
   assert.match(html, />升級</);
+});
+
+test('file input accepts CSV, Excel and JSON; SheetJS is self-hosted', () => {
+  assert.match(html, /id="fileInput"/);
+  assert.match(html, /accept="[^"]*\.xlsx[^"]*\.xls[^"]*\.ods[^"]*\.json/);
+  assert.match(html, /上傳 CSV、Excel、JSON/);
+  assert.match(html, /id="sheetSelect"/);
+  assert.match(html, /src="vendor\/xlsx\.full\.min\.js"/);
+  assert.doesNotMatch(html, /cdn\.sheetjs\.com|cdnjs\.cloudflare\.com|unpkg\.com|jsdelivr/i);
+  assert.doesNotMatch(html, /script-src[^"]*cdn/);
+  assert.match(html, /script-src 'self'/);
+  assert.doesNotMatch(html, /script-src [^"]*'unsafe-eval'/);
 });

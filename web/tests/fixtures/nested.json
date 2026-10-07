@@ -1,0 +1,20 @@
+[
+  {
+    "name": "A",
+    "meta": {
+      "city": "Taipei"
+    },
+    "stats": {
+      "score": 10
+    }
+  },
+  {
+    "name": "B",
+    "meta": {
+      "city": "Tainan"
+    },
+    "stats": {
+      "score": 8
+    }
+  }
+]

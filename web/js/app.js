@@ -11,7 +11,19 @@
   var state = { parsed: null, source: '', overrides: {}, profile: null, rec: null, pattern: null, renderer: null, preset: null, sel: {}, chart: null, showAll: false, workbook: null, sheetNames: [] };
   var api = API_MOD.createApi();
   var guestQuota = ENT.createGuestQuota();
-  var account = { file: !api.canUseApi(), offline: true, me: null, remaining: guestQuota.remaining(), message: '', busy: false };
+  function accountsOn() {
+    var cfg = window.WIDS_CONFIG;
+    return !!(cfg && typeof cfg.accountsEnabled === 'function' && cfg.accountsEnabled());
+  }
+  var account = {
+    accountsEnabled: accountsOn(),
+    file: accountsOn() ? !api.canUseApi() : false,
+    offline: true,
+    me: null,
+    remaining: accountsOn() ? guestQuota.remaining() : null,
+    message: '',
+    busy: false
+  };
   var $ = function (id) { return document.getElementById(id); };
 
   function el(tag, attrs, text) {
@@ -49,17 +61,25 @@
 
   // ------------------------------------------------------------ entitlement / mock API
   function accountEls() {
-    return { status: $('planStatus'), login: $('loginBtn'), upgrade: $('upgradeBtn'), logout: $('logoutBtn') };
+    return { bar: $('accountBar'), status: $('planStatus'), login: $('loginBtn'), upgrade: $('upgradeBtn'), logout: $('logoutBtn') };
   }
   function refreshAccount() {
+    account.accountsEnabled = accountsOn();
+    if (!account.accountsEnabled) {
+      ENT.applyAccountUI(accountEls(), { accountsEnabled: false }, t);
+      return;
+    }
     ENT.applyAccountUI(accountEls(), account, t);
   }
   function isDemoSource(source) {
     return SAMPLES.some(function (s) { return s.file === source; });
   }
   function guestBlocked() {
-    if (!ENT.isGuest(account.me)) return false;
-    return account.remaining <= 0;
+    return ENT.guestUploadBlocked({
+      accountsEnabled: accountsOn(),
+      me: account.me,
+      remaining: account.remaining
+    });
   }
   function quotaMessage(err) {
     var extra = '';
@@ -68,6 +88,14 @@
     return t('quotaExceeded') + extra;
   }
   function loadMe() {
+    if (!accountsOn()) {
+      account.file = false;
+      account.offline = true;
+      account.me = null;
+      account.message = '';
+      refreshAccount();
+      return Promise.resolve({ skipped: true });
+    }
     if (!api.canUseApi()) {
       account.file = true;
       account.offline = true;
@@ -100,8 +128,13 @@
     });
   }
   function maybeSaveHistory(source, parsed) {
-    if (!api.canUseApi() || account.offline) return Promise.resolve();
-    if (!ENT.hasFeature(account.me, 'save_history')) return Promise.resolve();
+    if (!ENT.shouldSaveHistory({
+      accountsEnabled: accountsOn(),
+      canUseApi: api.canUseApi(),
+      file: account.file,
+      offline: account.offline,
+      me: account.me
+    })) return Promise.resolve();
     if (!state.pattern || !parsed) return Promise.resolve();
     return api.saveHistory({
       pattern_id: state.pattern,
@@ -116,6 +149,7 @@
     });
   }
   function afterSuccessfulLoad(source, parsed, kind) {
+    if (!accountsOn()) return Promise.resolve();
     var next = Promise.resolve();
     if (kind === 'upload' && ENT.isGuest(account.me)) {
       guestQuota.increment();
@@ -578,7 +612,7 @@
     if (q.pattern && CONTENT.patterns[q.pattern]) selectPattern(q.pattern, q.renderer && CH.renderers[q.renderer] ? q.renderer : undefined);
   }
 
-  if (typeof location !== 'undefined' && api.captureTokenFromSearch(location.search)) {
+  if (accountsOn() && typeof location !== 'undefined' && api.captureTokenFromSearch(location.search)) {
     try {
       var clean = new URL(location.href);
       clean.searchParams.delete('access_token');
@@ -590,6 +624,7 @@
   renderColumns();
   renderChartArea();
   renderTutorial(null);
-  loadMe().then(function () { fromHash(); });
-  window.WIDS_APP = { state: state, loadText: loadText, loadFile: loadFile, selectPattern: selectPattern, api: api, account: account };
+  if (accountsOn()) loadMe().then(function () { fromHash(); });
+  else fromHash();
+  window.WIDS_APP = { state: state, loadText: loadText, loadFile: loadFile, selectPattern: selectPattern, api: api, account: account, accountsEnabled: accountsOn };
 })();

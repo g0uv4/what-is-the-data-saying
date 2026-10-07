@@ -4,8 +4,8 @@
 
 - 無後端、無建置步驟即可使用：HTML / CSS / 原生 JS，普通 `<script src>`（不用 ES module、不用 `fetch` 讀本機檔），所以 **直接雙擊 `web/index.html`（file://）就能跑**。
 - 第三方依賴都 vendor 在 `vendor/`（授權與版本見 `vendor/README.md`）：Chart.js 4.5.1 UMD、SheetJS Community Edition 0.20.3（Apache-2.0，自架 `xlsx.full.min.js`，來源 https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js）。不用 CDN、不放寬 CSP `script-src`；不用日期 adapter（時間一律在 JS 內解析排序後用 category 軸）。
-- 分析仍在瀏覽器內完成。`http:`／`https:` 可選連 `web/api-mock`（訪客額度、mock GitHub 登入、假升級、歷史摘要）。**`file://`／origin 為 null 時不會呼叫 API。**
-- CSP `connect-src` 預設允許本機 mock：`http://127.0.0.1:8787` 與 `http://localhost:8787`。Preview／Production 要把已部署的 mock origin 加進同一行（見下方）。
+- 分析全部在瀏覽器內完成，資料不會離開你的電腦。帳號／權限／訪客額度（`ACCOUNTS_ENABLED`）**預設關閉**：不畫登入／升級／額度列、不呼叫權限 API、不記訪客次數、不存歷史。
+- CSP `connect-src` 預設只有 `'self'`。若要把 `ACCOUNTS_ENABLED` 打開，還必須把 API origin（與 `WIDS_API_BASE` 相同）加回 `connect-src`（本機 mock 是 `http://127.0.0.1:8787` 與 `http://localhost:8787`）。
 - 本資料夾不影響 plugin：`grok plugin validate .` 照樣通過；skill 檔案未改動。
 
 ## 怎麼開
@@ -32,7 +32,12 @@ node web/build/build-content.mjs     # Node ≥ 18，無 npm 依賴；輸出可�
 
 新增圖種 pattern 時：跑上面的建置，再到 `js/rules.js` 的 `RULES` 加一列（測試會檢查規則表與 `examples/*.md` 一一對應）。
 
-## 本機連 mock 權限 API
+## 本機連 mock 權限 API（預設關閉）
+
+`js/config.js` 的 `ACCOUNTS_ENABLED` 預設是 `false`。11/7 上線是免費版，付費／帳號列先不上。要在本機打開帳號功能：
+
+1. 在 `config.js` **之前**設 `window.WIDS_ACCOUNTS_ENABLED = true`（或把常數改成 `true`）。
+2. 把 API origin 加回 `web/index.html` 的 CSP `connect-src`（只改旗標、CSP 沒加該 host，瀏覽器會擋 `fetch`）。
 
 靜態頁與 mock API 要分開開（兩個 origin）。同事會在 API 端設 `CORS_ORIGIN`，必須包含靜態站的 origin。
 
@@ -62,7 +67,7 @@ python3 -m http.server 4173
 1. 改 `js/config.js` 的常數（建置期／commit 進 Preview 用這條）。
 2. 在 `config.js` **之前**設 `window.WIDS_API_BASE`（執行期覆寫）。
 
-Hosted／Preview／Production 要把同一個 mock origin 加進 `web/index.html` 的 CSP `connect-src`。只改 JS 常數、CSP 沒加該 host，瀏覽器會擋 `fetch`。`script-src` 仍是 `'self'`，不要為了改 base 打開 `'unsafe-inline'`。
+旗標打開時，Hosted／Preview／Production 要把同一個 mock origin 加進 `web/index.html` 的 CSP `connect-src`（預設只有 `'self'`）。只改 JS 常數、CSP 沒加該 host，瀏覽器會擋 `fetch`。`script-src` 仍是 `'self'`，不要為了改 base 打開 `'unsafe-inline'`。
 
 API 端請設 `CORS_ORIGIN` 為靜態站 origin（Preview 網址或 Production 網域），並允許 `Authorization`、`X-Guest-Id`（mock 已支援）。
 
@@ -97,9 +102,9 @@ web/
 │   ├── rules.js            69 圖種規則表 + 資料形狀偵測（computeShape）+ 評分引擎
 │   ├── markdown.js         極小 markdown 渲染（先跳脫 HTML；只允許 http(s)/mailto 連結）
 │   ├── charts.js           繪圖器（Chart.js + 自繪 canvas）與純函式工具
-│   ├── config.js           API base（預設 :8787）與 localStorage 鍵
-│   ├── api.js              mock 權限 API client（file:// 不發請求）
-│   ├── entitlement.js      訪客額度 + 帳號列
+│   ├── config.js           API base（預設 :8787）、ACCOUNTS_ENABLED（預設關）與 localStorage 鍵
+│   ├── api.js              mock 權限 API client（旗標關或 file:// 不發請求）
+│   ├── entitlement.js      訪客額度 + 帳號列（旗標關時不畫、不計次）
 │   ├── i18n.js             繁中／英文字串
 │   └── app.js              UI 控制（僅瀏覽器）
 ├── api-mock/               本機 mock 權限 API（:8787）

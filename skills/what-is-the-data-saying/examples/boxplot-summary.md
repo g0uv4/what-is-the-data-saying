@@ -30,7 +30,7 @@
 ## Produce checklist
 
 - [ ] 故事句含：多組分布摘要（中位／IQR／離群）（不是「讀出每個點」或「完整密度」）
-- [ ] 資料：value（+ group）；同單位；缺值處理寫進圖脚
+- [ ] 資料：value（+ group）；同單位；缺值處理寫進圖腳
 - [ ] 鬚規則、是否標平均、各組 n= 寫清；示範數標「數字未核」
 - [ ] 無固有序可依中位數／IQR 排序；長標籤用水平
 - [ ] 工具誠實：Catalogue／Dataviz Project／Wikipedia／Wilke／D3／R／Python Gallery／RAWGraphs／Plotly 有路徑；Flourish Help 深鏈本輪可能改版轉首頁；**Datawrapper 無原生箱形**；data-to-viz `graph/boxplot` 本輪 **404**（caveat 可用）；Observable @d3/box-plot 本輪可能 **429**
@@ -58,6 +58,6 @@
 - https://help.flourish.studio/article/128-how-to-make-a-boxplot （深鏈可能改版）
 - https://www.datawrapper.de/charts （無原生 box-plot 產品頁）
 
-鄰居 pattern：`violin-distribution.md`、`raincloud-combo.md`、`beeswarm-points.md`。
+鄰居 pattern：`violin-distribution.md`、`raincloud-combo.md`、`beeswarm-points.md`、`qq-plot.md`（要檢查形狀像不像某個參考分布時的分位數診斷）；`forest-plot.md`（箱子長度是資料分布，不是信賴區間；多項研究的估計與合併用森林圖）。
 
 圖檔與截圖留在教圖／skill-pack（`/workspace/skill-packs/2026-09-23-pm-boxplot/images/`，稿內嵌約 24 張），本 repo **不複製**大圖；對帳見 `ATTRIBUTION.md`。

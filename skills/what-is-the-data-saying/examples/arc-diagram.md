@@ -11,7 +11,7 @@
 ## Recommend
 
 - **主選**：弧線圖
-- **備選**：邊多到弧線交疊、要每條邊一欄並依類型分塊 → BioFabric（`biofabric.md`）；探索 → 力導向；重排看塊 → 鄰接矩陣
+- **備選**：長刻度參考軸上的位置對位＋沿軸多層訊號 → Circos（`circos.md`，圓形版面）；邊多到弧線交疊、要每條邊一欄並依類型分塊 → BioFabric（`biofabric.md`）；探索 → 力導向；重排看塊 → 鄰接矩陣
 
 ## Avoid
 
@@ -22,4 +22,4 @@
 - [ ] 排序最關鍵；優化序 vs 亂序對照
 - [ ] 圖注寫排序依據
 
-鄰居 pattern：`biofabric.md`、`force-network.md`、`adjacency-matrix.md`。
+鄰居 pattern：`circos.md`（圓形刻度軸＋多軌；本圖是直線版面的拓撲）、`biofabric.md`、`force-network.md`、`adjacency-matrix.md`。

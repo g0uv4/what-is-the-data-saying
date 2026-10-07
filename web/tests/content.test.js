@@ -9,10 +9,12 @@ const C = require('../js/charts.js');
 const web = path.join(__dirname, '..');
 const loadGlobal = (file) => { const ctx = { window: {} }; vm.runInNewContext(fs.readFileSync(path.join(web, file), 'utf8'), ctx); return ctx.window; };
 
-test('generated content.js has all 49 patterns with markdown', () => {
+test('generated content.js has all pattern markdown files', () => {
   const w = loadGlobal('data/content.js');
   const p = w.WIDS_CONTENT.patterns;
-  assert.equal(Object.keys(p).length, 49);
+  const files = fs.readdirSync(path.join(web, '..', 'skills', 'what-is-the-data-saying', 'examples')).filter((f) => f.endsWith('.md') && f !== 'README.md');
+  assert.equal(Object.keys(p).length, files.length);
+  assert.equal(w.WIDS_CONTENT.patternCount, files.length);
   for (const k of Object.keys(p)) assert.match(p[k].md, /^# Pattern: /, k);
 });
 

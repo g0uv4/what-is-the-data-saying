@@ -78,7 +78,7 @@
 - https://plotly.com/python/choropleth-maps/
 - https://observablehq.com/@d3/choropleth/2 （新版；舊 `@d3/choropleth` 已停用；本輪網頁可能 429）
 
-X 教學原帖（Liora 已逐則核對帳號與內文）：
+X 教學原帖（審稿人已逐則核對帳號與內文）：
 
 - https://x.com/Africa_DataHub/status/2097233483903160540 — 免費課：Mapshaper＋Datawrapper＋Flourish 做 choropleth
 - https://x.com/World_Data_A/status/2099152833253638574 — choropleth illusion（大面積視覺偏誤）

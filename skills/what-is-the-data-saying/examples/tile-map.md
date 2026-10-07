@@ -86,4 +86,4 @@ X 教學原帖：本輪查無（不編造）。
 
 鄰居 pattern：`choropleth-map.md`（真實面積填色；本圖解其大面積低人口偏誤）、`cartogram-geo.md`（面積∝數量；加權六角／方塊變體歸這裡）、`hexbin-density.md`（點聚合，非行政區）、`dot-density-map.md`、`matrix-heatmap.md`、`small-multiples.md`（geofacet 延伸）。
 
-圖檔留在教圖／skill-pack（`/workspace/skill-packs/2026-09-25-pm-tilemap/images/`，稿內嵌 24 張），本 repo **不複製**大圖。可當圖塊地圖範例對照的是 wilke-statebins、dw-swiss-tilemap、dw-swiss-chart、npr-square-tiles、npr-hex-tiles、statebins-*、rgg-usa-hex-*、medium-square、tableau-usa-tile；加權變體對照看 wiki-canada-hex、wiki-germany-hex、dw-cartogram-types。**不要**把 dw-election-hex（文章封面插圖，只有局部六角標記）、medium-hex（一般地理等值區域圖封面）、dw-swiss-compare（疫情圖表拼貼）當圖塊地圖範例引用。對帳見 `ATTRIBUTION.md`。
+圖檔留在教圖／skill-pack（素材包 `images/`，稿內嵌 24 張），本 repo **不複製**大圖。可當圖塊地圖範例對照的是 wilke-statebins、dw-swiss-tilemap、dw-swiss-chart、npr-square-tiles、npr-hex-tiles、statebins-*、rgg-usa-hex-*、medium-square、tableau-usa-tile；加權變體對照看 wiki-canada-hex、wiki-germany-hex、dw-cartogram-types。**不要**把 dw-election-hex（文章封面插圖，只有局部六角標記）、medium-hex（一般地理等值區域圖封面）、dw-swiss-compare（疫情圖表拼貼）當圖塊地圖範例引用。對帳見 `ATTRIBUTION.md`。

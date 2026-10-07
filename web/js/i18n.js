@@ -14,8 +14,17 @@
       fields: '需求欄位', score: '分數', renderer: '繪法', pickPattern: '在左側推薦清單點一個圖種。', pickRenderer: '其他可用繪法',
       noRenderer: '此圖種尚未支援繪圖；教學內容見「5. 教學」。可改用下列已支援的繪法先看資料：', none: '（無）', count: '計數（列數）',
       tutorial: '教學（來自 repo examples）', openGithub: '在 GitHub 看原始檔', shapeHints: '偵測到的資料形狀',
-      footer: '內容來自 g0uv4/what-is-the-data-saying（MIT；教圖內容見 ATTRIBUTION）。純前端，資料不會離開你的電腦。',
-      parseError: '解析失敗：', emptyCsv: 'CSV 沒有資料列。', ragged: '有 {n} 列欄位數與表頭不一致，已補空／截斷。', sampleFor: '示範：'
+      footer: '內容來自 g0uv4/what-is-the-data-saying（MIT；教圖內容見 ATTRIBUTION）。分析在瀏覽器內完成；http(s) 可連 mock 權限 API（只送摘要，不含原始 CSV）。file:// 不呼叫 API。',
+      parseError: '解析失敗：', emptyCsv: 'CSV 沒有資料列。', ragged: '有 {n} 列欄位數與表頭不一致，已補空／截斷。', sampleFor: '示範：',
+      loginGithub: '用 GitHub 登入', upgrade: '升級', logout: '登出',
+      planGuest: '訪客 · 今日剩餘自貼 {n}/{limit}', planUser: '{login} · {plan}',
+      planTrial: '試用', planPro: 'Pro', planFree: '免費',
+      apiOffline: '權限 API 未連上（本機請先跑 web/api-mock :8787）',
+      apiOfflineFile: 'file:// 不呼叫權限 API',
+      guestLimit: '訪客每日自貼已達 3 次上限。請改用示範資料，或用 GitHub 登入。',
+      historySaved: '已儲存分析摘要（不含原始 CSV）', historyFailed: '摘要儲存失敗',
+      quotaExceeded: '額度用完。', quotaReset: '重置時間：{at}', quotaRetry: '請 {n} 秒後再試。',
+      upgradeOk: '已升級為 Pro', upgradeFailed: '升級失敗', loginFailed: '登入失敗', apiBusy: '處理中…'
     },
     en: {
       title: 'What is the data saying?', subtitle: 'Upload CSV → column types → chart recommendations ({n} patterns) → interactive chart + tutorial',
@@ -29,8 +38,17 @@
       fields: 'Fields', score: 'Score', renderer: 'Renderer', pickPattern: 'Pick a chart from the recommendations.', pickRenderer: 'Other renderers',
       noRenderer: 'Drawing for this pattern is not supported yet; see “5. Tutorial”. Explore the data with a supported renderer:', none: '(none)', count: 'Count (rows)',
       tutorial: 'Tutorial (from repo examples, zh-TW)', openGithub: 'View source on GitHub', shapeHints: 'Detected data shape',
-      footer: 'Content from g0uv4/what-is-the-data-saying (MIT; see ATTRIBUTION). Runs fully in your browser.',
-      parseError: 'Parse error: ', emptyCsv: 'CSV has no data rows.', ragged: '{n} rows had a different field count; padded/truncated.', sampleFor: 'Demo: '
+      footer: 'Content from g0uv4/what-is-the-data-saying (MIT; see ATTRIBUTION). Analysis stays in the browser; http(s) may call the mock entitlement API (summary only, never raw CSV). file:// never calls the API.',
+      parseError: 'Parse error: ', emptyCsv: 'CSV has no data rows.', ragged: '{n} rows had a different field count; padded/truncated.', sampleFor: 'Demo: ',
+      loginGithub: 'Sign in with GitHub', upgrade: 'Upgrade', logout: 'Sign out',
+      planGuest: 'Guest · self-uploads left today {n}/{limit}', planUser: '{login} · {plan}',
+      planTrial: 'Trial', planPro: 'Pro', planFree: 'Free',
+      apiOffline: 'Entitlement API is offline (run web/api-mock on :8787 locally)',
+      apiOfflineFile: 'file:// does not call the entitlement API',
+      guestLimit: 'Guest self-upload limit (3/day) reached. Use a sample, or sign in with GitHub.',
+      historySaved: 'Saved analysis summary (no raw CSV)', historyFailed: 'Could not save summary',
+      quotaExceeded: 'Quota exhausted. ', quotaReset: 'Resets at {at}', quotaRetry: 'Retry in {n}s.',
+      upgradeOk: 'Upgraded to Pro', upgradeFailed: 'Upgrade failed', loginFailed: 'Sign-in failed', apiBusy: 'Working…'
     }
   };
   var lang = 'zh';

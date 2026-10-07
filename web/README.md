@@ -1,17 +1,17 @@
 # web/ — 互動網頁 PoC（資料在說什麼？）
 
-把本 repo 的 skill（`skills/what-is-the-data-saying/`）變成一個**純前端單頁**：上傳或貼上 CSV → 自動判斷欄位型態 → 依資料形狀從 **69 個圖種 pattern**（與 skill examples 同步） 推薦（排序＋理由）→ 可互動繪圖 → 顯示該圖種的教學 markdown。
+把本 repo 的 skill（`skills/what-is-the-data-saying/`）變成一個**純前端單頁**：上傳或貼上 CSV／Excel／JSON → 自動判斷欄位型態 → 依資料形狀從 **69 個圖種 pattern**（與 skill examples 同步） 推薦（排序＋理由）→ 可互動繪圖 → 顯示該圖種的教學 markdown。
 
 - 無後端、無建置步驟即可使用：HTML / CSS / 原生 JS，普通 `<script src>`（不用 ES module、不用 `fetch` 讀本機檔），所以 **直接雙擊 `web/index.html`（file://）就能跑**。
-- 唯一第三方依賴：Chart.js 4.5.1 UMD，已 vendor 在 `vendor/`（授權與版本見 `vendor/README.md`）。不用 CDN、不用日期 adapter（時間一律在 JS 內解析排序後用 category 軸）。
-- 分析仍在瀏覽器內完成。`http:`／`https:` 可選連 `web/api-mock`（訪客額度、mock GitHub 登入、假升級、歷史摘要）。**`file://`／origin 為 null 時不會呼叫 API。**
-- CSP `connect-src` 預設允許本機 mock：`http://127.0.0.1:8787` 與 `http://localhost:8787`。Preview／Production 要把已部署的 mock origin 加進同一行（見下方）。
+- 第三方依賴都 vendor 在 `vendor/`（授權與版本見 `vendor/README.md`）：Chart.js 4.5.1 UMD、SheetJS Community Edition 0.20.3（Apache-2.0，自架 `xlsx.full.min.js`，來源 https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js）。不用 CDN、不放寬 CSP `script-src`；不用日期 adapter（時間一律在 JS 內解析排序後用 category 軸）。
+- 分析全部在瀏覽器內完成，資料不會離開你的電腦。帳號／權限／訪客額度（`ACCOUNTS_ENABLED`）**預設關閉**：不畫登入／升級／額度列、不呼叫權限 API、不記訪客次數、不存歷史。
+- CSP `connect-src` 預設只有 `'self'`。若要把 `ACCOUNTS_ENABLED` 打開，還必須把 API origin（與 `WIDS_API_BASE` 相同）加回 `connect-src`（本機 mock 是 `http://127.0.0.1:8787` 與 `http://localhost:8787`）。
 - 本資料夾不影響 plugin：`grok plugin validate .` 照樣通過；skill 檔案未改動。
 
 ## 怎麼開
 
 1. 直接雙擊 `web/index.html`，或 `open web/index.html` / `xdg-open web/index.html`。
-2. 在「1. 資料」選一個示範 CSV（來自 `examples/data/*.csv`），或上傳／貼上自己的 CSV（UTF-8；逗號、分號、Tab 自動偵測）。
+2. 在「1. 資料」選一個示範 CSV（來自 `examples/data/*.csv`），或上傳／貼上自己的 **CSV、Excel（.xlsx／.xls／.ods）、JSON**。CSV 先當 UTF-8 解（失敗再 Big5），逗號／分號／Tab 自動偵測；Excel 多工作表會出現下拉（預設第一張）；JSON 接受 `[{...}]` 或 `{"data":[...]}`，巢狀欄位攤平成 `a.b`。原始檔只在瀏覽器內解析，不會上傳。上限 10 MB；超過 50,000 列只留前 50,000 列並提示。
 3. 「2. 欄位型態」可手動改型態，推薦會即時重算。
 4. 「3. 推薦圖種」點任一圖種 → 「4. 圖表」切繪法與欄位 → 「5. 教學」看對應 pattern。
 
@@ -32,7 +32,12 @@ node web/build/build-content.mjs     # Node ≥ 18，無 npm 依賴；輸出可�
 
 新增圖種 pattern 時：跑上面的建置，再到 `js/rules.js` 的 `RULES` 加一列（測試會檢查規則表與 `examples/*.md` 一一對應）。
 
-## 本機連 mock 權限 API
+## 本機連 mock 權限 API（預設關閉）
+
+`js/config.js` 的 `ACCOUNTS_ENABLED` 預設是 `false`。11/7 上線是免費版，付費／帳號列先不上。要在本機打開帳號功能：
+
+1. 在 `config.js` **之前**設 `window.WIDS_ACCOUNTS_ENABLED = true`（或把常數改成 `true`）。
+2. 把 API origin 加回 `web/index.html` 的 CSP `connect-src`（只改旗標、CSP 沒加該 host，瀏覽器會擋 `fetch`）。
 
 靜態頁與 mock API 要分開開（兩個 origin）。同事會在 API 端設 `CORS_ORIGIN`，必須包含靜態站的 origin。
 
@@ -52,7 +57,7 @@ python3 -m http.server 4173
 - 「用 GitHub 登入」走 mock OAuth：回調只帶一次性授權碼，前端用 `POST /v1/auth/exchange` 換憑證後存在 `localStorage` 的 `wids_token`。網址不會出現存取憑證。
 - 若從回調落地時網址帶 `code`，換票後立刻從網址拿掉（失敗也拿掉），再照舊打 `/v1/me`。
 - 「升級」會 `POST /v1/checkout/session` 後立刻 `POST /v1/checkout/mock-complete`，**不會打開 `checkout_url` 當網頁**。
-- 已登入且有 `save_history` 時，成功分析後只 POST 摘要（`pattern_id`、`source_name`、`row_count`），絕不送原始 CSV。
+- 已登入且有 `save_history` 時，成功分析後只 POST 摘要（`pattern_id`、`source_name`、`row_count`），絕不送原始檔。
 
 訪客自貼次數前端記在 `wids_guest_uploads_YYYY-MM-DD`（台北日），並帶 `X-Guest-Id`；示範 CSV 不計次。API 契約與煙霧測試見 [`api-mock/README.md`](api-mock/README.md)。
 
@@ -63,14 +68,15 @@ python3 -m http.server 4173
 1. 改 `js/config.js` 的常數（建置期／commit 進 Preview 用這條）。
 2. 在 `config.js` **之前**設 `window.WIDS_API_BASE`（執行期覆寫）。
 
-Hosted／Preview／Production 要把同一個 mock origin 加進 `web/index.html` 的 CSP `connect-src`。只改 JS 常數、CSP 沒加該 host，瀏覽器會擋 `fetch`。`script-src` 仍是 `'self'`，不要為了改 base 打開 `'unsafe-inline'`。
+旗標打開時，Hosted／Preview／Production 要把同一個 mock origin 加進 `web/index.html` 的 CSP `connect-src`（預設只有 `'self'`）。只改 JS 常數、CSP 沒加該 host，瀏覽器會擋 `fetch`。`script-src` 仍是 `'self'`，不要為了改 base 打開 `'unsafe-inline'`。
 
 API 端請設 `CORS_ORIGIN` 為靜態站 origin（Preview 網址或 Production 網域），並允許 `Authorization`、`X-Guest-Id`（mock 已支援）。
 
 ## 測試
 
 ```bash
-node --test web/tests/*.js web/tests/*.mjs   # CSV 解析、型態判斷、推薦規則、markdown 渲染、產生檔一致性、API client
+node web/tests/fixtures/generate.mjs         # 重產 Excel／Big5／JSON 測試檔（已 commit，通常不必跑）
+node --test web/tests/*.js web/tests/*.mjs   # CSV／Excel／JSON 解析、型態判斷、推薦規則、markdown 渲染、產生檔一致性、API client
 ```
 
 選用的瀏覽器煙霧測試（headless Chromium，抓截圖並檢查 console error；需要 `playwright-core` 與本機 Chrome/Chromium，不會加入 repo 依賴）：
@@ -87,22 +93,23 @@ PLAYWRIGHT_CORE=/tmp/pw/node_modules/playwright-core CHROME=/usr/bin/google-chro
 web/
 ├── index.html              單頁；依序載入下列 script
 ├── css/style.css           響應式版面（≥1000px 兩欄，窄螢幕單欄）
-├── vendor/                 chart.umd.min.js + 授權 + 版本說明
+├── vendor/                 Chart.js + SheetJS（xlsx 0.20.3 Apache-2.0）+ 授權 + 版本說明
 ├── data/                   產生檔：content.js（69 篇 pattern md）、samples.js（15 個示範 CSV）
 ├── build/build-content.mjs 產生 data/*.js
 ├── js/
 │   ├── csv.js              自寫 CSV 解析（引號、引號內逗號／換行、""、CRLF/CR、BOM、分隔符偵測、參差列）
+│   ├── input.js            本機匯入：UTF-8／Big5 CSV、JSON（攤平）、Excel／ODS（SheetJS；日期→ISO）
 │   ├── types.js            欄位型態判斷：number / category / date / boolean / id；缺值、相異值、統計量
 │   ├── rules.js            69 圖種規則表 + 資料形狀偵測（computeShape）+ 評分引擎
 │   ├── markdown.js         極小 markdown 渲染（先跳脫 HTML；只允許 http(s)/mailto 連結）
 │   ├── charts.js           繪圖器（Chart.js + 自繪 canvas）與純函式工具
-│   ├── config.js           API base（預設 :8787）與 localStorage 鍵
-│   ├── api.js              mock 權限 API client（file:// 不發請求）
-│   ├── entitlement.js      訪客額度 + 帳號列
+│   ├── config.js           API base（預設 :8787）、ACCOUNTS_ENABLED（預設關）與 localStorage 鍵
+│   ├── api.js              mock 權限 API client（旗標關或 file:// 不發請求）
+│   ├── entitlement.js      訪客額度 + 帳號列（旗標關時不畫、不計次）
 │   ├── i18n.js             繁中／英文字串
 │   └── app.js              UI 控制（僅瀏覽器）
 ├── api-mock/               本機 mock 權限 API（:8787）
-└── tests/                  node:test 單元測試；browser/smoke.mjs 為選用 E2E
+└── tests/                  node:test 單元測試；fixtures/ 為 Excel／Big5／JSON 樣本；browser/smoke.mjs 為選用 E2E
 ```
 
 `csv.js`、`types.js`、`rules.js`、`markdown.js`、`charts.js` 都是 UMD 形式：瀏覽器掛到 `window.WIDS_*`，Node 用 `require()`，因此同一份邏輯可直接單元測試。
@@ -141,7 +148,7 @@ web/
 
 ## 已知限制
 
-- 檔案以 UTF-8 讀取；Big5 CSV 需先轉碼。整份資料在記憶體中處理，建議 ≤ 數萬列。
+- 檔案在瀏覽器內讀取：CSV 先 UTF-8（`TextDecoder` fatal），失敗再 Big5。Excel 日期會轉成 ISO（`2026-10-07`），不會留下序號。單檔上限 10 MB；超過 50,000 列只保留前 50,000 列。不支援 Parquet、PDF、圖片 OCR、Google 試算表連結。
 - 時間軸為 category 軸：不等距時間點會等距排列。
 - 日期判斷支援 ISO（`YYYY-MM[-DD][ HH:mm]`）、`YYYY/MM/DD`、`YYYYQn`、`YYYY年M月[D日]`、`M/D/YYYY`、`HH:mm`；年欄需欄名像 `year`／`年`。
 - 推薦是啟發式規則，不理解欄位語意；以欄名關鍵字補足（geo、source/target、stage…），可手動改型態修正。

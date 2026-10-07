@@ -18,10 +18,14 @@ function httpLoc() {
   return { protocol: 'http:', origin: 'http://127.0.0.1:4173' };
 }
 
+function createOnApi(opts) {
+  return API.createApi(Object.assign({ accountsEnabled: true }, opts));
+}
+
 test('file:// and null origin never call fetch', async () => {
   let calls = 0;
   const fetchFn = async () => { calls += 1; throw new Error('should not fetch'); };
-  const fileApi = API.createApi({
+  const fileApi = createOnApi({
     location: { protocol: 'file:', origin: 'null' },
     fetch: fetchFn,
     storage: memoryStorage()
@@ -31,7 +35,7 @@ test('file:// and null origin never call fetch', async () => {
   assert.equal(me.skipped, true);
   assert.equal(calls, 0);
 
-  const nullApi = API.createApi({
+  const nullApi = createOnApi({
     location: { protocol: 'https:', origin: 'null' },
     fetch: fetchFn,
     storage: memoryStorage()
@@ -49,6 +53,41 @@ test('resolveApiBase prefers window.WIDS_API_BASE then config default', () => {
   assert.equal(API.DEFAULT_BASE, 'http://127.0.0.1:8787');
   assert.equal(cfgMod.WIDS_CONFIG.DEFAULT_API_BASE, 'http://127.0.0.1:8787');
   assert.equal(cfgMod.WIDS_CONFIG.TOKEN_KEY, 'wids_token');
+  assert.equal(cfgMod.WIDS_CONFIG.ACCOUNTS_ENABLED, false);
+  assert.equal(cfgMod.WIDS_CONFIG.accountsEnabled(), false);
+});
+
+test('accountsEnabled follows window.WIDS_ACCOUNTS_ENABLED then defaults false', () => {
+  assert.equal(API.accountsEnabled({}), false);
+  assert.equal(API.accountsEnabled({ WIDS_ACCOUNTS_ENABLED: true }), true);
+  assert.equal(API.accountsEnabled({ WIDS_ACCOUNTS_ENABLED: 'true' }), true);
+  assert.equal(API.accountsEnabled({ WIDS_ACCOUNTS_ENABLED: 'false' }), false);
+  assert.equal(API.accountsEnabled({ WIDS_CONFIG: { ACCOUNTS_ENABLED: true } }), true);
+  const prev = cfgMod.WIDS_ACCOUNTS_ENABLED;
+  cfgMod.WIDS_ACCOUNTS_ENABLED = true;
+  assert.equal(cfgMod.WIDS_CONFIG.accountsEnabled(), true);
+  cfgMod.WIDS_ACCOUNTS_ENABLED = prev;
+  assert.equal(cfgMod.WIDS_CONFIG.accountsEnabled(), false);
+});
+
+test('accounts flag off: http/https never call fetch (health, me, auth, checkout, history)', async () => {
+  let calls = 0;
+  const fetchFn = async () => { calls += 1; throw new Error('should not fetch'); };
+  const client = API.createApi({
+    location: httpLoc(),
+    fetch: fetchFn,
+    storage: memoryStorage(),
+    apiBase: 'http://127.0.0.1:8787'
+  });
+  assert.equal(client.accountsEnabled(), false);
+  assert.equal(client.canUseApi(), false);
+  assert.equal((await client.health()).skipped, true);
+  assert.equal((await client.me()).skipped, true);
+  assert.equal((await client.loginGithub()).skipped, true);
+  assert.equal((await client.upgrade()).skipped, true);
+  assert.equal((await client.saveHistory({ pattern_id: 'x', source_name: 'a.csv', row_count: 1 })).skipped, true);
+  assert.equal((await client.consumeGuestUpload('upload')).skipped, true);
+  assert.equal(calls, 0);
 });
 
 test('request sends Bearer + X-Guest-Id; 429 surfaces Retry-After and reset_at', async () => {
@@ -66,7 +105,7 @@ test('request sends Bearer + X-Guest-Id; 429 surfaces Retry-After and reset_at',
       })
     };
   };
-  const client = API.createApi({ location: httpLoc(), fetch: fetchFn, storage, apiBase: 'http://127.0.0.1:8787' });
+  const client = createOnApi({ location: httpLoc(), fetch: fetchFn, storage, apiBase: 'http://127.0.0.1:8787' });
   await assert.rejects(() => client.me(), (err) => {
     assert.equal(err.status, 429);
     assert.equal(err.retryAfter, '42');
@@ -111,7 +150,7 @@ test('loginGithub stores opaque token from exchange', async () => {
       text: async () => JSON.stringify({ access_token: 'opaque_token_no_dots', token_type: 'Bearer' })
     };
   };
-  const client = API.createApi({ location: httpLoc(), fetch: fetchFn, storage, apiBase: 'http://127.0.0.1:8787' });
+  const client = createOnApi({ location: httpLoc(), fetch: fetchFn, storage, apiBase: 'http://127.0.0.1:8787' });
   const res = await client.loginGithub();
   assert.equal(res.json.access_token, 'opaque_token_no_dots');
   assert.equal(client.getToken(), 'opaque_token_no_dots');
@@ -143,7 +182,7 @@ test('upgrade posts session then mock-complete and never opens checkout_url', as
       text: async () => JSON.stringify({ ok: true, session_id: 'cs_mock_1', entitlement: { plan: 'pro' } })
     };
   };
-  const client = API.createApi({
+  const client = createOnApi({
     location: httpLoc(),
     fetch: fetchFn,
     storage: memoryStorage({ wids_token: 'tok' }),
@@ -168,7 +207,7 @@ test('saveHistory sends summary only (no raw CSV keys)', async () => {
       text: async () => JSON.stringify({ id: 'hist_1', created_at: '2026-10-07T12:00:00+08:00' })
     };
   };
-  const client = API.createApi({
+  const client = createOnApi({
     location: httpLoc(),
     fetch: fetchFn,
     storage: memoryStorage({ wids_token: 'tok' }),
@@ -200,7 +239,7 @@ test('consumeAuthCodeFromSearch exchanges code and strips it from the URL', asyn
       text: async () => JSON.stringify({ access_token: 'tok_from_code', token_type: 'Bearer' })
     };
   };
-  const client = API.createApi({ location: httpLoc(), fetch: fetchFn, storage, apiBase: 'http://127.0.0.1:8787' });
+  const client = createOnApi({ location: httpLoc(), fetch: fetchFn, storage, apiBase: 'http://127.0.0.1:8787' });
   const href = 'http://127.0.0.1:4173/app/?code=once-code&x=1#sample=demo.csv';
   const result = await client.consumeAuthCodeFromSearch('?code=once-code&x=1', href, function (_state, _title, next) {
     replaced = next;
@@ -219,7 +258,7 @@ test('consumeAuthCodeFromSearch ignores access_token and still strips code on fa
     headers: { get: () => null },
     text: async () => JSON.stringify({ error: { code: 'invalid_grant', message: 'authorization code is invalid or already used' } })
   });
-  const client = API.createApi({ location: httpLoc(), fetch: fetchFn, storage, apiBase: 'http://127.0.0.1:8787' });
+  const client = createOnApi({ location: httpLoc(), fetch: fetchFn, storage, apiBase: 'http://127.0.0.1:8787' });
   assert.equal(typeof client.captureTokenFromSearch, 'undefined');
   const ignored = await client.consumeAuthCodeFromSearch(
     '?access_token=from_redirect&x=1',
@@ -244,4 +283,68 @@ test('consumeAuthCodeFromSearch ignores access_token and still strips code on fa
   );
   assert.equal(client.getToken(), '');
   assert.equal(replaced, '/?keep=yes#hash');
+});
+
+test('no request when off / no API base with ?code=', async () => {
+  let calls = 0;
+  const fetchFn = async () => { calls += 1; throw new Error('should not fetch'); };
+
+  const off = API.createApi({
+    location: httpLoc(),
+    fetch: fetchFn,
+    storage: memoryStorage(),
+    apiBase: 'http://127.0.0.1:8787'
+  });
+  assert.equal(off.accountsEnabled(), false);
+  assert.equal(off.canUseApi(), false);
+  let replaced = '';
+  const offResult = await off.consumeAuthCodeFromSearch(
+    '?code=once-code&x=1',
+    'http://127.0.0.1:4173/?code=once-code&x=1#sample=demo.csv',
+    function (_state, _title, next) { replaced = next; }
+  );
+  assert.equal(offResult.consumed, true);
+  assert.equal(offResult.exchanged, false);
+  assert.equal(offResult.skipped, true);
+  assert.equal(off.getToken(), '');
+  assert.equal(replaced, '/?x=1#sample=demo.csv');
+  assert.equal((await off.me()).skipped, true);
+  assert.equal(calls, 0);
+
+  const noBase = API.createApi({
+    location: httpLoc(),
+    fetch: fetchFn,
+    storage: memoryStorage(),
+    accountsEnabled: true,
+    apiBase: ''
+  });
+  replaced = '';
+  const noBaseResult = await noBase.consumeAuthCodeFromSearch(
+    '?code=once-code&keep=yes',
+    'http://127.0.0.1:4173/?code=once-code&keep=yes',
+    function (_state, _title, next) { replaced = next; }
+  );
+  assert.equal(noBaseResult.consumed, true);
+  assert.equal(noBaseResult.exchanged, false);
+  assert.equal(noBase.getToken(), '');
+  assert.equal(replaced, '/?keep=yes');
+  assert.equal((await noBase.me()).skipped, true);
+  assert.equal(calls, 0);
+
+  const fileApi = API.createApi({
+    location: { protocol: 'file:', origin: 'null' },
+    fetch: fetchFn,
+    storage: memoryStorage(),
+    accountsEnabled: true,
+    apiBase: 'http://127.0.0.1:8787'
+  });
+  replaced = '';
+  await fileApi.consumeAuthCodeFromSearch(
+    '?code=once-code',
+    'file:///tmp/index.html?code=once-code',
+    function (_state, _title, next) { replaced = next; }
+  );
+  assert.equal(fileApi.getToken(), '');
+  assert.equal(replaced, '/tmp/index.html');
+  assert.equal(calls, 0);
 });

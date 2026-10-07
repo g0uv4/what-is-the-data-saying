@@ -109,3 +109,36 @@ test('account UI: guest login, trial upgrade, pro hides upgrade, file:// skips A
   assert.equal(file.upgrade.hidden, true);
   assert.match(file.status.textContent, /file:\/\//);
 });
+
+test('accounts off: no account UI, no guest limit, no history', () => {
+  const off = {
+    bar: { hidden: false },
+    status: { textContent: '權限 API 未連上' },
+    login: { textContent: '用 GitHub 登入', hidden: false, disabled: false },
+    upgrade: { textContent: '升級', hidden: false, disabled: false },
+    logout: { textContent: '登出', hidden: false, disabled: false }
+  };
+  const line = ENT.applyAccountUI(off, {
+    accountsEnabled: false,
+    remaining: 0,
+    offline: true,
+    message: '權限 API 未連上'
+  }, t);
+  assert.equal(line, '');
+  assert.equal(off.bar.hidden, true);
+  assert.equal(off.login.hidden, true);
+  assert.equal(off.upgrade.hidden, true);
+  assert.equal(off.logout.hidden, true);
+  assert.equal(off.status.textContent, '');
+  assert.doesNotMatch(off.status.textContent, /權限 API|剩餘自貼/);
+
+  assert.equal(ENT.guestUploadBlocked({ accountsEnabled: false, remaining: 0, me: null }), false);
+  assert.equal(ENT.guestUploadBlocked({ accountsEnabled: true, remaining: 0, me: null }), true);
+  assert.equal(ENT.guestUploadBlocked({ accountsEnabled: true, remaining: 1, me: null }), false);
+  assert.equal(ENT.guestUploadBlocked({ accountsEnabled: true, remaining: 0, me: { user: { login: 'wids-mock' } } }), false);
+
+  const proMe = { user: { login: 'wids-mock' }, entitlement: { features: ['save_history'] } };
+  assert.equal(ENT.shouldSaveHistory({ accountsEnabled: false, canUseApi: true, me: proMe }), false);
+  assert.equal(ENT.shouldSaveHistory({ accountsEnabled: true, canUseApi: true, offline: false, me: proMe }), true);
+  assert.equal(ENT.shouldSaveHistory({ accountsEnabled: true, canUseApi: true, offline: true, me: proMe }), false);
+});

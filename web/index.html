@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- connect-src: local mock is :8787. For Preview/Production add the hosted mock origin here (same value as WIDS_API_BASE in js/config.js). -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' http://127.0.0.1:8787 http://localhost:8787; object-src 'none'; base-uri 'none'">
+<!-- connect-src is 'self' while ACCOUNTS_ENABLED is off. Turning the flag on also requires adding the API origin here (same value as WIDS_API_BASE in js/config.js). -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'">
 <title>資料在說什麼？ · What is the data saying</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -15,7 +15,7 @@
     <p class="subtitle" data-i18n="subtitle"></p>
   </div>
   <div class="header-actions">
-    <div class="account" id="accountBar">
+    <div class="account" id="accountBar" hidden>
       <p id="planStatus" class="plan-status" role="status" aria-live="polite"></p>
       <button type="button" id="loginBtn" class="btn ghost" hidden>用 GitHub 登入</button>
       <button type="button" id="upgradeBtn" class="btn ghost" hidden>升級</button>
@@ -35,12 +35,16 @@
           <select id="sampleSelect"></select>
         </label>
         <label class="field">
-          <span data-i18n="upload">上傳 CSV 檔</span>
-          <input type="file" id="fileInput" accept=".csv,.tsv,.txt,text/csv">
+          <span data-i18n="upload">上傳 CSV、Excel、JSON</span>
+          <input type="file" id="fileInput" accept=".csv,.tsv,.txt,.xlsx,.xls,.ods,.json,text/csv,application/json,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.oasis.opendocument.spreadsheet">
+        </label>
+        <label class="field" id="sheetField" hidden>
+          <span data-i18n="sheet">工作表</span>
+          <select id="sheetSelect"></select>
         </label>
       </div>
       <details id="pasteBox">
-        <summary data-i18n="paste">或貼上 CSV 文字</summary>
+        <summary data-i18n="paste">或貼上 CSV／JSON 文字</summary>
         <textarea id="pasteArea" rows="6" spellcheck="false" placeholder="date,category,value&#10;2024-01,A,12"></textarea>
         <button type="button" id="parseBtn" class="btn" data-i18n="parse">解析貼上的文字</button>
       </details>
@@ -85,6 +89,7 @@
 
 <!-- Plain scripts (no ES modules) so the page works from file:// -->
 <script src="vendor/chart.umd.min.js"></script>
+<script src="vendor/xlsx.full.min.js"></script>
 <script src="data/content.js"></script>
 <script src="data/samples.js"></script>
 <script src="js/config.js"></script>
@@ -92,6 +97,7 @@
 <script src="js/entitlement.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/csv.js"></script>
+<script src="js/input.js"></script>
 <script src="js/types.js"></script>
 <script src="js/rules.js"></script>
 <script src="js/markdown.js"></script>

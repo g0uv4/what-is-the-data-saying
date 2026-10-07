@@ -135,6 +135,19 @@
     node.hidden = !!hidden;
   }
 
+  function guestUploadBlocked(state) {
+    if (!state || state.accountsEnabled === false) return false;
+    if (!isGuest(state.me)) return false;
+    var remaining = typeof state.remaining === 'number' ? state.remaining : LIMIT;
+    return remaining <= 0;
+  }
+
+  function shouldSaveHistory(state) {
+    if (!state || !state.accountsEnabled) return false;
+    if (state.file || state.offline || state.canUseApi === false) return false;
+    return hasFeature(state.me, 'save_history');
+  }
+
   function applyAccountUI(els, state, t) {
     els = els || {};
     state = state || {};
@@ -144,6 +157,16 @@
     var logout = els.logout;
     var remaining = typeof state.remaining === 'number' ? state.remaining : LIMIT;
     var busy = !!state.busy;
+
+    if (state.accountsEnabled === false) {
+      setHidden(els.bar, true);
+      setHidden(login, true);
+      setHidden(upgrade, true);
+      setHidden(logout, true);
+      if (status) status.textContent = '';
+      return '';
+    }
+    setHidden(els.bar, false);
 
     if (login) {
       login.textContent = t('loginGithub');
@@ -200,6 +223,8 @@
     planOf: planOf,
     canUpgrade: canUpgrade,
     planLabel: planLabel,
+    guestUploadBlocked: guestUploadBlocked,
+    shouldSaveHistory: shouldSaveHistory,
     applyAccountUI: applyAccountUI
   };
 });

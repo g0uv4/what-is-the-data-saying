@@ -119,7 +119,7 @@
   - 我另外由繪圖腳本重算了模擬圖 S2（原始順序合計 340）、S3（總數 325；錯誤版在 D 為 79.7%、插入後 90.8%；正確版 F 為 88.9%）、S5（集中型 390、前 3 項 84.6%；平坦型 110、第 1 項 16.4%、前 6 項 80.0%）、S7（改善後 262、少 78 件、降 22.9%；改善後前 4 項 79.8%）、S8（118 件；44.1%／70.3%／87.3%／100.0%），都與教學稿相符
 - 示範讀法：先看右軸是不是 0–100%、左軸最大值是不是總數 → 外觀刮傷與尺寸超差兩項就占 60.0%，到第 4 項才超過 80% → 8 類中要 4 類（一半）才到 80%，並不是 20% → 換成金額後第 1 名換人 → 這是虛構示範，不是結論。
 - `sample-pareto-selfcheck.py` — 自檢腳本（只用 Python 標準函式庫；以腳本旁的**明確檔名**讀 CSV，不搜尋檔案；全部用 `assert`）；見 `examples/data/README.md`。
-- 素材包另附 `draw_pareto.py`（產生 8 張模擬圖，支援 `--outdir` 與 `--force`）：**本 repo 不收**，只在 `ATTRIBUTION.md` 註明它存在於素材包。我查過：它的**預設輸出資料夾是 `/workspace/teach-viz/`**（已存在的檔案預設略過，加 `--force` 才覆蓋教學稿圖檔），資料是腳本內寫死的虛構數字，不讀這份 CSV；需要 numpy、matplotlib 與 Noto Sans CJK 字型。我只在暫存資料夾執行，並指定 `--outdir /tmp/…`，8 張圖與素材包 `images/` 內的模擬圖 MD5 逐一相同。
+- 素材包另附 `draw_pareto.py`（產生 8 張模擬圖，支援 `--outdir` 與 `--force`）：**本 repo 不收**，只在 `ATTRIBUTION.md` 註明它存在於素材包。我查過：它的**預設輸出資料夾是教學稿資料夾**（已存在的檔案預設略過，加 `--force` 才覆蓋教學稿圖檔），資料是腳本內寫死的虛構數字，不讀這份 CSV；需要 numpy、matplotlib 與 Noto Sans CJK 字型。我只在暫存資料夾執行，並指定 `--outdir /tmp/…`，8 張圖與素材包 `images/` 內的模擬圖 MD5 逐一相同。
 
 ## 參考連結（可點；皆出自素材包 sources.txt 且標可開）
 
@@ -135,4 +135,4 @@
 
 鄰居 pattern：`categorical-comparison.md`（一般長條圖：不排序、無累計線）、`lollipop-rank.md`（排名；各類差不多大時）、`waterfall-bridge.md`（起點到終點的增減）、`funnel-stages.md`（依序過關的留存）、`time-series-trend.md`（要看趨勢時）、`control-chart.md`（管制圖：看同一指標隨時間穩不穩）、`lorenz-curve.md`（洛倫茲曲線：個體由小到大的累計，與柏拉圖相通但不同）；ABC 分析只在本檔說明邊界，不另立專檔。
 
-圖檔留在教圖／skill-pack（`/workspace/skill-packs/2026-10-03-pm-pareto/images/`，28 張＝20 張真實／示意圖加 8 張模擬圖，圖說與教學稿逐字相同，檔案與終稿使用的檔案 MD5 逐一一致；R3、R4 原為透明底，已鋪白），本 repo **不複製**任何圖。可對照的圖：R1 鈦合金鑄造缺陷柏拉圖（CC BY-SA 3.0）、R2 引擎過熱（CC0；六個原因、合計 71；沒有右軸）、R3 四步驟流程圖（CC BY 4.0）、R4 Pareto 法則示意（CC BY 4.0）、R5 房型柏拉圖（CC BY-SA 4.0）、R6 西班牙文資料表（CC BY-SA 3.0）、R7 日文標示（CC BY-SA 3.0／GFDL、作者不詳；右軸畫到 120）、R8 義大利文標示（公眾領域）；R9 ASQ 圖 1 五類客訴、R10 ASQ 圖 2 拆成六類、R11 ASQ Excel 範本、R12 Juran 關鍵少數、R13 Juran 尷尬區、R14 Juran 每單位成本長條、R15 Lean Enterprise Institute 咖啡服務、R16 Six Sigma Material 停機時數、R17 併成「其他」放最右的長條、R18 原始記錄到次數表、R19 Excel Easy 內建 Pareto（餐廳客訴 10 類）、R20 Excel Easy 組合圖（皆為版權所有、未見轉載許可、只能內部使用）；模擬圖 S1 構造、S2 做法三步、S3「其他」放哪、S4 軸對齊、S5 集中型對平坦型、S6 加權、S7 改善前後、S8 往下鑽（皆**模擬資料**、數字未核，右下角有浮水印）。對帳見 `ATTRIBUTION.md`。
+圖檔留在教圖／skill-pack（素材包 `images/`，28 張＝20 張真實／示意圖加 8 張模擬圖，圖說與教學稿逐字相同，檔案與終稿使用的檔案 MD5 逐一一致；R3、R4 原為透明底，已鋪白），本 repo **不複製**任何圖。可對照的圖：R1 鈦合金鑄造缺陷柏拉圖（CC BY-SA 3.0）、R2 引擎過熱（CC0；六個原因、合計 71；沒有右軸）、R3 四步驟流程圖（CC BY 4.0）、R4 Pareto 法則示意（CC BY 4.0）、R5 房型柏拉圖（CC BY-SA 4.0）、R6 西班牙文資料表（CC BY-SA 3.0）、R7 日文標示（CC BY-SA 3.0／GFDL、作者不詳；右軸畫到 120）、R8 義大利文標示（公眾領域）；R9 ASQ 圖 1 五類客訴、R10 ASQ 圖 2 拆成六類、R11 ASQ Excel 範本、R12 Juran 關鍵少數、R13 Juran 尷尬區、R14 Juran 每單位成本長條、R15 Lean Enterprise Institute 咖啡服務、R16 Six Sigma Material 停機時數、R17 併成「其他」放最右的長條、R18 原始記錄到次數表、R19 Excel Easy 內建 Pareto（餐廳客訴 10 類）、R20 Excel Easy 組合圖（皆為版權所有、未見轉載許可、只能內部使用）；模擬圖 S1 構造、S2 做法三步、S3「其他」放哪、S4 軸對齊、S5 集中型對平坦型、S6 加權、S7 改善前後、S8 往下鑽（皆**模擬資料**、數字未核，右下角有浮水印）。對帳見 `ATTRIBUTION.md`。

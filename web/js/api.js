@@ -28,6 +28,30 @@
     };
   }
 
+  function parseFlag(value) {
+    if (value === true || value === 1) return true;
+    if (value === false || value === 0) return false;
+    if (typeof value === 'string') {
+      var v = value.trim().toLowerCase();
+      if (v === 'true' || v === '1') return true;
+      if (v === 'false' || v === '0') return false;
+    }
+    return null;
+  }
+
+  function accountsEnabled(scope, override) {
+    if (typeof override === 'boolean') return override;
+    var parsed = parseFlag(scope && scope.WIDS_ACCOUNTS_ENABLED);
+    if (parsed !== null) return parsed;
+    if (scope && scope.WIDS_CONFIG && typeof scope.WIDS_CONFIG.accountsEnabled === 'function') {
+      return !!scope.WIDS_CONFIG.accountsEnabled();
+    }
+    if (scope && scope.WIDS_CONFIG && typeof scope.WIDS_CONFIG.ACCOUNTS_ENABLED === 'boolean') {
+      return scope.WIDS_CONFIG.ACCOUNTS_ENABLED;
+    }
+    return false;
+  }
+
   function canUseApi(loc) {
     if (!loc) return false;
     var proto = loc.protocol || '';
@@ -41,7 +65,7 @@
   }
 
   function resolveApiBase(scope, override) {
-    if (typeof override === 'string' && trimBase(override)) return trimBase(override);
+    if (typeof override === 'string') return trimBase(override);
     if (scope && typeof scope.WIDS_API_BASE === 'string' && trimBase(scope.WIDS_API_BASE)) {
       return trimBase(scope.WIDS_API_BASE);
     }
@@ -67,9 +91,10 @@
     var tokenKey = cfg.TOKEN_KEY || TOKEN_KEY;
     var guestKey = cfg.GUEST_ID_KEY || GUEST_ID_KEY;
     var base = resolveApiBase(scope, opts.apiBase);
+    var accountsOn = accountsEnabled(scope, opts.accountsEnabled);
 
     function enabled() {
-      return canUseApi(loc);
+      return accountsOn && canUseApi(loc) && !!base;
     }
 
     function getToken() {
@@ -122,6 +147,10 @@
       if (!code) {
         if (params.get('access_token')) stripAuthParams(href, replaceState);
         return Promise.resolve({ consumed: false, exchanged: false });
+      }
+      if (!enabled()) {
+        stripAuthParams(href, replaceState);
+        return Promise.resolve({ consumed: true, exchanged: false, skipped: true });
       }
       return exchangeCode(code).then(function (res) {
         stripAuthParams(href, replaceState);
@@ -236,6 +265,7 @@
     return {
       TOKEN_KEY: tokenKey,
       GUEST_ID_KEY: guestKey,
+      accountsEnabled: function () { return accountsOn; },
       canUseApi: enabled,
       apiBase: function () { return base; },
       getToken: getToken,
@@ -260,6 +290,7 @@
     GUEST_ID_KEY: GUEST_ID_KEY,
     DEFAULT_BASE: DEFAULT_BASE,
     canUseApi: canUseApi,
+    accountsEnabled: accountsEnabled,
     resolveApiBase: resolveApiBase,
     createApi: createApi
   };

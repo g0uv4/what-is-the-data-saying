@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖與千層麵圖各附 8 組 CSV 與 8 支自檢 .py）
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖與遞迴圖各附 8 組 CSV 與 8 支自檢 .py）
 
 來自納茲已審 skill pack。**非真實產業資料；數字未核。**
 
@@ -139,8 +139,24 @@
 | `sample-lasagna-s7-groups-mean-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「千層麵圖資料與自檢腳本」 | 同上 |
 | `sample-lasagna-s8-steps.csv` | 千層麵圖虛構資料（S8；P01、P03、P04、P06 前 4 週長表 16 列；排序 P06、P04、P01、P03；第 1 行為 `#` 說明；數字未核） | `../lasagna-plot.md` |
 | `sample-lasagna-s8-steps-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「千層麵圖資料與自檢腳本」 | 同上 |
+| `sample-recurrence-s1-anatomy.csv` | 遞迴圖虛構資料（S1；正弦波＋雜訊標準化 300 點；第 70／119 點 0.45／0.62、距離 0.17；ε＝0.3 遞迴率 18.8%；第 1 行為 `#` 說明；數字未核） | `../recurrence-plot.md` |
+| `sample-recurrence-s1-anatomy-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「遞迴圖資料與自檢腳本」 | 同上 |
+| `sample-recurrence-s2-four-textures.csv` | 遞迴圖虛構資料（S2；四面板各 300 點；遞迴率 14.1%／17.0%／14.1%／21.2%；隨機漫步決定性 79.3%；第 1 行為 `#` 說明；數字未核） | `../recurrence-plot.md` |
+| `sample-recurrence-s2-four-textures-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「遞迴圖資料與自檢腳本」 | 同上 |
+| `sample-recurrence-s3-threshold.csv` | 遞迴圖虛構資料（S3；同序列只換門檻；ε＝0.05／0.3／1.5 → 遞迴率 3.4%／18.8%／65.7%；第 1 行為 `#` 說明；數字未核） | `../recurrence-plot.md` |
+| `sample-recurrence-s3-threshold-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「遞迴圖資料與自檢腳本」 | 同上 |
+| `sample-recurrence-s4-embedding.csv` | 遞迴圖虛構資料（S4；只換嵌入；(m,τ)＝(1,1)／(2,8)／(2,15) → 19.4%／5.3%／11.3%；第 1 行為 `#` 說明；數字未核） | `../recurrence-plot.md` |
+| `sample-recurrence-s4-embedding-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「遞迴圖資料與自檢腳本」 | 同上 |
+| `sample-recurrence-s5-period-spacing.csv` | 遞迴圖虛構資料（S5；斜線間距＝週期；遞迴率 18.6%；高峰 50／100／150 黑格 85.2%／83.0%／84.0%；第 1 行為 `#` 說明；數字未核） | `../recurrence-plot.md` |
+| `sample-recurrence-s5-period-spacing-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「遞迴圖資料與自檢腳本」 | 同上 |
+| `sample-recurrence-s6-stuck-block.csv` | 遞迴圖虛構資料（S6；卡住 50 點；正常／卡住遞迴率 14.3%／16.6%；第 1 行為 `#` 說明；數字未核） | `../recurrence-plot.md` |
+| `sample-recurrence-s6-stuck-block-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「遞迴圖資料與自檢腳本」 | 同上 |
+| `sample-recurrence-s7-cross-recurrence.csv` | 遞迴圖虛構資料（S7；交叉遞迴圖；交叉遞迴率 19.0%；錯開 10 點 85.5%、錯開 0 點 11.0%；第 1 行為 `#` 說明；數字未核） | `../recurrence-plot.md` |
+| `sample-recurrence-s7-cross-recurrence-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「遞迴圖資料與自檢腳本」 | 同上 |
+| `sample-recurrence-s8-steps.csv` | 遞迴圖虛構資料（S8；8 個讀數製作步驟；平均 13.50、標準差 1.50；13 黑／49 格＝26.5%；第 1 行為 `#` 說明；數字未核） | `../recurrence-plot.md` |
+| `sample-recurrence-s8-steps-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「遞迴圖資料與自檢腳本」 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -510,3 +526,32 @@ python3 sample-lasagna-s7-groups-mean-selfcheck.py   # 其餘同理，共 8 支
 預期每支逐項印出 `PASS｜…`，最後一行 `RESULT: PASS（N 項通過、0 項失敗）`（v0.3.30 上架前實跑，結束碼 0）。
 
 **以實際計數為準**（本 repo 另以 pandas／numpy＋分數精確平均獨立重算，與 selfcheck 一致，未發現素材包文字與 CSV 不一致）：(1) 虛構資料，**數字未核**；(2) S7 對照組第 1 週精確值 148.35（2967／20），逢 5 進位＝**148.4**、到第 12 週 150.2 變化 **＋1.8**；S7 圖上標籤顯示 148.3 是另一種進位方式，圖沒有重畫，以 148.4 為準；(3) S5 有三個每週平均落在進位邊界：第 5 週 145.95 → 146.0（無缺值，正確與補 0 相同）、補 0 第 4 週 138.95 → 139.0、補 0 第 10 週 127.25 → 127.3——課程文字與圖都沒有用到這三個值；(4) S4 的四級分法是教學簡化，不是臨床標準；(5) 中途退出：P12 第 8 週起、P15 第 7 週起（對照組），P32 第 7 週起、P34 第 9 週起（介入組）。
+
+## 遞迴圖資料與自檢腳本 `sample-recurrence-s1-…` 到 `sample-recurrence-s8-…`
+
+**收錄哪些：** 素材包 `2026-10-07-am-recurrence` 有 8 份虛構資料（S1–S8，種子 20261007）和 8 支自檢腳本；素材包沒有指定哪一份給 repo，所以 **8 組全部收錄**（共 16 個檔）。素材包的 `draw_recurrence.py` 與 `export_samples.py` **沒有收**。
+
+**檔名：** 素材包檔名本來就有 `recurrence` 前綴，與本 repo `examples/data/` 既有檔案**沒有撞名**，所以**沒有改名、內容一字未改**（16 個檔與素材包 `cmp` 逐位元相同）。每支自檢以明確檔名讀 CSV（`read_rows("sample-recurrence-sN-….csv")`，從腳本所在資料夾讀），沒有萬用字元；只用 Python 標準函式庫。
+
+**CSV 格式：** 第 1 行是 `#` 開頭的說明行；之後是表頭，最後一欄都是 `data_status`。距離為歐氏距離（維度 1 時＝差的絕對值）；遞迴＝距離 ≤ ε；遞迴率＝黑格數 ÷ 全部格數（含主對角線），百分比四捨五入到小數一位。
+
+| 檔 | 列數 | 欄位 |
+|---|---|---|
+| S1 | 300 | `t, z_value, data_status`（t＝0–299） |
+| S2 | 1200 | `panel, t, z_value, data_status` |
+| S3 | 300 | `t, z_value, data_status` |
+| S4 | 300 | `t, z_value, data_status` |
+| S5 | 300 | `t, z_value, data_status` |
+| S6 | 300 | `t, z_normal, z_stuck, in_stuck_window, data_status` |
+| S7 | 300 | `t, series_a, series_b, data_status` |
+| S8 | 8 | `point, raw, z, state_dim1, state_dim2, data_status` |
+
+```bash
+cd skills/what-is-the-data-saying/examples/data
+python3 sample-recurrence-s3-threshold-selfcheck.py
+python3 sample-recurrence-s7-cross-recurrence-selfcheck.py   # 其餘同理，共 8 支
+```
+
+預期每支逐項印出 `PASS｜…`，最後一行 `RESULT: PASS（N 項通過、0 項失敗）`（v0.3.31 上架前實跑，結束碼 0）。
+
+**以實際計數為準**（本 repo 另以 pandas／numpy 獨立重算，與 selfcheck 一致，未發現素材包文字與 CSV 不一致）：(1) 虛構資料，**數字未核**；(2) S1 第 70／119 點（0-based index）四捨五入到小數兩位為 0.45／0.62，距離 0.17 ≤ ε＝0.3；(3) S2 隨機漫步決定性 79.3% > 白雜訊 25.2%——決定性高不是規律的充分條件；(4) S3 同一序列三個門檻遞迴率 3.4%／18.8%／65.7%；(5) S5 斜線高峰落在 50／100／150（週期 50 的倍數）；(6) S7 真實時間差 10 點，錯開 10 的對角線黑格比例 85.5%、錯開 0 只有 11.0%；(7) S8 平均 13.50、母體標準差 1.50，m＝2、τ＝1、ε＝0.5 時 7 狀態、13／49＝26.5%。

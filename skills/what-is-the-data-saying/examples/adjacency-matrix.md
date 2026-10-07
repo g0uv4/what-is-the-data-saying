@@ -22,4 +22,4 @@
 - [ ] 排序最關鍵
 - [ ] 圖注寫排序依據與有向方向
 
-鄰居 pattern：`matrix-heatmap.md`（一般色階矩陣／相關矩陣；鄰接矩陣不算其變體）、`biofabric.md`（格子 ≠ 正交線；BioFabric 節點一列、邊一欄）、`force-network.md`、`arc-diagram.md`、`chord-matrix.md`、`lasagna-plot.md`（千層麵圖的列是個體、欄是時間；鄰接矩陣列欄是同一批節點）。
+鄰居 pattern：`matrix-heatmap.md`（一般色階矩陣／相關矩陣；鄰接矩陣不算其變體）、`biofabric.md`（格子 ≠ 正交線；BioFabric 節點一列、邊一欄）、`force-network.md`、`arc-diagram.md`、`chord-matrix.md`、`lasagna-plot.md`（千層麵圖的列是個體、欄是時間；鄰接矩陣列欄是同一批節點）、`recurrence-plot.md`（遞迴圖：列欄是時間點；鄰接矩陣列欄是節點）。

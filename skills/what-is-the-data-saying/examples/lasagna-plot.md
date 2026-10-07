@@ -184,7 +184,7 @@
 21. [@SAS_Cares](https://x.com/SAS_Cares/status/1945200192929558557)
 22. [@GraphHelix](https://x.com/GraphHelix/status/2052357927747367245)（僅轉載、無法證實）
 
-鄰居 pattern：`matrix-heatmap.md`（一般熱圖；千層麵圖是列＝個體、欄＝時間的特例，R17 是被叫錯名的一般熱圖）、`swimmer-plot.md`（游泳圖畫事件與持續時間，不畫每次量測值）、`calendar-heatmap.md`（只有一個對象、日曆排版）、`horizon-chart.md`（每列仍是折疊的折線；Wicklin 2025 汽油價格比較）、`small-multiples.md`（線太多時分面；義大利麵圖人多會纏成一團）、`time-series-trend.md`（要精準讀值改折線）、`adjacency-matrix.md`（列與欄是同一批節點，不是時間）。
+鄰居 pattern：`matrix-heatmap.md`（一般熱圖；千層麵圖是列＝個體、欄＝時間的特例，R17 是被叫錯名的一般熱圖）、`swimmer-plot.md`（游泳圖畫事件與持續時間，不畫每次量測值）、`calendar-heatmap.md`（只有一個對象、日曆排版）、`horizon-chart.md`（每列仍是折疊的折線；Wicklin 2025 汽油價格比較）、`small-multiples.md`（線太多時分面；義大利麵圖人多會纏成一團）、`time-series-trend.md`（要精準讀值改折線）、`adjacency-matrix.md`（列與欄是同一批節點，不是時間）、`recurrence-plot.md`（遞迴圖：兩軸都是時間，看一條序列何時回到相近狀態；千層麵圖列＝個體）。
 
 ## 圖檔與授權（不複製，只連結）
 

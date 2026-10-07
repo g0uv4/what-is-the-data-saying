@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.31 — 遞迴圖 pattern
+
+- Add `examples/recurrence-plot.md` from Nazh teach-viz `2026-10-07-am-recurrence.md` (approved skill pack `2026-10-07-am-recurrence`; passed Liora **and Gemini-polished**; 方法教學; first lesson on the topic). Primary name **遞迴圖（recurrence plot，暫譯）** — zh name not unified (Taiwan formal use unverified; Mainland 「复现图」 unverified; also 逆歸圖示法, 回歸圖). A repo-wide grep for 遞迴圖, 复现图, 逆歸, 回歸圖, recurrence plot, RQA, Marwan, Eckmann, 相位空間, phase space, 混沌, Poincaré across `examples/` and `references/` (including matrix-heatmap, lasagna-plot, adjacency-matrix, time-series-trend, horizon-chart) found **no existing example**, so this is a **new example (pattern count 68 → 69)**.
+- Key facts: binary time×time matrix (black if states within ε); state ε, embedding m and delay τ on the figure; DET high is necessary not sufficient (S2: random-walk DET 79.3% vs white-noise 25.2%); **“RR 1%–5%” has no primary source as a fixed interval** (~1% is Marwan recounting Zbilut et al. 2002); **R13 panel B caption 0.144 vs figure ~50%/0.253 is a paper flaw**; **pucicu = Norbert Marwan**; **recurrence-plot.tk and Marwan 2007/2023 arXiv are non-commercial — link only**; ≠ ordinary heatmap, ≠ lasagna, ≠ adjacency matrix.
+- Sources: 73 URL lines in `sources.txt` (79 lines including 6 `#` notes); **71 openable, all linked** (incl. 22 X posts, links only); **0 unopenable**; **2 unconfirmed** named only, unchecked (Fraser & Swinney 1986 DOI; Baidu Baike 〈递归图〉).
+- Images: 27 = R1–R4 Commons (CC BY-SA 3.0 / public domain; Commons API matched) + R5–R6 Marwan 2008 arXiv CC BY 4.0 + R7–R19 PMC CC BY 4.0 (Europe PMC API `license` = cc by for all 13) + 8 simulated. Link only, no image copied. Non-commercial sources link only.
+- Fictional demo data: **all 8 pairs** `sample-recurrence-s1-anatomy` … `sample-recurrence-s8-steps` (16 files, byte-identical) — pack designates none. No collisions. Explicit-filename CSV reads; all PASS from `examples/data/` and a scratch folder. Independent recount (RR, diagonal occupancy, embedding state counts, cross-RP lag rates): **no pack-vs-CSV mismatch**.
+- `draw_recurrence.py` / `export_samples.py` **not** copied (defaults `./out` and own folder); run from scratch with `--outdir /tmp/...`: 8 PNGs and 8 CSVs byte-identical; pack `images/` identical to `teach-viz/`.
+- Cross-links: `matrix-heatmap.md`, `lasagna-plot.md`, `adjacency-matrix.md`, `time-series-trend.md`, `horizon-chart.md`. Gap list unchanged (Nightingale rose, ternary, dendrogram, hive plot, HEB, flow map, proportional-symbol map, parallel sets).
+- Checklist: `plugin.json`, both READMEs, `COMMERCIAL.md` (68→69), `SKILL.md`, `ATTRIBUTION.md`, `references/chart-heuristics.md`, `references/data-shape-checks.md` (item **41**), `references/how-to-produce.md`, `examples/README.md`, `examples/data/README.md`.
+
 ## 0.3.30 — 千層麵圖 pattern（＋游泳圖同步）
 
 - **Swimmer sync** (separate commit): Nazh changed lesson §7 back to 「橫向游泳圖」 and pack §4.1 now says arbitrary tie ranking 「可能得到……之類的不同數值」; ATTRIBUTION and the 0.3.29 CHANGELOG entry updated (step 8 later closed: fixed by 納茲 per Liora's final decision). Swimmer samples re-`cmp`'d against the pack: all 16 unchanged.

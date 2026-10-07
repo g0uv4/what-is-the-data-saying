@@ -21,3 +21,5 @@
 
 - [ ] 寫清 Z＝密度或第三變數
 - [ ] 對照不同帶寬／層數
+
+鄰居 pattern：`hexbin-density.md`、`correlation-scatter.md`、`volcano-plot.md`（「火山」只是名稱，與統計等高線／地形等高線無關）；地形等高線圖尚無專檔。

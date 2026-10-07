@@ -1,7 +1,7 @@
 # Examples / pattern library
 
 具名、可複用的 pattern。每個檔：**when → recommend → avoid → produce checklist**。
-多數圖種提炼自納茲（資料視覺）教圖；檔內「來源」指向原始檔名（全文不在本 repo）。完整清單見 `../ATTRIBUTION.md`。
+多數圖種提煉自納茲（資料視覺）教圖；檔內「來源」指向原始檔名（全文不在本 repo）。完整清單見 `../ATTRIBUTION.md`。
 第一次安裝請先跑 plugin 根目錄 [`demos/`](../../../demos/README.md) 的五則貼上稿。
 
 | Pattern | File | 來源教圖 |
@@ -11,6 +11,7 @@
 | 兩變數相關 | `correlation-scatter.md` | 通用 |
 | 矩陣熱圖（色階矩陣） | `matrix-heatmap.md` | 2026-09-26-am-heatmap.md（升級原通用版） |
 | 階層冰柱 | `hierarchy-icicle.md` | 2026-09-01-am-icicle-draft.md |
+| 火焰圖（堆疊取樣；≠ 火焰時序圖、≠ 冰柱） | `flame-graph.md` | 2026-09-27-pm-flamegraph.md |
 | 同構多面板 | `small-multiples.md` | 通用 |
 | 瀑布橋 | `waterfall-bridge.md` | 2026-09-10-am-waterfall.md |
 | 漏斗階段 | `funnel-stages.md` | 2026-09-10-pm-funnel.md |
@@ -39,6 +40,25 @@
 | 馬賽克交叉 | `mosaic-crosstab.md` | 2026-09-03-am-mosaic.md |
 | 連接散點 | `connected-scatter.md` | 2026-09-04-am-connected-scatter.md |
 | 弦圖交換 | `chord-matrix.md` | 2026-08-30-am-chord-draft.md |
+| Circos（環狀多軌圖） | `circos.md` | 2026-09-28-am-circos.md |
+| 火山圖（差異分析） | `volcano-plot.md` | 2026-09-28-pm-volcano.md |
+| 曼哈頓圖（全基因組關聯；含邁阿密圖變體） | `manhattan-plot.md` | 2026-09-29-am-manhattan.md |
+| MA 圖（平均－差值圖；含 RA 圖分界） | `ma-plot.md` | 2026-09-29-pm-ma.md |
+| QQ 圖（分位數對分位數；含 P–P 圖分界） | `qq-plot.md` | 2026-09-30-am-qq.md |
+| P–P 圖（機率對機率；≠ QQ 圖；軸放誰各來源不一致） | `pp-plot.md` | 2026-10-01-pm-pp.md |
+| 核型圖／染色體帶型示意圖（karyotype／ideogram；p、q 臂與著絲點、帶號；≠ 曼哈頓圖、≠ Circos） | `karyotype-ideogram.md` | 2026-10-02-am-karyotype.md |
+| 森林圖（Forest plot；一列一項研究：方塊＝估計、橫線＝信賴區間、菱形＝合併；比值類對數軸；≠ 統合分析漏斗圖〔Funnel plot〕、≠ 商業漏斗圖〔Funnel chart〕） | `forest-plot.md` | 2026-10-02-pm-forest.md |
+| 地平線圖（Horizon chart；很多條時間序列相對基準的色帶疊層；≠ 河流圖、≠ 山脊圖、≠ 熱圖；各列各自縮放跨列不可比） | `horizon-chart.md` | 2026-10-03-am-horizon.md |
+| 柏拉圖（Pareto chart／帕累托圖；類別由大到小的直條＋累計百分比折線；≠ 一般長條圖、≠ 瀑布圖、≠ 漏斗圖；左軸最大值＝總數；80/20 只是經驗法則） | `pareto-chart.md` | 2026-10-03-pm-pareto.md |
+| 管制圖（Control chart／Shewhart chart；時間順序的點＋中心線＋上下管制界限；≠ 折線圖、≠ 柏拉圖、≠ 規格界限；連續同側 Western Electric 8 點、Nelson 9 點） | `control-chart.md` | 2026-10-04-am-control.md |
+| 洛倫茲曲線（Lorenz curve，含基尼係數；單位由小到大排序、兩軸累計百分比、附對角線；≠ 柏拉圖〔相通但不同，轉半圈關係〕、≠ 折線圖、≠ 分位數圖；基尼要註明有無小樣本修正，一人全拿 10 戶是 0.90；同基尼可曲線交叉） | `lorenz-curve.md` | 2026-10-04-pm-lorenz.md |
+| 馬雷圖／列車運行圖（Marey chart；一班車一條線、站點依實際距離、斜率＝速度、交叉＝相遇或超車；≠ 折線圖、≠ 甘特圖；歷史歸屬用限定語；R14 授權存疑不用） | `marey-chart.md` | 2026-10-05-am-marey.md |
+| 存活曲線／Kaplan–Meier（階梯、設限短直線、信賴區間、風險人數表；≠ 折線圖、≠ 生態學 survivorship curve；不採用「編輯＝Tukey」；aml 中位 27 週） | `kaplan-meier-survival.md` | 2026-10-05-pm-km.md |
+| 游泳圖（swimmer plot；一人一條觀察到的治療棒、事件符號、棒尾箭頭、依長度排序、註明截止日；≠ 泳道流程圖、≠ 甘特圖、≠ 腫瘤學瀑布圖／蜘蛛圖；繁中無公認譯名；超過約 50 人改 KM） | `swimmer-plot.md` | 2026-10-06-am-swimmer.md |
+| 千層麵圖（lasagna plot，暫譯；列＝個體、欄＝時間的熱圖；排序寫明、單色固定範圍、缺值另標不補 0、加平均折線；每列約 10 像素以上〔Wicklin 2016〕；≠ 義大利麵圖、≠ 一般熱圖、≠ 游泳圖；Swihart 2010 是命名來源不是首創） | `lasagna-plot.md` | 2026-10-06-pm-lasagna.md |
+| 遞迴圖（recurrence plot，暫譯；時間×時間黑白方陣、門檻 ε、嵌入 m／τ、RQA；決定性高不是規律充分條件；譯名暫譯；非商業授權只連不嵌；≠ 一般熱圖、≠ 千層麵圖） | `recurrence-plot.md` | 2026-10-07-am-recurrence.md |
+| Bland–Altman 圖（兩種量測方法的一致性；≠ MA 圖、≠ 相關係數） | `bland-altman.md` | 2026-09-30-pm-ba.md |
+| LocusZoom 圖（區域關聯圖；曼哈頓圖的區間細節層；≠ 曼哈頓圖；領先變異≠因果） | `locuszoom.md` | 2026-10-01-am-locuszoom.md |
 | 力導向網路 | `force-network.md` | 2026-09-17-pm-force.md |
 | 弧線圖 | `arc-diagram.md` | 2026-09-17-am-arc.md |
 | 鄰接矩陣 | `adjacency-matrix.md` | 2026-09-18-am-adjacency.md |

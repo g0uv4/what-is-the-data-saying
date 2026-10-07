@@ -21,6 +21,8 @@
 - 子加總 ≠ 父卻不洗資料
 - 有向流量改畫冰柱（應桑基）
 - 假設 Flourish 有原生冰柱（多數 Hierarchy 模板沒有）
+- **與火焰圖混**：火焰圖（`flame-graph.md`）的「冰柱布局」外觀和本圖一樣，但資料是堆疊取樣、寬＝合併後的樣本占比、橫軸依函式名字母排序（不是組成切分，也不是時間）；本圖是任意階層加總的隸屬組成。拿預算／科目樹不要叫火焰圖，拿效能剖面也不要叫冰柱圖
+- Plotly 把「往上長」的 partition 方向叫 flame chart：那只是本圖顛倒方向的別名，不是效能火焰圖
 
 ## Produce checklist
 
@@ -29,3 +31,5 @@
 - [ ] 互動：下鑽／breadcrumb；靜態限制深度
 - [ ] zh-TW 節點名；單位一致
 - [ ] 故事句先寫清「隸屬組成」不是流量
+
+鄰居 pattern：`sunburst-hierarchy.md`、`treemap-composition.md`、`circle-packing.md`、`voronoi-treemap.md`、`flame-graph.md`（**不同圖種**：堆疊取樣效能熱路徑；只有冰柱布局外觀相同）、`sankey-flow.md`。

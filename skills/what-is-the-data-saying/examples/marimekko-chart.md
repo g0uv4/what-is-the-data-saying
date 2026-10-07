@@ -71,6 +71,6 @@
 - https://www.data-to-viz.com/graph/mosaic.html （本輪 404）
 - https://observablehq.com/@d3/mosaic-plot （本輪可能 429）
 
-鄰居 pattern：`mosaic-crosstab.md`、`treemap-composition.md`、`sankey-flow.md`、`alluvial-stages.md`。
+鄰居 pattern：`mosaic-crosstab.md`、`treemap-composition.md`、`sankey-flow.md`、`alluvial-stages.md`、`lorenz-curve.md`（洛倫茲曲線：單一數量在個體間的累計份額分配，與兩層份額不同）。
 
 圖檔與截圖留在教圖／skill-pack（`/workspace/skill-packs/2026-09-24-pm-marimekko/images/`，稿內嵌約 23 張），本 repo **不複製**大圖；對帳見 `ATTRIBUTION.md`。

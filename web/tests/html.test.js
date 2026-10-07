@@ -76,7 +76,10 @@ test('zh noData and footer chart-request link stay on their own i18n nodes', () 
     i18n.strings.zh.noData,
     '還沒有資料。選一份示範資料，或上傳、貼上你的表，就會排出推薦圖種。'
   );
-  assert.equal(i18n.strings.en.noData, 'No data yet. Load a sample, upload a file or paste text.');
+  assert.equal(
+    i18n.strings.en.noData,
+    'No data yet. Load a sample, or upload or paste your table, to see recommended charts.'
+  );
   assert.equal(i18n.strings.zh.chartRequest, '想要新圖種？到 GitHub 提出圖表請求');
   assert.equal(i18n.strings.en.chartRequest, 'Want a new chart type? Request it on GitHub');
   assert.match(

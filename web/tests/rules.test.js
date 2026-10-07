@@ -86,6 +86,11 @@ test('hint detection on synthetic shapes', () => {
   assert.ok(cal.hints.daily);
   const wf = R.computeShape(prof('step,change\n起點,100\n價格,20\n成本,-35\n匯率,-5'));
   assert.ok(wf.hints.delta);
+  assert.ok(!wf.hints.waterfallBridge, 'partial signed steps without start+end identity are not a bridge');
+  const bridge = R.computeShape(prof('item,amt\n起點,100\n加項,20\n減項,-35\n終點,85'));
+  assert.ok(bridge.hints.waterfallBridge);
+  const funnelMono = R.computeShape(prof('stage,users\n曝光,1000\n點擊,300\n註冊,80\n購買,20'));
+  assert.ok(funnelMono.hints.monotoneStages);
 });
 
 test('changing a column type changes recommendations (manual override)', () => {

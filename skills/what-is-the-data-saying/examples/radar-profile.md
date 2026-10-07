@@ -1,7 +1,7 @@
 # Pattern: radar-profile
 
 > **圖種**：雷達圖（Radar chart）
-> **來源（納茲教圖）**：`teach-viz/2026-09-14-pm-radar.md`
+> **來源（專案維護者整理）**：`teach-viz/2026-09-14-pm-radar.md`
 
 ## When
 

@@ -1,7 +1,7 @@
 # Pattern: violin-distribution
 
 > **圖種**：小提琴圖（Violin plot）
-> **來源（納茲教圖）**：`teach-viz/2026-09-15-pm-violin.md`
+> **來源（專案維護者整理）**：`teach-viz/2026-09-15-pm-violin.md`
 
 ## When
 

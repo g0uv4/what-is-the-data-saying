@@ -1,7 +1,7 @@
 # Pattern: time-series-trend
 
 > **圖種**：折線圖（Line chart）
-> **來源（納茲教圖）**：`（通用；對照 teach-viz 溪流／凹凸／坡度等時間教圖）`
+> **來源（專案維護者整理）**：`（通用；對照 teach-viz 溪流／凹凸／坡度等時間教圖）`
 
 ## When
 

@@ -1,7 +1,7 @@
 # Pattern: manhattan-plot
 
 > **圖種**：曼哈頓圖（Manhattan plot）
-> **來源（納茲教圖）**：`teach-viz/2026-09-29-am-manhattan.md`（方法教學；正式課程）
+> **來源（專案維護者整理）**：`teach-viz/2026-09-29-am-manhattan.md`（方法教學；正式課程）
 > **亦稱**：全基因組關聯分析曼哈頓圖；英文固定寫法 Manhattan plot。名稱來自外形像紐約曼哈頓天際線（英文維基百科原文："It gains its name from the similarity of such a plot to the Manhattan skyline"）
 > **定義（英文維基百科原文）**："In GWAS Manhattan plots, genomic coordinates are displayed along the x-axis, with the negative logarithm of the association p-value for each single nucleotide polymorphism (SNP) displayed on the y-axis, meaning that each dot on the Manhattan plot signifies an SNP." "The different colors of each block usually show the extent of each chromosome."
 > **核心**：**每個點＝一個受測遺傳標記**（最常見是單核苷酸多型性 SNP）；**橫軸＝基因組位置**（先依染色體 1、2、3……由左至右，再依染色體內鹼基位置；相鄰染色體交替著色）；**縱軸＝−log10(p)**（p 愈小點愈高；p＝10⁻⁸ 對應 y＝8）；大多數點貼底、少數區段堆成尖塔，像天際線；水平線＝事先約定的門檻

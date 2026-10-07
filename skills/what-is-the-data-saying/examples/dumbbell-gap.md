@@ -1,7 +1,7 @@
 # Pattern: dumbbell-gap
 
 > **圖種**：啞鈴圖（Dumbbell chart）
-> **來源（納茲教圖）**：`teach-viz/2026-09-07-pm-dumbbell.md`
+> **來源（專案維護者整理）**：`teach-viz/2026-09-07-pm-dumbbell.md`
 
 ## When
 

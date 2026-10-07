@@ -1,7 +1,7 @@
 # Pattern: control-chart
 
 > **圖種**：管制圖（Control chart；Shewhart chart；process-behavior chart）
-> **來源（納茲教圖）**：`teach-viz/2026-10-04-am-control.md`（方法教學；正式課程；首次以管制圖為主題；與前一天的柏拉圖同屬「品管七大手法」系列，但圖種與用途不同）
+> **來源（專案維護者整理）**：`teach-viz/2026-10-04-am-control.md`（方法教學；正式課程；首次以管制圖為主題；與前一天的柏拉圖同屬「品管七大手法」系列，但圖種與用途不同）
 > **亦稱**：英文別名 Shewhart chart（以 Walter A. Shewhart 命名）、process-behavior chart（流程行為圖）；中文維基百科臺灣繁體頁面寫「也稱為修哈特圖或流程行為圖」，同一頁把人名譯為「休哈特」（同頁兩種譯法不一致，照實記）。它屬於統計製程管制（Statistical Process Control，常簡稱 SPC，貼文裡常這樣寫），也是品管七大手法之一（維基百科〈Seven basic tools of quality〉清單）。
 > **核心**：把製程指標依時間（或子組）順序畫出來，加上**中心線（CL）**與**上／下管制界限（UCL／LCL）**，用來判斷流程是否「統計受控」，還是出現該調查的特殊原因（special cause）。
 > **一句話**：這個流程穩不穩、從什麼時候開始不穩？——它**不是**回答「做出來合不合規格」。
@@ -14,7 +14,7 @@
 1. **管制界限 ≠ 規格界限，不要混畫。** 管制界限由流程自己的資料算出，描述「這個流程平常會在哪個範圍內變動」；規格界限（USL／LSL）是顧客或設計圖給的要求。維基百科明寫兩者「沒有內在關聯」（no intrinsic relationship）；NIST 手冊的說法是：管制界限用來判斷流程是否統計受控（產出是否一致），規格界限用來判斷產品能不能照預期運作。「所以管制圖上不宜混畫規格線」是教學稿作者對維基百科該句的解讀（該句原文用字不清）。模擬圖 S6 把兩種線畫在同一張圖上對照（管制界限虛線、規格界限點線，圖例要分清）。
 2. **在規格內不等於沒事；受控也不等於合格。** 圖 S7（模擬）：第 17 組是 57.5，超出管制上界 56，卻仍在規格上限 60 之內；只看規格會漏掉這個訊號。「點全落在規格內也可能已經統計失控」這一半是依定義推得，**屬教學稿作者的理解，維基百科沒有直接寫**。反過來，流程可以統計受控卻仍不符規格（維基百科例子：報廢率受控但高於期望值）；受控但許多點仍越出規格，問題在流程能力或目標設定，不是把管制界限畫緊一點。NIST 對「受控」的要求更嚴：所有點都在界限之間，**而且**點的排列看起來是隨機的。
 3. **判異規則有多套，看資料前先約定用哪一套；「連續同側」Western Electric 是八點、Nelson 是九點。** Western Electric 規則（西部電氣公司規則，1956 年手冊）四條區域規則：① 單點超出 3σ；② 連續 3 點中有 2 點超出 2σ（同一側）；③ 連續 5 點中有 4 點超出 1σ（同一側）；④ 連續 **8** 點落在中心線同一側。NIST 手冊另列兩條趨勢規則：連續 6 點一路上升或下降、連續 14 點上下交替（NIST 手冊 6.3.2 節同頁的「What are the WECO rules」一段，沒有獨立子頁；WECO＝Western Electric Company）。區域 A＝離中心線 2σ 到 3σ，B＝1σ 到 2σ，C＝1σ 以內。Nelson 規則（Lloyd S. Nelson，1984 年 10 月發表於《Journal of Quality Technology》）共八條：① 單點超出 3σ；② 連續 **9** 點同側；③ 連續 6 點遞增或遞減；④ 連續 14 點上下交替；⑤ 連續 3 點中有 2 點（或 3 點）超出 2σ，方向相同；⑥ 連續 5 點中有 4 點（或 5 點）超出 1σ，方向相同；⑦ 連續 15 點都在 1σ 以內；⑧ 連續 8 點都在 1σ 以外，且上下兩側都有。數點時「連續 N 點」**含起點本身**。維基百科 Control chart 條目也提醒規則集要事先說清楚。
-4. **圖 S3 是 Liora 重畫的版本：9 點全部在中心線上方並全標紅。** 資料（虛構，18 組，中心線 20、上界 23.6、下界 16.4）：第 1–9 組是 20.6、20.8、20.7、21.0、20.9、21.2、21.1、20.6、20.3，第 10 組 19.8 回到中心線下方，所以連續同側**剛好 9 點**；Western Electric（要 8 點）規則在第 8 組湊滿，Nelson（要 9 點）規則在第 9 組湊滿，兩套都達標。**舊版圖 S3** 只紅標前 7 點並寫「7 consecutive points」，但資料前 9 點都在中心線上方，而 7 點本身既不構成 Western Electric（8 點）也不構成 Nelson（9 點）的任何同側訊號；Liora 重畫成 9 點全標紅，標註「9 consecutive points above CL」，終稿圖說已同步。本檔與 repo 的練習資料一律用新版。另外，Commons 圖 R6 的圖面標題寫「連續九點」並畫 9 個點，那是 Nelson 的數法，與前三張 Western Electric 規則圖（R3–R5）用的規則集不完全一致，請以上面的規則為準。
+4. **圖 S3 是審稿重畫的版本：9 點全部在中心線上方並全標紅。** 資料（虛構，18 組，中心線 20、上界 23.6、下界 16.4）：第 1–9 組是 20.6、20.8、20.7、21.0、20.9、21.2、21.1、20.6、20.3，第 10 組 19.8 回到中心線下方，所以連續同側**剛好 9 點**；Western Electric（要 8 點）規則在第 8 組湊滿，Nelson（要 9 點）規則在第 9 組湊滿，兩套都達標。**舊版圖 S3** 只紅標前 7 點並寫「7 consecutive points」，但資料前 9 點都在中心線上方，而 7 點本身既不構成 Western Electric（8 點）也不構成 Nelson（9 點）的任何同側訊號；審稿人重畫成 9 點全標紅，標註「9 consecutive points above CL」，終稿圖說已同步。本檔與 repo 的練習資料一律用新版。另外，Commons 圖 R6 的圖面標題寫「連續九點」並畫 9 個點，那是 Nelson 的數法，與前三張 Western Electric 規則圖（R3–R5）用的規則集不完全一致，請以上面的規則為準。
 5. **「3σ ≈ 99.73% 的點落在界限內」有前提：資料近似常態，而且平均與標準差已知。** 常見採用約 3σ 界限（維基百科）。NIST 手冊指出，若分布偏斜（例如帕松分布——描述罕見事件發生次數的分布——平均 0.8 件），3σ 上界的單點誤報機率會從約 0.001 升到約 0.009（我用帕松分布重算：平均 0.8、上界 0.8＋3√0.8≈3.48，P(X≥4)≈0.0091，與 NIST 一致）；界限若只由少量資料算出，實際誤報機率可能和理論值差很多。c 圖、np 圖的 3σ 也是常態近似，不是精確機率界限。界限畫寬或畫窄，是在「假警報」和「漏掉真問題」之間取捨，NIST 也提到可改用其他機率界限（例如 0.001 機率界限）。
 6. **規則越多，假警報越多。** NIST 手冊寫：只用「單點超出 3σ」平均約每 371 點誤報一次（NIST 稱這個平均等待點數為平均連串長度 Average Run Length；維基百科寫 370.4，與 1/0.0027≈370.4 吻合）；加上 Western Electric 全部規則後約每 91.75 點誤報一次（NIST 引 Champ 與 Woodall 1987 年的論文，我沒有讀該論文）。不要畫完才「挑一條剛好顯著的規則」。
 7. **模擬圖的界限是預先設定的，不是由資料算出；真實流程的界限要由資料估出來，圖說要講明。** S1：設 σ＝2，點本身的標準差約 1.1，所以全擠在界限內；用這 25 點自己的平均與標準差估，界限約 46.1–52.8，比圖上的 44–56 窄。S6：用 24 點自己的標準差估界限約 44.9–55.0，與圖上的 44–56 相近但不相同。S5：X̄ 圖界限 8.8／11.2、R 圖上界 2.25、下界 0.15 都是示意，不是用 A2、D3、D4 係數算的；真實的全距圖每組 6 個以下時下界是 0（NIST 係數表 D3＝0），畫 0.15 只是示意。S8：改善後界限也是預先設定，這 18 點的標準差約 0.35，比設定的 0.7 小一半。
@@ -105,7 +105,7 @@
 |---|---|---|
 | `sample-s1-anatomy.csv` | S1 解剖 | 25 組；CL 50、UCL 56、LCL 44（σ 設 2） |
 | `sample-s2-out-of-control.csv` | S2 | 20 組，左右兩欄；CL 100、UCL 109、LCL 91 |
-| `sample-s3-run-same-side.csv` | S3（Liora 新版） | 18 組；CL 20、UCL 23.6、LCL 16.4 |
+| `sample-s3-run-same-side.csv` | S3（審稿新版） | 18 組；CL 20、UCL 23.6、LCL 16.4 |
 | `sample-s4-trend.csv` | S4 | 18 組；CL 40、UCL 44.5、LCL 35.5 |
 | `sample-s5-xbar-r.csv` | S5 | 20 組，xbar 與 range 兩欄；X̄ 界限 8.8／10／11.2，R 界限 0.15／1.2／2.25 |
 | `sample-s6-spec-vs-control.csv` | S6 | 24 組；管制界限 44／50／56，規格 USL 58、LSL 42 |
@@ -136,12 +136,12 @@
 - 圖庫分類：https://commons.wikimedia.org/wiki/Category:Control_charts
 - Commons 圖片頁（18 個，授權與作者見下方圖檔段）：https://commons.wikimedia.org/wiki/File:ControlChart.svg 、https://commons.wikimedia.org/wiki/File:Control_Chart_with_Zones.png 、https://commons.wikimedia.org/wiki/File:Rule_1_-_Western_electric_control_chart.svg 、https://commons.wikimedia.org/wiki/File:Rule_2_-_Western_electric_control_chart.svg 、https://commons.wikimedia.org/wiki/File:Rule_3_-_Western_electric_control_chart.svg 、https://commons.wikimedia.org/wiki/File:Rule_4_-_Western_electric_control_chart.svg 、https://commons.wikimedia.org/wiki/File:XBarR_Chart.jpg 、https://commons.wikimedia.org/wiki/File:XBarS_Chart.jpg 、https://commons.wikimedia.org/wiki/File:IMR_Chart.jpeg 、https://commons.wikimedia.org/wiki/File:PChart.jpg 、https://commons.wikimedia.org/wiki/File:Np_control_chart.svg 、https://commons.wikimedia.org/wiki/File:Npchart.JPG 、https://commons.wikimedia.org/wiki/File:Levy-Jennings_SampleChart.png 、https://commons.wikimedia.org/wiki/File:Control_Chart_(tr).png 、https://commons.wikimedia.org/wiki/File:Xquer_Regelkarte.svg 、https://commons.wikimedia.org/wiki/File:Diagram_Kontrol.JPG 、https://commons.wikimedia.org/wiki/File:Grafik_ZMR.JPG 、https://commons.wikimedia.org/wiki/File:En.wp_Featured_Article_Candidates_FAC_yield_control_chart.png
 - X 貼文（6 則，素材包用命令列只看得到網頁外框，內文是用 X 官方查詢工具讀回，標「可開」；**只作連結、不當教學依據**，貼文只是個人說法）：見下方 X 段
-- 查核限制（**未核；僅記名、不列連結，不是已驗證的來源**）：(1) ASQ「What is a Control Chart」頁面——納茲測試時網站拒絕存取，審稿複測與素材包稍後的命令列測試都能開，但狀態不穩定，素材包依審後稿標「打不開」，教學稿所有主張都不靠它；(2) Six Sigma Material 的「Control Chart」頁面——頁面不存在（網站回覆查無此網址），無法引用；(3) NIST 手冊結尾為 e 的「6.3.2.e」那一頁——NIST 手冊沒有這頁，網址回應碼雖為 200，卻被導回 NIST 資訊技術實驗室首頁，內容與管制圖無關，所以 Western Electric 規則改引 6.3.2 節。
+- 查核限制（**未核；僅記名、不列連結，不是已驗證的來源**）：(1) ASQ「What is a Control Chart」頁面——專案維護者整理時測試網站拒絕存取，審稿複測與素材包稍後的命令列測試都能開，但狀態不穩定，素材包依審後稿標「打不開」，教學稿所有主張都不靠它；(2) Six Sigma Material 的「Control Chart」頁面——頁面不存在（網站回覆查無此網址），無法引用；(3) NIST 手冊結尾為 e 的「6.3.2.e」那一頁——NIST 手冊沒有這頁，網址回應碼雖為 200，卻被導回 NIST 資訊技術實驗室首頁，內容與管制圖無關，所以 Western Electric 規則改引 6.3.2 節。
 - 連結統計：sources.txt 55 條（去重）＝可開 52＋打不開 3。可開 52 條**全部連結**（含 6 則 X 貼文；沒有刻意不連結的可開網址）；打不開 3 條只記名、未核。
 
 ## X 的情況
 
-查詢時間：納茲約 2026-10-04 10:06–10:07（台北）；審稿約 10:30 前後逐則用貼文編號讀回原文，並重跑中文查詢。**繁體中文：用「管制圖」加 SPC、Shewhart、製程、品管等關鍵字查，0 筆**；只用「管制圖」一詞查，有 1 則 2026-09-02 的實務經驗貼文（談在關鍵原料的來料檢驗用過「移動平均管制圖」，客戶稽核時被稱讚），不是教學帖：https://x.com/shareefvan/status/2095179715741122819 。**英文與日文：約 5 則提及 Shewhart／管制圖／管制界限的原帖，但沒有找到可當逐步教學主案例的長帖**，下列僅列原帖（日期為台北時間），不編造教學內容；這不代表 X 上沒有人談，只代表當時的查詢結果。
+查詢時間：專案維護者整理時約 2026-10-04 10:06–10:07（台北）；審稿約 10:30 前後逐則用貼文編號讀回原文，並重跑中文查詢。**繁體中文：用「管制圖」加 SPC、Shewhart、製程、品管等關鍵字查，0 筆**；只用「管制圖」一詞查，有 1 則 2026-09-02 的實務經驗貼文（談在關鍵原料的來料檢驗用過「移動平均管制圖」，客戶稽核時被稱讚），不是教學帖：https://x.com/shareefvan/status/2095179715741122819 。**英文與日文：約 5 則提及 Shewhart／管制圖／管制界限的原帖，但沒有找到可當逐步教學主案例的長帖**，下列僅列原帖（日期為台北時間），不編造教學內容；這不代表 X 上沒有人談，只代表當時的查詢結果。
 
 1. Neil Pettinger（@kurtstat），2026-09-22 21:02：談 Intentional SPC 課程（給想有目的地使用統計製程管制的醫療分析師）與 Shewhart 1924——說 Shewhart 在 1924 年 5 月「發明 SPC」，是作者的說法。https://x.com/kurtstat/status/2102382994770014295
 2. @ScotFreeLife，2026-09-11 05:25（世界標準時間 9 月 10 日晚上）：提及 Shewhart 1920 年代發明管制圖、Deming 推廣；後半談即時遙測資料，帶行銷口吻。https://x.com/ScotFreeLife/status/2098160922649088451

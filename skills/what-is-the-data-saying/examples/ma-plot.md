@@ -1,7 +1,7 @@
 # Pattern: ma-plot
 
 > **圖種**：MA 圖（MA plot；亦稱平均－差值圖 Mean–Difference plot，簡寫 MD plot）
-> **來源（納茲教圖）**：`teach-viz/2026-09-29-pm-ma.md`（方法教學；正式課程）
+> **來源（專案維護者整理）**：`teach-viz/2026-09-29-pm-ma.md`（方法教學；正式課程）
 > **定義（英文維基百科原文）**："an MA plot is an application of a Bland–Altman plot for visual representation of genomic data. The plot visualizes the differences between measurements taken in two samples, by transforming the data onto M (log ratio) and A (mean average) scales"
 > **核心**：**每個點＝一個受測特徵**（基因、探針或轉錄本）；**橫軸 A＝平均表現**（微陣列是平均對數強度；RNA 定序常用平均正規化計數，橫軸多用對數刻度；愈右訊號愈亮、計數愈高）；**縱軸 M＝對數倍數變化**（log ratio，常用以 2 為底；0＝沒變、上方上調、下方下調）；RNA 定序計數資料的點雲常像漏斗或喇叭，左邊（低表現）上下散得較開、右邊（高表現）較貼近 M＝0
 > **一句話**：橫軸不是基因組位置，也不是 −log10(p)；愈右表示平均表現愈高，上下才是倍數方向

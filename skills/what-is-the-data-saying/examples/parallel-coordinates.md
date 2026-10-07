@@ -1,7 +1,7 @@
 # Pattern: parallel-coordinates
 
 > **圖種**：平行座標圖（Parallel coordinates）
-> **來源（納茲教圖）**：`teach-viz/2026-08-29-parallel-draft.md`
+> **來源（專案維護者整理）**：`teach-viz/2026-08-29-parallel-draft.md`
 
 ## When
 

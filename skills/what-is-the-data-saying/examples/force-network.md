@@ -1,7 +1,7 @@
 # Pattern: force-network
 
 > **圖種**：力導向網路圖（Force-directed graph）
-> **來源（納茲教圖）**：`teach-viz/2026-09-17-pm-force.md`
+> **來源（專案維護者整理）**：`teach-viz/2026-09-17-pm-force.md`
 
 ## When
 

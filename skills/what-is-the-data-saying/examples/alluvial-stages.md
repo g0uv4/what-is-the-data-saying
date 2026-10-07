@@ -1,7 +1,7 @@
 # Pattern: alluvial-stages
 
 > **圖種**：沖積圖（Alluvial diagram）
-> **來源（納茲教圖）**：`teach-viz/2026-09-07-am-alluvial.md`
+> **來源（專案維護者整理）**：`teach-viz/2026-09-07-am-alluvial.md`
 
 ## When
 

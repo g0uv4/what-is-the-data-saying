@@ -1,7 +1,7 @@
 # Pattern: lollipop-rank
 
 > **圖種**：棒棒糖圖（Lollipop chart／Lollipop plot）
-> **來源（納茲教圖）**：`teach-viz/2026-09-23-am-lollipop.md`（正式專題；啞鈴課僅列鄰居）
+> **來源（專案維護者整理）**：`teach-viz/2026-09-23-am-lollipop.md`（正式專題；啞鈴課僅列鄰居）
 > **核心**：一類別一數值；自基線（常是 0）拉細莖，末端一點；眼睛讀點落點（與莖長）
 
 ## When

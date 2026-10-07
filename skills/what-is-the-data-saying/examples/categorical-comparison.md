@@ -1,7 +1,7 @@
 # Pattern: categorical-comparison
 
 > **圖種**：長條圖（Bar chart）
-> **來源（納茲教圖）**：`（通用；對照 teach-viz 長條相關教圖）`
+> **來源（專案維護者整理）**：`（通用；對照 teach-viz 長條相關教圖）`
 
 ## When
 

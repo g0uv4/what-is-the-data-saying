@@ -1,7 +1,7 @@
 # Pattern: upset-sets
 
 > **圖種**：UpSet 圖（UpSet plot）
-> **來源（納茲教圖）**：`teach-viz/2026-09-01-pm-upset-draft.md`
+> **來源（專案維護者整理）**：`teach-viz/2026-09-01-pm-upset-draft.md`
 
 ## When
 

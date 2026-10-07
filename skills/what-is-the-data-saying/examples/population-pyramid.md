@@ -1,7 +1,7 @@
 # Pattern: population-pyramid
 
 > **圖種**：人口金字塔（Population pyramid／age-sex pyramid）
-> **來源（納茲教圖）**：`teach-viz/2026-09-22-pm-pyramid.md`（正式專題）
+> **來源（專案維護者整理）**：`teach-viz/2026-09-22-pm-pyramid.md`（正式專題）
 > **亦稱**：年齡性別金字塔、age structure pyramid；工具常以 Split Bars＋Mirror 建置
 
 ## When

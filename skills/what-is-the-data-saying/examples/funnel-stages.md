@@ -1,7 +1,7 @@
 # Pattern: funnel-stages
 
 > **圖種**：漏斗圖（Funnel chart）
-> **來源（納茲教圖）**：`teach-viz/2026-09-10-pm-funnel.md`
+> **來源（專案維護者整理）**：`teach-viz/2026-09-10-pm-funnel.md`
 
 ## When
 

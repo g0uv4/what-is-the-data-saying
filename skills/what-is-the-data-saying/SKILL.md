@@ -2,7 +2,8 @@
 name: what-is-the-data-saying
 description: >
   Given a table or report, recommend the chart and how to make it (資料在說什麼).
-  Nazh-grounded Taiwan zh-TW pedagogy plus 69 named patterns. Use when the user
+  Taiwan zh-TW teaching-grade pedagogy compiled by the project maintainer（專案維護者）
+  from internal teaching notes, plus 69 named patterns. Use when the user
   pastes CSV / Excel / a table / 報表 and asks which chart, how to visualize,
   這份資料該怎麼畫, 推薦圖表, 視覺化, or runs /what-is-the-data-saying.
 when-to-use: >

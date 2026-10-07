@@ -3,11 +3,15 @@
   'use strict';
   var I = window.WIDS_I18N, t = I.t;
   var CSV = window.WIDS_CSV, TY = window.WIDS_TYPES, RU = window.WIDS_RULES, MD = window.WIDS_MD, CH = window.WIDS_CHARTS;
+  var API_MOD = window.WIDS_API, ENT = window.WIDS_ENTITLEMENT;
   var CONTENT = window.WIDS_CONTENT || { patterns: {} };
   var SAMPLES = window.WIDS_SAMPLES || [];
   var GH = 'https://github.com/g0uv4/what-is-the-data-saying/blob/main/skills/what-is-the-data-saying/';
 
   var state = { parsed: null, source: '', overrides: {}, profile: null, rec: null, pattern: null, renderer: null, preset: null, sel: {}, chart: null, showAll: false };
+  var api = API_MOD.createApi();
+  var guestQuota = ENT.createGuestQuota();
+  var account = { file: !api.canUseApi(), offline: true, me: null, remaining: guestQuota.remaining(), message: '', busy: false };
   var $ = function (id) { return document.getElementById(id); };
 
   function el(tag, attrs, text) {
@@ -40,12 +44,113 @@
       sel.appendChild(el('option', { value: s.file }, s.file + (pat ? '（' + pat + '）' : '')));
     });
     sel.value = cur;
+    refreshAccount();
+  }
+
+  // ------------------------------------------------------------ entitlement / mock API
+  function accountEls() {
+    return { status: $('planStatus'), login: $('loginBtn'), upgrade: $('upgradeBtn'), logout: $('logoutBtn') };
+  }
+  function refreshAccount() {
+    ENT.applyAccountUI(accountEls(), account, t);
+  }
+  function isDemoSource(source) {
+    return SAMPLES.some(function (s) { return s.file === source; });
+  }
+  function guestBlocked() {
+    if (!ENT.isGuest(account.me)) return false;
+    return account.remaining <= 0;
+  }
+  function quotaMessage(err) {
+    var extra = '';
+    if (err && err.resetAt) extra = t('quotaReset', { at: err.resetAt });
+    else if (err && err.retryAfter) extra = t('quotaRetry', { n: err.retryAfter });
+    return t('quotaExceeded') + extra;
+  }
+  function loadMe() {
+    if (!api.canUseApi()) {
+      account.file = true;
+      account.offline = true;
+      account.me = null;
+      account.remaining = guestQuota.remaining();
+      refreshAccount();
+      return Promise.resolve({ skipped: true });
+    }
+    return api.health().then(function (health) {
+      if (health.skipped || !health.json || !health.json.ok) throw new Error('health failed');
+      return api.me();
+    }).then(function (res) {
+      account.file = false;
+      account.offline = false;
+      account.me = res.json;
+      if (account.message === t('apiOffline')) account.message = '';
+      var quota = res.json && res.json.entitlement && res.json.entitlement.quota;
+      var apiRem = quota ? quota.guest_uploads_remaining_today : undefined;
+      guestQuota.syncFromApi(apiRem);
+      account.remaining = guestQuota.effectiveRemaining(apiRem);
+      refreshAccount();
+      return res;
+    }).catch(function () {
+      account.file = false;
+      account.offline = true;
+      account.me = null;
+      account.remaining = guestQuota.remaining();
+      if (!account.message) account.message = t('apiOffline');
+      refreshAccount();
+    });
+  }
+  function maybeSaveHistory(source, parsed) {
+    if (!api.canUseApi() || account.offline) return Promise.resolve();
+    if (!ENT.hasFeature(account.me, 'save_history')) return Promise.resolve();
+    if (!state.pattern || !parsed) return Promise.resolve();
+    return api.saveHistory({
+      pattern_id: state.pattern,
+      source_name: source,
+      row_count: parsed.rows.length
+    }).then(function () {
+      account.message = t('historySaved');
+      refreshAccount();
+    }).catch(function (err) {
+      account.message = err && err.status === 429 ? quotaMessage(err) : t('historyFailed');
+      refreshAccount();
+    });
+  }
+  function afterSuccessfulLoad(source, parsed, kind) {
+    var next = Promise.resolve();
+    if (kind === 'upload' && ENT.isGuest(account.me)) {
+      guestQuota.increment();
+      account.remaining = guestQuota.remaining();
+      refreshAccount();
+      if (api.canUseApi() && !account.offline) {
+        next = api.consumeGuestUpload('upload').then(function (res) {
+          if (res.json && typeof res.json.remaining === 'number') {
+            guestQuota.syncFromApi(res.json.remaining);
+            account.remaining = guestQuota.effectiveRemaining(res.json.remaining);
+            refreshAccount();
+          }
+        }).catch(function (err) {
+          if (err && err.status === 429) {
+            guestQuota.syncFromApi(0);
+            account.remaining = 0;
+            account.message = quotaMessage(err);
+            refreshAccount();
+          }
+        });
+      }
+    }
+    return next.then(function () { return maybeSaveHistory(source, parsed); });
   }
 
   // ------------------------------------------------------------ data loading
-  function loadText(text, source) {
+  function loadText(text, source, kind) {
     var status = $('dataStatus');
     status.className = 'status';
+    if (!kind) kind = isDemoSource(source) ? 'demo' : 'upload';
+    if (kind === 'upload' && guestBlocked()) {
+      status.textContent = t('guestLimit');
+      status.className = 'status error';
+      return;
+    }
     try {
       var parsed = CSV.parseCSV(text);
       if (!parsed.headers.length || !parsed.rows.length) { status.textContent = t('emptyCsv'); status.className = 'status error'; return; }
@@ -56,6 +161,7 @@
       status.textContent = msg;
       renderPreview();
       recompute(true);
+      afterSuccessfulLoad(source, parsed, kind);
     } catch (e) {
       status.textContent = t('parseError') + e.message; status.className = 'status error';
     }
@@ -304,16 +410,46 @@
     });
     $('sampleSelect').addEventListener('change', function (e) {
       var s = SAMPLES.filter(function (x) { return x.file === e.target.value; })[0];
-      if (s) loadText(s.text, s.file);
+      if (s) loadText(s.text, s.file, 'demo');
     });
     $('fileInput').addEventListener('change', function (e) {
       var f = e.target.files && e.target.files[0]; if (!f) return;
       var rd = new FileReader();
-      rd.onload = function () { $('sampleSelect').value = ''; loadText(String(rd.result), f.name); };
+      rd.onload = function () { $('sampleSelect').value = ''; loadText(String(rd.result), f.name, 'upload'); };
       rd.onerror = function () { $('dataStatus').textContent = t('parseError') + (rd.error && rd.error.message); };
       rd.readAsText(f, 'utf-8');
     });
-    $('parseBtn').addEventListener('click', function () { $('sampleSelect').value = ''; loadText($('pasteArea').value, lang() === 'zh' ? '貼上的文字' : 'pasted text'); });
+    $('parseBtn').addEventListener('click', function () { $('sampleSelect').value = ''; loadText($('pasteArea').value, lang() === 'zh' ? '貼上的文字' : 'pasted text', 'upload'); });
+    $('loginBtn').addEventListener('click', function () {
+      account.busy = true; account.message = ''; refreshAccount();
+      api.loginGithub().then(function () {
+        account.message = '';
+        return loadMe();
+      }).catch(function () {
+        account.message = t('loginFailed');
+      }).then(function () {
+        account.busy = false;
+        refreshAccount();
+      });
+    });
+    $('upgradeBtn').addEventListener('click', function () {
+      account.busy = true; account.message = ''; refreshAccount();
+      api.upgrade().then(function () {
+        account.message = t('upgradeOk');
+        return loadMe();
+      }).catch(function (err) {
+        account.message = err && err.status === 429 ? quotaMessage(err) : t('upgradeFailed');
+      }).then(function () {
+        account.busy = false;
+        refreshAccount();
+      });
+    });
+    $('logoutBtn').addEventListener('click', function () {
+      api.logout();
+      account.me = null;
+      account.message = '';
+      loadMe();
+    });
     $('showAll').addEventListener('change', function (e) { state.showAll = e.target.checked; renderRecs(); });
     document.addEventListener('click', function (e) {
       var a = e.target.closest && e.target.closest('a.md-internal');
@@ -327,16 +463,23 @@
     if (q.lang === 'en') { I.setLang('en'); applyStatic(); }
     if (q.sample) {
       var s = SAMPLES.filter(function (x) { return x.file === q.sample; })[0];
-      if (s) { $('sampleSelect').value = s.file; loadText(s.text, s.file); }
+      if (s) { $('sampleSelect').value = s.file; loadText(s.text, s.file, 'demo'); }
     }
     if (q.pattern && CONTENT.patterns[q.pattern]) selectPattern(q.pattern, q.renderer && CH.renderers[q.renderer] ? q.renderer : undefined);
   }
 
+  if (typeof location !== 'undefined' && api.captureTokenFromSearch(location.search)) {
+    try {
+      var clean = new URL(location.href);
+      clean.searchParams.delete('access_token');
+      history.replaceState(null, '', clean.pathname + clean.search + clean.hash);
+    } catch (e) { /* ignore */ }
+  }
   applyStatic();
   bind();
   renderColumns();
   renderChartArea();
   renderTutorial(null);
-  fromHash();
-  window.WIDS_APP = { state: state, loadText: loadText, selectPattern: selectPattern };
+  loadMe().then(function () { fromHash(); });
+  window.WIDS_APP = { state: state, loadText: loadText, selectPattern: selectPattern, api: api, account: account };
 })();

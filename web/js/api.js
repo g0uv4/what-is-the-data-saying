@@ -1,0 +1,234 @@
+/*
+ * WIDS mock entitlement API client.
+ * Works in browsers (window.WIDS_API) and Node (module.exports).
+ * file:// / null origin never calls the network.
+ */
+(function (root, factory) {
+  if (typeof module === 'object' && module.exports) module.exports = factory();
+  else root.WIDS_API = factory();
+})(typeof self !== 'undefined' ? self : this, function () {
+  'use strict';
+
+  var TOKEN_KEY = 'wids_token';
+  var GUEST_ID_KEY = 'wids_guest_id';
+  var DEFAULT_BASE = 'http://127.0.0.1:8787';
+
+  function memoryStorage() {
+    var map = Object.create(null);
+    return {
+      getItem: function (key) {
+        return Object.prototype.hasOwnProperty.call(map, key) ? map[key] : null;
+      },
+      setItem: function (key, value) {
+        map[key] = String(value);
+      },
+      removeItem: function (key) {
+        delete map[key];
+      }
+    };
+  }
+
+  function canUseApi(loc) {
+    if (!loc) return false;
+    var proto = loc.protocol || '';
+    if (proto === 'file:' || proto === 'about:') return false;
+    if (!loc.origin || loc.origin === 'null') return false;
+    return proto === 'http:' || proto === 'https:';
+  }
+
+  function trimBase(value) {
+    return String(value || '').trim().replace(/\/$/, '');
+  }
+
+  function resolveApiBase(scope, override) {
+    if (typeof override === 'string' && trimBase(override)) return trimBase(override);
+    if (scope && typeof scope.WIDS_API_BASE === 'string' && trimBase(scope.WIDS_API_BASE)) {
+      return trimBase(scope.WIDS_API_BASE);
+    }
+    if (scope && scope.WIDS_CONFIG && typeof scope.WIDS_CONFIG.resolveApiBase === 'function') {
+      return trimBase(scope.WIDS_CONFIG.resolveApiBase()) || DEFAULT_BASE;
+    }
+    if (scope && scope.WIDS_CONFIG && scope.WIDS_CONFIG.DEFAULT_API_BASE) {
+      return trimBase(scope.WIDS_CONFIG.DEFAULT_API_BASE) || DEFAULT_BASE;
+    }
+    return DEFAULT_BASE;
+  }
+
+  function createApi(opts) {
+    opts = opts || {};
+    var scope = opts.root || (typeof self !== 'undefined' ? self : (typeof globalThis !== 'undefined' ? globalThis : {}));
+    var loc = opts.location || (typeof location !== 'undefined' ? location : { protocol: '', origin: '' });
+    var storage = opts.storage || (typeof localStorage !== 'undefined' ? localStorage : memoryStorage());
+    var fetchFn = opts.fetch;
+    if (!fetchFn && typeof fetch === 'function') {
+      fetchFn = fetch.bind(typeof globalThis !== 'undefined' ? globalThis : scope);
+    }
+    var cfg = scope.WIDS_CONFIG || {};
+    var tokenKey = cfg.TOKEN_KEY || TOKEN_KEY;
+    var guestKey = cfg.GUEST_ID_KEY || GUEST_ID_KEY;
+    var base = resolveApiBase(scope, opts.apiBase);
+
+    function enabled() {
+      return canUseApi(loc);
+    }
+
+    function getToken() {
+      return storage.getItem(tokenKey) || '';
+    }
+
+    function setToken(token) {
+      if (!token) storage.removeItem(tokenKey);
+      else storage.setItem(tokenKey, token);
+    }
+
+    function getGuestId() {
+      var id = storage.getItem(guestKey);
+      if (id) return id;
+      id = 'g_' + Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
+      storage.setItem(guestKey, id);
+      return id;
+    }
+
+    function captureTokenFromSearch(search) {
+      if (!search) return false;
+      var raw = String(search);
+      if (raw.charAt(0) === '?') raw = raw.slice(1);
+      var params = new URLSearchParams(raw);
+      var token = params.get('access_token');
+      if (!token) return false;
+      setToken(token);
+      return true;
+    }
+
+    function headers(extra) {
+      var out = { Accept: 'application/json' };
+      var token = getToken();
+      if (token) out.Authorization = 'Bearer ' + token;
+      out['X-Guest-Id'] = getGuestId();
+      if (extra) Object.keys(extra).forEach(function (key) { out[key] = extra[key]; });
+      return out;
+    }
+
+    function skipped() {
+      return { skipped: true, status: 0, json: null };
+    }
+
+    function request(method, path, body) {
+      if (!enabled()) return Promise.resolve(skipped());
+      if (!fetchFn) return Promise.reject(new Error('fetch is not available'));
+      var init = { method: method, headers: headers() };
+      if (body !== undefined) {
+        init.headers['Content-Type'] = 'application/json';
+        init.body = JSON.stringify(body);
+      }
+      return fetchFn(base + path, init).then(function (res) {
+        return res.text().then(function (text) {
+          var json = null;
+          if (text) {
+            try { json = JSON.parse(text); } catch (err) { json = null; }
+          }
+          if (!res.ok) {
+            var retryAfter = res.headers && res.headers.get ? res.headers.get('Retry-After') : null;
+            var resetAt = json && json.quota ? json.quota.reset_at : null;
+            var message = (json && json.error && json.error.message) || ('HTTP ' + res.status);
+            var error = new Error(message);
+            error.status = res.status;
+            error.code = json && json.error ? json.error.code : undefined;
+            error.retryAfter = retryAfter;
+            error.resetAt = resetAt;
+            error.body = json;
+            throw error;
+          }
+          return { skipped: false, status: res.status, json: json, res: res };
+        });
+      });
+    }
+
+    function health() {
+      return request('GET', '/v1/health');
+    }
+
+    function me() {
+      return request('GET', '/v1/me');
+    }
+
+    function loginGithub() {
+      return request('GET', '/v1/auth/github').then(function (authz) {
+        if (authz.skipped) return authz;
+        var authorizeUrl = authz.json && authz.json.authorize_url;
+        if (!authorizeUrl) throw new Error('missing authorize_url');
+        var path = '/v1/auth/github/callback?code=mock&format=json';
+        try {
+          var parsed = new URL(authorizeUrl);
+          if (!parsed.searchParams.get('code')) throw new Error('missing code');
+          parsed.searchParams.set('format', 'json');
+          path = parsed.pathname + parsed.search;
+        } catch (err) {
+          if (err.message === 'missing code') throw err;
+        }
+        return request('GET', path).then(function (callback) {
+          if (callback.skipped) return callback;
+          var token = callback.json && callback.json.access_token;
+          if (!token) throw new Error('missing access_token');
+          setToken(token);
+          return callback;
+        });
+      });
+    }
+
+    function upgrade() {
+      return request('POST', '/v1/checkout/session', { plan: 'pro', interval: 'month' }).then(function (session) {
+        if (session.skipped) return session;
+        var sessionId = session.json && session.json.session_id;
+        if (!sessionId) throw new Error('missing session_id');
+        return request('POST', '/v1/checkout/mock-complete', { session_id: sessionId });
+      });
+    }
+
+    function saveHistory(summary) {
+      var body = {
+        pattern_id: summary.pattern_id,
+        source_name: summary.source_name,
+        row_count: summary.row_count
+      };
+      if (summary.note != null) body.note = summary.note;
+      return request('POST', '/v1/history', body);
+    }
+
+    function consumeGuestUpload(kind) {
+      return request('POST', '/v1/guest/consume-upload', { kind: kind === 'demo' ? 'demo' : 'upload' });
+    }
+
+    function logout() {
+      setToken('');
+    }
+
+    return {
+      TOKEN_KEY: tokenKey,
+      GUEST_ID_KEY: guestKey,
+      canUseApi: enabled,
+      apiBase: function () { return base; },
+      getToken: getToken,
+      setToken: setToken,
+      getGuestId: getGuestId,
+      captureTokenFromSearch: captureTokenFromSearch,
+      request: request,
+      health: health,
+      me: me,
+      loginGithub: loginGithub,
+      upgrade: upgrade,
+      saveHistory: saveHistory,
+      consumeGuestUpload: consumeGuestUpload,
+      logout: logout
+    };
+  }
+
+  return {
+    TOKEN_KEY: TOKEN_KEY,
+    GUEST_ID_KEY: GUEST_ID_KEY,
+    DEFAULT_BASE: DEFAULT_BASE,
+    canUseApi: canUseApi,
+    resolveApiBase: resolveApiBase,
+    createApi: createApi
+  };
+});

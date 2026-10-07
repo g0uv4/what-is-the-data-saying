@@ -9,7 +9,12 @@ body { margin: 0; background: var(--bg); color: var(--ink); font-size: 15px; lin
 a { color: var(--accent); }
 .site-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 24px; background: var(--card); border-bottom: 1px solid var(--line); }
 .site-header h1 { margin: 0; font-size: 22px; }
+.site-header .brand { min-width: 0; }
 .subtitle { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
+.header-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
+.account { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.plan-status { margin: 0; font-size: 13px; color: var(--muted); max-width: 420px; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
 .site-footer { color: var(--muted); font-size: 12px; text-align: center; padding: 16px 24px 32px; }
 .layout { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 18px; padding: 18px 24px; max-width: 1600px; margin: 0 auto; }
 .col-left, .col-right { display: flex; flex-direction: column; gap: 18px; min-width: 0; }

@@ -4,7 +4,8 @@
 
 - 無後端、無建置步驟即可使用：HTML / CSS / 原生 JS，普通 `<script src>`（不用 ES module、不用 `fetch` 讀本機檔），所以 **直接雙擊 `web/index.html`（file://）就能跑**。
 - 唯一第三方依賴：Chart.js 4.5.1 UMD，已 vendor 在 `vendor/`（授權與版本見 `vendor/README.md`）。不用 CDN、不用日期 adapter（時間一律在 JS 內解析排序後用 category 軸）。
-- 資料只在瀏覽器內處理，不會上傳；頁面有 CSP（`connect-src 'none'`）。
+- 分析仍在瀏覽器內完成。`http:`／`https:` 可選連 `web/api-mock`（訪客額度、mock GitHub 登入、假升級、歷史摘要）。**`file://`／origin 為 null 時不會呼叫 API。**
+- CSP `connect-src` 預設允許本機 mock：`http://127.0.0.1:8787` 與 `http://localhost:8787`。Preview／Production 要把已部署的 mock origin 加進同一行（見下方）。
 - 本資料夾不影響 plugin：`grok plugin validate .` 照樣通過；skill 檔案未改動。
 
 ## 怎麼開
@@ -31,10 +32,44 @@ node web/build/build-content.mjs     # Node ≥ 18，無 npm 依賴；輸出可�
 
 新增圖種 pattern 時：跑上面的建置，再到 `js/rules.js` 的 `RULES` 加一列（測試會檢查規則表與 `examples/*.md` 一一對應）。
 
+## 本機連 mock 權限 API
+
+靜態頁與 mock API 要分開開（兩個 origin）。同事會在 API 端設 `CORS_ORIGIN`，必須包含靜態站的 origin。
+
+```bash
+# 終端 1：mock API（預設 http://127.0.0.1:8787）
+cd web/api-mock
+CORS_ORIGIN=http://127.0.0.1:4173 npm start
+
+# 終端 2：靜態站
+cd web
+python3 -m http.server 4173
+```
+
+瀏覽器開 `http://127.0.0.1:4173/`：
+
+- 頁面載入會 `GET /v1/health` 再 `GET /v1/me`，顯示訪客今日剩餘自貼（3／天）。
+- 「用 GitHub 登入」走 mock OAuth（JSON callback），Bearer 存在 `localStorage` 的 `wids_token`。
+- 「升級」會 `POST /v1/checkout/session` 後立刻 `POST /v1/checkout/mock-complete`，**不會打開 `checkout_url` 當網頁**。
+- 已登入且有 `save_history` 時，成功分析後只 POST 摘要（`pattern_id`、`source_name`、`row_count`），絕不送原始 CSV。
+
+訪客自貼次數前端記在 `wids_guest_uploads_YYYY-MM-DD`（台北日），並帶 `X-Guest-Id`；示範 CSV 不計次。API 契約與煙霧測試見 [`api-mock/README.md`](api-mock/README.md)。
+
+### API base 與 Preview／Production CSP
+
+預設 base 是 `http://127.0.0.1:8787`（`js/config.js` 的 `DEFAULT_API_BASE`）。覆寫方式：
+
+1. 改 `js/config.js` 的常數（建置期／commit 進 Preview 用這條）。
+2. 在 `config.js` **之前**設 `window.WIDS_API_BASE`（執行期覆寫）。
+
+Hosted／Preview／Production 要把同一個 mock origin 加進 `web/index.html` 的 CSP `connect-src`。只改 JS 常數、CSP 沒加該 host，瀏覽器會擋 `fetch`。`script-src` 仍是 `'self'`，不要為了改 base 打開 `'unsafe-inline'`。
+
+API 端請設 `CORS_ORIGIN` 為靜態站 origin（Preview 網址或 Production 網域），並允許 `Authorization`、`X-Guest-Id`（mock 已支援）。
+
 ## 測試
 
 ```bash
-node --test web/tests/               # CSV 解析、型態判斷、推薦規則、markdown 渲染、產生檔一致性
+node --test web/tests/*.js web/tests/*.mjs   # CSV 解析、型態判斷、推薦規則、markdown 渲染、產生檔一致性、API client
 ```
 
 選用的瀏覽器煙霧測試（headless Chromium，抓截圖並檢查 console error；需要 `playwright-core` 與本機 Chrome/Chromium，不會加入 repo 依賴）：
@@ -60,8 +95,12 @@ web/
 │   ├── rules.js            69 圖種規則表 + 資料形狀偵測（computeShape）+ 評分引擎
 │   ├── markdown.js         極小 markdown 渲染（先跳脫 HTML；只允許 http(s)/mailto 連結）
 │   ├── charts.js           繪圖器（Chart.js + 自繪 canvas）與純函式工具
+│   ├── config.js           API base（預設 :8787）與 localStorage 鍵
+│   ├── api.js              mock 權限 API client（file:// 不發請求）
+│   ├── entitlement.js      訪客額度 + 帳號列
 │   ├── i18n.js             繁中／英文字串
 │   └── app.js              UI 控制（僅瀏覽器）
+├── api-mock/               本機 mock 權限 API（:8787）
 └── tests/                  node:test 單元測試；browser/smoke.mjs 為選用 E2E
 ```
 

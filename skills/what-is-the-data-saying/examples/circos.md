@@ -1,7 +1,7 @@
 # Pattern: circos
 
 > **圖種**：Circos（環狀多軌圖）
-> **來源（納茲教圖）**：`teach-viz/2026-09-28-am-circos.md`（方法教學；正式課程）
+> **來源（專案維護者整理）**：`teach-viz/2026-09-28-am-circos.md`（方法教學；正式課程）
 > **亦稱**：環形比較基因組視覺、圓形多軌關係圖；英文固定寫 **Circos**（同時是軟體名稱與圖種傳統；Martin Krzywinski 於 Canada's Michael Smith Genome Sciences Centre 開發）
 > **核心（三層讀法）**：**環＝參考軸**（染色體、序列重疊群 contig 或任何有長度刻度的扇區排成一圈；染色體示意圖稱 ideogram；單獨的帶型示意圖見 `karyotype-ideogram.md`）→ **徑向軌道＝同一角度的多層訊號**（散點、折線、直方圖、熱圖、磚塊、文字同心疊放，同一角度＝同一位置）→ **內部連線與寬帶＝成對關係**（兩個位置之間的對應、重組、共線性；寬度、透明度、顏色表示區間大小、方向與強度）
 > **出處**：Krzywinski M, Schein J, Birol I, Connors J, Gascoyne R, Horsman D, Jones SJ, Marra MA. "Circos: an information aesthetic for comparative genomics." *Genome Research* 2009;19(9):1639–1645；DOI 10.1101/gr.092759.109（DOI 與期刊頁本輪打不開，以 PubMed Central 全文為準）

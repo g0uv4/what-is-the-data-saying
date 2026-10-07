@@ -1,7 +1,7 @@
 # Pattern: hexbin-density
 
 > **圖種**：六角分箱圖（Hexbin）
-> **來源（納茲教圖）**：`teach-viz/2026-09-18-pm-hexbin.md`
+> **來源（專案維護者整理）**：`teach-viz/2026-09-18-pm-hexbin.md`
 
 ## When
 

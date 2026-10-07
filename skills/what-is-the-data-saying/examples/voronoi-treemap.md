@@ -1,7 +1,7 @@
 # Pattern: voronoi-treemap
 
 > **圖種**：Voronoi 樹狀圖（Voronoi treemap）
-> **來源（納茲教圖）**：`teach-viz/2026-09-16-pm-voronoi.md`
+> **來源（專案維護者整理）**：`teach-viz/2026-09-16-pm-voronoi.md`
 
 ## When
 

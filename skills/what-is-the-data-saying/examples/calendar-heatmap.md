@@ -1,7 +1,7 @@
 # Pattern: calendar-heatmap
 
 > **圖種**：日曆熱力圖（Calendar heatmap）
-> **來源（納茲教圖）**：`teach-viz/2026-09-19-pm-calendar.md`
+> **來源（專案維護者整理）**：`teach-viz/2026-09-19-pm-calendar.md`
 
 ## When
 

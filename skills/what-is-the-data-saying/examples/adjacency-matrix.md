@@ -1,7 +1,7 @@
 # Pattern: adjacency-matrix
 
 > **圖種**：鄰接矩陣（Adjacency matrix）
-> **來源（納茲教圖）**：`teach-viz/2026-09-18-am-adjacency.md`
+> **來源（專案維護者整理）**：`teach-viz/2026-09-18-am-adjacency.md`
 
 ## When
 

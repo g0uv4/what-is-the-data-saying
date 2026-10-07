@@ -1,7 +1,7 @@
 # Pattern: choropleth-map
 
 > **圖種**：等值區域圖（Choropleth map）
-> **來源（納茲教圖）**：`teach-viz/2026-09-25-am-choropleth.md`（首次正式主課；先前地理課只涵蓋 cartogram／bubble map／flow map／點密度）
+> **來源（專案維護者整理）**：`teach-viz/2026-09-25-am-choropleth.md`（首次正式主課；先前地理課只涵蓋 cartogram／bubble map／flow map／點密度）
 > **亦稱**：分級設色圖、等值區劃圖；媒體偶稱「熱力地圖」（≠ 連續密度場，勿混）
 > **核心**：行政區／統計區多邊形依**已正規化**指標（比率、每人、每十萬人、每面積密度）填色；邊界與面積維持真實，數值只靠**顏色深淺**。總量不要拿來填色——總量改用**比例符號地圖**
 

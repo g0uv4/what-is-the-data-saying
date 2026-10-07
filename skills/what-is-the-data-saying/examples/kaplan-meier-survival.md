@@ -1,11 +1,11 @@
 # Pattern: kaplan-meier-survival
 
 > **圖種**：存活曲線／Kaplan–Meier 曲線（Kaplan–Meier survival curve；product-limit estimator）
-> **來源（納茲教圖）**：`teach-viz/2026-10-05-pm-km.md`（方法教學；正式課程；首次以 Kaplan–Meier 存活曲線為主題）
+> **來源（專案維護者整理）**：`teach-viz/2026-10-05-pm-km.md`（方法教學；正式課程；首次以 Kaplan–Meier 存活曲線為主題）
 > **亦稱**：Kaplan–Meier plot／KM curve；乘積極限估計量（product-limit estimator）；生存曲線、存活率曲線；工程上可靠度曲線；商業上留存曲線／客戶流失分析
 > **核心**：橫軸是從共同起點起算的時間，縱軸是「到這個時間點還沒發生事件的比例」；每發生一次事件曲線往下掉一階，中途離開觀察的人（設限）用短直線標記、**不讓曲線下降**
 > **一句話**：這群人（零件、客戶）撐多久還會發生關心的事件？——它容許資料不完整（設限），不丟掉還沒發生事件的人。
-> **誠實提醒**：本課是方法教學；模擬圖與本 repo 的練習資料都是虛構，**數字未核**（納茲未核），不代替任何臨床試驗、可靠度報告或商業留存報表。素材包沒有實測任何軟體（R survival／survminer、Python lifelines 只列連結）。
+> **誠實提醒**：本課是方法教學；模擬圖與本 repo 的練習資料都是虛構，**數字未核**（專案維護者整理時未核），不代替任何臨床試驗、可靠度報告或商業留存報表。素材包沒有實測任何軟體（R survival／survminer、Python lifelines 只列連結）。
 > **潤稿狀態**：素材包與課程終稿都明說**沒有經過 Gemini 潤稿**（Gemini 登入失效），也沒有改用其他模型潤稿；課程終稿是審後由手工整理的最終文。
 > **撞名**：生態學的**存活曲線（survivorship curve）**（見 R20）依相對年齡畫存活個體數（常用對數縱軸），分成晚死／平均／早死三型，**不處理設限，也不是 Kaplan–Meier**。中文維基百科目前沒有 Kaplan–Meier 專條。
 

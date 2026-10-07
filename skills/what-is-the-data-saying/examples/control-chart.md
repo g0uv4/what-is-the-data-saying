@@ -1,7 +1,7 @@
 # Pattern: control-chart
 
 > **圖種**：管制圖（Control chart；Shewhart chart；process-behavior chart）
-> **來源（納茲教圖）**：`teach-viz/2026-10-04-am-control.md`（方法教學；正式課程；首次以管制圖為主題；與前一天的柏拉圖同屬「品管七大手法」系列，但圖種與用途不同）
+> **來源（專案維護者整理）**：`teach-viz/2026-10-04-am-control.md`（方法教學；正式課程；首次以管制圖為主題；與前一天的柏拉圖同屬「品管七大手法」系列，但圖種與用途不同）
 > **亦稱**：英文別名 Shewhart chart（以 Walter A. Shewhart 命名）、process-behavior chart（流程行為圖）；中文維基百科臺灣繁體頁面寫「也稱為修哈特圖或流程行為圖」，同一頁把人名譯為「休哈特」（同頁兩種譯法不一致，照實記）。它屬於統計製程管制（Statistical Process Control，常簡稱 SPC，貼文裡常這樣寫），也是品管七大手法之一（維基百科〈Seven basic tools of quality〉清單）。
 > **核心**：把製程指標依時間（或子組）順序畫出來，加上**中心線（CL）**與**上／下管制界限（UCL／LCL）**，用來判斷流程是否「統計受控」，還是出現該調查的特殊原因（special cause）。
 > **一句話**：這個流程穩不穩、從什麼時候開始不穩？——它**不是**回答「做出來合不合規格」。
@@ -136,12 +136,12 @@
 - 圖庫分類：https://commons.wikimedia.org/wiki/Category:Control_charts
 - Commons 圖片頁（18 個，授權與作者見下方圖檔段）：https://commons.wikimedia.org/wiki/File:ControlChart.svg 、https://commons.wikimedia.org/wiki/File:Control_Chart_with_Zones.png 、https://commons.wikimedia.org/wiki/File:Rule_1_-_Western_electric_control_chart.svg 、https://commons.wikimedia.org/wiki/File:Rule_2_-_Western_electric_control_chart.svg 、https://commons.wikimedia.org/wiki/File:Rule_3_-_Western_electric_control_chart.svg 、https://commons.wikimedia.org/wiki/File:Rule_4_-_Western_electric_control_chart.svg 、https://commons.wikimedia.org/wiki/File:XBarR_Chart.jpg 、https://commons.wikimedia.org/wiki/File:XBarS_Chart.jpg 、https://commons.wikimedia.org/wiki/File:IMR_Chart.jpeg 、https://commons.wikimedia.org/wiki/File:PChart.jpg 、https://commons.wikimedia.org/wiki/File:Np_control_chart.svg 、https://commons.wikimedia.org/wiki/File:Npchart.JPG 、https://commons.wikimedia.org/wiki/File:Levy-Jennings_SampleChart.png 、https://commons.wikimedia.org/wiki/File:Control_Chart_(tr).png 、https://commons.wikimedia.org/wiki/File:Xquer_Regelkarte.svg 、https://commons.wikimedia.org/wiki/File:Diagram_Kontrol.JPG 、https://commons.wikimedia.org/wiki/File:Grafik_ZMR.JPG 、https://commons.wikimedia.org/wiki/File:En.wp_Featured_Article_Candidates_FAC_yield_control_chart.png
 - X 貼文（6 則，素材包用命令列只看得到網頁外框，內文是用 X 官方查詢工具讀回，標「可開」；**只作連結、不當教學依據**，貼文只是個人說法）：見下方 X 段
-- 查核限制（**未核；僅記名、不列連結，不是已驗證的來源**）：(1) ASQ「What is a Control Chart」頁面——納茲測試時網站拒絕存取，審稿複測與素材包稍後的命令列測試都能開，但狀態不穩定，素材包依審後稿標「打不開」，教學稿所有主張都不靠它；(2) Six Sigma Material 的「Control Chart」頁面——頁面不存在（網站回覆查無此網址），無法引用；(3) NIST 手冊結尾為 e 的「6.3.2.e」那一頁——NIST 手冊沒有這頁，網址回應碼雖為 200，卻被導回 NIST 資訊技術實驗室首頁，內容與管制圖無關，所以 Western Electric 規則改引 6.3.2 節。
+- 查核限制（**未核；僅記名、不列連結，不是已驗證的來源**）：(1) ASQ「What is a Control Chart」頁面——專案維護者整理時測試網站拒絕存取，審稿複測與素材包稍後的命令列測試都能開，但狀態不穩定，素材包依審後稿標「打不開」，教學稿所有主張都不靠它；(2) Six Sigma Material 的「Control Chart」頁面——頁面不存在（網站回覆查無此網址），無法引用；(3) NIST 手冊結尾為 e 的「6.3.2.e」那一頁——NIST 手冊沒有這頁，網址回應碼雖為 200，卻被導回 NIST 資訊技術實驗室首頁，內容與管制圖無關，所以 Western Electric 規則改引 6.3.2 節。
 - 連結統計：sources.txt 55 條（去重）＝可開 52＋打不開 3。可開 52 條**全部連結**（含 6 則 X 貼文；沒有刻意不連結的可開網址）；打不開 3 條只記名、未核。
 
 ## X 的情況
 
-查詢時間：納茲約 2026-10-04 10:06–10:07（台北）；審稿約 10:30 前後逐則用貼文編號讀回原文，並重跑中文查詢。**繁體中文：用「管制圖」加 SPC、Shewhart、製程、品管等關鍵字查，0 筆**；只用「管制圖」一詞查，有 1 則 2026-09-02 的實務經驗貼文（談在關鍵原料的來料檢驗用過「移動平均管制圖」，客戶稽核時被稱讚），不是教學帖：https://x.com/shareefvan/status/2095179715741122819 。**英文與日文：約 5 則提及 Shewhart／管制圖／管制界限的原帖，但沒有找到可當逐步教學主案例的長帖**，下列僅列原帖（日期為台北時間），不編造教學內容；這不代表 X 上沒有人談，只代表當時的查詢結果。
+查詢時間：專案維護者整理時約 2026-10-04 10:06–10:07（台北）；審稿約 10:30 前後逐則用貼文編號讀回原文，並重跑中文查詢。**繁體中文：用「管制圖」加 SPC、Shewhart、製程、品管等關鍵字查，0 筆**；只用「管制圖」一詞查，有 1 則 2026-09-02 的實務經驗貼文（談在關鍵原料的來料檢驗用過「移動平均管制圖」，客戶稽核時被稱讚），不是教學帖：https://x.com/shareefvan/status/2095179715741122819 。**英文與日文：約 5 則提及 Shewhart／管制圖／管制界限的原帖，但沒有找到可當逐步教學主案例的長帖**，下列僅列原帖（日期為台北時間），不編造教學內容；這不代表 X 上沒有人談，只代表當時的查詢結果。
 
 1. Neil Pettinger（@kurtstat），2026-09-22 21:02：談 Intentional SPC 課程（給想有目的地使用統計製程管制的醫療分析師）與 Shewhart 1924——說 Shewhart 在 1924 年 5 月「發明 SPC」，是作者的說法。https://x.com/kurtstat/status/2102382994770014295
 2. @ScotFreeLife，2026-09-11 05:25（世界標準時間 9 月 10 日晚上）：提及 Shewhart 1920 年代發明管制圖、Deming 推廣；後半談即時遙測資料，帶行銷口吻。https://x.com/ScotFreeLife/status/2098160922649088451

@@ -1,6 +1,6 @@
 # Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖與遞迴圖各附 8 組 CSV 與 8 支自檢 .py）
 
-來自納茲已審 skill pack。**非真實產業資料；數字未核。**
+來自專案維護者整理、已審的 skill pack。**非真實產業資料；數字未核。**
 
 | 檔名 | 用途 | pack |
 |------|------|------|
@@ -181,7 +181,7 @@ python3 sample-ma-selfcheck.py
 cd skills/what-is-the-data-saying/examples/data && python3 sample-qq-selfcheck.py
 ```
 
-注意：此腳本與納茲素材包版本不再逐位元相同，唯一差別是那一行讀檔；資料與檢查邏輯未動。
+注意：此腳本與專案維護者整理的素材包版本不再逐位元相同，唯一差別是那一行讀檔；資料與檢查邏輯未動。
 
 預期輸出五行（v0.3.17 上架前實跑，結束碼 0，與素材包所附輸出完全一致）：
 

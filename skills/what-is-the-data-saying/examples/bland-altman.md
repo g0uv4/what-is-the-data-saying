@@ -1,7 +1,7 @@
 # Pattern: bland-altman
 
 > **圖種**：Bland–Altman 圖（Bland–Altman plot；亦稱差值圖 Difference plot；其他領域也叫 Tukey mean-difference plot）
-> **來源（納茲教圖）**：`teach-viz/2026-09-30-pm-ba.md`（方法教學；正式課程）
+> **來源（專案維護者整理）**：`teach-viz/2026-09-30-pm-ba.md`（方法教學；正式課程）
 > **定義（英文維基百科原文）**："A Bland–Altman plot (or Bland–Altman difference plot) in analytical chemistry or biomedicine is a method of data plotting used in analyzing the agreement between two different assays."
 > **核心**：兩種方法各測同一批樣本；**每個點＝一對配對量測**；**橫軸＝兩方法的平均 (A＋B)／2**；**縱軸＝兩者的差值**（**方向一定要寫在圖題**）；再畫平均差（偏差）與一致性界限（常取平均差 ± 1.96 倍差值標準差），看兩種方法差多少、差得穩不穩、能不能互相替換。橫軸用平均而不用其中一種方法，是因為差值單獨對其中一種方法作圖會有已知的統計假象（1986 年原文："a well-known statistical artefact"）。
 > **原始文獻**：Bland 與 Altman 1986，*Lancet*（DOI 10.1016/S0140-6736(86)90837-8）；Bland 與 Altman 1999，*Statistical Methods in Medical Research*（DOI 10.1177/096228029900800204）；入門講解 Giavarina 2015，*Biochemia Medica* 25(2):141–151（PMC4470095）

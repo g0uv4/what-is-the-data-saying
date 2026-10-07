@@ -1,7 +1,7 @@
 # Pattern: gantt-schedule
 
 > **圖種**：甘特圖（Gantt chart）
-> **來源（納茲教圖）**：`teach-viz/2026-09-14-am-gantt.md`
+> **來源（專案維護者整理）**：`teach-viz/2026-09-14-am-gantt.md`
 
 ## When
 

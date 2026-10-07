@@ -1,7 +1,7 @@
 # Pattern: treemap-composition
 
 > **圖種**：矩形樹狀圖（Treemap）
-> **來源（納茲教圖）**：`teach-viz/2026-09-06-am-treemap.md`
+> **來源（專案維護者整理）**：`teach-viz/2026-09-06-am-treemap.md`
 
 ## When
 

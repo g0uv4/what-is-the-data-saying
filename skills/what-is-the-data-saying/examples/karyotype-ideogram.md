@@ -1,7 +1,7 @@
 # Pattern: karyotype-ideogram
 
 > **圖種**：核型圖／染色體帶型示意圖（Karyotype plot／Chromosome ideogram／Ideogram）
-> **來源（納茲教圖）**：`teach-viz/2026-10-02-am-karyotype.md`（方法教學；正式課程；首次正式主課）
+> **來源（專案維護者整理）**：`teach-viz/2026-10-02-am-karyotype.md`（方法教學；正式課程；首次正式主課）
 > **亦稱**：karyogram、idiogram、示意核型（schematic karyogram）、帶型示意條；網頁與程式庫慣用拼寫 ideogram，細胞遺傳學教材亦常見 idiogram
 > **核心**：把染色體畫成**示意形狀**，讓讀者在整套或單條染色體上，立刻看到長度關係、著絲點、帶型，以及異常或註解落在**哪一臂、哪一帶**；短臂 p 在上、長臂 q 在下，帶型條上可再疊區間、密度或拷貝數。
 > **一句話**：這條染色體長什麼樣子、有問題的區段落在哪一臂哪一帶；不是「哪裡有關聯尖峰」（曼哈頓圖）、不是環狀多軌（Circos）。

@@ -300,7 +300,7 @@
       render: [{ r: 'pyramid' }] }),
     R('lollipop-rank', '棒棒糖圖', 'Lollipop chart', {
       requires: { label: [1], measure: [1] }, base: 52, need: ['oneRowPerCat'],
-      prefer: ['fewCats'], avoid: ['time', 'geo', 'hierarchy', 'monotoneStages', 'waterfallBridge'],
+      prefer: ['fewCats'], avoid: ['time', 'geo', 'deepHierarchy', 'monotoneStages', 'waterfallBridge'],
       fields: { zh: '1 類別 + 1 數值（一類一列）', en: '1 category + 1 number (one row each)' },
       why: { zh: '同長條任務、高值齊頭時減墨水 → 棒棒糖', en: 'Same task as bars, less ink → lollipop' },
       render: [{ r: 'barSorted', preset: { style: 'lollipop' } }] }),
@@ -458,18 +458,23 @@
   function uniq(arr) { var s = {}, out = []; arr.forEach(function (v) { if (v !== null && v !== undefined && !s.hasOwnProperty(v)) { s[v] = 1; out.push(v); } }); return out; }
   function median(xs) { var s = xs.filter(function (x) { return x !== null; }).sort(function (a, b) { return a - b; }); if (!s.length) return 0; var m = Math.floor(s.length / 2); return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; }
 
+  function prefixKey(cols, row, lastIdx) {
+    var key = '', i, v;
+    for (i = 0; i <= lastIdx; i++) {
+      v = cols[i].values[row];
+      if (v === null || v === undefined) return null;
+      key += (i ? '\u0001' : '') + String(v);
+    }
+    return key;
+  }
+
   function uniquePrefixCounts(cols, rows) {
-    var counts = [], d, r, i, key, seen, n, v, skip;
+    var counts = [], d, r, key, seen, n;
     for (d = 0; d < cols.length; d++) {
       seen = {}; n = 0;
       for (r = 0; r < rows; r++) {
-        key = ''; skip = false;
-        for (i = 0; i <= d; i++) {
-          v = cols[i].values[r];
-          if (v === null || v === undefined) { skip = true; break; }
-          key += (i ? '\u0001' : '') + String(v);
-        }
-        if (skip) continue;
+        key = prefixKey(cols, r, d);
+        if (key === null) continue;
         if (!seen.hasOwnProperty(key)) { seen[key] = 1; n++; }
       }
       counts.push(n);
@@ -477,17 +482,9 @@
     return counts;
   }
 
-  function isRefiningChain(counts) {
-    if (!counts.length) return false;
-    var i;
-    for (i = 1; i < counts.length; i++) {
-      if (counts[i] < counts[i - 1]) return false;
-    }
-    return counts[counts.length - 1] > counts[0];
-  }
-
   function valueNestedPair(coarse, fine, rows) {
-    if (!coarse || !fine || fine.distinct <= coarse.distinct) return false;
+    if (!coarse || !fine || fine.distinct < 2 || coarse.distinct < 2) return false;
+    if (fine.distinct <= coarse.distinct) return false;
     var map = {}, r, fv, cv;
     for (r = 0; r < rows; r++) {
       fv = fine.values[r]; cv = coarse.values[r];
@@ -498,26 +495,49 @@
     return Object.keys(map).length >= 2;
   }
 
+  /**
+   * True nested drill-down: original column order, distinct ≥ 2 only.
+   * Every adjacent step must refine, branch, and have unique child→parent
+   * when the child is keyed by its full prefix path (so the same leaf label
+   * may appear under two parents). Sparsity alone never qualifies.
+   */
   function detectHierarchyPath(cols, rows) {
     if (!cols || cols.length < 2 || rows < 2) return null;
-    var counts = uniquePrefixCounts(cols, rows);
-    if (!isRefiningChain(counts)) return null;
-    var nested = false, a, b, i, cart;
-    for (a = 0; a < cols.length && !nested; a++) {
-      for (b = a + 1; b < cols.length; b++) {
-        if (valueNestedPair(cols[a], cols[b], rows)) nested = true;
+    cols = cols.filter(function (c) { return c.distinct >= 2; });
+    if (cols.length < 2) return null;
+    var prefixes = uniquePrefixCounts(cols, rows);
+    var i, r, parent, child, map, parentKids, branched, kidCount;
+    branched = false;
+    for (i = 1; i < cols.length; i++) {
+      if (prefixes[i] <= prefixes[i - 1]) return null;
+      map = {};
+      parentKids = {};
+      for (r = 0; r < rows; r++) {
+        parent = prefixKey(cols, r, i - 1);
+        child = prefixKey(cols, r, i);
+        if (parent === null || child === null) continue;
+        if (map.hasOwnProperty(child) && map[child] !== parent) return null;
+        map[child] = parent;
+        if (!parentKids[parent]) parentKids[parent] = {};
+        parentKids[parent][child] = 1;
+      }
+      if (Object.keys(map).length < 2) return null;
+      for (parent in parentKids) {
+        if (!Object.prototype.hasOwnProperty.call(parentKids, parent)) continue;
+        kidCount = 0;
+        for (child in parentKids[parent]) {
+          if (Object.prototype.hasOwnProperty.call(parentKids[parent], child)) kidCount++;
+        }
+        if (kidCount >= 2) branched = true;
       }
     }
-    cart = 1;
-    for (i = 0; i < cols.length; i++) cart *= Math.max(cols[i].distinct, 1);
-    var sparse = cart > 0 && rows / cart <= 0.45;
+    if (!branched) return null;
     var depth = cols.length;
-    var finest = cols[cols.length - 1];
-    if (depth >= 3 && (nested || sparse)) {
-      return { names: cols.map(function (c) { return c.name; }), depth: depth, nested: nested, sparse: sparse };
+    if (depth >= 3) {
+      return { names: cols.map(function (c) { return c.name; }), depth: depth };
     }
-    if (depth === 2 && nested && finest.distinct < rows) {
-      return { names: cols.map(function (c) { return c.name; }), depth: depth, nested: nested, sparse: sparse };
+    if (valueNestedPair(cols[0], cols[1], rows) && cols[1].distinct < rows) {
+      return { names: cols.map(function (c) { return c.name; }), depth: 2 };
     }
     return null;
   }
@@ -733,10 +753,7 @@
 
     // hierarchy: named parent/path, unique child→parent, or multi-column drill-down
     var hierCols = cat.filter(function (c) { return c.distinct >= 2; });
-    var pathA = !h.network ? detectHierarchyPath(catsByCard, rows) : null;
-    var pathB = !h.network ? detectHierarchyPath(hierCols, rows) : null;
-    var path = pathA;
-    if (pathB && (!path || pathB.depth > path.depth)) path = pathB;
+    var path = !h.network ? detectHierarchyPath(hierCols, rows) : null;
     if (labels.some(function (c) { return RX.hierarchy.test(c.name); }) ||
         labels.some(function (c) { var v = uniq(c.values); return v.length >= 3 && v.filter(function (s) { return /\s[/>›]\s|\//.test(String(s)); }).length / v.length >= 0.6; })) {
       h.hierarchy = true;
@@ -751,6 +768,7 @@
       for (var ci = 0; ci < catsByCard.length && !h.hierarchy; ci++) {
         for (var cj = ci + 1; cj < catsByCard.length; cj++) {
           var coarse = catsByCard[ci], fine = catsByCard[cj];
+          if (fine.distinct < 2 || coarse.distinct < 2) continue;
           if (fine.distinct <= coarse.distinct || fine.distinct >= rows) continue;
           var map = {}, ok = true;
           for (var r = 0; r < rows && ok; r++) {
@@ -762,7 +780,8 @@
         }
       }
     }
-    if (h.hierarchy) {
+    // Only a real nested path (not a name-token match) drops distribution hints
+    if (path) {
       delete h.repeatedGroups; delete h.bigGroups; delete h.multiCatStages;
       if (!h.ageGroup) delete h.twoSides;
     }

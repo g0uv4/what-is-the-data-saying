@@ -87,4 +87,4 @@ X 教學原帖（Liora 已逐則核對帳號與內文）：
 
 鄰居 pattern：`dot-density-map.md`、`cartogram-geo.md`、`tile-map.md`（等大圖塊，解大面積偏誤）、`bubble-chart.md`（笛卡兒氣泡，≠ bubble map）、`hexbin-density.md`、`matrix-heatmap.md`。
 
-圖檔與截圖留在教圖／skill-pack（`/workspace/skill-packs/2026-09-25-am-choropleth/images/`，稿內嵌 24 張），本 repo **不複製**大圖；對帳見 `ATTRIBUTION.md`。
+圖檔與截圖留在教圖／skill-pack（素材包 `images/`，稿內嵌 24 張），本 repo **不複製**大圖；對帳見 `ATTRIBUTION.md`。

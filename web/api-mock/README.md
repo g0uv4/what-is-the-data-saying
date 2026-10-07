@@ -90,6 +90,7 @@ MOCK_FORCE_ACTIVE_GITHUB_IDS=1 npm start
 - `GET /v1/auth/github/callback?code=...`：固定測試 user；缺 code → 400。`Accept: application/json` 或 `?format=json` 回 token；否則 302 到前端並帶 `access_token`
 - `POST /v1/checkout/session`：需登入；body `{ "plan": "pro", "interval": "month" }`。已是 `active` → 403；`provider` 不是 mock → 501
 - `POST /v1/checkout/mock-complete`／`mock-cancel`：用 `session_id`；未知 → 404
+- `checkout_url` 的 `/mock/checkout` **目前沒有 HTML 頁**。前端請直接打 `mock-complete`／`mock-cancel`；假結帳頁下輪再補
 - `GET`／`POST /v1/history`：需 Bearer 且有 `save_history`。POST 成功 **201**＋`{ id, created_at }`。只收摘要（`pattern_id`、`source_name`、`row_count`、可選 `note`），拒絕原始 CSV
 - 所有 **429** 帶 `Retry-After`（秒）以及 body `quota.reset_at`
 - 訪客自貼每日 3 次（`X-Guest-Id` 可選）。**示範 CSV 不計次**（`POST /v1/guest/consume-upload` 傳 `kind=demo` 或 `source=demo`）

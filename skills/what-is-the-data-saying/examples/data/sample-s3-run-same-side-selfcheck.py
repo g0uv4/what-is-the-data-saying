@@ -3,7 +3,7 @@
 
 用法：在本資料夾執行  python3 sample-s3-run-same-side-selfcheck.py  （可選：後面接 CSV 檔名，預設 sample-s3-run-same-side.csv）
 只讀指定檔名，不用萬用字元；全部用 assert 驗證，任何一項不符就會中止並顯示哪一項。
-資料範圍：第 1 到第 18 組（共 18 組）。對應課程稿圖 S3（Liora 重畫版：前 9 點全部標紅）。界限（中心線 20、上 23.6、下 16.4，σ 設為 1.2）為預先設定。
+資料範圍：第 1 到第 18 組（共 18 組）。對應課程稿圖 S3（審稿重畫版：前 9 點全部標紅）。界限（中心線 20、上 23.6、下 16.4，σ 設為 1.2）為預先設定。
 """
 import csv, sys
 from decimal import Decimal, ROUND_HALF_UP

@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        貼上表或描述任務。數字請標示意／未核。客製包或內訓請在正文提到 `0xsaghm`。
+        貼上表或描述任務。數字請標示意／未核。
   - type: textarea
     id: question
     attributes:

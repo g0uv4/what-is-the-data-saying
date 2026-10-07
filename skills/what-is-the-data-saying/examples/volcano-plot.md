@@ -1,7 +1,7 @@
 # Pattern: volcano-plot
 
 > **圖種**：火山圖（Volcano plot）
-> **來源（納茲教圖）**：`teach-viz/2026-09-28-pm-volcano.md`（方法教學；正式課程）
+> **來源（專案維護者整理）**：`teach-viz/2026-09-28-pm-volcano.md`（方法教學；正式課程）
 > **亦稱**：差異表現火山圖；英文維基百科條目名 Volcano plot (statistics)（英文單說 volcano 也可能指真正的火山——讀軸比讀名字重要）
 > **定義（英文維基百科原文）**："In statistics, a volcano plot is a type of scatter-plot that is used to quickly identify changes in large data sets composed of replicate data." "It plots significance versus fold-change on the y and x axes, respectively."
 > **核心**：**每個點＝一個受測特徵**（基因、蛋白質、代謝物、胜肽…）；**橫軸＝效應量與方向**（多為 log2 倍數變化：右＝上調、左＝下調、近 0＝幾乎沒變）；**縱軸＝統計證據強度**（−log10 原始 p 值，或 −log10 校正後 p 值——**兩者意思不同，圖上要寫明畫哪一種**）；底部中央堆滿變化小、證據弱的點，往左上、右上長出兩翼

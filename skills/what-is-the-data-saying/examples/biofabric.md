@@ -1,7 +1,7 @@
 # Pattern: biofabric
 
 > **圖種**：BioFabric（生物織布圖、表格式網路圖；兩個中文名皆為暫譯，非通用定名）
-> **來源（納茲教圖）**：`teach-viz/2026-09-27-am-biofabric.md`（方法教學；首次正式主課）
+> **來源（專案維護者整理）**：`teach-viz/2026-09-27-am-biofabric.md`（方法教學；首次正式主課）
 > **亦稱**：英文固定寫 BioFabric（專有名詞，源自開源工具名與 2012 年論文標題）；文獻有時歸入 tabular network visualization／tabular graph drawing 家族；yFiles 用例頁稱原名 Massive Sequence View（僅見於該頁，未另核原始文獻）
 > **核心**：**節點＝水平線（每節點獨占一列）、邊＝垂直線段（每邊獨占一欄，連起兩個節點列）**。刻意採用正交、表格式的網路視圖來「梳開毛球」，讓每一條邊都能被個別辨識
 > **出處**：William J. R. Longabaugh（Institute for Systems Biology），*Combing the hairball with BioFabric: a new approach for visualization of large networks*，BMC Bioinformatics 13:275，2012-10-27，DOI 10.1186/1471-2105-13-275

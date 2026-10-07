@@ -1,7 +1,7 @@
 # Pattern: matrix-heatmap
 
 > **圖種**：矩陣熱圖（Heatmap／Heat map／matrix heatmap）
-> **來源（納茲教圖）**：`teach-viz/2026-09-26-am-heatmap.md`（方法教學；經已審 skill pack 升級原本的通用版）
+> **來源（專案維護者整理）**：`teach-viz/2026-09-26-am-heatmap.md`（方法教學；經已審 skill pack 升級原本的通用版）
 > **亦稱**：熱力圖、色階矩陣
 > **核心**：**兩個類別（或有序）軸交叉成矩陣，每一格用顏色表示該組合的數值強度**。先看熱區與冷區，精確值靠圖例或格內標註
 

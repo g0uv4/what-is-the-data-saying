@@ -1,7 +1,7 @@
 # Pattern: arc-diagram
 
 > **圖種**：弧線圖（Arc diagram）
-> **來源（納茲教圖）**：`teach-viz/2026-09-17-am-arc.md`
+> **來源（專案維護者整理）**：`teach-viz/2026-09-17-am-arc.md`
 
 ## When
 

@@ -1,7 +1,7 @@
 # Pattern: choropleth-map
 
 > **圖種**：等值區域圖（Choropleth map）
-> **來源（納茲教圖）**：`teach-viz/2026-09-25-am-choropleth.md`（首次正式主課；先前地理課只涵蓋 cartogram／bubble map／flow map／點密度）
+> **來源（專案維護者整理）**：`teach-viz/2026-09-25-am-choropleth.md`（首次正式主課；先前地理課只涵蓋 cartogram／bubble map／flow map／點密度）
 > **亦稱**：分級設色圖、等值區劃圖；媒體偶稱「熱力地圖」（≠ 連續密度場，勿混）
 > **核心**：行政區／統計區多邊形依**已正規化**指標（比率、每人、每十萬人、每面積密度）填色；邊界與面積維持真實，數值只靠**顏色深淺**。總量不要拿來填色——總量改用**比例符號地圖**
 
@@ -78,7 +78,7 @@
 - https://plotly.com/python/choropleth-maps/
 - https://observablehq.com/@d3/choropleth/2 （新版；舊 `@d3/choropleth` 已停用；本輪網頁可能 429）
 
-X 教學原帖（Liora 已逐則核對帳號與內文）：
+X 教學原帖（審稿人已逐則核對帳號與內文）：
 
 - https://x.com/Africa_DataHub/status/2097233483903160540 — 免費課：Mapshaper＋Datawrapper＋Flourish 做 choropleth
 - https://x.com/World_Data_A/status/2099152833253638574 — choropleth illusion（大面積視覺偏誤）

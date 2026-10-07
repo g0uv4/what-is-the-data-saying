@@ -1,7 +1,7 @@
 # API 契約草案 v0.2（mock）
 
-- **產出**：斯考 - 後端
-- **對象**：雀絲（核准）、洛彭（前端對齊）
+- **產出**：後端
+- **對象**：專案維護者（核准）、前端對齊
 - **日期**：2026-10-07（台北）· **v0.2**：回調網址改帶一次性授權碼；新增 `POST /v1/auth/exchange`；history 只收白名單欄位、去掉 `note`
 - **範圍**：mock only；不接真實金流、不申請金流帳號
 - **已定案**：MIT skill 永不付費牆；11/7 主賣 hosted Pro（個人）；登入 = GitHub OAuth；訪客示範不限、自貼每日 3 次／瀏覽器；登入後 7 天 Pro 試用
@@ -108,7 +108,7 @@
 - `Accept: application/json` 或 `?format=json`：`200` `{ "code", "expires_in" }`（秒）。**不回** `access_token`。
 - 否則 `302` 到前端，查詢字串**只帶** `code`。網址不得出現 `access_token`，也不得出現日後換到的憑證值。
 
-不打真 GitHub（除非雀絲另准申請 OAuth app）。
+不打真 GitHub（除非專案維護者另准申請 OAuth app）。
 
 ### `POST /v1/auth/exchange`
 
@@ -164,7 +164,7 @@ POST 成功：**201**＋`{ "id", "created_at" }`（勿用 200）。回應與清�
 
 ### `GET /v1/health`
 
-**200**：`{ "ok": true, "mock": true }`（洛彭探活；無需認證）
+**200**：`{ "ok": true, "mock": true }`（前端探活；無需認證）
 
 ### Token
 
@@ -178,7 +178,7 @@ Mock access token：**不透明字串**即可（不必 JWT）。只經 `POST /v1
 
 ---
 
-## 7. 洛彭前端對齊
+## 7. 前端對齊
 
 1. CSP `connect-src` 加入 API origin。  
 2. 登入鈕 → GitHub OAuth 流程。  
@@ -190,7 +190,7 @@ Mock access token：**不透明字串**即可（不必 JWT）。只經 `POST /v1
 
 ---
 
-## 8. Mock 實作（雀絲已准）
+## 8. Mock 實作（專案維護者已准）
 
 - 目錄：`web/api-mock/`（小 Node），分支從 `web-poc` 開，PR → `web-poc`，不 push main。  
 - `MOCK_PLAN=free|trial|active`；可人工開通單一 GitHub user。  

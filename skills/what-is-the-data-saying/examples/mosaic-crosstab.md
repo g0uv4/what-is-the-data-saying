@@ -1,7 +1,7 @@
 # Pattern: mosaic-crosstab
 
 > **圖種**：馬賽克圖（Mosaic plot）
-> **來源（納茲教圖）**：`teach-viz/2026-09-03-am-mosaic.md`
+> **來源（專案維護者整理）**：`teach-viz/2026-09-03-am-mosaic.md`
 > **核心**：列聯表的聯合／條件／邊際比例；常搭配獨立性殘差著色。商用「變寬堆疊／市場地圖」請改走 `marimekko-chart.md`
 
 ## When

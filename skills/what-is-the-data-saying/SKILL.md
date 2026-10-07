@@ -2,7 +2,8 @@
 name: what-is-the-data-saying
 description: >
   Given a table or report, recommend the chart and how to make it (資料在說什麼).
-  Nazh-grounded Taiwan zh-TW pedagogy plus 69 named patterns. Use when the user
+  Taiwan zh-TW teaching-grade pedagogy compiled by the project maintainer（專案維護者）
+  from internal teaching notes, plus 69 named patterns. Use when the user
   pastes CSV / Excel / a table / 報表 and asks which chart, how to visualize,
   這份資料該怎麼畫, 推薦圖表, 視覺化, or runs /what-is-the-data-saying.
 when-to-use: >
@@ -28,7 +29,7 @@ metadata:
 面向：**台灣繁體中文報表讀者**（標題、軸標、圖註、結論句用 zh-TW；程式／變數名可用 EN）。
 公開使用者用英文問就英答，但圖種仍給 **中文名（英文名）**。
 
-教學語氣對齊納茲教圖習慣：先給**中文圖種名（英文名）**、**適不適合**、**口述怎麼做**、再給工具路徑；數字未核要標「未核」。
+教學語氣對齊專案維護者整理的習慣：先給**中文圖種名（英文名）**、**適不適合**、**口述怎麼做**、再給工具路徑；數字未核要標「未核」。
 
 ## 工作流程
 

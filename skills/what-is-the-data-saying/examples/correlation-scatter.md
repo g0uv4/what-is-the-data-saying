@@ -1,7 +1,7 @@
 # Pattern: correlation-scatter
 
 > **圖種**：散點圖（Scatter plot）
-> **來源（納茲教圖）**：`（通用；過密見 hexbin／contour 教圖）`
+> **來源（專案維護者整理）**：`（通用；過密見 hexbin／contour 教圖）`
 
 ## When
 

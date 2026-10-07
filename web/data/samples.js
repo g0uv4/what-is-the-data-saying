@@ -258,7 +258,7 @@ window.WIDS_SAMPLES = [
  {
   "file": "sample-lorenz-s3-gini-area.csv",
   "path": "skills/what-is-the-data-saying/examples/data/sample-lorenz-s3-gini-area.csv",
-  "desc": "洛倫茲曲線虛構資料（S3（Liora 重畫的新版）；10 戶 2、3、4、5、7、9、12、16、20、22（合計 100）；折線下面積法基尼 0.382，乘 10／9 得 0.424；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**；素材包原名 `sample-s3-gini-area.csv`）",
+  "desc": "洛倫茲曲線虛構資料（S3（審稿重畫的新版）；10 戶 2、3、4、5、7、9、12、16、20、22（合計 100）；折線下面積法基尼 0.382，乘 10／9 得 0.424；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**；素材包原名 `sample-s3-gini-area.csv`）",
   "pattern": "lorenz-curve",
   "text": "# 虛構資料，數字未核｜圖 S3：10 戶，基尼係數概念圖（折線下面積算法與小樣本修正兩種數字）｜由 draw_lorenz.py 的 S 圖資料匯出（export_samples.py）\ngroup,label,rank,value,cum_units,cum_value_share,data_status\nall,戶1,1,2,0.1,0.02,虛構資料，數字未核\nall,戶2,2,3,0.2,0.05,虛構資料，數字未核\nall,戶3,3,4,0.3,0.09,虛構資料，數字未核\nall,戶4,4,5,0.4,0.14,虛構資料，數字未核\nall,戶5,5,7,0.5,0.21,虛構資料，數字未核\nall,戶6,6,9,0.6,0.3,虛構資料，數字未核\nall,戶7,7,12,0.7,0.42,虛構資料，數字未核\nall,戶8,8,16,0.8,0.58,虛構資料，數字未核\nall,戶9,9,20,0.9,0.78,虛構資料，數字未核\nall,戶10,10,22,1,1,虛構資料，數字未核\n"
  },
@@ -272,21 +272,21 @@ window.WIDS_SAMPLES = [
  {
   "file": "sample-lorenz-s5-extremes.csv",
   "path": "skills/what-is-the-data-saying/examples/data/sample-lorenz-s5-extremes.csv",
-  "desc": "洛倫茲曲線虛構資料（S5（Liora 新版）；group 分 equal（人人相同，基尼 0）與 one_takes_all（一人全拿，10 戶基尼 0.90，修正後 1.0），各 10 戶；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**；素材包原名 `sample-s5-extremes.csv`）",
+  "desc": "洛倫茲曲線虛構資料（S5（審稿新版）；group 分 equal（人人相同，基尼 0）與 one_takes_all（一人全拿，10 戶基尼 0.90，修正後 1.0），各 10 戶；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**；素材包原名 `sample-s5-extremes.csv`）",
   "pattern": "lorenz-curve",
   "text": "# 虛構資料，數字未核｜圖 S5：10 戶，每人相同 vs 一人全拿｜由 draw_lorenz.py 的 S 圖資料匯出（export_samples.py）\ngroup,label,rank,value,cum_units,cum_value_share,data_status\nequal,戶1,1,1,0.1,0.1,虛構資料，數字未核\nequal,戶2,2,1,0.2,0.2,虛構資料，數字未核\nequal,戶3,3,1,0.3,0.3,虛構資料，數字未核\nequal,戶4,4,1,0.4,0.4,虛構資料，數字未核\nequal,戶5,5,1,0.5,0.5,虛構資料，數字未核\nequal,戶6,6,1,0.6,0.6,虛構資料，數字未核\nequal,戶7,7,1,0.7,0.7,虛構資料，數字未核\nequal,戶8,8,1,0.8,0.8,虛構資料，數字未核\nequal,戶9,9,1,0.9,0.9,虛構資料，數字未核\nequal,戶10,10,1,1,1,虛構資料，數字未核\none_takes_all,戶1,1,0,0.1,0,虛構資料，數字未核\none_takes_all,戶2,2,0,0.2,0,虛構資料，數字未核\none_takes_all,戶3,3,0,0.3,0,虛構資料，數字未核\none_takes_all,戶4,4,0,0.4,0,虛構資料，數字未核\none_takes_all,戶5,5,0,0.5,0,虛構資料，數字未核\none_takes_all,戶6,6,0,0.6,0,虛構資料，數字未核\none_takes_all,戶7,7,0,0.7,0,虛構資料，數字未核\none_takes_all,戶8,8,0,0.8,0,虛構資料，數字未核\none_takes_all,戶9,9,0,0.9,0,虛構資料，數字未核\none_takes_all,戶10,10,100,1,1,虛構資料，數字未核\n"
  },
  {
   "file": "sample-lorenz-s6-misread-pareto.csv",
   "path": "skills/what-is-the-data-saying/examples/data/sample-lorenz-s6-misread-pareto.csv",
-  "desc": "洛倫茲曲線虛構資料（S6（Liora 新版）；group 分 pareto 與 lorenz；同一組 40、25、15、12、8，柏拉圖累計 40、65、80、92、100，洛倫茲累計 8、20、35、60、100；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**；素材包原名 `sample-s6-misread-pareto.csv`）",
+  "desc": "洛倫茲曲線虛構資料（S6（審稿新版）；group 分 pareto 與 lorenz；同一組 40、25、15、12、8，柏拉圖累計 40、65、80、92、100，洛倫茲累計 8、20、35、60、100；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**；素材包原名 `sample-s6-misread-pareto.csv`）",
   "pattern": "lorenz-curve",
   "text": "# 虛構資料，數字未核｜圖 S6：同一組數字 40、25、15、12、8；pareto 由大到小排，lorenz 由小到大排｜由 draw_lorenz.py 的 S 圖資料匯出（export_samples.py）\ngroup,label,rank,value,cum_units,cum_value_share,data_status\npareto,類別A,1,40,0.2,0.4,虛構資料，數字未核\npareto,類別B,2,25,0.4,0.65,虛構資料，數字未核\npareto,類別C,3,15,0.6,0.8,虛構資料，數字未核\npareto,類別D,4,12,0.8,0.92,虛構資料，數字未核\npareto,類別E,5,8,1,1,虛構資料，數字未核\nlorenz,單位1,1,8,0.2,0.08,虛構資料，數字未核\nlorenz,單位2,2,12,0.4,0.2,虛構資料，數字未核\nlorenz,單位3,3,15,0.6,0.35,虛構資料，數字未核\nlorenz,單位4,4,25,0.8,0.6,虛構資料，數字未核\nlorenz,單位5,5,40,1,1,虛構資料，數字未核\n"
  },
  {
   "file": "sample-lorenz-s7-same-shape.csv",
   "path": "skills/what-is-the-data-saying/examples/data/sample-lorenz-s7-same-shape.csv",
-  "desc": "洛倫茲曲線虛構資料（S7（Liora 新版）；甲、乙各 10 戶，基尼都是 0.34，曲線在 70% 處相交（都累計 45%）；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**；素材包原名 `sample-s7-same-shape.csv`）",
+  "desc": "洛倫茲曲線虛構資料（S7（審稿新版）；甲、乙各 10 戶，基尼都是 0.34，曲線在 70% 處相交（都累計 45%）；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**；素材包原名 `sample-s7-same-shape.csv`）",
   "pattern": "lorenz-curve",
   "text": "# 虛構資料，數字未核｜圖 S7：兩組 10 戶，基尼係數相同、曲線在 70% 處相交｜由 draw_lorenz.py 的 S 圖資料匯出（export_samples.py）\ngroup,label,rank,value,cum_units,cum_value_share,data_status\n甲,戶1,1,3,0.1,0.03,虛構資料，數字未核\n甲,戶2,2,4,0.2,0.07,虛構資料，數字未核\n甲,戶3,3,5,0.3,0.12,虛構資料，數字未核\n甲,戶4,4,6,0.4,0.18,虛構資料，數字未核\n甲,戶5,5,7,0.5,0.25,虛構資料，數字未核\n甲,戶6,6,9,0.6,0.34,虛構資料，數字未核\n甲,戶7,7,11,0.7,0.45,虛構資料，數字未核\n甲,戶8,8,14,0.8,0.59,虛構資料，數字未核\n甲,戶9,9,18,0.9,0.77,虛構資料，數字未核\n甲,戶10,10,23,1,1,虛構資料，數字未核\n乙,戶1,1,4,0.1,0.04,虛構資料，數字未核\n乙,戶2,2,4,0.2,0.08,虛構資料，數字未核\n乙,戶3,3,5,0.3,0.13,虛構資料，數字未核\n乙,戶4,4,7,0.4,0.2,虛構資料，數字未核\n乙,戶5,5,7,0.5,0.27,虛構資料，數字未核\n乙,戶6,6,8,0.6,0.35,虛構資料，數字未核\n乙,戶7,7,10,0.7,0.45,虛構資料，數字未核\n乙,戶8,8,11,0.8,0.56,虛構資料，數字未核\n乙,戶9,9,16,0.9,0.72,虛構資料，數字未核\n乙,戶10,10,28,1,1,虛構資料，數字未核\n"
  },
@@ -468,7 +468,7 @@ window.WIDS_SAMPLES = [
  {
   "file": "sample-s3-run-same-side.csv",
   "path": "skills/what-is-the-data-saying/examples/data/sample-s3-run-same-side.csv",
-  "desc": "管制圖虛構資料（S3（Liora 重畫的新版）；18 組；中心線 20、上界 23.6、下界 16.4；第 1–9 組連續 9 點在中心線上方；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**）",
+  "desc": "管制圖虛構資料（S3（審稿重畫的新版）；18 組；中心線 20、上界 23.6、下界 16.4；第 1–9 組連續 9 點在中心線上方；第 1 行是 `#` 說明行、第 2 行是欄位名；每列 `data_status` 都是「虛構資料，數字未核」；**數字未核**）",
   "pattern": "control-chart",
   "text": "# 虛構資料，數字未核｜圖 S3：18 組，前 9 組都在中心線上方（圖上 9 點全標紅）｜由 draw_control.py 的 S 圖資料匯出（export_samples.py）\nsubgroup,value,cl,ucl,lcl,data_status\n1,20.6,20,23.6,16.4,虛構資料，數字未核\n2,20.8,20,23.6,16.4,虛構資料，數字未核\n3,20.7,20,23.6,16.4,虛構資料，數字未核\n4,21,20,23.6,16.4,虛構資料，數字未核\n5,20.9,20,23.6,16.4,虛構資料，數字未核\n6,21.2,20,23.6,16.4,虛構資料，數字未核\n7,21.1,20,23.6,16.4,虛構資料，數字未核\n8,20.6,20,23.6,16.4,虛構資料，數字未核\n9,20.3,20,23.6,16.4,虛構資料，數字未核\n10,19.8,20,23.6,16.4,虛構資料，數字未核\n11,20.1,20,23.6,16.4,虛構資料，數字未核\n12,19.7,20,23.6,16.4,虛構資料，數字未核\n13,20.2,20,23.6,16.4,虛構資料，數字未核\n14,19.9,20,23.6,16.4,虛構資料，數字未核\n15,20,20,23.6,16.4,虛構資料，數字未核\n16,19.6,20,23.6,16.4,虛構資料，數字未核\n17,20.3,20,23.6,16.4,虛構資料，數字未核\n18,19.8,20,23.6,16.4,虛構資料，數字未核\n"
  },

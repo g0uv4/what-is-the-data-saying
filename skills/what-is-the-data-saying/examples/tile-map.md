@@ -1,7 +1,7 @@
 # Pattern: tile-map
 
 > **圖種**：圖塊地圖（Tile map）
-> **來源（納茲教圖）**：`teach-viz/2026-09-25-pm-tilemap.md`（首次正式主課；與同日上午等值區域圖分開）
+> **來源（專案維護者整理）**：`teach-viz/2026-09-25-pm-tilemap.md`（首次正式主課；與同日上午等值區域圖分開）
 > **亦稱**：格子地圖、statebins（R 套件；Wilke 稱 cartogram heatmap）、tile grid map／grid map（NPR 等新聞編輯室用語）、hexagon map（Datawrapper 底圖名稱）
 > **核心**：**每個區域一格、每格一樣大**（方塊或六角），大致照地理相對方位排列，再依數值或類別上色；拿掉等值區域圖「面積大就搶眼」的偏誤。代價是**形狀與鄰接關係失真**，讀者要靠格內縮寫辨認區域
 

@@ -1,0 +1,20 @@
+# Runtime is a static SPA under this Root Directory (`web/`).
+# These paths stay in git for local tests and rebuilds; they must not be uploaded.
+
+# Mock entitlement API (CONTRACT.md, package.json, Node server)
+api-mock/
+
+# Node test suite, browser helpers, and fixtures
+tests/
+
+# Regenerates data/content.js and data/samples.js; the page loads the generated JS
+build/
+
+# Documentation (the page never fetches these)
+README.md
+vendor/README.md
+
+# Not present under web/ today; never ship if added later
+package.json
+package-lock.json
+node_modules/

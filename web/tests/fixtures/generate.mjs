@@ -18,11 +18,13 @@ function writeWorkbook(path, bookType) {
   const wb = XLSX.utils.book_new();
   const sales = [
     ['date', 'product', 'value'],
-    [new Date(Date.UTC(2026, 9, 7)), 'tea', 12],
-    [new Date(Date.UTC(2026, 9, 8)), 'coffee', 9]
+    [46302, 'tea', 12],
+    [46303, 'coffee', 9]
   ];
-  const ws1 = XLSX.utils.aoa_to_sheet(sales, { cellDates: true });
+  const ws1 = XLSX.utils.aoa_to_sheet(sales, { cellDates: false });
+  ws1.A2.t = 'n';
   ws1.A2.z = 'yyyy-mm-dd';
+  ws1.A3.t = 'n';
   ws1.A3.z = 'yyyy-mm-dd';
   XLSX.utils.book_append_sheet(wb, ws1, '銷售');
   XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([

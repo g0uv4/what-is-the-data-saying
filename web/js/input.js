@@ -130,25 +130,11 @@
     return date;
   }
 
-  function jsDateToISO(dt) {
-    if (!(dt instanceof Date) || isNaN(dt.getTime())) return '';
-    var y = dt.getUTCFullYear();
-    var mo = pad2(dt.getUTCMonth() + 1);
-    var d = pad2(dt.getUTCDate());
-    var H = dt.getUTCHours();
-    var M = dt.getUTCMinutes();
-    var S = dt.getUTCSeconds();
-    if (H || M || S) return y + '-' + mo + '-' + d + 'T' + pad2(H) + ':' + pad2(M) + ':' + pad2(S);
-    return y + '-' + mo + '-' + d;
-  }
-
   function serialToISO(serial) {
     var X = getXLSX();
-    if (X.SSF && typeof X.SSF.parse_date_code === 'function') {
-      var parts = X.SSF.parse_date_code(serial);
-      if (parts) return partsToISO(parts);
-    }
-    return jsDateToISO(new Date(Math.round((serial - 25569) * 86400 * 1000)));
+    if (!X.SSF || typeof X.SSF.parse_date_code !== 'function') return '';
+    var parts = X.SSF.parse_date_code(serial);
+    return parts ? partsToISO(parts) : '';
   }
 
   function isDateNumFmt(fmt) {
@@ -166,15 +152,15 @@
   function cellToText(cell) {
     if (!cell) return '';
     if (cell.t === 'z' || cell.t === 'e') return '';
+    if (typeof cell.v === 'number' && (cell.t === 'd' || (cell.t === 'n' && isDateNumFmt(cell.z)))) {
+      return serialToISO(cell.v);
+    }
     if (cell.t === 'd') {
-      if (cell.v instanceof Date) return jsDateToISO(cell.v);
-      if (typeof cell.v === 'number') return serialToISO(cell.v);
-      if (typeof cell.v === 'string' && /^\d{4}-\d{2}-\d{2}/.test(cell.v)) return cell.v.slice(0, 19);
-      return cell.v == null ? '' : String(cell.v);
+      if (typeof cell.v === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(cell.v.trim())) return cell.v.trim();
+      if (cell.w && /^\d{4}-\d{2}-\d{2}$/.test(String(cell.w).trim())) return String(cell.w).trim();
+      return '';
     }
     if (cell.t === 'n') {
-      if (typeof cell.v === 'number' && isDateNumFmt(cell.z)) return serialToISO(cell.v);
-      if (cell.w && /^\d{4}-\d{2}-\d{2}/.test(String(cell.w).trim())) return String(cell.w).trim().slice(0, 19);
       if (cell.v == null) return '';
       return String(cell.v);
     }
@@ -212,7 +198,7 @@
 
   function readWorkbook(buffer) {
     var X = getXLSX();
-    return X.read(toU8(buffer), { type: 'array', cellDates: true, cellNF: true });
+    return X.read(toU8(buffer), { type: 'array', cellDates: false, cellNF: true });
   }
 
   function flattenValue(value, prefix, out) {

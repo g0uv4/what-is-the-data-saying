@@ -5,6 +5,14 @@ const fs = require('node:fs');
 const path = require('node:path');
 const IN = require('../js/input.js');
 const { parseCSV } = require('../js/csv.js');
+const XLSX = require('../vendor/xlsx.full.min.js');
+
+test('vendored SheetJS is Community Edition 0.20.3 or newer', () => {
+  const parts = String(XLSX.version || '').split('.').map(Number);
+  assert.ok(parts[0] > 0 || parts[1] > 20 || (parts[1] === 20 && parts[2] >= 3), XLSX.version);
+  assert.equal(typeof XLSX.read, 'function');
+  assert.equal(typeof XLSX.SSF.parse_date_code, 'function');
+});
 
 const fix = (name) => path.join(__dirname, 'fixtures', name);
 const read = (name) => fs.readFileSync(fix(name));
@@ -36,6 +44,24 @@ test('xlsx second sheet converts to the same table shape as CSV', () => {
 test('Excel serial 46302 (2026-10-07) becomes an ISO date, never the raw number', () => {
   assert.equal(IN.serialToISO(46302), '2026-10-07');
   assert.equal(IN.serialToISO(46303), '2026-10-08');
+});
+
+test('date-only cells stay YYYY-MM-DD and ignore timezone-shifted Date objects', () => {
+  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  for (const name of ['dates-multisheet.xlsx', 'dates-multisheet.xls', 'dates-multisheet.ods']) {
+    const parsed = IN.parseFile(name, read(name));
+    assert.equal(parsed.rows[0][0], '2026-10-07', name + ' in ' + tz);
+    assert.equal(parsed.rows[1][0], '2026-10-08', name + ' in ' + tz);
+    assert.doesNotMatch(parsed.rows[0][0], /T/, name);
+  }
+  assert.equal(IN.cellToText({ t: 'n', v: 46302, z: 'yyyy-mm-dd' }), '2026-10-07');
+  assert.equal(IN.cellToText({ t: 'n', v: 46302, z: 'mm"/"dd"/"yy' }), '2026-10-07');
+  assert.equal(IN.cellToText({ t: 'n', v: 46302.5, z: 'yyyy-mm-dd hh:mm' }), '2026-10-07T12:00:00');
+  const taipeiMidnightAsUtc = new Date('2026-10-06T16:00:00.000Z');
+  const trap = IN.cellToText({ t: 'd', v: taipeiMidnightAsUtc, z: 'yyyy-mm-dd' });
+  assert.notEqual(trap, '2026-10-06T16:00:00');
+  assert.doesNotMatch(String(trap), /T16:00/);
+  assert.equal(IN.cellToText({ t: 'n', v: 12, z: 'General' }), '12');
 });
 
 test('xls and ods parse the same multi-sheet workbook', () => {

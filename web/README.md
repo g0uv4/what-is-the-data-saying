@@ -3,7 +3,7 @@
 把本 repo 的 skill（`skills/what-is-the-data-saying/`）變成一個**純前端單頁**：上傳或貼上 CSV／Excel／JSON → 自動判斷欄位型態 → 依資料形狀從 **69 個圖種 pattern**（與 skill examples 同步） 推薦（排序＋理由）→ 可互動繪圖 → 顯示該圖種的教學 markdown。
 
 - 無後端、無建置步驟即可使用：HTML / CSS / 原生 JS，普通 `<script src>`（不用 ES module、不用 `fetch` 讀本機檔），所以 **直接雙擊 `web/index.html`（file://）就能跑**。
-- 第三方依賴都 vendor 在 `vendor/`（授權與版本見 `vendor/README.md`）：Chart.js 4.5.1 UMD、SheetJS Community Edition 0.18.5（Apache-2.0，`xlsx.full.min.js`）。不用 CDN、不放寬 CSP `script-src`；不用日期 adapter（時間一律在 JS 內解析排序後用 category 軸）。
+- 第三方依賴都 vendor 在 `vendor/`（授權與版本見 `vendor/README.md`）：Chart.js 4.5.1 UMD、SheetJS Community Edition 0.20.3（Apache-2.0，自架 `xlsx.full.min.js`，來源 https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js）。不用 CDN、不放寬 CSP `script-src`；不用日期 adapter（時間一律在 JS 內解析排序後用 category 軸）。
 - 分析仍在瀏覽器內完成。`http:`／`https:` 可選連 `web/api-mock`（訪客額度、mock GitHub 登入、假升級、歷史摘要）。**`file://`／origin 為 null 時不會呼叫 API。**
 - CSP `connect-src` 預設允許本機 mock：`http://127.0.0.1:8787` 與 `http://localhost:8787`。Preview／Production 要把已部署的 mock origin 加進同一行（見下方）。
 - 本資料夾不影響 plugin：`grok plugin validate .` 照樣通過；skill 檔案未改動。
@@ -87,7 +87,7 @@ PLAYWRIGHT_CORE=/tmp/pw/node_modules/playwright-core CHROME=/usr/bin/google-chro
 web/
 ├── index.html              單頁；依序載入下列 script
 ├── css/style.css           響應式版面（≥1000px 兩欄，窄螢幕單欄）
-├── vendor/                 Chart.js + SheetJS（xlsx 0.18.5 Apache-2.0）+ 授權 + 版本說明
+├── vendor/                 Chart.js + SheetJS（xlsx 0.20.3 Apache-2.0）+ 授權 + 版本說明
 ├── data/                   產生檔：content.js（69 篇 pattern md）、samples.js（15 個示範 CSV）
 ├── build/build-content.mjs 產生 data/*.js
 ├── js/

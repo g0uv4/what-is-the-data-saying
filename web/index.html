@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- connect-src: local mock is :8787. For Preview/Production add the hosted mock origin here (same value as WIDS_API_BASE in js/config.js). -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' http://127.0.0.1:8787 http://localhost:8787; object-src 'none'; base-uri 'none'">
+<!-- connect-src is 'self' while ACCOUNTS_ENABLED is off. Turning the flag on also requires adding the API origin here (same value as WIDS_API_BASE in js/config.js). -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'">
 <title>資料在說什麼？ · What is the data saying</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -15,7 +15,7 @@
     <p class="subtitle" data-i18n="subtitle"></p>
   </div>
   <div class="header-actions">
-    <div class="account" id="accountBar">
+    <div class="account" id="accountBar" hidden>
       <p id="planStatus" class="plan-status" role="status" aria-live="polite"></p>
       <button type="button" id="loginBtn" class="btn ghost" hidden>用 GitHub 登入</button>
       <button type="button" id="upgradeBtn" class="btn ghost" hidden>升級</button>

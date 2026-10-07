@@ -39,6 +39,7 @@ function clientFor(base, extra = {}) {
     location: { protocol: 'http:', origin: 'http://127.0.0.1:4173' },
     apiBase: base,
     storage: extra.storage || memoryStorage(),
+    accountsEnabled: extra.accountsEnabled !== false,
     fetch
   });
 }
@@ -74,4 +75,26 @@ test('live mock: guest me, github login, history, upgrade', async () => {
   const me = await api.me();
   assert.equal(me.json.entitlement.plan, 'pro');
   assert.equal(me.json.entitlement.status, 'active');
+});
+
+test('accounts flag off: live mock is never contacted', async () => {
+  let hits = 0;
+  const { base } = await listen();
+  const api = API.createApi({
+    location: { protocol: 'http:', origin: 'http://127.0.0.1:4173' },
+    apiBase: base,
+    storage: memoryStorage(),
+    accountsEnabled: false,
+    fetch: async () => {
+      hits += 1;
+      throw new Error('accounts flag off must not fetch');
+    }
+  });
+  assert.equal((await api.health()).skipped, true);
+  assert.equal((await api.me()).skipped, true);
+  assert.equal((await api.loginGithub()).skipped, true);
+  assert.equal((await api.upgrade()).skipped, true);
+  assert.equal((await api.saveHistory({ pattern_id: 'lollipop-rank', source_name: 'demo.csv', row_count: 1 })).skipped, true);
+  assert.equal((await api.consumeGuestUpload('upload')).skipped, true);
+  assert.equal(hits, 0);
 });

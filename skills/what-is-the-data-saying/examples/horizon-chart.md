@@ -119,7 +119,7 @@
   - 有第 2 帶（外層帶）的點正好是上述 5 筆；2 帶剛好蓋住最大偏離 50，疊回不丟資訊
 - 示範讀法：先讀圖例與基準（50）→ 第 14 小時 machine_03、06、09 的色帶最深 → 其他 9 台在該小時沒有進外層帶，這是「3 台同步」而不是全機群 → 但若各列各自縮放，會多出 machine_07 與 machine_12 兩台（只比基準高約 8 到 9 個百分點）→ 這是跨列比較的常見錯誤。
 - `sample-horizon-selfcheck.py` — 自檢腳本（只用 Python 標準函式庫；以腳本旁的**明確檔名**讀 CSV，不搜尋檔案；全部用 `assert`）；見 `examples/data/README.md`。
-- 素材包另附 `draw_horizon.py`（產生 8 張模擬圖）：**本 repo 不收**，只在 `ATTRIBUTION.md` 註明它存在於素材包。我查過：它**預設把圖寫進 `/workspace/teach-viz/`**（會覆蓋教學稿圖檔），只有給第一個參數才改輸出資料夾；它不讀 CSV（資料是腳本內產生的虛構波形）；需要 numpy、matplotlib、Pillow 與 Noto Sans CJK 字型。我只在暫存資料夾執行，輸出指向 `/tmp`，8 張圖與素材包 `images/` 內的模擬圖 MD5 逐一相同。
+- 素材包另附 `draw_horizon.py`（產生 8 張模擬圖）：**本 repo 不收**，只在 `ATTRIBUTION.md` 註明它存在於素材包。我查過：它**預設把圖寫進教學稿資料夾**（會覆蓋教學稿圖檔），只有給第一個參數才改輸出資料夾；它不讀 CSV（資料是腳本內產生的虛構波形）；需要 numpy、matplotlib、Pillow 與 Noto Sans CJK 字型。我只在暫存資料夾執行，輸出指向 `/tmp`，8 張圖與素材包 `images/` 內的模擬圖 MD5 逐一相同。
 
 ## 參考連結（可點；皆出自素材包 sources.txt 且標可開）
 
@@ -133,4 +133,4 @@
 
 鄰居 pattern：`small-multiples.md`（折線小多圖；圖夠高時不輸地平線）、`time-series-trend.md`（單條折線加游標）、`matrix-heatmap.md`（一格一色）、`streamgraph-composition.md`（組成疊加、基線漂移）、`ridgeline-density.md`（形狀重疊）、`spiral-plot.md`（地平線可當螺旋軌道上的編碼）；Heer 論文與 Few 文章的實驗與設計討論只在本檔轉述；`control-chart.md`（管制圖：單一指標的中心線、管制界限與判異規則；本檔擅長並排比較很多條序列）、`lasagna-plot.md`（千層麵圖：每列一格一色而非折疊折線；Wicklin 2025 認為汽油價格用千層麵圖更好讀）、`recurrence-plot.md`（遞迴圖：時間×時間相似矩陣；地平線圖仍是數值隨時間的形狀）。
 
-圖檔留在教圖／skill-pack（`/workspace/skill-packs/2026-10-03-am-horizon/images/`，21 張＝13 張真實／示意圖加 8 張模擬圖，圖說與教學稿逐字相同；教學稿原規劃的第 14 張真實圖〔Data Viz Catalogue 部落格截圖〕因沒拍到 Horizon 小節而未採用，所以是 21 張，不是 22 張），本 repo **不複製**任何圖。可對照的圖：R1 構造五步圖（CC BY-SA 4.0）、R2 Commons 多序列例圖（13 列、2010–2020 年；CC BY-SA 4.0）、R3 歐洲 29 國溫室氣體相對歐洲平均（含冰島、挪威、瑞士；CC BY-SA 4.0；基準是歐洲平均）、R4 Heer 論文第 1 圖（ACM 版權，僅教學示意）、R5 IDL 論文頁截圖、R6 Cubism 落地頁（綠正藍負）、R7 RAWGraphs 教學頁（CC BY-NC-SA 4.0 僅限非商業）、R8 kmandov 專案頁首（只拍到頁首，沒有實際圖表）、R9 kmandov 手繪風首圖（授權站方未標）、R10 Observable Plot 畫廊頁（未標授權）、R11 ggHoriPlot CRAN 頁、R12 ggHoriPlot 真實資料範例頁（單一桃色系、基準取最小值）、R13 latticeExtra 說明頁；模擬圖 S1 構造四步、S2 鏡射與 offset（圖內底註寫明各工具預設）、S3 2 帶與 4 帶（高度比 8：2：1）、S4 十二列監控牆（各列各自縮放）、S5 正負色帶與圖例、S6 常見誤讀、S7 每列 20 像素的折線小多圖與地平線、S8 基準選擇（圖內底註的「絕對股價」意思是「絕對數值」，與投資無關）；皆**模擬資料**、數字未核。對帳見 `ATTRIBUTION.md`。
+圖檔留在教圖／skill-pack（素材包 `images/`，21 張＝13 張真實／示意圖加 8 張模擬圖，圖說與教學稿逐字相同；教學稿原規劃的第 14 張真實圖〔Data Viz Catalogue 部落格截圖〕因沒拍到 Horizon 小節而未採用，所以是 21 張，不是 22 張），本 repo **不複製**任何圖。可對照的圖：R1 構造五步圖（CC BY-SA 4.0）、R2 Commons 多序列例圖（13 列、2010–2020 年；CC BY-SA 4.0）、R3 歐洲 29 國溫室氣體相對歐洲平均（含冰島、挪威、瑞士；CC BY-SA 4.0；基準是歐洲平均）、R4 Heer 論文第 1 圖（ACM 版權，僅教學示意）、R5 IDL 論文頁截圖、R6 Cubism 落地頁（綠正藍負）、R7 RAWGraphs 教學頁（CC BY-NC-SA 4.0 僅限非商業）、R8 kmandov 專案頁首（只拍到頁首，沒有實際圖表）、R9 kmandov 手繪風首圖（授權站方未標）、R10 Observable Plot 畫廊頁（未標授權）、R11 ggHoriPlot CRAN 頁、R12 ggHoriPlot 真實資料範例頁（單一桃色系、基準取最小值）、R13 latticeExtra 說明頁；模擬圖 S1 構造四步、S2 鏡射與 offset（圖內底註寫明各工具預設）、S3 2 帶與 4 帶（高度比 8：2：1）、S4 十二列監控牆（各列各自縮放）、S5 正負色帶與圖例、S6 常見誤讀、S7 每列 20 像素的折線小多圖與地平線、S8 基準選擇（圖內底註的「絕對股價」意思是「絕對數值」，與投資無關）；皆**模擬資料**、數字未核。對帳見 `ATTRIBUTION.md`。

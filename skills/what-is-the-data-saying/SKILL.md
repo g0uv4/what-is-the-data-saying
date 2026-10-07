@@ -14,7 +14,7 @@ metadata:
   short-description: "Which chart? How to make it. 資料在說什麼"
   author: g0uv4
   version: "0.3.31"
-  lineage: "納茲 - 資料視覺 teach-viz 教圖"
+  lineage: "maintainer-curated internal teaching notes（專案維護者依內部教學筆記整理）"
   license: MIT
 ---
 

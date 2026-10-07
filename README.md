@@ -4,7 +4,7 @@
 
 Paste a table or report. Get **which chart**, **why not the usual pie**, and **how to make it**.
 
-The differentiator is not another chart-chooser flowchart. It is **Nazh-grounded Taiwan zh-TW pedagogy** plus **69 named patterns** from real teach-viz lessons: 中文圖種名, 適不適合, 口述怎麼做.
+The differentiator is not another chart-chooser flowchart. It is **Taiwan zh-TW teaching-grade pedagogy** plus **69 named patterns** compiled from internal teaching notes: 中文圖種名, 適不適合, 口述怎麼做.
 
 [Install](#install-grok-build) · [30-second demo](#try-this-first) · [69 patterns](#69-named-patterns) · [Teams](COMMERCIAL.md) · [中文說明](#資料在說什麼)
 
@@ -94,13 +94,13 @@ The **core skill stays MIT**. No hosted login wall.
 | `examples/` | 69 patterns (when / recommend / avoid / checklist) |
 | `demos/` | Copy-paste first-run prompts |
 | `COMMERCIAL.md` | Team use cases |
-| `ATTRIBUTION.md` | Nazh teach-viz mapping |
+| `ATTRIBUTION.md` | Teaching-note → pattern mapping |
 
 Grow it: real report → was the pick right → new `examples/<slug>.md` + ATTRIBUTION row → `grok plugin update`.
 
 ## Attribution & license
 
-Pedagogy and pattern names come from **納茲 - 資料視覺** teach-viz lessons. This repo is an executable summary, **not** the full lesson texts. Keep [`ATTRIBUTION.md`](skills/what-is-the-data-saying/ATTRIBUTION.md) when you share.
+Examples and heuristics were compiled by the project maintainer from internal teaching notes (範例與啟發式由專案維護者依內部教學筆記整理), and each pattern ships with verification data. The original notes are not in this repo; this repo is an executable summary, **not** the full lesson texts. Keep [`ATTRIBUTION.md`](skills/what-is-the-data-saying/ATTRIBUTION.md) when you share.
 
 [MIT](LICENSE) · © 2026 g0uv4 · GitHub only (no Origin).
 
@@ -110,7 +110,7 @@ Pedagogy and pattern names come from **納茲 - 資料視覺** teach-viz lessons
 
 **開源核心的 Grok Build skill（v0.3.31）。** 丟進一張表或一份報表，它回答兩件事：**該畫哪種圖**、**怎麼做得出來**。
 
-和一般「圖表選擇器」的差別：對齊納茲教圖的台灣繁體中文教學——先給中文圖種名（英文名）、適不適合、口述怎麼做，再給工具。內建 **69 個具名 pattern**，不是示意三張長條圖。
+和一般「圖表選擇器」的差別：對齊內部教學筆記的台灣繁體中文教學——先給中文圖種名（英文名）、適不適合、口述怎麼做，再給工具。內建 **69 個具名 pattern**，不是示意三張長條圖。
 
 ### 安裝
 

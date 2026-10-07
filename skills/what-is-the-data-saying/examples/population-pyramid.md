@@ -54,4 +54,4 @@
 - https://www.amcharts.com/demos/population-pyramid/
 - https://population.un.org/wpp/
 
-圖檔與截圖留在教圖／skill-pack（`/workspace/skill-packs/2026-09-22-pm-pyramid/images/`，約 19 張），本 repo **不複製**大圖；對帳見 `ATTRIBUTION.md`。
+圖檔與截圖留在教圖／skill-pack（素材包 `images/`，約 19 張），本 repo **不複製**大圖；對帳見 `ATTRIBUTION.md`。

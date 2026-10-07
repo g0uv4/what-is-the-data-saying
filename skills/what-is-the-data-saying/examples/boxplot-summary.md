@@ -60,4 +60,4 @@
 
 鄰居 pattern：`violin-distribution.md`、`raincloud-combo.md`、`beeswarm-points.md`、`qq-plot.md`（要檢查形狀像不像某個參考分布時的分位數診斷）；`forest-plot.md`（箱子長度是資料分布，不是信賴區間；多項研究的估計與合併用森林圖）。
 
-圖檔與截圖留在教圖／skill-pack（`/workspace/skill-packs/2026-09-23-pm-boxplot/images/`，稿內嵌約 24 張），本 repo **不複製**大圖；對帳見 `ATTRIBUTION.md`。
+圖檔與截圖留在教圖／skill-pack（素材包 `images/`，稿內嵌約 24 張），本 repo **不複製**大圖；對帳見 `ATTRIBUTION.md`。

@@ -63,4 +63,4 @@
 
 鄰居 pattern：`correlation-scatter.md`、`connected-scatter.md`、`dot-density-map.md`（地理鄰居另見 heuristics 比例符號地圖列）。
 
-圖檔與截圖留在教圖／skill-pack（`/workspace/skill-packs/2026-09-24-am-bubble/images/`，稿內嵌約 24 張），本 repo **不複製**大圖；對帳見 `ATTRIBUTION.md`。
+圖檔與截圖留在教圖／skill-pack（素材包 `images/`，稿內嵌約 24 張），本 repo **不複製**大圖；對帳見 `ATTRIBUTION.md`。

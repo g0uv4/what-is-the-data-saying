@@ -1,6 +1,6 @@
 # web/ — 互動網頁 PoC（資料在說什麼？）
 
-把本 repo 的 skill（`skills/what-is-the-data-saying/`）變成一個**純前端單頁**：上傳或貼上 CSV → 自動判斷欄位型態 → 依資料形狀從 **49 個圖種 pattern** 推薦（排序＋理由）→ 可互動繪圖 → 顯示該圖種的教學 markdown。
+把本 repo 的 skill（`skills/what-is-the-data-saying/`）變成一個**純前端單頁**：上傳或貼上 CSV → 自動判斷欄位型態 → 依資料形狀從 **69 個圖種 pattern**（與 skill examples 同步） 推薦（排序＋理由）→ 可互動繪圖 → 顯示該圖種的教學 markdown。
 
 - 無後端、無建置步驟即可使用：HTML / CSS / 原生 JS，普通 `<script src>`（不用 ES module、不用 `fetch` 讀本機檔），所以 **直接雙擊 `web/index.html`（file://）就能跑**。
 - 唯一第三方依賴：Chart.js 4.5.1 UMD，已 vendor 在 `vendor/`（授權與版本見 `vendor/README.md`）。不用 CDN、不用日期 adapter（時間一律在 JS 內解析排序後用 category 軸）。
@@ -52,12 +52,12 @@ web/
 ├── index.html              單頁；依序載入下列 script
 ├── css/style.css           響應式版面（≥1000px 兩欄，窄螢幕單欄）
 ├── vendor/                 chart.umd.min.js + 授權 + 版本說明
-├── data/                   產生檔：content.js（49 篇 pattern md）、samples.js（15 個示範 CSV）
+├── data/                   產生檔：content.js（69 篇 pattern md）、samples.js（15 個示範 CSV）
 ├── build/build-content.mjs 產生 data/*.js
 ├── js/
 │   ├── csv.js              自寫 CSV 解析（引號、引號內逗號／換行、""、CRLF/CR、BOM、分隔符偵測、參差列）
 │   ├── types.js            欄位型態判斷：number / category / date / boolean / id；缺值、相異值、統計量
-│   ├── rules.js            49 圖種規則表 + 資料形狀偵測（computeShape）+ 評分引擎
+│   ├── rules.js            69 圖種規則表 + 資料形狀偵測（computeShape）+ 評分引擎
 │   ├── markdown.js         極小 markdown 渲染（先跳脫 HTML；只允許 http(s)/mailto 連結）
 │   ├── charts.js           繪圖器（Chart.js + 自繪 canvas）與純函式工具
 │   ├── i18n.js             繁中／英文字串

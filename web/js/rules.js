@@ -1,5 +1,5 @@
 /*
- * WIDS recommendation rules — data-driven table for all 49 patterns.
+ * WIDS recommendation rules — data-driven table for all patterns (69 as of v0.3.31).
  * Derived from skills/what-is-the-data-saying/references/chart-heuristics.md
  * (決策表 + 形狀 → 圖捷徑) and data-shape-checks.md (欄位角色 + 結構探測).
  *
@@ -315,7 +315,108 @@
     R('upset-sets', 'UpSet 集合圖', 'UpSet plot', {
       requires: { boolean: [3] }, base: 36, need: ['sets'],
       fields: { zh: '元素 + 多個布林成員欄', en: 'element + several boolean membership columns' },
-      why: { zh: '多集合交集 → UpSet（不要一堆 Venn）', en: 'Many set intersections → UpSet' } })
+      why: { zh: '多集合交集 → UpSet（不要一堆 Venn）', en: 'Many set intersections → UpSet' } }),
+    R('flame-graph', '火焰圖', 'Flame graph', {
+      requires: { label: [1], measure: [1] }, base: 18, need: ['hierarchy'],
+      prefer: ['nonNegative'], avoid: ['time', 'geo'],
+      fields: { zh: '呼叫堆疊路徑（或階層）+ 樣本計數', en: 'call-stack path (or hierarchy) + sample counts' },
+      why: { zh: '剖面熱路徑 → 火焰圖（教學）', en: 'Profile hot paths → flame graph (teach)' } }),
+    R('circos', 'Circos 環狀多軌', 'Circos', {
+      requires: { label: [2], measure: [1] }, base: 16, need: ['network'],
+      prefer: ['denseNetwork'], avoid: ['time'],
+      fields: { zh: '扇區／軌道／連線（多表）', en: 'sectors / tracks / links (multi-table)' },
+      why: { zh: '長軸多軌 + 區間對應 → Circos（教學）', en: 'Long axis + multi-track + links → Circos (teach)' } }),
+    R('volcano-plot', '火山圖', 'Volcano plot', {
+      requires: { measure: [2] }, base: 20, need: ['dense'],
+      prefer: ['manyNumeric'], avoid: ['time', 'geo', 'network'],
+      fields: { zh: '效應量（如 log2FC）+ 顯著性（−log10 p）', en: 'effect size (e.g. log2FC) + significance (−log10 p)' },
+      why: { zh: '大量特徵差異篩選 → 火山圖（教學）', en: 'Many-feature DE screen → volcano (teach)' } }),
+    R('manhattan-plot', '曼哈頓圖', 'Manhattan plot', {
+      requires: { label: [1], measure: [1] }, base: 18, need: ['dense'],
+      prefer: ['manyCats'], avoid: ['network', 'geo'],
+      fields: { zh: '染色體／位置 + p 值（全基因組摘要）', en: 'chromosome/position + p-values (GWAS summary)' },
+      why: { zh: '全基因組關聯掃描 → 曼哈頓圖（教學）', en: 'GWAS scan → Manhattan (teach)' } }),
+    R('ma-plot', 'MA 圖', 'MA plot', {
+      requires: { measure: [2] }, base: 20, need: ['sameUnitPair'],
+      prefer: ['dense', 'manyNumeric'], avoid: ['time', 'geo'],
+      fields: { zh: '平均表現 A + 對數倍數 M（兩條件）', en: 'mean expression A + log-fold M (two conditions)' },
+      why: { zh: '兩條件大量特徵比較 → MA 圖（教學）', en: 'Two-condition feature compare → MA (teach)' } }),
+    R('qq-plot', 'QQ 圖', 'Q–Q plot', {
+      requires: { measure: [1] }, base: 22, need: ['repeatedGroups|smallN'],
+      prefer: ['fewCats'], avoid: ['time', 'network', 'geo'],
+      fields: { zh: '連續數值（對理論分位或兩組）', en: 'continuous values (vs theoretical or two samples)' },
+      why: { zh: '分布形狀／常態檢查 → QQ 圖（教學）', en: 'Distribution shape check → Q–Q (teach)' } }),
+    R('bland-altman', 'Bland–Altman 圖', 'Bland–Altman plot', {
+      requires: { measure: [2] }, base: 22, need: ['sameUnitPair'],
+      prefer: ['smallN'], avoid: ['dense', 'time', 'geo', 'sizeVar'],
+      fields: { zh: '同批配對的兩種量測方法', en: 'paired measurements from two methods' },
+      why: { zh: '兩方法一致性 → Bland–Altman（教學）', en: 'Method agreement → Bland–Altman (teach)' } }),
+    R('locuszoom', 'LocusZoom 圖', 'LocusZoom plot', {
+      requires: { measure: [1], label: [1] }, base: 16, need: ['dense'],
+      prefer: ['manyNumeric'], avoid: ['network', 'geo'],
+      fields: { zh: '區間內標記位置 + 關聯強度（+ LD）', en: 'regional markers + association (+ LD)' },
+      why: { zh: '曼哈頓尖峰區間細讀 → LocusZoom（教學）', en: 'Zoom a GWAS peak → LocusZoom (teach)' } }),
+    R('pp-plot', 'P–P 圖', 'P–P plot', {
+      requires: { measure: [1] }, base: 18, need: ['repeatedGroups|smallN'],
+      prefer: ['fewCats'], avoid: ['time', 'network', 'geo'],
+      fields: { zh: '樣本累積機率 vs 指定參考分布', en: 'empirical CDF vs a fully specified reference' },
+      why: { zh: '分布適配輔助 → P–P 圖（教學）', en: 'Distribution fit aid → P–P (teach)' } }),
+    R('karyotype-ideogram', '核型／染色體帶型圖', 'Karyotype / ideogram', {
+      requires: { label: [1], measure: [1] }, base: 14, need: ['manyCats|dense'],
+      prefer: ['nonNegative'], avoid: ['time', 'network'],
+      fields: { zh: '染色體／帶型區間 + 註記', en: 'chromosome / band intervals + annotations' },
+      why: { zh: '染色體地圖示意 → 核型圖（教學）', en: 'Chromosome map → ideogram (teach)' } }),
+    R('forest-plot', '森林圖', 'Forest plot', {
+      requires: { label: [1], measure: [1] }, base: 24, need: ['oneRowPerCat'],
+      prefer: ['fewCats', 'fewRows'], avoid: ['time', 'geo', 'network', 'crossTab'],
+      fields: { zh: '研究／項目 + 效應量（+ 信賴區間）', en: 'study/item + effect (+ CI)' },
+      why: { zh: '多項研究效應＋區間 → 森林圖（教學）', en: 'Study effects + CIs → forest (teach)' } }),
+    R('horizon-chart', '地平線圖', 'Horizon chart', {
+      requires: { date: [1], label: [1], measure: [1] }, base: 22, need: ['manySeries|multiSeries'],
+      prefer: ['longSeries'], avoid: ['network', 'geo'],
+      fields: { zh: '時間 + 多序列 + 相對基準的數值', en: 'time + many series + values vs a baseline' },
+      why: { zh: '很多條時間序列緊湊比較 → 地平線圖（教學）', en: 'Many dense time series → horizon (teach)' } }),
+    R('pareto-chart', '柏拉圖', 'Pareto chart', {
+      requires: { label: [1], measure: [1] }, base: 28, need: ['oneRowPerCat', 'nonNegative'],
+      prefer: ['fewCats', 'manyCats'], avoid: ['time', 'geo', 'network', 'signed'],
+      fields: { zh: '類別 + 件數／金額（一類一列）', en: 'category + count/amount (one row each)' },
+      why: { zh: '聚焦少數主因 → 柏拉圖（教學）', en: 'Focus vital few → Pareto (teach)' } }),
+    R('control-chart', '管制圖', 'Control chart', {
+      requires: { measure: [1] }, base: 24, need: ['time|longSeries'],
+      prefer: ['smallN'], avoid: ['network', 'geo', 'crossTab'],
+      fields: { zh: '時間／子組序 + 製程統計量（+ 管制界限）', en: 'time/subgroup order + process statistic (+ limits)' },
+      why: { zh: '流程穩定性／異常偵測 → 管制圖（教學）', en: 'Process stability → control chart (teach)' } }),
+    R('lorenz-curve', '洛倫茲曲線', 'Lorenz curve', {
+      requires: { measure: [1] }, base: 20, need: ['nonNegative', 'oneRowPerCat|smallN'],
+      prefer: ['fewCats'], avoid: ['time', 'network', 'geo', 'signed'],
+      fields: { zh: '單位 + 非負可累計量（所得／財富等）', en: 'units + non-negative accumulable amounts' },
+      why: { zh: '分配不均（含基尼）→ 洛倫茲（教學）', en: 'Inequality (+ Gini) → Lorenz (teach)' } }),
+    R('marey-chart', '馬雷圖／列車運行圖', 'Marey chart', {
+      requires: { label: [1], measure: [1] }, base: 16, need: ['time|startEnd'],
+      prefer: ['multiSeries'], avoid: ['geo', 'network', 'crossTab'],
+      fields: { zh: '路線站點距離 + 車次時刻', en: 'route distance + vehicle timestamps' },
+      why: { zh: '時間－距離營運 → 馬雷圖（教學）', en: 'Time–distance ops → Marey (teach)' } }),
+    R('kaplan-meier-survival', 'Kaplan–Meier 存活曲線', 'Kaplan–Meier curve', {
+      requires: { measure: [1] }, base: 22, need: ['smallN|repeatedGroups'],
+      prefer: ['fewCats'], avoid: ['geo', 'network', 'crossTab'],
+      fields: { zh: '觀察時間 + 事件／設限狀態（+ 分組）', en: 'time-to-event + censor status (+ group)' },
+      why: { zh: '含設限的存活／流失 → KM 曲線（教學）', en: 'Survival with censoring → KM (teach)' } }),
+    R('swimmer-plot', '游泳圖', 'Swimmer plot', {
+      requires: { label: [1], measure: [1] }, base: 18, need: ['startEnd|smallN'],
+      prefer: ['fewCats', 'fewRows'], avoid: ['dense', 'network', 'geo', 'crossTab'],
+      fields: { zh: '個體 + 治療／觀察時段 + 事件標記', en: 'subject + on-treatment span + event marks' },
+      why: { zh: '小樣本療程時間線 → 游泳圖（教學）', en: 'Small-n treatment timelines → swimmer (teach)' } }),
+    R('lasagna-plot', '千層麵圖', 'Lasagna plot', {
+      requires: { label: [2], measure: [1] }, base: 20, need: ['crossTab'],
+      prefer: ['bigMatrix', 'time'], avoid: ['network', 'geo'],
+      fields: { zh: '個體 × 固定時間點的長表熱圖', en: 'subject × fixed time grid (long heatmap)' },
+      why: { zh: '多人同期序列總覽 → 千層麵圖（教學）', en: 'Many subjects × time → lasagna (teach)' } }),
+    R('recurrence-plot', '遞迴圖', 'Recurrence plot', {
+      requires: { measure: [1] }, base: 16, need: ['longSeries|time'],
+      prefer: ['smallN'], avoid: ['network', 'geo', 'crossTab'],
+      fields: { zh: '等間隔時間序列（狀態是否重現）', en: 'evenly spaced series (state recurrence)' },
+      why: { zh: '狀態是否回到從前 → 遞迴圖（教學）', en: 'State recurrence → recurrence plot (teach)' } })
+
   ];
 
   // ---------------------------------------------------------------- shape

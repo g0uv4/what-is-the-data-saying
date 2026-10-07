@@ -13,10 +13,10 @@ const load = (f) => T.profileTable(parseCSV(fs.readFileSync(path.join(skill, 'ex
 const rec = (f) => R.recommend(load(f));
 const topIds = (f, n) => rec(f).results.filter((r) => r.eligible).slice(0, n).map((r) => r.id);
 
-test('rule table covers exactly the 49 pattern files', () => {
+test('rule table covers exactly the pattern files', () => {
   const files = fs.readdirSync(path.join(skill, 'examples')).filter((f) => f.endsWith('.md') && f !== 'README.md').map((f) => f.slice(0, -3)).sort();
   const ids = R.RULES.map((r) => r.id).sort();
-  assert.equal(ids.length, 49);
+  assert.equal(ids.length, files.length);
   assert.deepEqual(ids, files);
 });
 
@@ -58,7 +58,7 @@ for (const [file, id, within] of expectations) {
 }
 
 test('simple charts beat novel ones on plain category + value data', () => {
-  const ids = topIds('lollipop-categories.csv', 49);
+  const ids = topIds('lollipop-categories.csv', 99);
   assert.ok(ids.indexOf('categorical-comparison') < ids.indexOf('circular-bar'));
   assert.ok(!ids.includes('choropleth-map'));
   assert.ok(!ids.includes('time-series-trend'));

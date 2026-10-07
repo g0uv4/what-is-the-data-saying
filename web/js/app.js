@@ -27,7 +27,11 @@
   // ------------------------------------------------------------ static text
   function applyStatic() {
     document.documentElement.lang = lang() === 'en' ? 'en' : 'zh-Hant-TW';
-    Array.prototype.forEach.call(document.querySelectorAll('[data-i18n]'), function (n) { n.textContent = t(n.getAttribute('data-i18n')); });
+    var nPat = (CONTENT && CONTENT.patternCount) || Object.keys((CONTENT && CONTENT.patterns) || {}).length || 0;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-i18n]'), function (n) {
+      var key = n.getAttribute('data-i18n');
+      n.textContent = (key === 'subtitle' || key === 'showAll') ? t(key, { n: nPat }) : t(key);
+    });
     var sel = $('sampleSelect'), cur = sel.value;
     clear(sel);
     sel.appendChild(el('option', { value: '' }, t('samplePick')));

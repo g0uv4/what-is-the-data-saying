@@ -83,8 +83,10 @@ test('zh noData and footer chart-request link stay on their own i18n nodes', () 
     html,
     /<a href="https:\/\/github\.com\/g0uv4\/what-is-the-data-saying\/issues\/new\?template=chart-request\.yml" target="_blank" rel="noopener noreferrer" data-i18n="chartRequest">/
   );
-  assert.match(html, /<p data-i18n="footer"><\/p>/);
-  assert.doesNotMatch(html, /<p data-i18n="footer">[\s\S]*<a /);
+  const footerP = html.match(/<p data-i18n="footer">([\s\S]*?)<\/p>/);
+  assert.ok(footerP, 'footer privacy sentence has its own paragraph');
+  assert.equal(footerP[1], '');
+  assert.match(html, /<footer class="site-footer">[\s\S]*<p data-i18n="footer"><\/p>[\s\S]*<a href="https:\/\/github\.com\/g0uv4\/what-is-the-data-saying\/issues\/new\?template=chart-request\.yml"/);
 });
 
 test('hidden sheet field stays hidden despite .field { display:flex }', () => {

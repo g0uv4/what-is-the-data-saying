@@ -39,3 +39,8 @@ test('file input accepts CSV, Excel and JSON; SheetJS is self-hosted', () => {
   assert.match(html, /script-src 'self'/);
   assert.doesNotMatch(html, /script-src [^"]*'unsafe-eval'/);
 });
+
+test('hidden sheet field stays hidden despite .field { display:flex }', () => {
+  const css = fs.readFileSync(path.join(__dirname, '..', 'css', 'style.css'), 'utf8');
+  assert.match(css, /\.field\[hidden\]\s*\{\s*display:\s*none\s*!important/);
+});

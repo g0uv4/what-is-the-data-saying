@@ -48,9 +48,21 @@ try {
     if (/8787|\/v1\//.test(url)) errors.push('[network] file:// called API ' + url);
   });
 
+  async function resetGuestQuota() {
+    await page.evaluate(() => {
+      Object.keys(localStorage).forEach((key) => {
+        if (key.indexOf('wids_guest_uploads_') === 0) localStorage.removeItem(key);
+      });
+    });
+  }
+
   await page.goto(indexUrl);
+  await resetGuestQuota();
   await page.setInputFiles('#fileInput', resolve(fixtures, 'dates-multisheet.xlsx'));
   await expectChart(page, 'xlsx-sales');
+  const previewText = await page.textContent('#preview');
+  if (!previewText.includes('2026-10-07')) errors.push('xlsx preview missing ISO date 2026-10-07');
+  if (/\b46302\b/.test(previewText)) errors.push('xlsx preview leaked Excel serial 46302');
   const sheetVisible = await page.isVisible('#sheetSelect');
   const sheetOpts = await page.$$eval('#sheetSelect option', (opts) => opts.map((o) => o.value));
   results.push({ name: 'sheet-dropdown', visible: sheetVisible, options: sheetOpts });
@@ -60,11 +72,14 @@ try {
   await page.waitForFunction(() => document.querySelector('#dataStatus')?.textContent.includes('人口'));
   await expectChart(page, 'xlsx-sheet2');
 
+  await resetGuestQuota();
   await page.setInputFiles('#fileInput', resolve(fixtures, 'nested.json'));
   await expectChart(page, 'json-nested');
+  if (await page.isVisible('#sheetSelect')) errors.push('sheet dropdown still visible after JSON upload');
   const cols = await page.$$eval('#preview th', (ths) => ths.map((th) => th.textContent));
   if (!cols.includes('meta.city')) errors.push('nested JSON did not flatten meta.city: ' + cols.join());
 
+  await resetGuestQuota();
   await page.setInputFiles('#fileInput', resolve(fixtures, 'big5.csv'));
   await expectChart(page, 'csv-big5');
   const big5Status = await page.textContent('#dataStatus');
@@ -72,12 +87,14 @@ try {
     errors.push('Big5 CSV did not show Chinese headers');
   }
 
+  await resetGuestQuota();
   await page.setInputFiles('#fileInput', resolve(fixtures, 'semicolon.csv'));
   await expectChart(page, 'csv-semicolon');
 
   await page.goto(indexUrl);
+  await resetGuestQuota();
   await page.click('#pasteBox summary');
-  await page.fill('#pasteArea', JSON.stringify({ data: [{ name: 'X', meta: { city: 'Keelung' } }] }));
+  await page.fill('#pasteArea', JSON.stringify({ data: [{ name: 'X', meta: { city: 'Keelung' }, n: 7 }] }));
   await page.click('#parseBtn');
   await expectChart(page, 'paste-json');
   const pasteCols = await page.$$eval('#preview th', (ths) => ths.map((th) => th.textContent));

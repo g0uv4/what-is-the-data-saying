@@ -10,6 +10,8 @@
  *   need      hints that must ALL hold ('a|b' = either). Each met need +NEED_BONUS.
  *   prefer    bonus hints (+PREFER_BONUS each)
  *   avoid     penalty hints (−AVOID_PENALTY each), shown as caveats
+ *   acceptsEntityKey  optional. The chart draws or accumulates one row per individual, so a unique id column can serve as the entity key.
+ *   minUnits  optional. Minimum units per series: the row count for one-row-per-unit tables, or, for a category × category table, the distinct count of the larger crossed category (units per curve). Below it the rule is ineligible; no score bonus.
  *   base      prior (simple, direct charts first — "優先選能直接回答問題的最簡單圖")
  *   fields    zh / en description of the required field combination
  *   why       zh / en one-line rationale (from the heuristics tables)
@@ -39,6 +41,8 @@
     rankOverTime:       { zh: '時間 + 實體 + 可排名度量', en: 'time + entity + rankable measure' },
     compositionOverTime:{ zh: '時間 + 類別 + 非負量（組成隨時間）', en: 'time + category + non-negative amount' },
     oneRowPerCat:       { zh: '一個類別一列 + 數值', en: 'one row per category + value' },
+    // General because any table can hold one individual per row, independent of which chart is chosen.
+    oneRowPerEntity:    { zh: '每列一個個體（id 欄每列不同）', en: 'one row per entity (unique id column)' },
     fewCats:            { zh: '類別少（≤ 6）', en: 'few categories (≤ 6)' },
     manyCats:           { zh: '類別多（> 12）', en: 'many categories (> 12)' },
     repeatedGroups:     { zh: '每組多筆觀測（類別 + 連續數值）', en: 'several observations per group' },
@@ -401,11 +405,14 @@
       fields: { zh: '時間／子組序 + 製程統計量（+ 管制界限）', en: 'time/subgroup order + process statistic (+ limits)' },
       why: { zh: '流程穩定性／異常偵測 → 管制圖（教學）', en: 'Process stability → control chart (teach)' } }),
     R('lorenz-curve', '洛倫茲曲線', 'Lorenz curve', {
-      requires: { measure: [1] }, base: 20, need: ['nonNegative', 'oneRowPerCat|smallN'],
+      // A Lorenz curve accumulates one non-negative amount per identified unit (one row per named category, or category × unit cells); with fewer than 10 units per curve it is a few coarse steps and the Gini small-sample correction n/(n−1) exceeds 11%; 2 groups × 6 units would still be two 6-step curves, so count units per curve, not rows.
+      requires: { measure: [1] }, base: 20, need: ['nonNegative', 'oneRowPerCat|crossTab'], minUnits: 10,
       prefer: ['fewCats'], avoid: ['time', 'network', 'geo', 'signed', 'hierarchy', 'monotoneStages'],
       fields: { zh: '單位 + 非負可累計量（所得／財富等）', en: 'units + non-negative accumulable amounts' },
       why: { zh: '分配不均（含基尼）→ 洛倫茲（教學）', en: 'Inequality (+ Gini) → Lorenz (teach)' } }),
     R('marey-chart', '馬雷圖／列車運行圖', 'Marey chart', {
+      // General because the chart draws one row per individual, so a unique id column can be the entity key.
+      acceptsEntityKey: true,
       requires: { label: [1], measure: [1] }, base: 16, need: ['time|startEnd'],
       prefer: ['multiSeries'], avoid: ['geo', 'network', 'crossTab'],
       fields: { zh: '路線站點距離 + 車次時刻', en: 'route distance + vehicle timestamps' },
@@ -416,11 +423,15 @@
       fields: { zh: '觀察時間 + 事件／設限狀態（+ 分組）', en: 'time-to-event + censor status (+ group)' },
       why: { zh: '含設限的存活／流失 → KM 曲線（教學）', en: 'Survival with censoring → KM (teach)' } }),
     R('swimmer-plot', '游泳圖', 'Swimmer plot', {
+      // General because the chart draws one row per individual, so a unique id column can be the entity key.
+      acceptsEntityKey: true,
       requires: { label: [1], measure: [1] }, base: 18, need: ['startEnd|smallN'],
       prefer: ['fewCats', 'fewRows'], avoid: ['dense', 'network', 'geo', 'crossTab'],
       fields: { zh: '個體 + 治療／觀察時段 + 事件標記', en: 'subject + on-treatment span + event marks' },
       why: { zh: '小樣本療程時間線 → 游泳圖（教學）', en: 'Small-n treatment timelines → swimmer (teach)' } }),
     R('lasagna-plot', '千層麵圖', 'Lasagna plot', {
+      // General because the chart draws one row per individual, so a unique id column can be the entity key.
+      acceptsEntityKey: true,
       requires: { label: [2], measure: [1] }, base: 20, need: ['crossTab'],
       prefer: ['bigMatrix', 'time'], avoid: ['network', 'geo'],
       fields: { zh: '個體 × 固定時間點的長表熱圖', en: 'subject × fixed time grid (long heatmap)' },
@@ -636,7 +647,7 @@
 
   /**
    * Compute shape features from a WIDS_TYPES.profileTable() result.
-   * Returns { counts, rows, hints:{name:true}, roles:{...} }.
+   * Returns { counts, rows, units, hints:{name:true}, roles:{...} }.
    */
   function computeShape(profile) {
     var cols = profile.columns;
@@ -700,6 +711,9 @@
     var catsByCard = cat.filter(function (c) { return c.distinct >= 2; }).sort(function (a, b) { return a.distinct - b.distinct; });
     var uniqueLabel = labels.filter(function (c) { return c.distinct === rows && rows >= 2 && c.missing === 0; })[0];
     if (uniqueLabel && measures.length >= 1) { h.oneRowPerCat = true; roles.label = uniqueLabel.name; }
+    // General because a complete unique id column is one individual per row in any table, not a chart-specific key.
+    var uniqueId = ids.filter(function (c) { return c.distinct === rows && rows >= 2 && c.missing === 0; })[0];
+    if (uniqueId && measures.length >= 1) { h.oneRowPerEntity = true; roles.entity = uniqueId.name; }
     var primaryCat = uniqueLabel && uniqueLabel.type === 'category' ? uniqueLabel : catsByCard[0];
     if (primaryCat) {
       roles.category = primaryCat.name;
@@ -726,6 +740,7 @@
     }
 
     // cross tab (two category columns + value)
+    var crossUnits;
     if (catsByCard.length >= 2 && measures.length >= 1) {
       var a = catsByCard[0], b = catsByCard[1];
       var pairs = {};
@@ -734,6 +749,7 @@
       var cells = a.distinct * b.distinct;
       if (nPairs / rows >= 0.8 && nPairs / cells >= 0.5) {
         h.crossTab = true;
+        crossUnits = b.distinct;
         roles.crossTab = [b.name, a.name];
         if (cells >= 20) h.bigMatrix = true;
         if (a.distinct >= 3 && a.distinct <= 8 && b.distinct >= 3 && b.distinct <= 8) h.smallCross = true;
@@ -897,7 +913,7 @@
       if (Math.abs(sum - 100) <= 1.5 || Math.abs(sum - 1) <= 0.015) h.partOfWhole = true;
     }
 
-    return { counts: counts, rows: rows, hints: h, roles: roles };
+    return { counts: counts, rows: rows, units: (h.crossTab ? crossUnits : rows), hints: h, roles: roles };
   }
 
   // ---------------------------------------------------------------- engine
@@ -906,6 +922,8 @@
     Object.keys(rule.requires || {}).forEach(function (k) {
       var rng = rule.requires[k];
       var have = counts[k] || 0;
+      // General because an id names one individual, so only opted-in charts may count it toward the label requirement.
+      if (rule.acceptsEntityKey && k === 'label') have = counts.label + (counts.id > 0 ? 1 : 0);
       if (have < rng[0] || (rng[1] !== undefined && have > rng[1])) miss.push(k + '≥' + rng[0]);
     });
     return miss;
@@ -929,15 +947,24 @@
     lang = lang === 'en' ? 'en' : 'zh';
     var out = RULES.map(function (rule, idx) {
       var missing = meetsRequires(rule, shape.counts);
-      var needMissing = rule.need.filter(function (n) { return !hintOk(n, shape.hints); });
+      // General because a row floor only rejects a chart that needs enough units; it adds no score.
+      var units = shape.units !== undefined ? shape.units : shape.rows;
+      if (rule.minUnits && units < rule.minUnits) missing.push(lang === 'zh' ? ('單位數 ≥ ' + rule.minUnits) : ('units ≥ ' + rule.minUnits));
+      // General because a unique id is one named unit per row. A per-rule view lets opted-in charts treat that as oneRowPerCat without changing the shared shape.
+      var hints = shape.hints;
+      if (rule.acceptsEntityKey && hints.oneRowPerEntity && !hints.oneRowPerCat) {
+        hints = Object.create(hints);
+        hints.oneRowPerCat = true;
+      }
+      var needMissing = rule.need.filter(function (n) { return !hintOk(n, hints); });
       var eligible = !missing.length && !needMissing.length;
       var score = rule.base;
       var reasons = [rule.why[lang]];
       var caveats = [];
       if (eligible) {
         rule.need.forEach(function (n) { score += NEED_BONUS; reasons.push('✓ ' + hintLabel(n, lang)); });
-        rule.prefer.forEach(function (n) { if (hintOk(n, shape.hints)) { score += PREFER_BONUS; if (reasons.indexOf('+ ' + hintLabel(n, lang)) < 0) reasons.push('+ ' + hintLabel(n, lang)); } });
-        rule.avoid.forEach(function (n) { if (hintOk(n, shape.hints)) { score -= AVOID_PENALTY; caveats.push(hintLabel(n, lang)); } });
+        rule.prefer.forEach(function (n) { if (hintOk(n, hints)) { score += PREFER_BONUS; if (reasons.indexOf('+ ' + hintLabel(n, lang)) < 0) reasons.push('+ ' + hintLabel(n, lang)); } });
+        rule.avoid.forEach(function (n) { if (hintOk(n, hints)) { score -= AVOID_PENALTY; caveats.push(hintLabel(n, lang)); } });
       } else {
         score = 0;
       }

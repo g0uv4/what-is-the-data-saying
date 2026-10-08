@@ -6,7 +6,7 @@
  * Each rule:
  *   id        pattern slug (= examples/<id>.md)
  *   zh / en   chart name
- *   requires  min/max column counts by type. 'label' = category|id.
+ *   requires  min/max column counts by type. 'label' = category columns with ≥ 2 distinct values.
  *   need      hints that must ALL hold ('a|b' = either). Each met need +NEED_BONUS.
  *   prefer    bonus hints (+PREFER_BONUS each)
  *   avoid     penalty hints (−AVOID_PENALTY each), shown as caveats
@@ -29,6 +29,7 @@
   // Labels used to explain a recommendation.
   var HINTS = {
     time:               { zh: '有日期／時間欄', en: 'has a date/time column' },
+    seqAxis:            { zh: '等間隔遞增的整數軸（時間點／順序）', en: 'evenly spaced integer axis (time / order)' },
     longSeries:         { zh: '時間點 ≥ 24 個（長序列）', en: '≥ 24 time points (long series)' },
     cycle:              { zh: '長序列且跨多個穩定週期', en: 'long series spanning several stable cycles' },
     daily:              { zh: '每日一值、日數 ≥ 60', en: 'daily values, ≥ 60 days' },
@@ -74,6 +75,7 @@
     monotoneStages:     { zh: '有序階段且通過量單調不增', en: 'ordered stages with monotone non-increasing counts' },
     pairedPeriods:      { zh: '恰好兩期／兩條件的同單位欄', en: 'exactly two same-unit period/condition columns' },
     target:             { zh: '有目標／預算欄', en: 'has target / budget column' },
+    refLines:           { zh: '有固定值的數值欄（中心線／界限／目標）', en: 'constant numeric column (centre / limit / target line)' },
     startEnd:           { zh: '開始 + 結束日期', en: 'start + end dates' },
     sets:               { zh: '≥ 3 個布林欄（集合成員）', en: '≥ 3 boolean membership columns' },
     manyNumeric:        { zh: '≥ 3 個連續數值欄', en: '≥ 3 continuous numeric columns' },
@@ -102,7 +104,8 @@
       render: [{ r: 'line' }] }),
     R('correlation-scatter', '散點圖', 'Scatter plot', {
       requires: { measure: [2] }, base: 56,
-      prefer: ['smallN'], avoid: ['dense', 'wideSeries'],
+      // General because rows on any even-step axis are one series, not independent observations.
+      prefer: ['smallN'], avoid: ['dense', 'wideSeries', 'seqAxis'],
       fields: { zh: '2 數值（+ 類別上色）', en: '2 numbers (+ category colour)' },
       why: { zh: '兩數值關係 → 散點', en: 'Two numeric variables → scatter' },
       render: [{ r: 'scatter' }] }),
@@ -312,7 +315,8 @@
       render: [{ r: 'boxplot' }, { r: 'histogram' }] }),
     R('bubble-chart', '氣泡圖', 'Bubble chart', {
       requires: { measure: [3] }, base: 42, need: ['sizeVar'],
-      prefer: ['sizeNamed', 'smallN'], avoid: ['dense', 'geo'],
+      // General because rows on any even-step axis are one series, not independent observations.
+      prefer: ['sizeNamed', 'smallN'], avoid: ['dense', 'geo', 'seqAxis'],
       fields: { zh: 'X 數值 + Y 數值 + 非負大小（面積映射）', en: 'x + y + non-negative size (area)' },
       why: { zh: '2 數值 + 第三量級 → 氣泡（面積映射）', en: '2 numbers + a size measure → bubble' },
       render: [{ r: 'scatter', preset: { useSize: true } }] }),
@@ -391,8 +395,9 @@
       fields: { zh: '類別 + 件數／金額（一類一列）', en: 'category + count/amount (one row each)' },
       why: { zh: '聚焦少數主因 → 柏拉圖（教學）', en: 'Focus vital few → Pareto (teach)' } }),
     R('control-chart', '管制圖', 'Control chart', {
-      requires: { measure: [1] }, base: 24, need: ['time|longSeries'],
-      prefer: ['smallN'], avoid: ['network', 'geo', 'crossTab'],
+      // General because any even-step axis orders a sequence like time, and any constant column is only a reference line.
+      requires: { measure: [1] }, base: 24, need: ['time|longSeries|seqAxis'],
+      prefer: ['smallN', 'refLines'], avoid: ['network', 'geo', 'crossTab'],
       fields: { zh: '時間／子組序 + 製程統計量（+ 管制界限）', en: 'time/subgroup order + process statistic (+ limits)' },
       why: { zh: '流程穩定性／異常偵測 → 管制圖（教學）', en: 'Process stability → control chart (teach)' } }),
     R('lorenz-curve', '洛倫茲曲線', 'Lorenz curve', {
@@ -421,7 +426,8 @@
       fields: { zh: '個體 × 固定時間點的長表熱圖', en: 'subject × fixed time grid (long heatmap)' },
       why: { zh: '多人同期序列總覽 → 千層麵圖（教學）', en: 'Many subjects × time → lasagna (teach)' } }),
     R('recurrence-plot', '遞迴圖', 'Recurrence plot', {
-      requires: { measure: [1] }, base: 16, need: ['longSeries|time'],
+      // General because any even-step axis orders a sequence like time, not a special column name.
+      requires: { measure: [1] }, base: 16, need: ['longSeries|time|seqAxis'],
       prefer: ['smallN'], avoid: ['network', 'geo', 'crossTab'],
       fields: { zh: '等間隔時間序列（狀態是否重現）', en: 'evenly spaced series (state recurrence)' },
       why: { zh: '狀態是否回到從前 → 遞迴圖（教學）', en: 'State recurrence → recurrence plot (teach)' } }),
@@ -579,6 +585,55 @@
     return measure.values[0] > measure.values[rows - 1];
   }
 
+  /** { step, distinct, runs } or null. Nulls skipped; the column name is not used. */
+  function detectEvenStepAxis(values) {
+    var seq = [], i, v, seen, uniq, step, runs, runStart, prev, diff, d0, global;
+    if (!values) return null;
+    for (i = 0; i < values.length; i++) {
+      v = values[i];
+      if (v === null || v === undefined) continue;
+      if (typeof v !== 'number' || !isFinite(v) || Math.floor(v) !== v) return null;
+      seq.push(v);
+    }
+    if (seq.length < 6) return null;
+
+    d0 = seq[1] - seq[0];
+    if (d0 !== 0) {
+      global = true;
+      for (i = 2; i < seq.length; i++) {
+        if (seq[i] - seq[i - 1] !== d0) { global = false; break; }
+      }
+      if (global) return { step: d0, distinct: seq.length, runs: 1 };
+    }
+
+    seen = {};
+    uniq = [];
+    for (i = 0; i < seq.length; i++) {
+      if (!seen.hasOwnProperty(seq[i])) { seen[seq[i]] = 1; uniq.push(seq[i]); }
+    }
+    if (uniq.length < 6) return null;
+    uniq.sort(function (a, b) { return a - b; });
+    step = uniq[1] - uniq[0];
+    if (!(step > 0)) return null;
+    for (i = 2; i < uniq.length; i++) {
+      if (uniq[i] - uniq[i - 1] !== step) return null;
+    }
+
+    runs = 1;
+    runStart = seq[0];
+    prev = seq[0];
+    for (i = 1; i < seq.length; i++) {
+      diff = seq[i] - prev;
+      if (diff === step) { prev = seq[i]; continue; }
+      if (seq[i] > runStart) return null;
+      runs++;
+      runStart = seq[i];
+      prev = seq[i];
+    }
+    if (runs < 2) return null;
+    return { step: step, distinct: uniq.length, runs: runs };
+  }
+
   /**
    * Compute shape features from a WIDS_TYPES.profileTable() result.
    * Returns { counts, rows, hints:{name:true}, roles:{...} }.
@@ -588,7 +643,9 @@
     var rows = profile.rowCount;
     var by = function (t) { return cols.filter(function (c) { return c.type === t; }); };
     var num = by('number'), cat = by('category'), date = by('date'), bool = by('boolean'), ids = by('id');
-    var labels = cat.concat(ids);
+    // Constant categories are ignored; id columns are not labels.
+    cat = cat.filter(function (c) { return c.distinct >= 2; });
+    var labels = cat;
     var counts = { number: num.length, measure: 0, category: cat.length, date: date.length, boolean: bool.length, id: ids.length, label: labels.length };
     var h = {};
     var roles = {};
@@ -599,10 +656,25 @@
     var lat = num.filter(function (c) { return RX.lat.test(c.name); })[0];
     var lon = num.filter(function (c) { return RX.lon.test(c.name); })[0];
     if (lat && lon) h.latlon = true;
-    // "measure" numerics exclude coordinates / grid / cycle helpers
-    var measures = num.filter(function (c) { return c !== gridRow && c !== gridCol && c !== lat && c !== lon && !RX.cycleCol.test(c.name); });
+    // Even-step integer axis: value pattern only; name breaks ties, it does not qualify.
+    // General because a single repeated number is a reference level in any table, not a measure or an axis.
+    var SEQ_AXIS_NAME = /^(t|time|step|sample|index|idx|seq|subgroup|point|frame|obs|week|day|month|hour)$/i;
+    var seqBest = null, si, sc, sAxis, sNamed;
+    for (si = 0; si < num.length; si++) {
+      sc = num[si];
+      if (sc === gridRow || sc === gridCol || sc === lat || sc === lon || sc.distinct <= 1) continue;
+      sAxis = detectEvenStepAxis(sc.values);
+      if (!sAxis) continue;
+      sNamed = SEQ_AXIS_NAME.test(sc.name);
+      if (!seqBest || (sNamed && !seqBest.named)) seqBest = { col: sc, axis: sAxis, named: sNamed };
+    }
+    // "measure" numerics exclude coordinates / grid / cycle helpers / the chosen seq axis
+    var measures = num.filter(function (c) {
+      return c !== gridRow && c !== gridCol && c !== lat && c !== lon && !RX.cycleCol.test(c.name) && (!seqBest || c !== seqBest.col) && !(c.distinct <= 1);
+    });
     roles.measures = measures.map(function (c) { return c.name; });
     counts.measure = measures.length;
+    if (num.some(function (c) { return c.distinct <= 1; }) && measures.length) h.refLines = true;
     var allNonNeg = measures.length > 0 && measures.every(function (c) { return !c.stats || c.stats.min >= 0; });
     if (allNonNeg) h.nonNegative = true;
     if (measures.some(function (c) { return c.stats && c.stats.min < 0 && c.stats.max > 0; })) h.signed = true;
@@ -617,6 +689,11 @@
       if (g === 'day' && d >= 60) h.daily = true;
       if (h.longSeries && ((g === 'month' && d >= 36) || (g === 'day' && d >= 730) || ((g === 'datetime' || g === 'time') && d >= 72))) h.cycle = true;
       if (d === 2) h.twoPeriods = true;
+    }
+    if (seqBest) {
+      h.seqAxis = true;
+      roles.seqAxis = seqBest.col.name;
+      if (!mainDate && seqBest.axis.distinct >= 24) h.longSeries = true;
     }
 
     // categories sorted by cardinality
@@ -886,5 +963,5 @@
 
   function byId(id) { return RULES.filter(function (r) { return r.id === id; })[0] || null; }
 
-  return { RULES: RULES, HINTS: HINTS, computeShape: computeShape, evaluate: evaluate, recommend: recommend, byId: byId };
+  return { RULES: RULES, HINTS: HINTS, computeShape: computeShape, evaluate: evaluate, recommend: recommend, byId: byId, detectEvenStepAxis: detectEvenStepAxis };
 });

@@ -11,6 +11,8 @@
  * The 8 spectrogram files are web/build/sample-exclude.json: not embedded in
  * samples.js, but still scored here (top1-snapshot-spectrogram.json).
  * Those eight values were re-captured the same way.
+ * Values were re-captured again after the recommender began treating
+ * even-step integer columns as an order axis and id columns as non-categories.
  */
 const test = require('node:test');
 const assert = require('node:assert/strict');

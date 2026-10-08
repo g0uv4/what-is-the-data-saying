@@ -1,0 +1,10 @@
+[
+  "sample-spectrogram-s1-anatomy.csv",
+  "sample-spectrogram-s2-four-patterns.csv",
+  "sample-spectrogram-s3-window-tradeoff.csv",
+  "sample-spectrogram-s4-linear-vs-db.csv",
+  "sample-spectrogram-s5-linear-vs-mel.csv",
+  "sample-spectrogram-s6-motor-fault.csv",
+  "sample-spectrogram-s7-spectrum-vs-spectrogram.csv",
+  "sample-spectrogram-s8-steps.csv"
+]

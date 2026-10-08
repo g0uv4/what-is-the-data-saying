@@ -18,11 +18,17 @@ test('generated content.js has all pattern markdown files', () => {
   for (const k of Object.keys(p)) assert.match(p[k].md, /^# Pattern: /, k);
 });
 
-test('generated samples.js matches examples/data/*.csv byte-for-byte (after newline normalisation)', () => {
+test('generated samples.js embeds everything except the exclusion list', () => {
   const w = loadGlobal('data/samples.js');
   const dir = path.join(web, '..', 'skills', 'what-is-the-data-saying', 'examples', 'data');
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.csv')).sort();
-  assert.deepEqual(Array.from(w.WIDS_SAMPLES, (s) => s.file), files);
+  const exclude = JSON.parse(fs.readFileSync(path.join(web, 'build', 'sample-exclude.json'), 'utf8'));
+  const excludeSet = new Set(exclude);
+  const all = fs.readdirSync(dir).filter((f) => f.endsWith('.csv')).sort();
+  for (const name of exclude) assert.ok(all.includes(name), 'exclusion list names a file that is not in examples/data: ' + name);
+  const files = all.filter((f) => !excludeSet.has(f));
+  const embedded = Array.from(w.WIDS_SAMPLES, (s) => s.file);
+  assert.deepEqual(embedded, files);
+  for (const name of exclude) assert.ok(!embedded.includes(name), 'excluded CSV was embedded: ' + name);
   for (const s of w.WIDS_SAMPLES) assert.equal(s.text, fs.readFileSync(path.join(dir, s.file), 'utf8').replace(/^\uFEFF/, '').replace(/\r\n?/g, '\n'), s.file);
 });
 

@@ -1,0 +1,10 @@
+{
+  "sample-spectrogram-s1-anatomy.csv": null,
+  "sample-spectrogram-s2-four-patterns.csv": null,
+  "sample-spectrogram-s3-window-tradeoff.csv": null,
+  "sample-spectrogram-s4-linear-vs-db.csv": null,
+  "sample-spectrogram-s5-linear-vs-mel.csv": null,
+  "sample-spectrogram-s6-motor-fault.csv": null,
+  "sample-spectrogram-s7-spectrum-vs-spectrogram.csv": null,
+  "sample-spectrogram-s8-steps.csv": "lorenz-curve"
+}

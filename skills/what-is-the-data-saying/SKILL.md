@@ -3,7 +3,7 @@ name: what-is-the-data-saying
 description: >
   Given a table or report, recommend the chart and how to make it (資料在說什麼).
   Taiwan zh-TW teaching-grade pedagogy compiled by the project maintainer（專案維護者）
-  from internal teaching notes, plus 69 named patterns. Use when the user
+  from internal teaching notes, plus 70 named patterns. Use when the user
   pastes CSV / Excel / a table / 報表 and asks which chart, how to visualize,
   這份資料該怎麼畫, 推薦圖表, 視覺化, or runs /what-is-the-data-saying.
 when-to-use: >
@@ -14,7 +14,7 @@ argument-hint: paste a table or describe the report
 metadata:
   short-description: "Which chart? How to make it. 資料在說什麼"
   author: g0uv4
-  version: "0.3.31"
+  version: "0.3.32"
   lineage: "maintainer-curated internal teaching notes（專案維護者依內部教學筆記整理）"
   license: MIT
 ---
@@ -112,6 +112,7 @@ pattern：examples/<slug>.md（若有）
 | 每位受試者（病人、客戶、設備）一條觀察到的時間區間，想看每個人撐多久、何時有反應、為什麼停止、誰到截止日還在，人數約 50 以內 | 游泳圖（`examples/swimmer-plot.md`；一人一條橫棒、棒長＝治療或追蹤時間；符號標反應與事件、棒尾箭頭＝截止仍在；依長度排序成階梯；註明資料截止日，晚入組者棒短不是失敗；超過約 50 人改 Kaplan–Meier 或分面；≠ 泳道流程圖、≠ 甘特圖〔計畫時程〕、≠ 腫瘤學瀑布圖／蜘蛛圖；繁中無公認譯名、命名起源未能確認） |
 | 很多個體（病人、受試者、國家）在同一組等距時間點各有一個量測值或類別，想同時看個人（誰一直偏高、誰中途退出）與整群（何時一起變化、哪幾期很多人一起缺） | 千層麵圖（lasagna plot，暫譯；`examples/lasagna-plot.md`；一列一人、一欄一時間點；排序方式寫在圖上；單色漸層、各面板同一範圍；缺值另標、不補 0；每列約 10 像素以上〔Wicklin 2016〕，人多分組、抽樣或改比例版；下方加平均折線；≠ 義大利麵圖、≠ 一般熱圖〔欄不是時間〕、≠ 游泳圖〔事件與持續時間〕） |
 | 一條（或幾條）等距時間序列，想知道何時回到以前的相近狀態、有沒有週期／停滯／突變／漂移，或比較兩條序列的同步與時間差 | 遞迴圖（recurrence plot，暫譯；`examples/recurrence-plot.md`；時間×時間的黑白方陣，距離 ≤ ε 塗黑；圖上寫明門檻、嵌入維度與延遲；需要數字再做 RQA；交叉遞迴圖比兩條序列；決定性高不是規律的充分條件；中文譯名暫譯；≠ 一般熱圖、≠ 千層麵圖、≠ 鄰接矩陣；非商業授權來源只連不嵌） |
+| 聲音、振動、腦波等快速振盪訊號，想看什麼時間出現哪些頻率、各多強 | 頻譜圖（spectrogram；`examples/spectrogram.md`；時間 × 頻率 × 顏色＝分貝；圖上寫六項：取樣率、窗長、窗函數、重疊、分貝基準、頻率刻度；0 分貝基準要寫明；避免彩虹色；≠ 頻譜〔沒有時間軸〕、≠ 三維瀑布圖〔waterfall plot，暫譯；不是財務瀑布圖〕、≠ 小波量值圖〔縱軸是尺度〕；R13 只連不嵌；R7 是 CC BY 3.0 不是公有領域） |
 | 多類別交叉／市場區隔×組成 | 馬賽克（獨立性）；商用變寬堆疊用馬里梅可；平行集合；集合交集用 UpSet |
 | 網路關係 | 力導向／弧線／鄰接矩陣／蜂巢圖；有階層+葉連線用 HEB；稠密成毛球、每條邊要可辨識或依類型分塊用 BioFabric（生物織布圖，暫譯） |
 | 地理量 | 等值區域圖（choropleth；先正規化，勿用總量填色）；計數疏密用點密度圖；總量規模用比例符號地圖；每區等權重、怕大區搶眼用圖塊地圖（一區一格）；面積＝資料用面積變形地圖；起迄用流向地圖 |

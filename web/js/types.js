@@ -14,7 +14,8 @@
   var BOOL_TRUE = { 'true': 1, 'yes': 1, 'y': 1, 't': 1, '1': 1, '是': 1, '有': 1, '真': 1 };
   var BOOL_FALSE = { 'false': 1, 'no': 1, 'n': 1, 'f': 1, '0': 1, '否': 1, '無': 1, '假': 1 };
   var YEAR_NAME = /^(year|yr|yyyy|fiscal_?year|年|年度|年份|民國年)$/i;
-  var ID_NAME = /(^id$|_id$|^id_|^uid$|^uuid$|^key$|編號|代碼|代號|序號|(^|_)code$)/i;
+  var ID_NAME = /(^id$|_id$|^id_|^uid$|^uuid$|^key$|編號|代碼|代號|序號|(^|_)code$|^subject$|^participant$|^patient$)/i;
+  var CODE_LIKE = /^[A-Za-z]{1,4}[-_]?\d{1,8}$/;
 
   function isMissing(v) {
     if (v === null || v === undefined) return true;
@@ -147,10 +148,15 @@
       return info;
     }
 
-    // text: id vs category
-    if (distinct === n && (nameIsId || n >= 20)) {
-      info.type = 'id'; info.reason = nameIsId ? 'id-named unique text' : 'every value unique';
-      return info;
+    // text: id vs category. Id-named still needs every value distinct.
+    if (distinct === n && nameIsId) {
+      info.type = 'id'; info.reason = 'id-named unique text'; return info;
+    }
+    if (distinct === n && n >= 5 && nonMissing.every(function (v) { return CODE_LIKE.test(v); })) {
+      info.type = 'id'; info.reason = 'unique code-like text'; return info;
+    }
+    if (distinct === n && n >= 20) {
+      info.type = 'id'; info.reason = 'every value unique'; return info;
     }
     if (distinct > 50 && distinct / n > 0.8) {
       info.type = 'id'; info.reason = 'high-cardinality text'; return info;

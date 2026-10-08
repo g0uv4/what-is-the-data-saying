@@ -1,10 +1,10 @@
 {
-  "sample-spectrogram-s1-anatomy.csv": "hexbin-density",
+  "sample-spectrogram-s1-anatomy.csv": "control-chart",
   "sample-spectrogram-s2-four-patterns.csv": "ma-plot",
-  "sample-spectrogram-s3-window-tradeoff.csv": "hexbin-density",
-  "sample-spectrogram-s4-linear-vs-db.csv": "hexbin-density",
-  "sample-spectrogram-s5-linear-vs-mel.csv": "hexbin-density",
-  "sample-spectrogram-s6-motor-fault.csv": "hexbin-density",
-  "sample-spectrogram-s7-spectrum-vs-spectrogram.csv": "ma-plot",
-  "sample-spectrogram-s8-steps.csv": "correlation-scatter"
+  "sample-spectrogram-s3-window-tradeoff.csv": "control-chart",
+  "sample-spectrogram-s4-linear-vs-db.csv": "control-chart",
+  "sample-spectrogram-s5-linear-vs-mel.csv": "control-chart",
+  "sample-spectrogram-s6-motor-fault.csv": "control-chart",
+  "sample-spectrogram-s7-spectrum-vs-spectrogram.csv": "hexbin-density",
+  "sample-spectrogram-s8-steps.csv": "control-chart"
 }

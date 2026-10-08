@@ -13,6 +13,8 @@
  * Those eight values were re-captured the same way.
  * Values were re-captured again after the recommender began treating
  * even-step integer columns as an order axis and id columns as non-categories.
+ * Four values were re-captured after the Lorenz rule began requiring named
+ * units (one row per category or category × unit cells) and at least 10 units per curve.
  */
 const test = require('node:test');
 const assert = require('node:assert/strict');

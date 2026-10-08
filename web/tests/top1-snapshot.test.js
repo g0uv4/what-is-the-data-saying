@@ -2,11 +2,15 @@
 /**
  * #1 eligible pattern for every sample-*.csv.
  * Search: repo-root recursive sample-*.csv (skip node_modules and .git).
- * 78 original files (web-poc 3222d7b) + 8 spectrogram teaching CSVs = 86 total.
+ * 78 original files + 8 spectrogram teaching CSVs = 86 total.
+ * The 78-file set was first captured at web-poc 3222d7b; values were
+ * re-captured after parseCSV began skipping leading `#` comment lines
+ * (the old values reflected comment text parsed as the header).
  * All currently live in skills/what-is-the-data-saying/examples/data/.
  * The four demo fixtures under tests/fixtures/demos/ are not sample-*.csv.
  * The 8 spectrogram files are web/build/sample-exclude.json: not embedded in
  * samples.js, but still scored here (top1-snapshot-spectrogram.json).
+ * Those eight values were re-captured the same way.
  */
 const test = require('node:test');
 const assert = require('node:assert/strict');
@@ -39,7 +43,7 @@ function top1Id(file) {
   return first ? first.id : null;
 }
 
-test('78 original sample-*.csv keep web-poc 3222d7b #1; extras are exactly the 8 excluded spectrogram files', () => {
+test('78-file set (first captured at web-poc 3222d7b; values re-captured after leading # comment lines are skipped) keeps its #1; extras are exactly the 8 excluded spectrogram files', () => {
   const files = listSampleCsv(repoRoot, []).sort();
   const names = files.map((f) => path.basename(f));
   const byName = new Map(files.map((f) => [path.basename(f), f]));
@@ -60,7 +64,7 @@ test('78 original sample-*.csv keep web-poc 3222d7b #1; extras are exactly the 8
     const got = top1Id(byName.get(name));
     if (got !== snap[name]) flips.push({ file: name, expected: snap[name], got: got });
   }
-  assert.deepEqual(flips, [], 'sample #1 flipped vs 3222d7b: ' + JSON.stringify(flips));
+  assert.deepEqual(flips, [], 'sample #1 flipped vs re-captured snapshot: ' + JSON.stringify(flips));
   assert.deepEqual(Object.keys(specSnap).sort(), exclude);
   const specFlips = [];
   for (const name of exclude) {

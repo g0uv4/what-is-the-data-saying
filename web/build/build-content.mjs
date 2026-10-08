@@ -136,7 +136,14 @@ const samplePattern = {
   'sample-recurrence-s8-steps.csv': 'recurrence-plot'
 };
 
-const samples = readdirSync(dataDir).filter((f) => f.endsWith('.csv')).sort().map((f) => ({
+// These spectrogram teaching CSVs are long raw signals (~1.2 MB together) and are
+// not embedded in the page's demo data, to keep data/samples.js small; they remain
+// in the skill's examples/data folder.
+const SAMPLE_EXCLUDE = new Set(JSON.parse(readFileSync(join(here, 'sample-exclude.json'), 'utf8')));
+
+const csvNames = readdirSync(dataDir).filter((f) => f.endsWith('.csv')).sort();
+const excludedCount = csvNames.filter((f) => SAMPLE_EXCLUDE.has(f)).length;
+const samples = csvNames.filter((f) => !SAMPLE_EXCLUDE.has(f)).map((f) => ({
   file: f,
   path: `skills/what-is-the-data-saying/examples/data/${f}`,
   desc: sampleDesc[f] || '',
@@ -154,4 +161,4 @@ const content = {
 };
 writeFileSync(join(outDir, 'content.js'), banner('examples/*.md') + 'window.WIDS_CONTENT = ' + JSON.stringify(content, null, 1) + ';\n');
 writeFileSync(join(outDir, 'samples.js'), banner('examples/data/*.csv') + 'window.WIDS_SAMPLES = ' + JSON.stringify(samples, null, 1) + ';\n');
-console.log(`content.js: ${content.patternCount} patterns; samples.js: ${samples.length} CSVs (v${plugin.version})`);
+console.log(`content.js: ${content.patternCount} patterns; samples.js: ${samples.length} CSVs, ${excludedCount} excluded (v${plugin.version})`);

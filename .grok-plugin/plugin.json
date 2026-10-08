@@ -1,7 +1,7 @@
 {
   "name": "what-is-the-data-saying",
-  "version": "0.3.31",
-  "description": "Given a table or report: which chart, and how to make it. Taiwan zh-TW teaching-grade pedagogy plus 69 named patterns, compiled by the project maintainer（專案維護者）from internal teaching notes.",
+  "version": "0.3.32",
+  "description": "Given a table or report: which chart, and how to make it. Taiwan zh-TW teaching-grade pedagogy plus 70 named patterns, compiled by the project maintainer（專案維護者）from internal teaching notes.",
   "author": {
     "name": "g0uv4",
     "url": "https://github.com/g0uv4"

@@ -1,5 +1,5 @@
 /*
- * WIDS recommendation rules — data-driven table for all patterns (69 as of v0.3.31).
+ * WIDS recommendation rules — data-driven table for all patterns (70 as of v0.3.32).
  * Derived from skills/what-is-the-data-saying/references/chart-heuristics.md
  * (決策表 + 形狀 → 圖捷徑) and data-shape-checks.md (欄位角色 + 結構探測).
  *
@@ -424,7 +424,12 @@
       requires: { measure: [1] }, base: 16, need: ['longSeries|time'],
       prefer: ['smallN'], avoid: ['network', 'geo', 'crossTab'],
       fields: { zh: '等間隔時間序列（狀態是否重現）', en: 'evenly spaced series (state recurrence)' },
-      why: { zh: '狀態是否回到從前 → 遞迴圖（教學）', en: 'State recurrence → recurrence plot (teach)' } })
+      why: { zh: '狀態是否回到從前 → 遞迴圖（教學）', en: 'State recurrence → recurrence plot (teach)' } }),
+    R('spectrogram', '頻譜圖', 'Spectrogram', {
+      requires: { measure: [1] }, base: 14, need: ['longSeries'],
+      prefer: ['time'], avoid: ['network', 'geo', 'crossTab'],
+      fields: { zh: '等間隔取樣的長訊號（取樣點 + 振幅）', en: 'evenly sampled long signal (sample index + amplitude)' },
+      why: { zh: '頻率成分隨時間變化 → 頻譜圖（教學）', en: 'Frequency content over time → spectrogram (teach)' } })
 
   ];
 

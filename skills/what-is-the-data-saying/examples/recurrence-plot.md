@@ -64,7 +64,7 @@
 |---|---|---|---|
 | 距離圖／距離矩陣熱圖 | 時間 × 時間 | 顏色＝距離（未套門檻） | 套門檻才變黑白遞迴圖（R8、R16） |
 | 龐加萊圖（Poincaré plot） | 一個時間點 | 橫＝這一拍、縱＝下一拍 | 延遲嵌入相空間的一種投影；遞迴圖是把「哪些時間點靠很近」攤平成方陣 |
-| 頻譜圖（spectrogram） | 時間 × 頻率 | 顏色＝該頻率能量 | 假設週期性震盪並做頻域分解；遞迴圖不需先知道週期，斜線間距會自己告訴你 |
+| 頻譜圖（[`spectrogram.md`](spectrogram.md)） | 時間 × 頻率 | 顏色＝該頻率能量 | 假設週期性震盪並做頻域分解；遞迴圖不需先知道週期，斜線間距會自己告訴你 |
 | 一般熱圖（[`matrix-heatmap.md`](matrix-heatmap.md)） | 列 × 欄任一表格 | 顏色＝數值 | 遞迴圖是特殊的時間×時間、二值化熱圖 |
 | 千層麵圖（[`lasagna-plot.md`](lasagna-plot.md)） | 個體 × 時間 | 顏色＝該個體該時間的量測值 | 列是個體不是時間；千層麵圖看每人隨時間的值，遞迴圖看一條序列何時回到相近狀態 |
 | 鄰接矩陣（[`adjacency-matrix.md`](adjacency-matrix.md)） | 節點 × 節點 | 有沒有連線 | 列與欄是同一批節點，不是時間 |
@@ -198,7 +198,7 @@
 21. [@AndrejSpiridon4](https://x.com/AndrejSpiridon4/status/2072558094828105739)
 22. [@FrontPhysiol](https://x.com/FrontPhysiol/status/2100187627437899798)
 
-鄰居 pattern：`matrix-heatmap.md`（一般熱圖；遞迴圖是時間×時間的二值化特例）、`lasagna-plot.md`（列＝個體、欄＝時間的量測色帶；遞迴圖兩軸都是時間）、`adjacency-matrix.md`（列欄是節點不是時間）、`time-series-trend.md`（看數值高低與趨勢；遞迴圖看「像不像以前」）、`horizon-chart.md`（折疊折線看多條序列形狀）。
+鄰居 pattern：`matrix-heatmap.md`（一般熱圖；遞迴圖是時間×時間的二值化特例）、`lasagna-plot.md`（列＝個體、欄＝時間的量測色帶；遞迴圖兩軸都是時間）、`adjacency-matrix.md`（列欄是節點不是時間）、`time-series-trend.md`（看數值高低與趨勢；遞迴圖看「像不像以前」）、`horizon-chart.md`（折疊折線看多條序列形狀）、`spectrogram.md`（時間 × 頻率、顏色＝能量；遞迴圖不需先知道週期）。
 
 ## 圖檔與授權（不複製，只連結）
 

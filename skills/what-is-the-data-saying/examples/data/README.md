@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖與遞迴圖各附 8 組 CSV 與 8 支自檢 .py）
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖與頻譜圖各附 8 組 CSV 與 8 支自檢 .py）
 
 來自專案維護者整理、已審的 skill pack。**非真實產業資料；數字未核。**
 
@@ -155,8 +155,24 @@
 | `sample-recurrence-s7-cross-recurrence-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「遞迴圖資料與自檢腳本」 | 同上 |
 | `sample-recurrence-s8-steps.csv` | 遞迴圖虛構資料（S8；8 個讀數製作步驟；平均 13.50、標準差 1.50；13 黑／49 格＝26.5%；第 1 行為 `#` 說明；數字未核） | `../recurrence-plot.md` |
 | `sample-recurrence-s8-steps-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「遞迴圖資料與自檢腳本」 | 同上 |
+| `sample-spectrogram-s1-anatomy.csv` | 頻譜圖虛構資料（S1；縮小版：帶限重取樣 8000→4000 赫茲、8000 列、114864 位元組；窗 256 點仍 64 毫秒、移動 64 點；窗數 122、頻率格 129、間隔 15.625 赫茲；最亮格 437.5 赫茲；1203.125 赫茲高於 −20 分貝的窗中心 0.8–1.408 秒；第 1 行為 `#` 說明、無每列 data_status；數字未核） | `../spectrogram.md` |
+| `sample-spectrogram-s1-anatomy-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「頻譜圖資料與自檢腳本」 | 同上 |
+| `sample-spectrogram-s2-four-patterns.csv` | 頻譜圖虛構資料（S2；縮小版：截取第 6400–9599 點、3200 列、145960 位元組；窗數 47；啁啾 1 秒最亮格 1593.75 赫茲、敲擊窗中心 1.0 秒、諧波 10 條；第 1 行為 `#` 說明；數字未核） | `../spectrogram.md` |
+| `sample-spectrogram-s2-four-patterns-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「頻譜圖資料與自檢腳本」 | 同上 |
+| `sample-spectrogram-s3-window-tradeoff.csv` | 頻譜圖虛構資料（S3；縮小版：截取第 0–11263 點、11264 列、164854 位元組；窗長 64／512／4096 點的窗數 701／85／8；凹陷 0.0／61.6、29.0／0.0、76.4／0.0 分貝；第 1 行為 `#` 說明；數字未核） | `../spectrogram.md` |
+| `sample-spectrogram-s3-window-tradeoff-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「頻譜圖資料與自檢腳本」 | 同上 |
+| `sample-spectrogram-s4-linear-vs-db.csv` | 頻譜圖虛構資料（S4；縮小版：截取第 4096–12287 點、8192 列、123619 位元組；窗數 61；−40.0 與 −60.0 分貝、線性份額 0.0001；第 1 行為 `#` 說明；數字未核） | `../spectrogram.md` |
+| `sample-spectrogram-s4-linear-vs-db-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「頻譜圖資料與自檢腳本」 | 同上 |
+| `sample-spectrogram-s5-linear-vs-mel.csv` | 頻譜圖虛構資料（S5；縮小版：取樣率仍 16000 赫茲、截取第 16000–28799 點、12800 列、204142 位元組；窗數 97；1000 赫茲＝1000.0 梅爾、8000 赫茲＝2840.0 梅爾；12.5%／35.2%；開頭最亮格 187.5 赫茲；第 1 行為 `#` 說明；數字未核） | `../spectrogram.md` |
+| `sample-spectrogram-s5-linear-vs-mel-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「頻譜圖資料與自檢腳本」 | 同上 |
+| `sample-spectrogram-s6-motor-fault.csv` | 頻譜圖虛構資料（S6；縮小版：帶限重取樣 2000→250 赫茲、15000 列、217651 位元組；窗 256 點仍 1.024 秒；窗數 116、頻率格 129、間隔約 0.977 赫茲；107.422 赫茲、中位數 −53.0、35.84 秒、最後一窗 −11.3 分貝；第 1 行為 `#` 說明；數字未核） | `../spectrogram.md` |
+| `sample-spectrogram-s6-motor-fault-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「頻譜圖資料與自檢腳本」 | 同上 |
+| `sample-spectrogram-s7-spectrum-vs-spectrogram.csv` | 頻譜圖虛構資料（S7；縮小版：帶限重取樣 8000→4000 赫茲、8000 列、193794 位元組；窗 256、移動 64、窗數 122；平均頻譜 400／1200 赫茲相差 0.0／0.0 分貝；第 1 行為 `#` 說明；數字未核） | `../spectrogram.md` |
+| `sample-spectrogram-s7-spectrum-vs-spectrogram-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「頻譜圖資料與自檢腳本」 | 同上 |
+| `sample-spectrogram-s8-steps.csv` | 頻譜圖虛構資料（S8；與素材包逐位元相同、64 列、2993 位元組；7 窗、9 格；各窗最亮 125／125／125／187.5／250／250／250 赫茲；第 4 窗 −5.6／−5.5 分貝；保留 data_status；第 1 行為 `#` 說明；數字未核） | `../spectrogram.md` |
+| `sample-spectrogram-s8-steps-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「頻譜圖資料與自檢腳本」 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -555,3 +571,36 @@ python3 sample-recurrence-s7-cross-recurrence-selfcheck.py   # 其餘同理，�
 預期每支逐項印出 `PASS｜…`，最後一行 `RESULT: PASS（N 項通過、0 項失敗）`（v0.3.31 上架前實跑，結束碼 0）。
 
 **以實際計數為準**（本 repo 另以 pandas／numpy 獨立重算，與 selfcheck 一致，未發現素材包文字與 CSV 不一致）：(1) 虛構資料，**數字未核**；(2) S1 第 70／119 點（0-based index）四捨五入到小數兩位為 0.45／0.62，距離 0.17 ≤ ε＝0.3；(3) S2 隨機漫步決定性 79.3% > 白雜訊 25.2%——決定性高不是規律的充分條件；(4) S3 同一序列三個門檻遞迴率 3.4%／18.8%／65.7%；(5) S5 斜線高峰落在 50／100／150（週期 50 的倍數）；(6) S7 真實時間差 10 點，錯開 10 的對角線黑格比例 85.5%、錯開 0 只有 11.0%；(7) S8 平均 13.50、母體標準差 1.50，m＝2、τ＝1、ε＝0.5 時 7 狀態、13／49＝26.5%。
+
+## 頻譜圖資料與自檢腳本 `sample-spectrogram-s1-…` 到 `sample-spectrogram-s8-…`
+
+**收錄哪些：** 素材包 `2026-10-08-am-spectrogram` 有 8 份虛構時間域訊號（S1–S8，各對應一張模擬圖）和 8 支自檢腳本；素材包沒有指定哪一份給 repo，所以 **8 組全部收錄**（共 16 個檔）。素材包的 `draw_spectrogram.py`（畫模擬圖）與 `export_samples.py`（匯出 CSV）**沒有收**。
+
+**檔名：** 素材包檔名本來就有 `spectrogram` 前綴，與本 repo `examples/data/` 既有檔案**沒有撞名**，所以**沒有改名**。S1–S7 是縮小版，**不是**與素材包逐位元相同；**S8 與素材包逐位元相同**（`cmp` 核過）。每支自檢以明確檔名讀 CSV（`read_cols("sample-spectrogram-sN-….csv")`，從腳本所在資料夾讀），沒有萬用字元；只用 Python 標準函式庫（自寫週期型漢寧窗與基數 2 的快速傅立葉轉換，不靠 numpy）。
+
+**縮小方式：** 素材包 8 個 CSV 合計 12,452,663 位元組（約 12.5 MB；S6 單獨 5,916,292 位元組，約 5.9 MB）。本 repo 的 8 個 CSV 合計 **1,167,877 位元組（約 1140.5 KiB）**，單檔最大是 S6 的 217,651 位元組（約 212.5 KiB，不到 220 KB）。帶限重取樣＝整段做快速傅立葉轉換、丟掉新奈奎斯特頻率以上的成分、再反轉換（等於理想低通），然後每隔若干點留一點。截取的檔保留原取樣點編號。
+
+| 檔 | 列數 | CSV 位元組 | 縮小方式與設定 |
+|---|---:|---:|---|
+| S1 `sample-spectrogram-s1-anatomy.csv` | 8000 | 114864 | 帶限重取樣 8000→4000 赫茲（每 2 點留 1 點，整段）。窗 256 點（仍是 64 毫秒）、移動 64 點（16 毫秒）。窗數仍 122、頻率格間隔仍 15.625 赫茲；頻率格 257→129。欄位 `sample,x` |
+| S2 `sample-spectrogram-s2-four-patterns.csv` | 3200 | 145960 | 取樣率仍 8000 赫茲，截取第 6400–9599 點（0.8–1.2 秒）。窗數 47（全長是 247）。欄位 `sample,pure_1000hz,chirp_200_3000hz,click_1s,harmonics_300hz` |
+| S3 `sample-spectrogram-s3-window-tradeoff.csv` | 11264 | 164854 | 取樣率仍 8000 赫茲，截取第 0–11263 點（0–1.408 秒）。窗長 64／512／4096 點的窗數是 701／85／8。凹陷算法用到的窗都還在，所以凹陷分貝與全長相同。欄位 `sample,x` |
+| S4 `sample-spectrogram-s4-linear-vs-db.csv` | 8192 | 123619 | 取樣率仍 8000 赫茲，截取第 4096–12287 點（0.512–1.536 秒）。窗數 61。欄位 `sample,x` |
+| S5 `sample-spectrogram-s5-linear-vs-mel.csv` | 12800 | 204142 | 取樣率**維持 16000 赫茲**（12.5%＝1000 ÷ 8000 靠它），截取第 16000–28799 點（1.0–1.8 秒）。窗數 97。全長的「開頭基頻約 150 赫茲」在這段變成「截取起點約 200 赫茲（150 ＋ 100 × 1.0 ÷ 2）；300 赫茲以下最亮格是 187.5 赫茲」。欄位 `sample,x` |
+| S6 `sample-spectrogram-s6-motor-fault.csv` | 15000 | 217651 | 帶限重取樣 2000→250 赫茲（先去掉 125 赫茲以上，每 8 點留 1 點）。窗 256 點（仍是 1.024 秒）、移動 128 點。窗數仍 116、頻率格間隔仍約 0.977 赫茲；頻率格 1025→129。欄位 `sample,x` |
+| S7 `sample-spectrogram-s7-spectrum-vs-spectrogram.csv` | 8000 | 193794 | 帶限重取樣 8000→4000 赫茲。窗 256 點、移動 64 點，窗數 122。欄位 `sample,signal_a,signal_b` |
+| S8 `sample-spectrogram-s8-steps.csv` | 64 | 2993 | **與素材包逐位元相同**，沒有再縮小。欄位 `sample,x,data_status` |
+
+自檢腳本位元組：S1 4961、S2 5570、S3 6251、S4 4902、S5 5584、S6 5358、S7 5725、S8 5420。
+
+**CSV 格式：** 第 1 行是 `# 虛構資料，數字未核｜…`。S1–S7 **沒有**每列的 `data_status` 欄（列數上千，虛構標記放在第 1 行；跟較早的 MA 圖、LocusZoom 樣本把標記放在檔頭的做法相同）。S8 仍保留 `data_status`。縮小後的訊號值以約 6 位有效數字寫入（不補尾端的 0，所以有的格子看起來不到 6 位）；S8 是未縮小的正弦取樣，位數較多（例如 √2／2 寫成 0.707106781187）。
+
+```bash
+cd skills/what-is-the-data-saying/examples/data
+python3 sample-spectrogram-s1-anatomy-selfcheck.py
+python3 sample-spectrogram-s6-motor-fault-selfcheck.py   # 其餘同理，共 8 支
+```
+
+預期每支逐項印出 `PASS｜…`，最後一行 `RESULT: PASS（N 項通過、0 項失敗）`（**v0.3.32 上架前實跑，結束碼 0**）。實跑通過項數：S1 10、S2 11、S3 22、S4 8、S5 11、S6 15、S7 9、S8 14。
+
+**以實際計數為準**（自檢從縮小檔重算，課程稿的關鍵讀數不變；只有格子數，以及 S5 的開頭基頻檢查，跟全長訊號不同。沒有另外用獨立程式重算頻譜，也沒有重跑沒有收進本 repo 的 `draw_spectrogram.py`／`export_samples.py`）：(1) 虛構資料，**數字未核**；(2) S1 最亮格 437.5 赫茲，1203.125 赫茲那一格高於 −20 分貝的窗中心是 0.8–1.408 秒；(3) S2 啁啾在 1 秒最亮格 1593.75 赫茲（理論 1600），敲擊最亮窗中心 1.0 秒，諧波 10 條；(4) S3 窗 8／64／512 毫秒的凹陷是 0.0／61.6、29.0／0.0、76.4／0.0 分貝；(5) S4 −40.0 與 −60.0 分貝、線性份額 0.0001；(6) S5 自檢印 `開頭 8 窗基頻 187.5 赫茲（理論 200，差不到兩格）`，不是全長訊號的約 150 赫茲；另確認 1.2–1.6 秒、5000–7000 赫茲的嘶聲比其他時間亮 6 分貝以上（實跑差距 8.6 分貝）；1000 赫茲＝1000.0 梅爾、8000 赫茲＝2840.0 梅爾，1000 赫茲以下高度線性 12.5%、梅爾 35.2%；(7) S6 固定線 29.5／59.0／88.5／120 赫茲，新成分落在 107.422 赫茲；0–30 秒中位數 −53.0 分貝，第一個高出中位數 10 分貝的窗中心是 35.84 秒，最後一窗 −11.3 分貝；107 ÷ 29.5 ≈ 3.6，不是整數倍；(8) S7 兩條平均頻譜在 400 與 1200 赫茲相差 0.0／0.0 分貝；(9) S8 各窗最亮 125／125／125／187.5／250／250／250 赫茲，第 4 窗 −5.6／−5.5 分貝、最亮 187.5 赫茲。

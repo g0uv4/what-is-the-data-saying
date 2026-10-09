@@ -68,7 +68,7 @@
 | 一般熱圖（[`matrix-heatmap.md`](matrix-heatmap.md)） | 列 × 欄任一表格 | 顏色＝數值 | 遞迴圖是特殊的時間×時間、二值化熱圖 |
 | 千層麵圖（[`lasagna-plot.md`](lasagna-plot.md)） | 個體 × 時間 | 顏色＝該個體該時間的量測值 | 列是個體不是時間；千層麵圖看每人隨時間的值，遞迴圖看一條序列何時回到相近狀態 |
 | 鄰接矩陣（[`adjacency-matrix.md`](adjacency-matrix.md)） | 節點 × 節點 | 有沒有連線 | 列與欄是同一批節點，不是時間 |
-| 自相關圖 | 一個時間差 | 高度＝相關係數 | S5 右邊「每條斜線黑格比例」很像自相關，但遞迴圖還保留「是哪一段時間在重複」 |
+| 自相關圖（[`autocorrelation-plot.md`](autocorrelation-plot.md)） | 一個時間差 | 高度＝相關係數 | S5 右邊「每條斜線黑格比例」很像自相關，但遞迴圖還保留「是哪一段時間在重複」 |
 | 折線／時序（[`time-series-trend.md`](time-series-trend.md)） | 一個時間點 | 高度＝數值 | 看數值高低與趨勢；遞迴圖看「像不像以前」 |
 | 地平線圖（[`horizon-chart.md`](horizon-chart.md)） | 一條時間序列 | 把折線折疊上色 | 仍是數值隨時間的形狀，不是時間×時間的相似矩陣 |
 
@@ -198,7 +198,7 @@
 21. [@AndrejSpiridon4](https://x.com/AndrejSpiridon4/status/2072558094828105739)
 22. [@FrontPhysiol](https://x.com/FrontPhysiol/status/2100187627437899798)
 
-鄰居 pattern：`matrix-heatmap.md`（一般熱圖；遞迴圖是時間×時間的二值化特例）、`lasagna-plot.md`（列＝個體、欄＝時間的量測色帶；遞迴圖兩軸都是時間）、`adjacency-matrix.md`（列欄是節點不是時間）、`time-series-trend.md`（看數值高低與趨勢；遞迴圖看「像不像以前」）、`horizon-chart.md`（折疊折線看多條序列形狀）、`spectrogram.md`（時間 × 頻率、顏色＝能量；遞迴圖不需先知道週期）。
+鄰居 pattern：`matrix-heatmap.md`（一般熱圖；遞迴圖是時間×時間的二值化特例）、`lasagna-plot.md`（列＝個體、欄＝時間的量測色帶；遞迴圖兩軸都是時間）、`adjacency-matrix.md`（列欄是節點不是時間）、`time-series-trend.md`（看數值高低與趨勢；遞迴圖看「像不像以前」）、`horizon-chart.md`（折疊折線看多條序列形狀）、`spectrogram.md`（時間 × 頻率、顏色＝能量；遞迴圖不需先知道週期）、`autocorrelation-plot.md`（把所有成對時間差濃縮成單一係數；遞迴圖還保留是哪一段在重複）。
 
 ## 圖檔與授權（不複製，只連結）
 

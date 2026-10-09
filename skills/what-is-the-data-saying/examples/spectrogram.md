@@ -223,7 +223,7 @@
 21. [@kcimc](https://x.com/kcimc/status/2105081448160227678)
 22. [@AnimalBattStats](https://x.com/AnimalBattStats/status/2105687005401137322)
 
-鄰居 pattern：`matrix-heatmap.md`（一般熱圖；頻譜圖是頻率 × 時間窗的特例，格子是算出來的）、`lasagna-plot.md`（列＝個體、可以重排；頻譜圖列＝頻率、不能調）、`horizon-chart.md`（單一數值的折疊色帶）、`recurrence-plot.md`（時間 × 時間的相似方陣；不必先知道週期）、`calendar-heatmap.md`、`spiral-plot.md`（先假設週期再排版）、`streamgraph-composition.md`（人定類別、用厚度）、`control-chart.md`（盯單一數值）、`contour-density.md`（等值線，不是連續色）、`waterfall-bridge.md`（財務瀑布圖，不是三維瀑布圖）、`swimmer-plot.md`（提及腫瘤學瀑布圖，也不是三維瀑布圖）。
+鄰居 pattern：`matrix-heatmap.md`（一般熱圖；頻譜圖是頻率 × 時間窗的特例，格子是算出來的）、`lasagna-plot.md`（列＝個體、可以重排；頻譜圖列＝頻率、不能調）、`horizon-chart.md`（單一數值的折疊色帶）、`recurrence-plot.md`（時間 × 時間的相似方陣；不必先知道週期）、`calendar-heatmap.md`、`spiral-plot.md`（先假設週期再排版）、`streamgraph-composition.md`（人定類別、用厚度）、`control-chart.md`（盯單一數值）、`contour-density.md`（等值線，不是連續色）、`waterfall-bridge.md`（財務瀑布圖，不是三維瀑布圖）、`swimmer-plot.md`（提及腫瘤學瀑布圖，也不是三維瀑布圖）、`autocorrelation-plot.md`（時間差域看週期；頻譜圖在頻率域看週期）。
 
 ## 圖檔與授權（不複製，只連結）
 

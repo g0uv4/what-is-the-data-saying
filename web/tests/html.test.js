@@ -50,9 +50,9 @@ test('file input accepts CSV, Excel and JSON; SheetJS is self-hosted', () => {
 
 test('title, description and Open Graph tags (no og:image)', () => {
   assert.match(html, /<title>資料在說什麼？貼上一張表，先看該畫哪張圖<\/title>/);
-  assert.match(html, /<meta name="description" content="貼上一張表，依資料形狀排出該畫的圖並附理由；71 種都會推薦、9 種可直接畫。分析全部在你的瀏覽器內完成，資料不會離開你的電腦。">/);
+  assert.match(html, /<meta name="description" content="貼上一張表，依資料形狀排出該畫的圖並附理由；71 種圖種教學，其中 70 種會自動推薦、9 種可直接畫。分析全部在你的瀏覽器內完成，資料不會離開你的電腦。">/);
   assert.match(html, /<meta property="og:title" content="資料在說什麼？貼上來，先告訴你該畫哪張圖">/);
-  assert.match(html, /<meta property="og:description" content="貼上一張表，依資料形狀排出該畫的圖並附理由；71 種都會推薦、9 種可直接畫。分析全部在你的瀏覽器內完成，資料不會離開你的電腦。">/);
+  assert.match(html, /<meta property="og:description" content="貼上一張表，依資料形狀排出該畫的圖並附理由；71 種圖種教學，其中 70 種會自動推薦、9 種可直接畫。分析全部在你的瀏覽器內完成，資料不會離開你的電腦。">/);
   assert.match(html, /<meta property="og:url" content="https:\/\/what-is-the-data-saying\.vercel\.app\/">/);
   assert.match(html, /<meta property="og:type" content="website">/);
   assert.doesNotMatch(html, /property="og:image"/);
@@ -95,4 +95,16 @@ test('zh noData and footer chart-request link stay on their own i18n nodes', () 
 test('hidden sheet field stays hidden despite .field { display:flex }', () => {
   const css = fs.readFileSync(path.join(__dirname, '..', 'css', 'style.css'), 'utf8');
   assert.match(css, /\.field\[hidden\]\s*\{\s*display:\s*none\s*!important/);
+});
+
+test('subtitle counts taught patterns and showAll counts only recommendable rules', () => {
+  const i18n = require('../js/i18n.js').WIDS_I18N;
+  const R = require('../js/rules.js');
+  for (const lang of ['zh', 'en']) {
+    assert.match(i18n.strings[lang].subtitle, /\{n\}/);
+    assert.match(i18n.strings[lang].subtitle, /\{r\}/);
+    assert.match(i18n.strings[lang].showAll, /\{r\}/);
+    assert.doesNotMatch(i18n.strings[lang].showAll, /\{n\}/);
+  }
+  assert.equal(R.RULES.filter((r) => !r.teachingOnly).length, R.RULES.length - 1);
 });

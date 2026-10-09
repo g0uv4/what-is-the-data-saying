@@ -44,9 +44,10 @@
   function applyStatic() {
     document.documentElement.lang = lang() === 'en' ? 'en' : 'zh-Hant-TW';
     var nPat = (CONTENT && CONTENT.patternCount) || Object.keys((CONTENT && CONTENT.patterns) || {}).length || 0;
+    var nRec = (RU && RU.RULES) ? RU.RULES.filter(function (r) { return !r.teachingOnly; }).length : nPat;
     Array.prototype.forEach.call(document.querySelectorAll('[data-i18n]'), function (n) {
       var key = n.getAttribute('data-i18n');
-      n.textContent = (key === 'subtitle' || key === 'showAll') ? t(key, { n: nPat }) : t(key);
+      n.textContent = (key === 'subtitle' || key === 'showAll') ? t(key, { n: nPat, r: nRec }) : t(key);
     });
     var sel = $('sampleSelect'), cur = sel.value;
     clear(sel);

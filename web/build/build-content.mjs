@@ -136,9 +136,10 @@ const samplePattern = {
   'sample-recurrence-s8-steps.csv': 'recurrence-plot'
 };
 
-// These spectrogram teaching CSVs are long raw signals (~1.2 MB together) and are
-// not embedded in the page's demo data, to keep data/samples.js small; they remain
-// in the skill's examples/data folder.
+// The excluded teaching CSVs are the spectrogram long raw signals and the
+// autocorrelation teaching series (listed in sample-exclude.json). They are not
+// embedded in data/samples.js to keep it small and because the recommender is
+// frozen; they remain in examples/data.
 const SAMPLE_EXCLUDE = new Set(JSON.parse(readFileSync(join(here, 'sample-exclude.json'), 'utf8')));
 
 const csvNames = readdirSync(dataDir).filter((f) => f.endsWith('.csv')).sort();

@@ -1,0 +1,10 @@
+{
+  "sample-autocorr-s1-anatomy.csv": "control-chart",
+  "sample-autocorr-s2-three-patterns.csv": "control-chart",
+  "sample-autocorr-s3-acf-pacf.csv": "control-chart",
+  "sample-autocorr-s4-sample-size-ci.csv": "hexbin-density",
+  "sample-autocorr-s5-period-spikes.csv": "control-chart",
+  "sample-autocorr-s6-nonstationary.csv": "control-chart",
+  "sample-autocorr-s7-two-correlograms.csv": "control-chart",
+  "sample-autocorr-s8-steps.csv": "control-chart"
+}

@@ -1,5 +1,5 @@
 /*
- * WIDS recommendation rules — data-driven table for all patterns (70 as of v0.3.32).
+ * WIDS recommendation rules — data-driven table for all patterns (71 as of v0.3.33).
  * Derived from skills/what-is-the-data-saying/references/chart-heuristics.md
  * (決策表 + 形狀 → 圖捷徑) and data-shape-checks.md (欄位角色 + 結構探測).
  *
@@ -16,6 +16,7 @@
  *   fields    zh / en description of the required field combination
  *   why       zh / en one-line rationale (from the heuristics tables)
  *   render    [] of { r: rendererKey, preset?: {...} } — empty = teaching only
+ *   teachingOnly  optional. The row exists only so the pattern page/tutorial can be shown; evaluate() skips it entirely, so it never appears in recommendation results and cannot change any ranking.
  *
  * Works in browsers (window.WIDS_RULES) and Node (module.exports).
  */
@@ -446,7 +447,13 @@
       requires: { measure: [1] }, base: 14, need: ['longSeries'],
       prefer: ['time'], avoid: ['network', 'geo', 'crossTab'],
       fields: { zh: '等間隔取樣的長訊號（取樣點 + 振幅）', en: 'evenly sampled long signal (sample index + amplitude)' },
-      why: { zh: '頻率成分隨時間變化 → 頻譜圖（教學）', en: 'Frequency content over time → spectrogram (teach)' } })
+      why: { zh: '頻率成分隨時間變化 → 頻譜圖（教學）', en: 'Frequency content over time → spectrogram (teach)' } }),
+    R('autocorrelation-plot', '自相關圖', 'Autocorrelation plot', {
+      teachingOnly: true,
+      requires: { measure: [1] }, base: 0, need: ['longSeries'],
+      prefer: [], avoid: [],
+      fields: { zh: '等間隔時間序列 → 各滯後的自相關係數', en: 'evenly spaced series → autocorrelation per lag' },
+      why: { zh: '隔幾步還跟自己有關 → 自相關圖（教學；不參與推薦）', en: 'Self-similarity across lags → autocorrelation plot (teach; not recommended)' } })
 
   ];
 
@@ -945,7 +952,9 @@
    */
   function evaluate(shape, lang) {
     lang = lang === 'en' ? 'en' : 'zh';
-    var out = RULES.map(function (rule, idx) {
+    // teachingOnly rows are pattern-page only; skip them before scoring and keep the original RULES index for tie-breaks.
+    var out = RULES.filter(function (rule) { return !rule.teachingOnly; }).map(function (rule) {
+      var idx = RULES.indexOf(rule);
       var missing = meetsRequires(rule, shape.counts);
       // General because a row floor only rejects a chart that needs enough units; it adds no score.
       var units = shape.units !== undefined ? shape.units : shape.rows;

@@ -1,6 +1,6 @@
 # web/ — 互動網頁 PoC（資料在說什麼？）
 
-把本 repo 的 skill（`skills/what-is-the-data-saying/`）變成一個**純前端單頁**：上傳或貼上 CSV／Excel／JSON → 自動判斷欄位型態 → 依資料形狀從 **70 個圖種 pattern**（與 skill examples 同步） 推薦（排序＋理由）→ 可互動繪圖 → 顯示該圖種的教學 markdown。
+把本 repo 的 skill（`skills/what-is-the-data-saying/`）變成一個**純前端單頁**：上傳或貼上 CSV／Excel／JSON → 自動判斷欄位型態 → 依資料形狀從 **71 個圖種 pattern**（與 skill examples 同步） 推薦（排序＋理由）→ 可互動繪圖 → 顯示該圖種的教學 markdown。
 
 - 無後端、無建置步驟即可使用：HTML / CSS / 原生 JS，普通 `<script src>`（不用 ES module、不用 `fetch` 讀本機檔），所以 **直接雙擊 `web/index.html`（file://）就能跑**。
 - 第三方依賴都 vendor 在 `vendor/`（授權與版本見 `vendor/README.md`）：Chart.js 4.5.1 UMD、SheetJS Community Edition 0.20.3（Apache-2.0，自架 `xlsx.full.min.js`，來源 https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js）。不用 CDN、不放寬 CSP `script-src`；不用日期 adapter（時間一律在 JS 內解析排序後用 category 軸）。
@@ -30,7 +30,7 @@ index.html#sample=sample-boxplot.csv&pattern=boxplot-summary&renderer=histogram&
 node web/build/build-content.mjs     # Node ≥ 18，無 npm 依賴；輸出可重現（無時間戳）
 ```
 
-`examples/data/*.csv` 會全部嵌進 `data/samples.js`，**除了** `build/sample-exclude.json` 明列的檔案（目前是 8 個頻譜圖教學 CSV：長訊號，合計約 1.2 MB，不放進網頁示範資料以免 samples.js 變大一倍；仍保留在 skill 的 examples/data）。要排除新檔就把檔名加進該清單；測試會檢查清單裡的檔案都存在、且其餘 CSV 全數嵌入。
+`examples/data/*.csv` 會全部嵌進 `data/samples.js`，**除了** `build/sample-exclude.json` 明列的檔案（目前是 8 個頻譜圖教學 CSV：長訊號，合計約 1.2 MB，以及 8 個自相關教學 CSV，不放進網頁示範資料以免 samples.js 變大一倍；仍保留在 skill 的 examples/data）。要排除新檔就把檔名加進該清單；測試會檢查清單裡的檔案都存在、且其餘 CSV 全數嵌入。
 
 新增圖種 pattern 時：跑上面的建置，再到 `js/rules.js` 的 `RULES` 加一列（測試會檢查規則表與 `examples/*.md` 一一對應）。
 
@@ -96,14 +96,14 @@ web/
 ├── index.html              單頁；依序載入下列 script
 ├── css/style.css           響應式版面（≥1000px 兩欄，窄螢幕單欄）
 ├── vendor/                 Chart.js + SheetJS（xlsx 0.20.3 Apache-2.0）+ 授權 + 版本說明
-├── data/                   產生檔：content.js（70 篇 pattern md）、samples.js（examples/data 的示範 CSV，排除清單見 build/sample-exclude.json）
+├── data/                   產生檔：content.js（71 篇 pattern md）、samples.js（examples/data 的示範 CSV，排除清單見 build/sample-exclude.json）
 ├── build/build-content.mjs 產生 data/*.js
 ├── build/sample-exclude.json 不嵌進 samples.js 的 CSV 清單
 ├── js/
 │   ├── csv.js              自寫 CSV 解析（引號、引號內逗號／換行、""、CRLF/CR、BOM、分隔符偵測、參差列）
 │   ├── input.js            本機匯入：UTF-8／Big5 CSV、JSON（攤平）、Excel／ODS（SheetJS；日期→ISO）
 │   ├── types.js            欄位型態判斷：number / category / date / boolean / id；缺值、相異值、統計量
-│   ├── rules.js            70 圖種規則表 + 資料形狀偵測（computeShape）+ 評分引擎
+│   ├── rules.js            71 圖種規則表 + 資料形狀偵測（computeShape）+ 評分引擎
 │   ├── markdown.js         極小 markdown 渲染（先跳脫 HTML；只允許 http(s)/mailto 連結）
 │   ├── charts.js           繪圖器（Chart.js + 自繪 canvas）與純函式工具
 │   ├── config.js           API base（預設 :8787）、ACCOUNTS_ENABLED（預設關）與 localStorage 鍵

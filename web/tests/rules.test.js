@@ -105,3 +105,17 @@ test('renderers available for sample data', () => {
   assert.ok(C.available(load('sample-bubble.csv')).includes('scatter'));
   assert.ok(!C.available(load('lollipop-categories.csv')).includes('scatter'));
 });
+
+test('teachingOnly rules are exactly autocorrelation-plot and evaluate omits them on a long even-step series', () => {
+  const teachingIds = R.RULES.filter((r) => r.teachingOnly).map((r) => r.id);
+  assert.deepEqual(teachingIds, ['autocorrelation-plot']);
+  const lines = ['t,x'];
+  for (let t = 1; t <= 60; t++) {
+    const x = Math.round((1.7 * t + (t % 4) * 0.35) * 100) / 100;
+    lines.push(t + ',' + x);
+  }
+  const shape = R.computeShape(T.profileTable(parseCSV(lines.join('\n'))));
+  const results = R.evaluate(shape, 'en');
+  assert.deepEqual(results.map((r) => r.id).filter((id) => teachingIds.includes(id)), []);
+  assert.equal(results.length, R.RULES.length - 1);
+});

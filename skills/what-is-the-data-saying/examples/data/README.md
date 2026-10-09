@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖與頻譜圖各附 8 組 CSV 與 8 支自檢 .py）
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖與自相關圖各附 8 組 CSV 與 8 支自檢 .py）
 
 來自專案維護者整理、已審的 skill pack。**非真實產業資料；數字未核。**
 
@@ -171,8 +171,24 @@
 | `sample-spectrogram-s7-spectrum-vs-spectrogram-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「頻譜圖資料與自檢腳本」 | 同上 |
 | `sample-spectrogram-s8-steps.csv` | 頻譜圖虛構資料（S8；與素材包逐位元相同、64 列、2993 位元組；7 窗、9 格；各窗最亮 125／125／125／187.5／250／250／250 赫茲；第 4 窗 −5.6／−5.5 分貝；保留 data_status；第 1 行為 `#` 說明；數字未核） | `../spectrogram.md` |
 | `sample-spectrogram-s8-steps-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「頻譜圖資料與自檢腳本」 | 同上 |
+| `sample-autocorr-s1-anatomy.csv` | 自相關圖虛構資料（S1；與素材包逐位元相同、200 列、9611 位元組；n＝200、最大滯後 30；滯後 0＝1、半寬 0.1386、滯後 1／12／24＝0.759／0.838／0.787；第 1 行為 `#` 說明、每列 data_status；數字未核） | `../autocorrelation-plot.md` |
+| `sample-autocorr-s1-anatomy-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「自相關圖資料與自檢腳本」 | 同上 |
+| `sample-autocorr-s2-three-patterns.csv` | 自相關圖虛構資料（S2；與素材包逐位元相同、300 列、23143 位元組；白噪音／趨勢／週期 7 三欄；半寬 0.1132；第 1 行為 `#` 說明；數字未核） | `../autocorrelation-plot.md` |
+| `sample-autocorr-s2-three-patterns-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「自相關圖資料與自檢腳本」 | 同上 |
+| `sample-autocorr-s3-acf-pacf.csv` | 自相關圖虛構資料（S3；與素材包逐位元相同、500 列、23690 位元組；自我迴歸階 2；半寬 0.0877；偏自相關約在階 2 後進帶；第 1 行為 `#` 說明；數字未核） | `../autocorrelation-plot.md` |
+| `sample-autocorr-s3-acf-pacf-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「自相關圖資料與自檢腳本」 | 同上 |
+| `sample-autocorr-s4-sample-size-ci.csv` | 自相關圖虛構資料（S4；與素材包逐位元相同、1050 列、53579 位元組；三條白噪音 n＝50／200／800；半寬 0.2772／0.1386／0.0693；第 1 行為 `#` 說明；數字未核） | `../autocorrelation-plot.md` |
+| `sample-autocorr-s4-sample-size-ci-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「自相關圖資料與自檢腳本」 | 同上 |
+| `sample-autocorr-s5-period-spikes.csv` | 自相關圖虛構資料（S5；與素材包逐位元相同、400 列、19011 位元組；週期 7；滯後 7／14／21／28＝0.913／0.9／0.882／0.862；第 1 行為 `#` 說明；數字未核） | `../autocorrelation-plot.md` |
+| `sample-autocorr-s5-period-spikes-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「自相關圖資料與自檢腳本」 | 同上 |
+| `sample-autocorr-s6-nonstationary.csv` | 自相關圖虛構資料（S6；與素材包逐位元相同、300 列、18470 位元組；隨機漫步＋一階差分；未差分滯後 1／20／40＝0.971／0.498／-0.006；第 1 行為 `#` 說明；數字未核） | `../autocorrelation-plot.md` |
+| `sample-autocorr-s6-nonstationary-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「自相關圖資料與自檢腳本」 | 同上 |
+| `sample-autocorr-s7-two-correlograms.csv` | 自相關圖虛構資料（S7；與素材包逐位元相同、200 列、24927 位元組；左時間序列滯後 10＝0.837；右五個虛構變數甲到戊相關矩陣；第 1 行為 `#` 說明；數字未核） | `../autocorrelation-plot.md` |
+| `sample-autocorr-s7-two-correlograms-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「自相關圖資料與自檢腳本」 | 同上 |
+| `sample-autocorr-s8-steps.csv` | 自相關圖虛構資料（S8；與素材包逐位元相同、120 列、5755 位元組；最大滯後 24、n/4＝30；滯後 1／8／16／24＝0.576／0.799／0.752／0.693；第 1 行為 `#` 說明；數字未核） | `../autocorrelation-plot.md` |
+| `sample-autocorr-s8-steps-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「自相關圖資料與自檢腳本」 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`、`../autocorrelation-plot.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -604,3 +620,36 @@ python3 sample-spectrogram-s6-motor-fault-selfcheck.py   # 其餘同理，共 8 
 預期每支逐項印出 `PASS｜…`，最後一行 `RESULT: PASS（N 項通過、0 項失敗）`（**v0.3.32 上架前實跑，結束碼 0**）。實跑通過項數：S1 10、S2 11、S3 22、S4 8、S5 11、S6 15、S7 9、S8 14。
 
 **以實際計數為準**（自檢從縮小檔重算，課程稿的關鍵讀數不變；只有格子數，以及 S5 的開頭基頻檢查，跟全長訊號不同。沒有另外用獨立程式重算頻譜，也沒有重跑沒有收進本 repo 的 `draw_spectrogram.py`／`export_samples.py`）：(1) 虛構資料，**數字未核**；(2) S1 最亮格 437.5 赫茲，1203.125 赫茲那一格高於 −20 分貝的窗中心是 0.8–1.408 秒；(3) S2 啁啾在 1 秒最亮格 1593.75 赫茲（理論 1600），敲擊最亮窗中心 1.0 秒，諧波 10 條；(4) S3 窗 8／64／512 毫秒的凹陷是 0.0／61.6、29.0／0.0、76.4／0.0 分貝；(5) S4 −40.0 與 −60.0 分貝、線性份額 0.0001；(6) S5 自檢印 `開頭 8 窗基頻 187.5 赫茲（理論 200，差不到兩格）`，不是全長訊號的約 150 赫茲；另確認 1.2–1.6 秒、5000–7000 赫茲的嘶聲比其他時間亮 6 分貝以上（實跑差距 8.6 分貝）；1000 赫茲＝1000.0 梅爾、8000 赫茲＝2840.0 梅爾，1000 赫茲以下高度線性 12.5%、梅爾 35.2%；(7) S6 固定線 29.5／59.0／88.5／120 赫茲，新成分落在 107.422 赫茲；0–30 秒中位數 −53.0 分貝，第一個高出中位數 10 分貝的窗中心是 35.84 秒，最後一窗 −11.3 分貝；107 ÷ 29.5 ≈ 3.6，不是整數倍；(8) S7 兩條平均頻譜在 400 與 1200 赫茲相差 0.0／0.0 分貝；(9) S8 各窗最亮 125／125／125／187.5／250／250／250 赫茲，第 4 窗 −5.6／−5.5 分貝、最亮 187.5 赫茲。
+
+## 自相關圖資料與自檢腳本 `sample-autocorr-s1-…` 到 `sample-autocorr-s8-…`
+
+**收錄哪些：** 素材包 `2026-10-09-am-autocorr` 有 8 份虛構資料（S1–S8，各對應一張模擬圖）和 8 支自檢腳本；素材包沒有指定哪一份給 repo，所以 **8 組全部收錄**（共 16 個檔）。素材包的 `draw_autocorr.py`（畫模擬圖）與 `export_samples.py`（匯出 CSV）**沒有收**。
+
+**檔名：** 素材包檔名本來就有 `autocorr` 前綴，與本 repo `examples/data/` 既有檔案**沒有撞名**，所以**沒有改名**。8 個 CSV **全部與素材包逐位元相同**（`cmp` 核過），沒有再縮小。每支自檢以明確檔名讀 CSV（`read_rows("sample-autocorr-sN-….csv")`，從腳本所在資料夾讀），沒有萬用字元；只用 Python 標準函式庫（自寫平均、自相關 r(k)＝C(k)/C(0)、Durbin–Levinson 偏自相關與信心半寬 1.96／√n，不靠 numpy）。素材包自檢需要 numpy，本 repo 改寫為只用標準函式庫，檢查項目、預期值、四捨五入與訊息與素材包相同。
+
+**沒有縮小：** 8 個 CSV 合計 **178,186 位元組（約 174.0 KiB）**，單檔最大是 S4 的 53,579 位元組（約 52.3 KiB）。
+
+| 檔 | 列數 | CSV 位元組 | 欄位 |
+|---|---:|---:|---|
+| S1 `sample-autocorr-s1-anatomy.csv` | 200 | 9611 | `t,x,data_status` |
+| S2 `sample-autocorr-s2-three-patterns.csv` | 300 | 23143 | `t,white_noise,linear_trend,period_7,data_status` |
+| S3 `sample-autocorr-s3-acf-pacf.csv` | 500 | 23690 | `t,x,data_status` |
+| S4 `sample-autocorr-s4-sample-size-ci.csv` | 1050 | 53579 | `series_n,t,x,data_status` |
+| S5 `sample-autocorr-s5-period-spikes.csv` | 400 | 19011 | `t,x,data_status` |
+| S6 `sample-autocorr-s6-nonstationary.csv` | 300 | 18470 | `t,random_walk,diff1,data_status`（差分 299 點，t＝0 留空） |
+| S7 `sample-autocorr-s7-two-correlograms.csv` | 200 | 24927 | `t,x_series,var_jia,var_yi,var_bing,var_ding,var_wu,data_status` |
+| S8 `sample-autocorr-s8-steps.csv` | 120 | 5755 | `t,x,data_status` |
+
+自檢腳本位元組：S1 3336、S2 3737、S3 3585、S4 3639、S5 3293、S6 3632、S7 4054、S8 3350。
+
+**CSV 格式：** 第 1 行是 `# 虛構資料，數字未核｜…`。之後是表頭，最後一欄都是 `data_status`（「虛構資料，數字未核」）。t＝時間點編號。讀入時要跳過 `#` 行。
+
+```bash
+cd skills/what-is-the-data-saying/examples/data
+python3 sample-autocorr-s1-anatomy-selfcheck.py
+python3 sample-autocorr-s6-nonstationary-selfcheck.py   # 其餘同理，共 8 支
+```
+
+預期每支逐項印出 `PASS｜…`，最後一行 `RESULT: PASS（N 項通過、0 項失敗）`（**v0.3.33 上架前實跑，結束碼 0**）。實跑通過項數：S1 9、S2 12、S3 12、S4 11、S5 9、S6 11、S7 21、S8 10。在 `examples/data/` 與暫存資料夾各跑一次都通過；與素材包 numpy 版通過項數相同。
+
+**以實際計數為準**（自檢從 CSV 重算，與課程稿關鍵讀數一致。沒有重跑沒有收進本 repo 的 `draw_autocorr.py`／`export_samples.py`）：(1) 虛構資料，**數字未核**；(2) S1 滯後 0＝1、半寬 0.1386、滯後 1／12／24＝0.759／0.838／0.787，滯後 12 是 1–30 中最大的正尖峰；(3) S2 半寬 0.1132；白噪音滯後 1／7＝-0.072／0.037，滯後 1–40 出帶 1 根（「至多 3 根」）；趨勢滯後 1／20＝0.962／0.787，滯後 1–20 全在帶外；週期滯後 7／14＝0.869／0.842；(4) S3 半寬 0.0877；自相關滯後 1／2／5＝0.459／-0.019／-0.086；偏自相關滯後 1–4＝0.459／-0.291／-0.027／-0.046，滯後 1、2 在帶外、3、4 在帶內；(5) S4 半寬 0.2772／0.1386／0.0693，滯後 1＝0.026／0.04／-0.025；(6) S5 半寬 0.098，滯後 7／14／21／28＝0.913／0.9／0.882／0.862；(7) S6 未差分滯後 1／20／40＝0.971／0.498／-0.006，差分後滯後 1／5＝0.004／-0.014；(8) S7 滯後 10＝0.837；甲×乙≈0.794、甲×丁≈-0.481、乙×丙≈0.584；(9) S8 半寬 0.1789，滯後 1／8／16／24＝0.576／0.799／0.752／0.693，n/4＝30。

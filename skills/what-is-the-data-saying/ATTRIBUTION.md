@@ -1,6 +1,6 @@
 # ATTRIBUTION（來源與對照）
 
-本 skill **0.3.32** 的圖種啟發式、口述產出步驟與 `examples/` pattern，由專案維護者依內部教學筆記整理，每個 pattern 附驗證資料（來源連結、授權說明，以及虛構 demo CSV 與自檢腳本）；原始筆記不在本 repo。
+本 skill **0.3.33** 的圖種啟發式、口述產出步驟與 `examples/` pattern，由專案維護者依內部教學筆記整理，每個 pattern 附驗證資料（來源連結、授權說明，以及虛構 demo CSV 與自檢腳本）；原始筆記不在本 repo。
 
 技能文字為摘要與可執行 checklist，**不是**教學筆記全文轉貼；數字案例沿用原筆記「未核」標註習慣。
 原始筆記、草稿與截圖**不在這個公開 repo**；下表左欄只列筆記的日期與檔名，方便對照，不是可開啟的檔案。
@@ -84,6 +84,7 @@
 | 2026-10-06-pm-lasagna.md | 千層麵圖（lasagna plot，暫譯；與義大利麵圖、一般熱圖、游泳圖、序列索引圖、日曆熱圖、地平線圖、鄰接矩陣分界） | `examples/lasagna-plot.md`；8 組 demo CSV 與自檢腳本見 `examples/data/`（檔名已有 `lasagna` 前綴） |
 | 2026-10-07-am-recurrence.md | 遞迴圖（recurrence plot，暫譯；與一般熱圖、千層麵圖、鄰接矩陣、折線／時序、地平線圖、距離矩陣熱圖、龐加萊圖分界） | `examples/recurrence-plot.md`；8 組 demo CSV 與自檢腳本見 `examples/data/`（檔名已有 `recurrence` 前綴） |
 | 2026-10-08-am-spectrogram.md | 頻譜圖（spectrogram；與頻譜、一般熱圖、千層麵圖、地平線圖、遞迴圖、小波量值圖、三維瀑布圖、財務瀑布圖、腫瘤學瀑布圖分界） | `examples/spectrogram.md`；8 組 demo CSV 與自檢腳本見 `examples/data/`（檔名已有 `spectrogram` 前綴；除 S8 外為縮小版） |
+| 2026-10-09-am-autocorr.md | 自相關圖（autocorrelation plot；與偏自相關圖、相關矩陣、折線、遞迴圖、頻譜圖、管制圖分界） | `examples/autocorrelation-plot.md`；8 組 demo CSV 與自檢腳本見 `examples/data/`（檔名已有 `autocorr` 前綴、與素材包逐位元相同；自檢改寫為只用標準函式庫） |
 
 各筆記另有同日的研究筆記與截圖，作為圖例與查證依據，未複製進 repo。
 
@@ -91,13 +92,13 @@
 
 - 自 2026-09-21（點密度圖）起，各專題另有一份經審核的素材包（說明文件、來源清單、樣本 CSV、圖檔）。公開 repo 只收 pattern 摘要、虛構 demo CSV 與自檢腳本；圖檔不入庫，只列連結與授權。
 - 每個 pattern 的來源逐條連結、圖檔授權、查核限制（打不開或無法確認的來源只記名、標未核）與數字重算結果，寫在對應的 `examples/*.md`；demo CSV、自檢腳本與檔名對照見 `examples/data/README.md`。
-- 素材包附帶的繪圖產生器與匯出腳本（`draw_forest.py`、`draw_karyo.py`、`draw_horizon.py`、`draw_pareto.py`、`draw_control.py`、`draw_lorenz.py`、`draw_marey.py`、`draw_km.py`、`draw_swimmer.py`、`draw_lasagna.py`、`draw_recurrence.py`、`draw_spectrogram.py`、`export_samples.py`）**不收入本 repo**；其中部分腳本預設把圖寫進教學稿資料夾或覆寫資料檔，這也是不收的原因之一。
+- 素材包附帶的繪圖產生器與匯出腳本（`draw_forest.py`、`draw_karyo.py`、`draw_horizon.py`、`draw_pareto.py`、`draw_control.py`、`draw_lorenz.py`、`draw_marey.py`、`draw_km.py`、`draw_swimmer.py`、`draw_lasagna.py`、`draw_recurrence.py`、`draw_spectrogram.py`、`draw_autocorr.py`、`export_samples.py`）**不收入本 repo**；其中部分腳本預設把圖寫進教學稿資料夾或覆寫資料檔，這也是不收的原因之一。
 - 自檢腳本的輸出以實際重算為準；素材包文字與 CSV 有出入時，範例檔會註明並以實際計數為準。
 
 ## 尚未獨立成 pattern 的缺口
 
 - 南丁格爾玫瑰、三元圖、樹狀譜系、蜂巢圖、HEB、流量地圖、比例符號地圖、平行集合：目前多半只在 `chart-heuristics.md`，尚無專檔 example。
-- 點密度圖、河流圖、人口金字塔、棒棒糖圖、箱形圖、氣泡圖、馬里梅可圖、等值區域圖、圖塊地圖、矩陣熱圖、螺旋圖、BioFabric、火焰圖、Circos、火山圖、曼哈頓圖、MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖、柏拉圖、管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖 已有專檔 example + 虛構 demo CSV；其餘筆記「適合使用的範例」三小節樣本尚未全面打包。
+- 點密度圖、河流圖、人口金字塔、棒棒糖圖、箱形圖、氣泡圖、馬里梅可圖、等值區域圖、圖塊地圖、矩陣熱圖、螺旋圖、BioFabric、火焰圖、Circos、火山圖、曼哈頓圖、MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖、柏拉圖、管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖 已有專檔 example + 虛構 demo CSV；其餘筆記「適合使用的範例」三小節樣本尚未全面打包。
 - 社群敘事卡產線未併入本 plugin（敘事卡 ≠ 資料形狀推薦）。
 
 ## 授權與改寫

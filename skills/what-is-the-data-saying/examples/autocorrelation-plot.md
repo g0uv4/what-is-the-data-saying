@@ -70,7 +70,7 @@
 | 管制圖（[`control-chart.md`](control-chart.md)） | 一個時間點 | 位置代表數值大小與管制界限 | 管制圖著重於監控數值是否超出管制界限；自相關圖則檢視殘差或序列是否仍存有「隔幾步的相關」 |
 | 地平線圖（[`horizon-chart.md`](horizon-chart.md)）、螺旋圖（[`spiral-plot.md`](spiral-plot.md)）、日曆熱圖（[`calendar-heatmap.md`](calendar-heatmap.md)） | 一個時間點 | 顏色或折疊層級代表數值大小 | 此三種圖表通常預先假設週期已知後進行排版；自相關圖則能由尖峰所在位置主動呈現潛在週期 |
 | 折線圖（[`time-series-trend.md`](time-series-trend.md)） | 一個時間點 | 高度代表數值大小 | 觀察整體趨勢與異常值最為直接；自相關圖則是進一步分析的「結構診斷」工具 |
-| 滯後圖（lag plot，未教過） | 單一點代表 (x_t, x_{t+k}) | 位置 | 僅檢視單一滯後的散佈狀況；自相關圖則將多個滯後的相關係數依序排列呈現 |
+| 滯後圖（[`lag-plot.md`](lag-plot.md)） | 單一點代表 (x_t, x_{t+k}) | 位置 | 僅檢視單一滯後的散佈狀況；自相關圖則將多個滯後的相關係數依序排列呈現 |
 
 判斷口訣：**一條等距時間序列、想看隔幾步還跟自己有關 → 自相關圖；兩軸是變數名稱 → 相關矩陣；想看何時回到相近狀態、又不想先假定週期 → 遞迴圖；想看什麼時間有哪些頻率 → 頻譜圖；只想看數值高低 → 折線。**
 
@@ -181,7 +181,7 @@
 
 以 X 官方搜尋查詢英文「autocorrelation plot」「ACF plot」「PACF plot」「autocorrelation」「partial autocorrelation」與中文「自相關圖」「偏自相關」等關鍵詞（台北時間 2026-10-09 上午）。精確片語搜尋多次回傳 0 筆；隨後查詢工具因請求次數超過上限而暫停回應。另行使用網路搜尋（限定 x.com 與 twitter.com）以及 DuckDuckGo 進行頁面擷取，**都沒有找到可核對的原帖連結**。**因此原帖筆數＝0。** 不編造任何帳號或網址。
 
-鄰居 pattern：`matrix-heatmap.md`（相關矩陣＝correlogram 第二義；本檔是時間序列滯後棒圖）、`recurrence-plot.md`（時間×時間的相似方陣；自相關把所有成對時間差濃縮成單一係數）、`spectrogram.md`（時間 × 頻率看週期；自相關在時間差域看週期）、`time-series-trend.md`（折線看數值高低；自相關是結構診斷）、`control-chart.md`（盯單一數值有沒有超出管制界限；自相關看殘差隔幾步還有相關）、`horizon-chart.md`、`spiral-plot.md`、`calendar-heatmap.md`（先假設週期再排版；自相關由尖峰位置呈現潛在週期）。
+鄰居 pattern：`matrix-heatmap.md`（相關矩陣＝correlogram 第二義；本檔是時間序列滯後棒圖）、`recurrence-plot.md`（時間×時間的相似方陣；自相關把所有成對時間差濃縮成單一係數）、`spectrogram.md`（時間 × 頻率看週期；自相關在時間差域看週期）、`time-series-trend.md`（折線看數值高低；自相關是結構診斷）、`control-chart.md`（盯單一數值有沒有超出管制界限；自相關看殘差隔幾步還有相關）、`horizon-chart.md`、`spiral-plot.md`、`calendar-heatmap.md`（先假設週期再排版；自相關由尖峰位置呈現潛在週期）、`lag-plot.md`（單一滯後攤成散佈圖；本檔把每個滯後壓成一根棒）。
 
 ## 圖檔與授權（不複製，只連結）
 

@@ -198,7 +198,7 @@
 21. [@AndrejSpiridon4](https://x.com/AndrejSpiridon4/status/2072558094828105739)
 22. [@FrontPhysiol](https://x.com/FrontPhysiol/status/2100187627437899798)
 
-鄰居 pattern：`matrix-heatmap.md`（一般熱圖；遞迴圖是時間×時間的二值化特例）、`lasagna-plot.md`（列＝個體、欄＝時間的量測色帶；遞迴圖兩軸都是時間）、`adjacency-matrix.md`（列欄是節點不是時間）、`time-series-trend.md`（看數值高低與趨勢；遞迴圖看「像不像以前」）、`horizon-chart.md`（折疊折線看多條序列形狀）、`spectrogram.md`（時間 × 頻率、顏色＝能量；遞迴圖不需先知道週期）、`autocorrelation-plot.md`（把所有成對時間差濃縮成單一係數；遞迴圖還保留是哪一段在重複）。
+鄰居 pattern：`matrix-heatmap.md`（一般熱圖；遞迴圖是時間×時間的二值化特例）、`lasagna-plot.md`（列＝個體、欄＝時間的量測色帶；遞迴圖兩軸都是時間）、`adjacency-matrix.md`（列欄是節點不是時間）、`time-series-trend.md`（看數值高低與趨勢；遞迴圖看「像不像以前」）、`horizon-chart.md`（折疊折線看多條序列形狀）、`spectrogram.md`（時間 × 頻率、顏色＝能量；遞迴圖不需先知道週期）、`autocorrelation-plot.md`（把所有成對時間差濃縮成單一係數；遞迴圖還保留是哪一段在重複）、`lag-plot.md`（同一變數錯開 k 步的散佈，丟掉時間；遞迴圖還保留是哪一段在重複）。
 
 ## 圖檔與授權（不複製，只連結）
 

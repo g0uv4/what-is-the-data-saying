@@ -3,6 +3,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const vm = require('node:vm');
 
 const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
 
@@ -50,9 +51,9 @@ test('file input accepts CSV, Excel and JSON; SheetJS is self-hosted', () => {
 
 test('title, description and Open Graph tags (no og:image)', () => {
   assert.match(html, /<title>資料在說什麼？貼上一張表，先看該畫哪張圖<\/title>/);
-  assert.match(html, /<meta name="description" content="貼上一張表，依資料形狀排出該畫的圖並附理由；71 種圖種教學，其中 70 種會自動推薦、9 種可直接畫。分析全部在你的瀏覽器內完成，資料不會離開你的電腦。">/);
+  assert.match(html, /<meta name="description" content="貼上一張表，依資料形狀排出該畫的圖並附理由；72 種圖種教學，其中 70 種會自動推薦、9 種可直接畫。分析全部在你的瀏覽器內完成，資料不會離開你的電腦。">/);
   assert.match(html, /<meta property="og:title" content="資料在說什麼？貼上來，先告訴你該畫哪張圖">/);
-  assert.match(html, /<meta property="og:description" content="貼上一張表，依資料形狀排出該畫的圖並附理由；71 種圖種教學，其中 70 種會自動推薦、9 種可直接畫。分析全部在你的瀏覽器內完成，資料不會離開你的電腦。">/);
+  assert.match(html, /<meta property="og:description" content="貼上一張表，依資料形狀排出該畫的圖並附理由；72 種圖種教學，其中 70 種會自動推薦、9 種可直接畫。分析全部在你的瀏覽器內完成，資料不會離開你的電腦。">/);
   assert.match(html, /<meta property="og:url" content="https:\/\/what-is-the-data-saying\.vercel\.app\/">/);
   assert.match(html, /<meta property="og:type" content="website">/);
   assert.doesNotMatch(html, /property="og:image"/);
@@ -106,5 +107,17 @@ test('subtitle counts taught patterns and showAll counts only recommendable rule
     assert.match(i18n.strings[lang].showAll, /\{r\}/);
     assert.doesNotMatch(i18n.strings[lang].showAll, /\{n\}/);
   }
-  assert.equal(R.RULES.filter((r) => !r.teachingOnly).length, R.RULES.length - 1);
+  const recommendable = R.RULES.filter((r) => !r.teachingOnly).length;
+  assert.equal(recommendable, R.RULES.length - 2);
+  const ctx = { window: {} };
+  vm.runInNewContext(fs.readFileSync(path.join(__dirname, '..', 'data', 'content.js'), 'utf8'), ctx);
+  assert.equal(ctx.window.WIDS_CONTENT.patternCount, 72);
+  assert.equal(recommendable, 70);
+  i18n.setLang('zh');
+  assert.match(i18n.t('subtitle', { n: 72, r: 70 }), /72 種圖種教學，其中 70 種會自動推薦/);
+  assert.match(i18n.t('showAll', { n: 72, r: 70 }), /70 種可推薦圖種/);
+  i18n.setLang('en');
+  assert.match(i18n.t('subtitle', { n: 72, r: 70 }), /72 chart types taught, 70 of them recommended automatically/);
+  assert.match(i18n.t('showAll', { n: 72, r: 70 }), /Show all 70 recommendable/);
+  i18n.setLang('zh');
 });

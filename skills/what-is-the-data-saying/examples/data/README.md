@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖與自相關圖各附 8 組 CSV 與 8 支自檢 .py）
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖與滯後圖各附 8 組 CSV 與 8 支自檢 .py）
 
 來自專案維護者整理、已審的 skill pack。**非真實產業資料；數字未核。**
 
@@ -187,8 +187,24 @@
 | `sample-autocorr-s7-two-correlograms-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「自相關圖資料與自檢腳本」 | 同上 |
 | `sample-autocorr-s8-steps.csv` | 自相關圖虛構資料（S8；與素材包逐位元相同、120 列、5755 位元組；最大滯後 24、n/4＝30；滯後 1／8／16／24＝0.576／0.799／0.752／0.693；第 1 行為 `#` 說明；數字未核） | `../autocorrelation-plot.md` |
 | `sample-autocorr-s8-steps-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「自相關圖資料與自檢腳本」 | 同上 |
+| `sample-lagplot-s1-anatomy.csv` | 滯後圖虛構資料（S1；與素材包逐位元相同、120 列、5527 位元組；n＝120、滯後 1、119 對；皮爾森約 0.722、自相關約 0.711；第 1 行為 `#` 說明、每列 data_status；數字未核） | `../lag-plot.md` |
+| `sample-lagplot-s1-anatomy-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「滯後圖資料與自檢腳本」 | 同上 |
+| `sample-lagplot-s2-six-patterns.csv` | 滯後圖虛構資料（S2；與素材包逐位元相同、200 列、24246 位元組；六格滯後 1 約 0.008／0.763／-0.705／0.81／0.755／0.985；0.763 對模型係數 0.9 是抽樣偏差；第 1 行為 `#` 說明；數字未核） | `../lag-plot.md` |
+| `sample-lagplot-s2-six-patterns-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「滯後圖資料與自檢腳本」 | 同上 |
+| `sample-lagplot-s3-lag-k-panels.csv` | 滯後圖虛構資料（S3；與素材包逐位元相同、144 列、7108 位元組；週期 12；皮爾森滯後 1／2／3／6／9／12 約 0.794／0.461／-0.004／-0.929／0.002／0.928；第 1 行為 `#` 說明；數字未核） | `../lag-plot.md` |
+| `sample-lagplot-s3-lag-k-panels-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「滯後圖資料與自檢腳本」 | 同上 |
+| `sample-lagplot-s4-vs-acf.csv` | 滯後圖虛構資料（S4；與素材包逐位元相同、30 列、1516 位元組；自相關對皮爾森：滯後 1 約 0.708 對 0.729、滯後 3 約 0.329 對 0.426、滯後 6 約 0.058 對 0.149；半寬約 0.358；第 1 行為 `#` 說明；數字未核） | `../lag-plot.md` |
+| `sample-lagplot-s4-vs-acf-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「滯後圖資料與自檢腳本」 | 同上 |
+| `sample-lagplot-s5-nonlinear.csv` | 滯後圖虛構資料（S5；與素材包逐位元相同、300 列、14134 位元組；滯後 1 約 -0.138；帶約 ±0.113，滯後 1–10 有 2 根在帶外；第 1 行為 `#` 說明；數字未核） | `../lag-plot.md` |
+| `sample-lagplot-s5-nonlinear-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「滯後圖資料與自檢腳本」 | 同上 |
+| `sample-lagplot-s6-outliers.csv` | 滯後圖虛構資料（S6；與素材包逐位元相同、150 列、9035 位元組；第 41 點約 55.2、第 102 點約 43.4；含離群值約 0.464、拿掉約 0.585；第 1 行為 `#` 說明；數字未核） | `../lag-plot.md` |
+| `sample-lagplot-s6-outliers-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「滯後圖資料與自檢腳本」 | 同上 |
+| `sample-lagplot-s7-scatter-lag-recurrence.csv` | 滯後圖虛構資料（S7；與素材包逐位元相同、100 列、6022 位元組；上約 0.965、中約 0.905、下黑點約 16.4%；直式上／中／下；第 1 行為 `#` 說明；數字未核） | `../lag-plot.md` |
+| `sample-lagplot-s7-scatter-lag-recurrence-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「滯後圖資料與自檢腳本」 | 同上 |
+| `sample-lagplot-s8-how-to.csv` | 滯後圖虛構資料（S8；與素材包逐位元相同、12 列、542 位元組；11 對；滯後 1 約 0.047（正文亦寫約 0.05）；模型係數 0.6；第 1 行為 `#` 說明；數字未核） | `../lag-plot.md` |
+| `sample-lagplot-s8-how-to-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「滯後圖資料與自檢腳本」 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`、`../autocorrelation-plot.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`、`../autocorrelation-plot.md`、`../lag-plot.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -653,3 +669,36 @@ python3 sample-autocorr-s6-nonstationary-selfcheck.py   # 其餘同理，共 8 �
 預期每支逐項印出 `PASS｜…`，最後一行 `RESULT: PASS（N 項通過、0 項失敗）`（**v0.3.33 上架前實跑，結束碼 0**）。實跑通過項數：S1 9、S2 12、S3 12、S4 11、S5 9、S6 11、S7 21、S8 10。在 `examples/data/` 與暫存資料夾各跑一次都通過；與素材包 numpy 版通過項數相同。
 
 **以實際計數為準**（自檢從 CSV 重算，與課程稿關鍵讀數一致。沒有重跑沒有收進本 repo 的 `draw_autocorr.py`／`export_samples.py`）：(1) 虛構資料，**數字未核**；(2) S1 滯後 0＝1、半寬 0.1386、滯後 1／12／24＝0.759／0.838／0.787，滯後 12 是 1–30 中最大的正尖峰；(3) S2 半寬 0.1132；白噪音滯後 1／7＝-0.072／0.037，滯後 1–40 出帶 1 根（「至多 3 根」）；趨勢滯後 1／20＝0.962／0.787，滯後 1–20 全在帶外；週期滯後 7／14＝0.869／0.842；(4) S3 半寬 0.0877；自相關滯後 1／2／5＝0.459／-0.019／-0.086；偏自相關滯後 1–4＝0.459／-0.291／-0.027／-0.046，滯後 1、2 在帶外、3、4 在帶內；(5) S4 半寬 0.2772／0.1386／0.0693，滯後 1＝0.026／0.04／-0.025；(6) S5 半寬 0.098，滯後 7／14／21／28＝0.913／0.9／0.882／0.862；(7) S6 未差分滯後 1／20／40＝0.971／0.498／-0.006，差分後滯後 1／5＝0.004／-0.014；(8) S7 滯後 10＝0.837；甲×乙≈0.794、甲×丁≈-0.481、乙×丙≈0.584；(9) S8 半寬 0.1789，滯後 1／8／16／24＝0.576／0.799／0.752／0.693，n/4＝30。
+
+## 滯後圖資料與自檢腳本 `sample-lagplot-s1-…` 到 `sample-lagplot-s8-…`
+
+**收錄哪些：** 素材包 `2026-10-10-am-lagplot` 有 8 份虛構資料（S1–S8，各對應一張模擬圖）和 8 支自檢腳本；素材包沒有指定哪一份給 repo，所以 **8 組全部收錄**（共 16 個檔）。素材包的 `draw_lagplot.py`（畫模擬圖）、`export_samples.py`（匯出 CSV）與 `sim_facts.json`（預期值）**沒有收**。
+
+**檔名：** 素材包檔名本來就有 `lagplot` 前綴，與本 repo `examples/data/` 既有檔案**沒有撞名**，所以**沒有改名**。8 個 CSV **全部與素材包逐位元相同**（`cmp` 核過），沒有再縮小。每支自檢以明確檔名讀 CSV（`read_rows` 一類的讀檔，從腳本所在資料夾讀），沒有萬用字元；只用 Python 標準函式庫（自寫平均、滯後 k 的皮爾森相關與自相關，不靠 numpy）。素材包自檢需要 numpy，並從 `sim_facts.json` 讀預期值；本 repo 改寫為只用標準函式庫，**預期值寫在腳本裡**。
+
+**沒有縮小：** 8 個 CSV 合計 **68,130 位元組（約 66.5 KiB）**，單檔最大是 S2 的 24,246 位元組（約 23.7 KiB）。
+
+| 檔 | 列數 | CSV 位元組 | 欄位 |
+|---|---:|---:|---|
+| S1 `sample-lagplot-s1-anatomy.csv` | 120 | 5527 | `t,y,data_status` |
+| S2 `sample-lagplot-s2-six-patterns.csv` | 200 | 24246 | `t,white_noise,ar_pos_0p9,ar_neg,period12,trend_noise,random_walk,data_status`（未標準化原值；圖上已標準化） |
+| S3 `sample-lagplot-s3-lag-k-panels.csv` | 144 | 7108 | `t,month,y,data_status` |
+| S4 `sample-lagplot-s4-vs-acf.csv` | 30 | 1516 | `t,y,data_status` |
+| S5 `sample-lagplot-s5-nonlinear.csv` | 300 | 14134 | `t,y,data_status` |
+| S6 `sample-lagplot-s6-outliers.csv` | 150 | 9035 | `t,y_with_outliers,y_without,data_status` |
+| S7 `sample-lagplot-s7-scatter-lag-recurrence.csv` | 100 | 6022 | `day,temp_c,cups,data_status` |
+| S8 `sample-lagplot-s8-how-to.csv` | 12 | 542 | `t,y,data_status` |
+
+自檢腳本位元組：S1 2328、S2 2388、S3 2421、S4 2375、S5 2371、S6 1992、S7 2433、S8 2025。
+
+**CSV 格式：** 第 1 行是 `# 虛構資料，數字未核｜…`。之後是表頭，最後一欄都是 `data_status`（「虛構資料，數字未核」）。讀入時要跳過 `#` 行。列數是資料列（`wc -l` 再扣說明行與表頭）。
+
+```bash
+cd skills/what-is-the-data-saying/examples/data
+python3 sample-lagplot-s1-anatomy-selfcheck.py
+python3 sample-lagplot-s5-nonlinear-selfcheck.py   # 其餘同理，共 8 支
+```
+
+預期每支逐項印出 `PASS｜…`，最後一行 `RESULT: PASS（N 項通過、0 項失敗）`（**v0.3.34 上架前實跑，結束碼 0**）。實跑通過項數：S1 6、S2 9、S3 15、S4 16、S5 6、S6 5、S7 6、S8 5。
+
+**以實際計數為準**（自檢從 CSV 重算，與課程稿關鍵讀數一致。沒有重跑沒有收進本 repo 的 `draw_lagplot.py`／`export_samples.py`，也沒有收 `sim_facts.json`）：(1) 虛構資料，**數字未核**；(2) 圖 S1 滯後 1 皮爾森約 0.722、自相關約 0.711，119 對；(3) 圖 S2 六格滯後 1 約 0.008／0.763／-0.705／0.81／0.755／0.985；其中 0.763 對模型係數 0.9 是抽樣偏差（估計偏誤下 200 點平均約 0.88，其餘為這組亂數的樣本誤差）；(4) 圖 S3 皮爾森滯後 1／2／3／6／9／12 約 0.794／0.461／-0.004／-0.929／0.002／0.928，自相關滯後 6／12 約 -0.901／0.862；(5) 圖 S4 自相關對皮爾森：滯後 1 約 0.708 對 0.729、滯後 3 約 0.329 對 0.426、滯後 6 約 0.058 對 0.149，半寬約 0.358；(6) 圖 S5 滯後 1 約 -0.138，帶約 ±0.113，滯後 1–10 有 2 根在帶外；(7) 圖 S6 含離群值約 0.464、拿掉約 0.585；(8) 圖 S7 上約 0.965、中約 0.905、下黑點約 16.4%（相差不超過 1°C；直式上／中／下）；(9) 圖 S8 11 對，滯後 1 約 0.047（正文亦寫約 0.05），模型係數 0.6。

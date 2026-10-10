@@ -73,6 +73,7 @@
 - **遞迴圖（recurrence plot，暫譯）**：確認等距時間序列；先標準化；決定延遲嵌入（m、τ）或不嵌入；算每兩個狀態的距離得到 N×N 表；選門檻 ε（固定遞迴率、距離百分比等），**一定要試幾個**；畫黑白方陣，標長度、ε、m、τ、距離算法與「黑＝遞迴」圖例，上方或左邊對齊原始序列；需要數字再做 RQA（比較時固定同一套設定）；兩條序列用交叉遞迴圖。工具：Python pyts／PyRQA、R crqa、Marwan 網站工具列表只列連結，本 repo 未實測。非商業授權來源（recurrence-plot.tk、Marwan 2007／2023 arXiv）只連不嵌。詳見 `examples/recurrence-plot.md`。
 - **頻譜圖（spectrogram）**：確認等間隔的時間域訊號與取樣率；最高可看頻率＝取樣率的一半，先做抗混疊濾波；選窗長（頻率格間隔＝取樣率 ÷ 窗長點數；不確定就並排兩到三個）、窗函數（一般漢寧）、重疊（常見 25–50%）；每窗算功率再換分貝，寫明 0 分貝基準與下限；選線性、對數或梅爾頻率軸；亮度單調的色盤，附色條，不用彩虹、不只用紅綠；時間向右、頻率向上、0 在下；圖說寫六項（取樣率、窗長、窗函數、重疊、分貝基準、頻率刻度）。工具：Audacity、Praat、SciPy `ShortTimeFFT`、librosa 只列連結，本 repo 未實測。R13 只連不嵌；R7 標 CC BY 3.0。詳見 `examples/spectrogram.md`。
 - **自相關圖（autocorrelation plot）**：確認等距時間序列；先看折線，有趨勢或隨機漫步先差分或去趨勢；選最大滯後並寫在圖上（經驗法則不超過 n/4；每週週期至少畫到滯後 14）；算 r(k)＝C(k)/C(0)，確認滯後 0＝1；畫棒圖並加信心帶——檢驗隨機性用固定寬度 ±1.96／√n，模型識別用 Bartlett 變寬帶；圖上標明公式與軟體預設（R `acf` 固定寬度，statsmodels `plot_acf` 與 Stata `ac` 預設 Bartlett）；需要討論自我迴歸階數時並排偏自相關圖（定階只是起點）。工具：R `acf`／`pacf`、pandas `autocorrelation_plot`、statsmodels `plot_acf`／`plot_pacf`、Stata `ac` 只列連結，本 repo 未實測。詳見 `examples/autocorrelation-plot.md`。
+- **滯後圖（lag plot）**：確認等距時間序列；先看折線，有趨勢或隨機漫步先去趨勢或差分；選滯後 k（先畫滯後 1；已知週期加畫週期與半週期）並寫在圖上；n 點配成 n−k 對；畫成正方形、兩軸同刻度、加對角線；點很多用小點半透明，點很少可依時間連線並標號；讀形狀時分開前後關係、數值分布（圖 R8）、量測解析度（圖 R10）與單一離群值的成對點（圖 S6）；需要數字時同時寫皮爾森相關與自相關，並註明算法。圖 S2 若同時寫出 0.763 與模型係數 0.9，註明是抽樣偏差。圖 S7 只用直式上／中／下。「龐加萊圖」只指心率圖 R13；R12 維持英文 Poincaré map。工具：pandas `lag_plot`、R `lag.plot`、ggtime `gg_lag` 只列連結，本 repo 未實測。`draw_lagplot.py` 與 `export_samples.py` 沒有收進本 repo。詳見 `examples/lag-plot.md`。
 
 ### 階層組成
 

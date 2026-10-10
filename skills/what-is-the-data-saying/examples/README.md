@@ -59,6 +59,7 @@
 | 遞迴圖（recurrence plot，暫譯；時間×時間黑白方陣、門檻 ε、嵌入 m／τ、RQA；決定性高不是規律充分條件；譯名暫譯；非商業授權只連不嵌；≠ 一般熱圖、≠ 千層麵圖） | `recurrence-plot.md` | 2026-10-07-am-recurrence.md |
 | 頻譜圖（spectrogram；時間 × 頻率 × 顏色＝分貝；六項設定、窗長取捨、分貝對線性、梅爾對線性；≠ 頻譜、≠ 三維瀑布圖、≠ 小波量值圖；R13 只連不嵌；R7 為 CC BY 3.0） | `spectrogram.md` | 2026-10-08-am-spectrogram.md |
 | 自相關圖（autocorrelation plot；橫軸滯後、縱軸係數、滯後 0＝1；固定寬度 ±1.96／√n 對 Bartlett 變寬帶；緩慢衰減先差分；7／12 倍數尖峰可能季節；偏自相關定階只是起點；correlogram 第二義＝相關矩陣；R16 CC BY-SA 3.0 Protonk；R17 判斷為 Stata 輸出風格） | `autocorrelation-plot.md` | 2026-10-09-am-autocorr.md |
+| 滯後圖（lag plot；橫軸前 k 步、縱軸現在、同刻度加對角線；n 點得 n−k 對；S2 的 0.763 對模型係數 0.9 是抽樣偏差；相關接近 0 不代表沒關係；「龐加萊圖」只指心率圖 R13；R12 寫英文 Poincaré map；S7 只有直式上／中／下） | `lag-plot.md` | 2026-10-10-am-lagplot.md |
 | Bland–Altman 圖（兩種量測方法的一致性；≠ MA 圖、≠ 相關係數） | `bland-altman.md` | 2026-09-30-pm-ba.md |
 | LocusZoom 圖（區域關聯圖；曼哈頓圖的區間細節層；≠ 曼哈頓圖；領先變異≠因果） | `locuszoom.md` | 2026-10-01-am-locuszoom.md |
 | 力導向網路 | `force-network.md` | 2026-09-17-pm-force.md |

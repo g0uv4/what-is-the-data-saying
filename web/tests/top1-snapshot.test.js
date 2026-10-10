@@ -2,7 +2,7 @@
 /**
  * #1 eligible pattern for every sample-*.csv.
  * Search: repo-root recursive sample-*.csv (skip node_modules and .git).
- * 78 original files + 8 spectrogram teaching CSVs + 8 autocorrelation teaching CSVs = 94 total.
+ * 78 original files + 8 spectrogram teaching CSVs + 8 autocorrelation teaching CSVs + 8 lag plot teaching CSVs = 102 total.
  * The 78-file set was first captured at web-poc 3222d7b; values were
  * re-captured after parseCSV began skipping leading `#` comment lines
  * (the old values reflected comment text parsed as the header).
@@ -19,6 +19,9 @@
  * not embedded in samples.js, and their #1 (none is autocorrelation-plot, which
  * is teaching-only) is captured in top1-snapshot-autocorr.json; the 78-file and
  * spectrogram values did not change.
+ * The 8 lag plot teaching CSVs (v0.3.34) are also excluded, their #1 (none is
+ * lag-plot, teaching-only) is captured in top1-snapshot-lagplot.json, and the
+ * other three snapshots did not change.
  */
 const test = require('node:test');
 const assert = require('node:assert/strict');
@@ -32,6 +35,7 @@ const repoRoot = path.join(__dirname, '..', '..');
 const snapshotPath = path.join(__dirname, 'fixtures', 'top1-snapshot-3222d7b.json');
 const spectrogramSnapshotPath = path.join(__dirname, 'fixtures', 'top1-snapshot-spectrogram.json');
 const autocorrSnapshotPath = path.join(__dirname, 'fixtures', 'top1-snapshot-autocorr.json');
+const lagplotSnapshotPath = path.join(__dirname, 'fixtures', 'top1-snapshot-lagplot.json');
 const excludePath = path.join(__dirname, '..', 'build', 'sample-exclude.json');
 const SAMPLE_GLOB = '**/sample-*.csv';
 
@@ -52,25 +56,27 @@ function top1Id(file) {
   return first ? first.id : null;
 }
 
-test('78-file set (first captured at web-poc 3222d7b; values re-captured after leading # comment lines are skipped) keeps its #1; extras are exactly the 16 excluded teaching files', () => {
+test('78-file set (first captured at web-poc 3222d7b; values re-captured after leading # comment lines are skipped) keeps its #1; extras are exactly the 24 excluded teaching files', () => {
   const files = listSampleCsv(repoRoot, []).sort();
   const names = files.map((f) => path.basename(f));
   const byName = new Map(files.map((f) => [path.basename(f), f]));
   const snap = JSON.parse(fs.readFileSync(snapshotPath, 'utf8'));
   const specSnap = JSON.parse(fs.readFileSync(spectrogramSnapshotPath, 'utf8'));
   const autocorrSnap = JSON.parse(fs.readFileSync(autocorrSnapshotPath, 'utf8'));
+  const lagplotSnap = JSON.parse(fs.readFileSync(lagplotSnapshotPath, 'utf8'));
   const exclude = JSON.parse(fs.readFileSync(excludePath, 'utf8')).slice().sort();
   const specExclude = exclude.filter((n) => n.startsWith('sample-spectrogram-'));
   const autocorrExclude = exclude.filter((n) => n.startsWith('sample-autocorr-'));
+  const lagplotExclude = exclude.filter((n) => n.startsWith('sample-lagplot-'));
   const snapNames = Object.keys(snap).sort();
   assert.equal(new Set(names).size, names.length, 'duplicate sample-*.csv basenames');
   assert.equal(snapNames.length, 78, '3222d7b snapshot should list 78 files');
-  assert.equal(exclude.length, 16, 'sample-exclude.json should list the 16 excluded teaching CSVs');
+  assert.equal(exclude.length, 24, 'sample-exclude.json should list the 24 excluded teaching CSVs');
   const missing = snapNames.filter((n) => !byName.has(n));
   assert.deepEqual(missing, [], 'snapshot files missing from tree: ' + missing.join(', '));
   const extra = names.filter((n) => !Object.prototype.hasOwnProperty.call(snap, n)).sort();
   assert.deepEqual(extra, exclude, 'sample-*.csv outside the 3222d7b snapshot must equal the exclusion list (glob ' + SAMPLE_GLOB + ')');
-  assert.equal(names.length, 94, '78 original + 8 spectrogram + 8 autocorrelation');
+  assert.equal(names.length, 102, '78 original + 8 spectrogram + 8 autocorrelation + 8 lag plot');
   const flips = [];
   for (const name of snapNames) {
     const got = top1Id(byName.get(name));
@@ -94,7 +100,18 @@ test('78-file set (first captured at web-poc 3222d7b; values re-captured after l
     if (got !== autocorrSnap[name]) autocorrFlips.push({ file: name, expected: autocorrSnap[name], got: got });
   }
   assert.deepEqual(autocorrFlips, [], 'autocorr sample #1 flipped: ' + JSON.stringify(autocorrFlips));
-  assert.deepEqual(autocorrExclude.concat(specExclude), exclude);
-  const acfTop = exclude.filter((name) => excludedTop.get(name) === 'autocorrelation-plot');
-  assert.deepEqual(acfTop, [], 'excluded teaching file ranked autocorrelation-plot #1: ' + acfTop.join(', '));
+  assert.deepEqual(Object.keys(lagplotSnap).sort(), lagplotExclude);
+  const lagplotFlips = [];
+  for (const name of lagplotExclude) {
+    const got = top1Id(byName.get(name));
+    excludedTop.set(name, got);
+    if (got !== lagplotSnap[name]) lagplotFlips.push({ file: name, expected: lagplotSnap[name], got: got });
+  }
+  assert.deepEqual(lagplotFlips, [], 'lagplot sample #1 flipped: ' + JSON.stringify(lagplotFlips));
+  assert.deepEqual(autocorrExclude.concat(lagplotExclude, specExclude), exclude);
+  const teachingTop = exclude.filter((name) => {
+    const id = excludedTop.get(name);
+    return id === 'autocorrelation-plot' || id === 'lag-plot';
+  });
+  assert.deepEqual(teachingTop, [], 'excluded teaching file ranked autocorrelation-plot or lag-plot #1: ' + teachingTop.join(', '));
 });

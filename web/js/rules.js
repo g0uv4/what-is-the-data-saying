@@ -1,5 +1,5 @@
 /*
- * WIDS recommendation rules — data-driven table for all patterns (71 as of v0.3.33).
+ * WIDS recommendation rules — data-driven table for all patterns (72 as of v0.3.34).
  * Derived from skills/what-is-the-data-saying/references/chart-heuristics.md
  * (決策表 + 形狀 → 圖捷徑) and data-shape-checks.md (欄位角色 + 結構探測).
  *
@@ -453,7 +453,13 @@
       requires: { measure: [1] }, base: 0, need: ['longSeries'],
       prefer: [], avoid: [],
       fields: { zh: '等間隔時間序列 → 各滯後的自相關係數', en: 'evenly spaced series → autocorrelation per lag' },
-      why: { zh: '隔幾步還跟自己有關 → 自相關圖（教學；不參與推薦）', en: 'Self-similarity across lags → autocorrelation plot (teach; not recommended)' } })
+      why: { zh: '隔幾步還跟自己有關 → 自相關圖（教學；不參與推薦）', en: 'Self-similarity across lags → autocorrelation plot (teach; not recommended)' } }),
+    R('lag-plot', '滯後圖', 'Lag plot', {
+      teachingOnly: true,
+      requires: { measure: [1] }, base: 0, need: ['longSeries'],
+      prefer: [], avoid: [],
+      fields: { zh: '等間隔時間序列 → (x_t, x_{t+k}) 散點', en: 'evenly spaced series → (x_t, x_{t+k}) scatter' },
+      why: { zh: '前後值有沒有關係、線性還是非線性 → 滯後圖（教學；不參與推薦）', en: 'Dependence between successive values → lag plot (teach; not recommended)' } })
 
   ];
 

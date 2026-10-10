@@ -14,5 +14,13 @@
   "sample-autocorr-s5-period-spikes.csv",
   "sample-autocorr-s6-nonstationary.csv",
   "sample-autocorr-s7-two-correlograms.csv",
-  "sample-autocorr-s8-steps.csv"
+  "sample-autocorr-s8-steps.csv",
+  "sample-lagplot-s1-anatomy.csv",
+  "sample-lagplot-s2-six-patterns.csv",
+  "sample-lagplot-s3-lag-k-panels.csv",
+  "sample-lagplot-s4-vs-acf.csv",
+  "sample-lagplot-s5-nonlinear.csv",
+  "sample-lagplot-s6-outliers.csv",
+  "sample-lagplot-s7-scatter-lag-recurrence.csv",
+  "sample-lagplot-s8-how-to.csv"
 ]

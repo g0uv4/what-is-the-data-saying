@@ -1,0 +1,10 @@
+{
+  "sample-lagplot-s1-anatomy.csv": "control-chart",
+  "sample-lagplot-s2-six-patterns.csv": "control-chart",
+  "sample-lagplot-s3-lag-k-panels.csv": "control-chart",
+  "sample-lagplot-s4-vs-acf.csv": "control-chart",
+  "sample-lagplot-s5-nonlinear.csv": "control-chart",
+  "sample-lagplot-s6-outliers.csv": "control-chart",
+  "sample-lagplot-s7-scatter-lag-recurrence.csv": "control-chart",
+  "sample-lagplot-s8-how-to.csv": "control-chart"
+}

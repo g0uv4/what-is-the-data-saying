@@ -22,5 +22,14 @@
   "sample-lagplot-s5-nonlinear.csv",
   "sample-lagplot-s6-outliers.csv",
   "sample-lagplot-s7-scatter-lag-recurrence.csv",
-  "sample-lagplot-s8-how-to.csv"
+  "sample-lagplot-s8-how-to.csv",
+  "sample-seasonal-subseries-noaa-co2-2000-2025.csv",
+  "sample-seasonal-subseries-sim-s1-anatomy.csv",
+  "sample-seasonal-subseries-sim-s2-three-views.csv",
+  "sample-seasonal-subseries-sim-s3-shifting-peak.csv",
+  "sample-seasonal-subseries-sim-s4-trend-first.csv",
+  "sample-seasonal-subseries-sim-s5-no-season.csv",
+  "sample-seasonal-subseries-sim-s6-outlier.csv",
+  "sample-seasonal-subseries-sim-s7-acf-lag-subseries.csv",
+  "sample-seasonal-subseries-sim-s8-how-to.csv"
 ]

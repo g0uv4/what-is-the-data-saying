@@ -1,5 +1,5 @@
 /*
- * WIDS recommendation rules — data-driven table for all patterns (72 as of v0.3.34).
+ * WIDS recommendation rules — data-driven table for all patterns (73 as of v0.3.35).
  * Derived from skills/what-is-the-data-saying/references/chart-heuristics.md
  * (決策表 + 形狀 → 圖捷徑) and data-shape-checks.md (欄位角色 + 結構探測).
  *
@@ -459,7 +459,13 @@
       requires: { measure: [1] }, base: 0, need: ['longSeries'],
       prefer: [], avoid: [],
       fields: { zh: '等間隔時間序列 → (x_t, x_{t+k}) 散點', en: 'evenly spaced series → (x_t, x_{t+k}) scatter' },
-      why: { zh: '前後值有沒有關係、線性還是非線性 → 滯後圖（教學；不參與推薦）', en: 'Dependence between successive values → lag plot (teach; not recommended)' } })
+      why: { zh: '前後值有沒有關係、線性還是非線性 → 滯後圖（教學；不參與推薦）', en: 'Dependence between successive values → lag plot (teach; not recommended)' } }),
+    R('seasonal-subseries-plot', '季節子序列圖', 'Seasonal subseries plot', {
+      teachingOnly: true,
+      requires: { measure: [1] }, base: 0, need: ['time'],
+      prefer: [], avoid: [],
+      fields: { zh: '時間序列 → 按季節位置（月／季／星期）分面的子序列 + 各自平均', en: 'time series → subseries per season position (month/quarter/weekday) + means' },
+      why: { zh: '季節型態與各季節是否隨年變化 → 季節子序列圖（教學；不參與推薦）', en: 'Seasonal pattern and its change across years → seasonal subseries plot (teach; not recommended)' } })
 
   ];
 

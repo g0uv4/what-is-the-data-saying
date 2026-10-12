@@ -1,0 +1,11 @@
+{
+  "sample-seasonal-subseries-noaa-co2-2000-2025.csv": "time-series-trend",
+  "sample-seasonal-subseries-sim-s1-anatomy.csv": "time-series-trend",
+  "sample-seasonal-subseries-sim-s2-three-views.csv": "time-series-trend",
+  "sample-seasonal-subseries-sim-s3-shifting-peak.csv": "time-series-trend",
+  "sample-seasonal-subseries-sim-s4-trend-first.csv": "bubble-chart",
+  "sample-seasonal-subseries-sim-s5-no-season.csv": "bubble-chart",
+  "sample-seasonal-subseries-sim-s6-outlier.csv": "time-series-trend",
+  "sample-seasonal-subseries-sim-s7-acf-lag-subseries.csv": "control-chart",
+  "sample-seasonal-subseries-sim-s8-how-to.csv": "correlation-scatter"
+}

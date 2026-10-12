@@ -60,6 +60,7 @@
 | 頻譜圖（spectrogram；時間 × 頻率 × 顏色＝分貝；六項設定、窗長取捨、分貝對線性、梅爾對線性；≠ 頻譜、≠ 三維瀑布圖、≠ 小波量值圖；R13 只連不嵌；R7 為 CC BY 3.0） | `spectrogram.md` | 2026-10-08-am-spectrogram.md |
 | 自相關圖（autocorrelation plot；橫軸滯後、縱軸係數、滯後 0＝1；固定寬度 ±1.96／√n 對 Bartlett 變寬帶；緩慢衰減先差分；7／12 倍數尖峰可能季節；偏自相關定階只是起點；correlogram 第二義＝相關矩陣；R16 CC BY-SA 3.0 Protonk；R17 判斷為 Stata 輸出風格） | `autocorrelation-plot.md` | 2026-10-09-am-autocorr.md |
 | 滯後圖（lag plot；橫軸前 k 步、縱軸現在、同刻度加對角線；n 點得 n−k 對；S2 的 0.763 對模型係數 0.9 是抽樣偏差；相關接近 0 不代表沒關係；「龐加萊圖」只指心率圖 R13；R12 寫英文 Poincaré map；S7 只有直式上／中／下） | `lag-plot.md` | 2026-10-10-am-lagplot.md |
+| 季節子序列圖（seasonal subseries plot；亦稱 cycle plot，中文「循環圖」未核；月 12 格、季 4 格、星期 7 格，格內歷年小折線加平均橫線、共用縱軸；自相關與滯後圖只回答有沒有季節；三種去趨勢不要說成同一件事：R16 二次曲線 5 月約 +3.15／9 月約 −3.35、S4 直線高低差 10.2、「減當年平均」+2.87／−2.88 只是對照；圖 R8 極座標是反例、不做投資判斷；S2／S7 只有直式上／中／下；圖號不重排） | `seasonal-subseries-plot.md` | 2026-10-11-am-seasonal-subseries.md |
 | Bland–Altman 圖（兩種量測方法的一致性；≠ MA 圖、≠ 相關係數） | `bland-altman.md` | 2026-09-30-pm-ba.md |
 | LocusZoom 圖（區域關聯圖；曼哈頓圖的區間細節層；≠ 曼哈頓圖；領先變異≠因果） | `locuszoom.md` | 2026-10-01-am-locuszoom.md |
 | 力導向網路 | `force-network.md` | 2026-09-17-pm-force.md |

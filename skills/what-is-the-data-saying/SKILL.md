@@ -3,7 +3,7 @@ name: what-is-the-data-saying
 description: >
   Given a table or report, recommend the chart and how to make it (資料在說什麼).
   Taiwan zh-TW teaching-grade pedagogy compiled by the project maintainer（專案維護者）
-  from internal teaching notes, plus 73 named patterns. Use when the user
+  from internal teaching notes, plus 74 named patterns. Use when the user
   pastes CSV / Excel / a table / 報表 and asks which chart, how to visualize,
   這份資料該怎麼畫, 推薦圖表, 視覺化, or runs /what-is-the-data-saying.
 when-to-use: >
@@ -14,7 +14,7 @@ argument-hint: paste a table or describe the report
 metadata:
   short-description: "Which chart? How to make it. 資料在說什麼"
   author: g0uv4
-  version: "0.3.35"
+  version: "0.3.36"
   lineage: "maintainer-curated internal teaching notes（專案維護者依內部教學筆記整理）"
   license: MIT
 ---
@@ -116,6 +116,7 @@ pattern：examples/<slug>.md（若有）
 | 一條等距時間序列，想看隔幾步還跟自己有關（週期、趨勢、殘差像不像白噪音） | 自相關圖（autocorrelation plot；`examples/autocorrelation-plot.md`；橫軸滯後、縱軸係數，滯後 0＝1；固定寬度 ±1.96／√n 或 Bartlett 變寬帶；R `acf` 預設固定寬度，statsmodels `plot_acf` 與 Stata `ac` 預設 Bartlett；緩慢衰減先差分；7／12 倍數尖峰可能季節；偏自相關定階只是起點；correlogram 第二義＝相關矩陣，不是本圖） |
 | 一條等距時間序列，想看知道前 k 步能不能猜現在、關係是什麼形狀（線性、週期、非線性、離群、格點） | 滯後圖（lag plot；`examples/lag-plot.md`；橫軸前 k 步、縱軸現在，同刻度正方形加對角線；n 點得 n−k 對；雲團＝接近隨機、沿對角線＝正相關、橢圓或環＝週期、曲線＝非線性；皮爾森相關大致對上自相關第 k 根棒但定義不同；S2 的 0.763 對模型係數 0.9 是抽樣偏差；相關接近 0 不代表沒關係；趨勢或隨機漫步先處理；「龐加萊圖」只指心率圖 R13，R12 寫英文 Poincaré map；圖 S7 只有直式上／中／下） |
 | 等間隔的月資料或季資料，想同時看哪個月偏高、高出多少，以及各月份自己這些年有沒有在變 | 季節子序列圖（seasonal subseries plot；亦稱 cycle plot，中文「循環圖」未核；`examples/seasonal-subseries-plot.md`；月 12 格、季 4 格、星期 7 格；格內歷年小折線加平均橫線、共用縱軸；平均線高低＝哪個月偏高，格內斜率＝這個月自己有沒有在變；自相關圖與滯後圖只回答有沒有季節；季節圖是每年一條線，不是本圖；三種去趨勢不要說成同一件事：圖 R16 扣二次曲線（5 月約 +3.15、9 月約 −3.35 ppm，自檢高低差 6.51），圖 S4 扣趨勢直線（高低差 10.2、6 月高、1 月低），「減當年平均」的 +2.87／−2.88 只是對照；圖 R1 是手冊事先扣過直線；圖 R8 極座標是反例、不做投資判斷；圖 S2、圖 S7 只有直式上／中／下；圖號不重排；「至少 4–5 年」是實務建議、查無文獻） |
+| 等間隔的時間序列、週期已知，想把一條序列拆成趨勢、季節、殘差，並看季節振幅變不變、殘差還有沒有規律 | 季節分解圖（seasonal decomposition plot；`examples/seasonal-decomposition-plot.md`；古典分解圖、STL 分解圖是算法不是另一種圖；`seasonal_decompose`／`STL`／`decompose`／`stl` 是函式名；季節調整後序列是單線，不是本圖；直式多格、橫軸對齊，通常原始→趨勢→季節→殘差，先比各格刻度；加法＝相加、乘法＝相乘；月週期 12、季 4；古典頭尾各缺約半年；振幅隨水準變大用乘法（圖 S2 加法殘差 14.47／15.98，乘法 0.02／0.01）；季節會變或有離群值用穩健 STL（圖 S3 古典 5.28、STL 2.39；圖 S5 古典趨勢鼓起 5.4、穩健 STL 1.1）；殘差比季節大就不要信季節格（圖 S4：1.29 對 2.64）；圖 R4、圖 R5 不是四格；圖 S2–S5 只有直式上／中／下；圖號不重排；臺灣官方譯名未核；「季节分解」只引述） |
 | 多類別交叉／市場區隔×組成 | 馬賽克（獨立性）；商用變寬堆疊用馬里梅可；平行集合；集合交集用 UpSet |
 | 網路關係 | 力導向／弧線／鄰接矩陣／蜂巢圖；有階層+葉連線用 HEB；稠密成毛球、每條邊要可辨識或依類型分塊用 BioFabric（生物織布圖，暫譯） |
 | 地理量 | 等值區域圖（choropleth；先正規化，勿用總量填色）；計數疏密用點密度圖；總量規模用比例符號地圖；每區等權重、怕大區搶眼用圖塊地圖（一區一格）；面積＝資料用面積變形地圖；起迄用流向地圖 |

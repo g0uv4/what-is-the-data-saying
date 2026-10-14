@@ -207,7 +207,7 @@
 | 2025-02-17 | @tota_toukei | 日文 | [原帖](https://x.com/tota_toukei/status/1891404720713212340)（讚 29，未核） | 可開 |
 | 2026-03-03 | @QuantumMentat | 英文 | [原帖](https://x.com/QuantumMentat/status/2028624884998570082)（讚 1，未核） | 可開 |
 
-鄰居 pattern：[`autocorrelation-plot.md`](autocorrelation-plot.md)（每個滯後一根棒；滯後圖把其中一根攤開）、[`recurrence-plot.md`](recurrence-plot.md)（時間×時間，保留「何時相似」；圖 S7 下）、[`correlation-scatter.md`](correlation-scatter.md)（兩個不同變數同一時間；圖 S7 上）、[`connected-scatter.md`](connected-scatter.md)（兩變數依時間連線；滯後圖若連線就是自己對自己）、[`spectrogram.md`](spectrogram.md)（時間×頻率；環形只暗示週期）、[`control-chart.md`](control-chart.md)（常假設點彼此獨立）、[`time-series-trend.md`](time-series-trend.md)（看高低與何時發生；簡報仍以折線為主）、[`seasonal-subseries-plot.md`](seasonal-subseries-plot.md)（滯後 12 沿對角線只回答今年同月像不像去年同月；哪個月偏高、各月自己有沒有在變看這一檔）。
+鄰居 pattern：[`autocorrelation-plot.md`](autocorrelation-plot.md)（每個滯後一根棒；滯後圖把其中一根攤開）、[`recurrence-plot.md`](recurrence-plot.md)（時間×時間，保留「何時相似」；圖 S7 下）、[`correlation-scatter.md`](correlation-scatter.md)（兩個不同變數同一時間；圖 S7 上）、[`connected-scatter.md`](connected-scatter.md)（兩變數依時間連線；滯後圖若連線就是自己對自己）、[`spectrogram.md`](spectrogram.md)（時間×頻率；環形只暗示週期）、[`control-chart.md`](control-chart.md)（常假設點彼此獨立）、[`time-series-trend.md`](time-series-trend.md)（看高低與何時發生；簡報仍以折線為主）、[`seasonal-subseries-plot.md`](seasonal-subseries-plot.md)（滯後 12 沿對角線只回答今年同月像不像去年同月；哪個月偏高、各月自己有沒有在變看這一檔）、[`scatterplot-matrix.md`](scatterplot-matrix.md)（三到四個不同變數的兩兩散布；本檔是同一變數錯開 k 步）。
 
 ## 圖檔與授權（不複製，只連結）
 

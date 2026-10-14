@@ -62,6 +62,7 @@
 | 滯後圖（lag plot；橫軸前 k 步、縱軸現在、同刻度加對角線；n 點得 n−k 對；S2 的 0.763 對模型係數 0.9 是抽樣偏差；相關接近 0 不代表沒關係；「龐加萊圖」只指心率圖 R13；R12 寫英文 Poincaré map；S7 只有直式上／中／下） | `lag-plot.md` | 2026-10-10-am-lagplot.md |
 | 季節子序列圖（seasonal subseries plot；亦稱 cycle plot，中文「循環圖」未核；月 12 格、季 4 格、星期 7 格，格內歷年小折線加平均橫線、共用縱軸；自相關與滯後圖只回答有沒有季節；三種去趨勢不要說成同一件事：R16 二次曲線 5 月約 +3.15／9 月約 −3.35、S4 直線高低差 10.2、「減當年平均」+2.87／−2.88 只是對照；圖 R8 極座標是反例、不做投資判斷；S2／S7 只有直式上／中／下；圖號不重排） | `seasonal-subseries-plot.md` | 2026-10-11-am-seasonal-subseries.md |
 | 季節分解圖（seasonal decomposition plot；亦稱依算法：古典分解圖／STL 分解圖，不是另一種圖；`seasonal_decompose`／`STL`／`decompose`／`stl` 是函式名不是圖種；季節調整後序列〔圖 R4 主線〕是單線、不是本圖；直式多格、橫軸對齊，通常原始→趨勢→季節→殘差，先比各格刻度；加法：原始＝趨勢＋季節＋殘差，乘法：原始＝趨勢×季節×殘差，STL 只做加法；古典 2×12 頭尾各 6 期沒有趨勢與殘差；振幅隨水準變大用乘法〔S2 加法殘差 14.47／15.98、乘法 0.02／0.01〕；季節會變或有離群值用穩健 STL〔S3 古典殘差標準差 5.28、STL 2.39；S5 古典趨勢鼓起最多 5.4、穩健 STL 1.1〕；殘差比季節大則季節格不可信〔S4 1.29 對 2.64〕；圖 R4、圖 R5 不是四格分解圖；S2–S5 只有直式上／中／下；圖號不重排；臺灣官方譯名未核；「季节分解」只在引文） | `seasonal-decomposition-plot.md` | 2026-10-13-am-seasonal-decomp.md |
+| 散布圖矩陣（scatterplot matrix；亦稱 pairs plot，縮寫 SPLOM；`pairplot`／`scatter_matrix`／`pairs` 是函式名不是圖種；約三到四個數值變數，對角線是直方圖或密度，其餘畫點，上三角可放皮爾森相關；只一對 → 散點；只要係數或欄太多 → 相關熱圖；同一序列錯開 k 步 → 滯後圖；分組要顏色加形狀——圖 R1、R2、R4 只用顏色，是反例；正例是圖 S3 圓／方／三角加色；圖 S4 左／右；圖號不重排；臺灣官方譯名未核，課程稿沒有記載、本稿不另查） | `scatterplot-matrix.md` | 2026-10-14-am-splom.md |
 | Bland–Altman 圖（兩種量測方法的一致性；≠ MA 圖、≠ 相關係數） | `bland-altman.md` | 2026-09-30-pm-ba.md |
 | LocusZoom 圖（區域關聯圖；曼哈頓圖的區間細節層；≠ 曼哈頓圖；領先變異≠因果） | `locuszoom.md` | 2026-10-01-am-locuszoom.md |
 | 力導向網路 | `force-network.md` | 2026-09-17-pm-force.md |

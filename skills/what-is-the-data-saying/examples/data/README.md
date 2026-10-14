@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖與滯後圖各附 8 組 CSV 與 8 支自檢 .py，季節子序列圖附 9 組 CSV 與 9 支自檢 .py（8 組虛構＋1 份毛納羅亞二氧化碳真實資料），季節分解圖附 5 組 CSV 與 5 支自檢 .py（5 組虛構））
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖與滯後圖各附 8 組 CSV 與 8 支自檢 .py，季節子序列圖附 9 組 CSV 與 9 支自檢 .py（8 組虛構＋1 份毛納羅亞二氧化碳真實資料），季節分解圖附 5 組 CSV 與 5 支自檢 .py（5 組虛構），散布圖矩陣附 5 組 CSV 與 5 支自檢 .py（S1、S4、S5 虛構；S2 鳶尾花公有領域；S3 企鵝 CC0））
 
 來自專案維護者整理、已審的 skill pack。**非真實產業資料；數字未核。**
 
@@ -231,8 +231,18 @@
 | `sample-seasonal-decomp-sim-s4-no-season-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「季節分解圖資料與自檢腳本」 | 同上 |
 | `sample-seasonal-decomp-sim-s5-outlier.csv` | 季節分解圖虛構資料（S5；120 列、5973 位元組；離群值序號 62（year_frac 2020.1667）；古典殘差 51.0、STL 61.6；相對水準 100、每月 +0.5 的直線，古典趨勢鼓起最多 5.4、穩健 STL 1.1；+60 與同月份季節墊高 6.3 自檢未核對；直式上／中／下；第 1 行就是表頭、沒有 `#`、沒有 data_status；數字未核；不宣稱與素材包逐位元相同） | `../seasonal-decomposition-plot.md` |
 | `sample-seasonal-decomp-sim-s5-outlier-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「季節分解圖資料與自檢腳本」 | 同上 |
+| `sample-splom-sim-s1-anatomy.csv` | 散布圖矩陣虛構資料（S1；80 列、4417 位元組；甲與乙相關 0.7124228200726517，另外兩對絕對值都小於 0.1；第 1 行就是表頭、沒有 `#`、沒有 data_status；數字未核；與素材包逐位元相同） | `../scatterplot-matrix.md` |
+| `sample-splom-sim-s1-anatomy-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「散布圖矩陣資料與自檢腳本」 | 同上 |
+| `sample-splom-sim-s2-corr-upper.csv` | 散布圖矩陣練習資料（S2；150 列、2440 位元組；鳶尾花四個數值欄，公有領域；花瓣長與花瓣寬相關 0.962865431402796，六對裡絕對值最大；沒有品種欄；第 1 行就是表頭、沒有 `#`、沒有 data_status；課程稿圖說標未核；與素材包逐位元相同） | `../scatterplot-matrix.md` |
+| `sample-splom-sim-s2-corr-upper-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「散布圖矩陣資料與自檢腳本」 | 同上 |
+| `sample-splom-sim-s3-grouped-shapes.csv` | 散布圖矩陣練習資料（S3；333 列、10826 位元組；Palmer Penguins，CC0；阿德利 146、帽帶 68、巴布亞 119；巴布亞平均鰭長與平均體重最高，但仍與另外兩組重疊；品種欄沒有形狀；第 1 行就是表頭、沒有 `#`、沒有 data_status；課程稿圖說標未核；與素材包逐位元相同） | `../scatterplot-matrix.md` |
+| `sample-splom-sim-s3-grouped-shapes-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「散布圖矩陣資料與自檢腳本」 | 同上 |
+| `sample-splom-sim-s4-too-many-vs-heatmap.csv` | 散布圖矩陣虛構資料（S4；100 列、13687 位元組；七欄、非對角 21 對；最大絕對相關是丙與戊 0.8067857797701805；版面左／右；第 1 行就是表頭、沒有 `#`、沒有 data_status；數字未核；與素材包逐位元相同） | `../scatterplot-matrix.md` |
+| `sample-splom-sim-s4-too-many-vs-heatmap-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「散布圖矩陣資料與自檢腳本」 | 同上 |
+| `sample-splom-sim-s5-outlier-multicell.csv` | 散布圖矩陣虛構資料（S5；61 列、3727 位元組；離群點 (22, 4, 18) 僅一列，甲與丙高於其餘、乙低於其餘；第 1 行就是表頭、沒有 `#`、沒有 data_status；數字未核；與素材包逐位元相同） | `../scatterplot-matrix.md` |
+| `sample-splom-sim-s5-outlier-multicell-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「散布圖矩陣資料與自檢腳本」 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`、`../autocorrelation-plot.md`、`../lag-plot.md`、`../seasonal-subseries-plot.md`、`../seasonal-decomposition-plot.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`、`../autocorrelation-plot.md`、`../lag-plot.md`、`../seasonal-subseries-plot.md`、`../seasonal-decomposition-plot.md`、`../scatterplot-matrix.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -794,3 +804,33 @@ python3 sample-seasonal-decomp-sim-s5-outlier-selfcheck.py   # 其餘同理，�
 預期每支逐項印出 `PASS｜…`，最後一行 `RESULT: PASS（N 項通過、0 項失敗）`（課程稿記載在 `examples/data/` 實跑，結束碼 0）。實跑通過項數：S1 9、S2 7、S3 7、S4 7、S5 10。
 
 **以實際計數為準**（自檢從 CSV 重算，與課程稿關鍵讀數一致。課程沒有點名畫圖腳本，本 repo 也沒有重跑。本節沒有改這些檔，不宣稱與素材包逐位元相同）：(1) 虛構檔**數字未核**；(2) 圖 S1 殘差最大絕對值 4.4、季節 9.8，趨勢頭尾各空 6 格，有值處原始＝三成分之和；(3) 圖 S2 加法殘差去掉空值後前 24／後 24 筆母體標準差（除以 n）14.47／15.98，乘法 0.02／0.01（直式上／中／下）；(4) 圖 S3 古典殘差標準差 5.28、STL 2.39；STL 季節窗 7 是課程稿記載，CSV 沒有這欄，**自檢未核對**；(5) 圖 S4 季節最大絕對值 1.29、殘差標準差 2.64，殘差比季節大，季節格不可信；(6) 圖 S5 離群值序號 62（`year_frac` 2020.1667），古典殘差 51.0、STL 61.6；相對產生過程直線（水準 100、每月 +0.5），古典趨勢鼓起最多 5.4、穩健 STL 1.1。模擬記載的離群值 +60、同月份古典季節墊高 6.3 **沒有**寫進自檢（S5 CSV 沒有季節欄）。古典分解至少兩個完整週期、月資料少於 24 筆不要用古典，是課程稿轉述 statsmodels 0.15.0 文件，**本 repo 未實測**。圖 S2–S5 只有直式上／中／下。圖號維持 R1–R5、S1–S5，不重排。
+
+## 散布圖矩陣資料與自檢腳本 `sample-splom-sim-s1-…` 到 `sample-splom-sim-s5-outlier-multicell`
+
+**收錄哪些：** 素材包有 5 份練習資料（S1–S5，各對應一張模擬圖）和本 repo 另寫的 5 支自檢腳本；**5 組全部收錄**（共 10 個檔）。課程稿沒有點名畫圖腳本。素材包說明點名 `draw_splom.py`，該腳本不在這次對到的檔案裡，本 repo **沒有收**。
+
+**檔名：** 素材包檔名本來就有 `splom` 前綴，與本 repo `examples/data/` 既有檔案**沒有撞名**，所以**沒有改名**。本節**沒有改這些 CSV**。複製後以 `cmp` 核對，**與素材包逐位元相同**。每支自檢以明確檔名讀 CSV（從腳本所在資料夾讀），沒有萬用字元；只用 Python 標準函式庫（`csv`、`math`、`os`、`sys`；皮爾森相關自寫，不靠 numpy、pandas）。預期值寫在腳本裡。
+
+**沒有縮小：** 5 個 CSV 合計 **35,097 位元組（約 34.3 KiB）**，單檔最大是 S4 的 13,687 位元組（約 13.4 KiB）。都小於 25 萬位元組。模擬圖種子 20261014（S2、S3 的數字來自公開資料集，不是這顆種子造出來的）。
+
+| 檔 | 列數 | CSV 位元組 | 欄位 |
+|---|---:|---:|---|
+| S1 `sample-splom-sim-s1-anatomy.csv` | 80 | 4417 | `變數甲,變數乙,變數丙` |
+| S2 `sample-splom-sim-s2-corr-upper.csv` | 150 | 2440 | `萼片長,萼片寬,花瓣長,花瓣寬` |
+| S3 `sample-splom-sim-s3-grouped-shapes.csv` | 333 | 10826 | `嘴峰長,嘴峰深,鰭長,體重,品種` |
+| S4 `sample-splom-sim-s4-too-many-vs-heatmap.csv` | 100 | 13687 | `甲,乙,丙,丁,戊,己,庚` |
+| S5 `sample-splom-sim-s5-outlier-multicell.csv` | 61 | 3727 | `變數甲,變數乙,變數丙,標記` |
+
+自檢腳本位元組：S1 2579、S2 2519、S3 3261、S4 2464、S5 2091。
+
+**CSV 格式：** 第 1 行就是表頭（**沒有** `#` 說明行），也**沒有** `data_status` 欄。列數是資料列（`wc -l` 再扣表頭）。S1、S4、S5 是虛構。S2 是鳶尾花四個數值欄（公有領域，Anderson／Fisher）。S3 是企鵝四個測量加品種（Palmer Penguins，CC0，Horst、Hill、Gorman）。
+
+```bash
+cd skills/what-is-the-data-saying/examples/data
+python3 sample-splom-sim-s1-anatomy-selfcheck.py
+python3 sample-splom-sim-s5-outlier-multicell-selfcheck.py   # 其餘同理，共 5 支
+```
+
+預期每支逐項印出 `PASS｜…`，最後一行 `RESULT: PASS（N 項通過、0 項失敗）`（在 `examples/data/` 實跑，結束碼 0）。實跑通過項數：S1 9、S2 8、S3 10、S4 8、S5 9。
+
+**以實際計數為準**（自檢從 CSV 重算。本節沒有改這些 CSV，與素材包逐位元相同。沒有重跑 `draw_splom.py`，本 repo 也沒有收這個腳本，也沒有收 png）：(1) 圖 S1 虛構，n＝80，甲與乙相關 0.7124228200726517，另外兩對絕對值都小於 0.1；(2) 圖 S2 花瓣長與花瓣寬 0.962865431402796，且是六對裡絕對值最大的一對（公有領域鳶尾花；課程稿圖說「約零點九六（未核）」）；(3) 圖 S3 n＝333、三個品種（阿德利 146、帽帶 68、巴布亞 119）；巴布亞平均鰭長與平均體重最高，鰭長與體重都仍與另外兩組有重疊（偏右上，不是完全分開）；圓、方、三角是畫圖時加上的，CSV 沒有形狀欄；(4) 圖 S4 七欄、100 列、非對角 21 對，最大絕對相關 0.8067857797701805，落在丙與戊；版面左／右；(5) 圖 S5 n＝61，離群點 (22, 4, 18) 僅一列，且在三個變數上都離開其餘 60 列。圖 R1、R2、R4 只用顏色區分組別，不符合顏色加形狀；正例是圖 S3。圖號維持 R1–R5、S1–S5，不重排。

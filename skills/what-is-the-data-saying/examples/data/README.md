@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖與滯後圖各附 8 組 CSV 與 8 支自檢 .py，季節子序列圖附 9 組 CSV 與 9 支自檢 .py（8 組虛構＋1 份毛納羅亞二氧化碳真實資料））
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖與滯後圖各附 8 組 CSV 與 8 支自檢 .py，季節子序列圖附 9 組 CSV 與 9 支自檢 .py（8 組虛構＋1 份毛納羅亞二氧化碳真實資料），季節分解圖附 5 組 CSV 與 5 支自檢 .py（5 組虛構））
 
 來自專案維護者整理、已審的 skill pack。**非真實產業資料；數字未核。**
 
@@ -221,8 +221,18 @@
 | `sample-seasonal-subseries-sim-s8-how-to-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「季節子序列圖資料與自檢腳本」 | 同上 |
 | `sample-seasonal-subseries-noaa-co2-2000-2025.csv` | 季節子序列圖真實資料（毛納羅亞每月二氧化碳 2000–2025；312 列、10990 位元組；美國政府公有領域、2026-10-11 下載；2022-12 至 2023-07 初改用毛納基亞；data_status「真實資料」；圖 R15、圖 R16；本課沒有改檔，不宣稱與素材包逐位元相同） | `../seasonal-subseries-plot.md` |
 | `sample-seasonal-subseries-noaa-co2-2000-2025-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「季節子序列圖資料與自檢腳本」 | 同上 |
+| `sample-seasonal-decomp-sim-s1-anatomy.csv` | 季節分解圖虛構資料（S1；120 列、4858 位元組；2015–2024；殘差最大絕對值 4.4、季節 9.8；趨勢頭尾各空 6 格；有值處原始＝三成分之和；第 1 行就是表頭、沒有 `#`、沒有 data_status；數字未核；本課沒有改檔，不宣稱與素材包逐位元相同） | `../seasonal-decomposition-plot.md` |
+| `sample-seasonal-decomp-sim-s1-anatomy-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「季節分解圖資料與自檢腳本」 | 同上 |
+| `sample-seasonal-decomp-sim-s2-add-vs-mult.csv` | 季節分解圖虛構資料（S2；120 列、3792 位元組；加法殘差前 24／後 24 筆母體標準差 14.47／15.98，乘法 0.02／0.01；直式上／中／下；第 1 行就是表頭、沒有 `#`、沒有 data_status；數字未核；不宣稱與素材包逐位元相同） | `../seasonal-decomposition-plot.md` |
+| `sample-seasonal-decomp-sim-s2-add-vs-mult-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「季節分解圖資料與自檢腳本」 | 同上 |
+| `sample-seasonal-decomp-sim-s3-classical-vs-stl.csv` | 季節分解圖虛構資料（S3；120 列、3905 位元組；古典殘差標準差 5.28、STL 2.39；STL 季節窗 7 不在 CSV、自檢未核對；直式上／中／下；第 1 行就是表頭、沒有 `#`、沒有 data_status；數字未核；不宣稱與素材包逐位元相同） | `../seasonal-decomposition-plot.md` |
+| `sample-seasonal-decomp-sim-s3-classical-vs-stl-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「季節分解圖資料與自檢腳本」 | 同上 |
+| `sample-seasonal-decomp-sim-s4-no-season.csv` | 季節分解圖虛構資料（S4；120 列、3918 位元組；季節最大絕對值 1.29、殘差標準差 2.64；直式上／中／下；第 1 行就是表頭、沒有 `#`、沒有 data_status；數字未核；不宣稱與素材包逐位元相同） | `../seasonal-decomposition-plot.md` |
+| `sample-seasonal-decomp-sim-s4-no-season-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「季節分解圖資料與自檢腳本」 | 同上 |
+| `sample-seasonal-decomp-sim-s5-outlier.csv` | 季節分解圖虛構資料（S5；120 列、5973 位元組；離群值序號 62（year_frac 2020.1667）；古典殘差 51.0、STL 61.6；相對水準 100、每月 +0.5 的直線，古典趨勢鼓起最多 5.4、穩健 STL 1.1；+60 與同月份季節墊高 6.3 自檢未核對；直式上／中／下；第 1 行就是表頭、沒有 `#`、沒有 data_status；數字未核；不宣稱與素材包逐位元相同） | `../seasonal-decomposition-plot.md` |
+| `sample-seasonal-decomp-sim-s5-outlier-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「季節分解圖資料與自檢腳本」 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`、`../autocorrelation-plot.md`、`../lag-plot.md`、`../seasonal-subseries-plot.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`、`../autocorrelation-plot.md`、`../lag-plot.md`、`../seasonal-subseries-plot.md`、`../seasonal-decomposition-plot.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -754,3 +764,33 @@ python3 sample-seasonal-subseries-noaa-co2-2000-2025-selfcheck.py   # 其餘同�
 預期每支逐項印出 `PASS｜…`，最後一行 `RESULT: PASS（N 項通過、0 項失敗）`（**v0.3.35 上架前實跑，結束碼 0**）。實跑通過項數：S1 6、S2 5、S3 6、S4 7、S5 5、S6 6、S7 7、S8 5、二氧化碳檔 8。
 
 **以實際計數為準**（自檢從 CSV 重算，與課程稿關鍵讀數一致。沒有重跑沒有收進本 repo 的 `draw_seasonal_subseries.py`／`draw_noaa_co2.py`／`export_samples.py`。本課沒有改這些檔，不宣稱與素材包逐位元相同）：(1) 虛構檔**數字未核**；二氧化碳檔是美國政府公開資料，不是虛構；(2) 圖 S1 的 7 月平均 447.4、1 月 203.3，72 點；(3) 圖 S2 的 6／7／8 月斜率 13.9／15.2／15.9，夏季平均斜率 15.0（版面上／中／下）；(4) 圖 S3 的 7 月斜率 −1.5、9 月 +2.0，前 3 年高峰 8 月、後 3 年 9 月；(5) 圖 S4 的 `detrended` 欄等於扣趨勢直線，原始各格平均斜率 5.9，去趨勢後高低差 10.2、高峰 6 月、低谷 1 月；(6) 圖 S5 純雜訊高低差 6.5、有季節 10.7；(7) 圖 S6 的 2021 年 3 月為 43.1，3 月平均含 68.8、不含 72.4，中位數 72.8；(8) 圖 S7 自相關滯後 12／24／6 為 0.752／0.701／−0.793，滯後 12 皮爾森相關四捨五入到小數第三位為 0.82，半寬 0.179，120 點（直式上／中／下）；(9) 圖 S8 季平均 44.7／58.7／65.7／49.3；(10) 圖 R15 各格平均斜率 2.29 ppm／年（未去趨勢的反例）；(11) 圖 R16 扣二次趨勢後 5 月最高、9 月最低，未舍入高低差四捨五入為 6.51，5 月 +3.15、9 月 −3.35、10 月 −3.34；(12) 「減當年平均」對照是 5 月 +2.87、9 月 −2.88，自檢有核對，**不是**圖 R16、也不是圖 S4 的做法。去季節欄那組 2.99 → 3.27、−3.32 → −3.44 **沒有**寫進自檢，原因未核，不要拿去改寫圖 R16 的 +3.15／−3.35。圖 R1 是手冊事先扣過直線，不是這份 CSV 的二次曲線，也不是 +2.87／−2.88。
+
+## 季節分解圖資料與自檢腳本 `sample-seasonal-decomp-sim-s1-…` 到 `sample-seasonal-decomp-sim-s5-outlier`
+
+**收錄哪些：** 素材包 `2026-10-13-am-seasonal-decomp` 有 5 份虛構資料（S1–S5，各對應一張模擬圖）和 5 支自檢腳本；素材包沒有指定哪一份給 repo，所以 **5 組全部收錄**（共 10 個檔）。課程沒有點名畫圖腳本，本 repo 也沒有收。
+
+**檔名：** 素材包檔名本來就有 `seasonal-decomp` 前綴，與本 repo `examples/data/` 既有檔案**沒有撞名**，所以**沒有改名**。本節**沒有改這些檔**，也**不宣稱與素材包逐位元相同**（沒有做 `cmp`）。每支自檢以明確檔名讀 CSV（從腳本所在資料夾讀），沒有萬用字元；只用 Python 標準函式庫（`csv`、`math`、`os`、`sys`；母體標準差除以 n，不靠 numpy）。預期值寫在腳本裡。
+
+**沒有縮小：** 5 個 CSV 合計 **22,446 位元組（約 21.9 KiB）**，單檔最大是 S5 的 5,973 位元組（約 5.8 KiB）。都小於 25 萬位元組。模擬圖重畫種子 20261013。
+
+| 檔 | 列數 | CSV 位元組 | 欄位 |
+|---|---:|---:|---|
+| S1 `sample-seasonal-decomp-sim-s1-anatomy.csv` | 120 | 4858 | `year_frac,observed,trend,seasonal,resid` |
+| S2 `sample-seasonal-decomp-sim-s2-add-vs-mult.csv` | 120 | 3792 | `year_frac,observed,add_resid,mult_resid` |
+| S3 `sample-seasonal-decomp-sim-s3-classical-vs-stl.csv` | 120 | 3905 | `year_frac,observed,classical_resid,stl_resid` |
+| S4 `sample-seasonal-decomp-sim-s4-no-season.csv` | 120 | 3918 | `year_frac,observed,seasonal,resid` |
+| S5 `sample-seasonal-decomp-sim-s5-outlier.csv` | 120 | 5973 | `year_frac,observed,classical_trend,stl_trend,classical_resid,stl_resid` |
+
+自檢腳本位元組：S1 2824、S2 2515、S3 2432、S4 2342、S5 2965。
+
+**CSV 格式：** 第 1 行就是表頭（**沒有** `#` 說明行），也**沒有** `data_status` 欄——與季節子序列圖那批練習檔不同。空格＝古典分解頭尾算不到的趨勢或殘差。`year_frac` 從 2015.0 到 2024.9167（2015–2024 共 120 個月）。列數是資料列（`wc -l` 再扣表頭，所以 `wc -l` 是 121）。
+
+```bash
+cd skills/what-is-the-data-saying/examples/data
+python3 sample-seasonal-decomp-sim-s1-anatomy-selfcheck.py
+python3 sample-seasonal-decomp-sim-s5-outlier-selfcheck.py   # 其餘同理，共 5 支
+```
+
+預期每支逐項印出 `PASS｜…`，最後一行 `RESULT: PASS（N 項通過、0 項失敗）`（課程稿記載在 `examples/data/` 實跑，結束碼 0）。實跑通過項數：S1 9、S2 7、S3 7、S4 7、S5 10。
+
+**以實際計數為準**（自檢從 CSV 重算，與課程稿關鍵讀數一致。課程沒有點名畫圖腳本，本 repo 也沒有重跑。本節沒有改這些檔，不宣稱與素材包逐位元相同）：(1) 虛構檔**數字未核**；(2) 圖 S1 殘差最大絕對值 4.4、季節 9.8，趨勢頭尾各空 6 格，有值處原始＝三成分之和；(3) 圖 S2 加法殘差去掉空值後前 24／後 24 筆母體標準差（除以 n）14.47／15.98，乘法 0.02／0.01（直式上／中／下）；(4) 圖 S3 古典殘差標準差 5.28、STL 2.39；STL 季節窗 7 是課程稿記載，CSV 沒有這欄，**自檢未核對**；(5) 圖 S4 季節最大絕對值 1.29、殘差標準差 2.64，殘差比季節大，季節格不可信；(6) 圖 S5 離群值序號 62（`year_frac` 2020.1667），古典殘差 51.0、STL 61.6；相對產生過程直線（水準 100、每月 +0.5），古典趨勢鼓起最多 5.4、穩健 STL 1.1。模擬記載的離群值 +60、同月份古典季節墊高 6.3 **沒有**寫進自檢（S5 CSV 沒有季節欄）。古典分解至少兩個完整週期、月資料少於 24 筆不要用古典，是課程稿轉述 statsmodels 0.15.0 文件，**本 repo 未實測**。圖 S2–S5 只有直式上／中／下。圖號維持 R1–R5、S1–S5，不重排。

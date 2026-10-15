@@ -206,7 +206,7 @@
 
 觀察（依課程稿，不當依據）：平臺上很少人用 seasonal subseries plot 這個學名，視覺化討論多稱 cycle plot，而且常連到 Tableau；統計與預測的討論則多半出現在 gg_subseries 或 cycleplot 的脈絡。
 
-鄰居 pattern：[`autocorrelation-plot.md`](autocorrelation-plot.md)（有沒有季節、週期多長；圖 S7 上）、[`lag-plot.md`](lag-plot.md)（今年同月像不像去年同月；圖 S7 中）、[`time-series-trend.md`](time-series-trend.md)（整體走勢與何時發生；有強趨勢要先處理）、[`boxplot-summary.md`](boxplot-summary.md)（分月箱形圖丟掉年份順序；圖 S2 下）、[`calendar-heatmap.md`](calendar-heatmap.md)（一格一天的日曆）、[`matrix-heatmap.md`](matrix-heatmap.md)（年×月，一格一月；與日曆熱力圖不是同一種）、[`spectrogram.md`](spectrogram.md)（不確定週期多長時，可先看頻率）。
+鄰居 pattern：[`autocorrelation-plot.md`](autocorrelation-plot.md)（有沒有季節、週期多長；圖 S7 上）、[`lag-plot.md`](lag-plot.md)（今年同月像不像去年同月；圖 S7 中）、[`time-series-trend.md`](time-series-trend.md)（整體走勢與何時發生；有強趨勢要先處理）、[`boxplot-summary.md`](boxplot-summary.md)（分月箱形圖丟掉年份順序；圖 S2 下）、[`calendar-heatmap.md`](calendar-heatmap.md)（一格一天的日曆）、[`matrix-heatmap.md`](matrix-heatmap.md)（年×月，一格一月；與日曆熱力圖不是同一種）、[`spectrogram.md`](spectrogram.md)（不確定週期多長時，可先看頻率）、[`seasonal-decomposition-plot.md`](seasonal-decomposition-plot.md)（哪個月偏高、各月自己有沒有在變看本檔；拆成趨勢、季節、殘差看這一檔）。
 
 ## 圖檔與授權（不複製，只連結）
 

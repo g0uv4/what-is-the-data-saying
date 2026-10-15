@@ -2,7 +2,7 @@
 /**
  * #1 eligible pattern for every sample-*.csv.
  * Search: repo-root recursive sample-*.csv (skip node_modules and .git).
- * 78 original files + 8 spectrogram teaching CSVs + 8 autocorrelation teaching CSVs + 8 lag plot teaching CSVs + 9 seasonal subseries teaching CSVs = 111 total.
+ * 78 original files + 8 spectrogram teaching CSVs + 8 autocorrelation teaching CSVs + 8 lag plot teaching CSVs + 9 seasonal subseries teaching CSVs + 5 seasonal decomposition teaching CSVs = 116 total.
  * The 78-file set was first captured at web-poc 3222d7b; values were
  * re-captured after parseCSV began skipping leading `#` comment lines
  * (the old values reflected comment text parsed as the header).
@@ -25,6 +25,9 @@
  * The 9 seasonal subseries teaching CSVs (v0.3.35) are also excluded, their #1
  * (none is seasonal-subseries-plot, teaching-only) is in
  * top1-snapshot-seasonal-subseries.json, and the other four snapshots did not change.
+ * The 5 seasonal decomposition teaching CSVs (v0.3.36) are also excluded, their #1
+ * (none is seasonal-decomposition-plot, teaching-only) is in
+ * top1-snapshot-seasonal-decomp.json, and the other five snapshots did not change.
  */
 const test = require('node:test');
 const assert = require('node:assert/strict');
@@ -40,6 +43,7 @@ const spectrogramSnapshotPath = path.join(__dirname, 'fixtures', 'top1-snapshot-
 const autocorrSnapshotPath = path.join(__dirname, 'fixtures', 'top1-snapshot-autocorr.json');
 const lagplotSnapshotPath = path.join(__dirname, 'fixtures', 'top1-snapshot-lagplot.json');
 const seasonalSnapshotPath = path.join(__dirname, 'fixtures', 'top1-snapshot-seasonal-subseries.json');
+const decompSnapshotPath = path.join(__dirname, 'fixtures', 'top1-snapshot-seasonal-decomp.json');
 const excludePath = path.join(__dirname, '..', 'build', 'sample-exclude.json');
 const SAMPLE_GLOB = '**/sample-*.csv';
 
@@ -60,7 +64,7 @@ function top1Id(file) {
   return first ? first.id : null;
 }
 
-test('78-file set (first captured at web-poc 3222d7b; values re-captured after leading # comment lines are skipped) keeps its #1; extras are exactly the 33 excluded teaching files', () => {
+test('78-file set (first captured at web-poc 3222d7b; values re-captured after leading # comment lines are skipped) keeps its #1; extras are exactly the 38 excluded teaching files', () => {
   const files = listSampleCsv(repoRoot, []).sort();
   const names = files.map((f) => path.basename(f));
   const byName = new Map(files.map((f) => [path.basename(f), f]));
@@ -69,20 +73,22 @@ test('78-file set (first captured at web-poc 3222d7b; values re-captured after l
   const autocorrSnap = JSON.parse(fs.readFileSync(autocorrSnapshotPath, 'utf8'));
   const lagplotSnap = JSON.parse(fs.readFileSync(lagplotSnapshotPath, 'utf8'));
   const seasonalSnap = JSON.parse(fs.readFileSync(seasonalSnapshotPath, 'utf8'));
+  const decompSnap = JSON.parse(fs.readFileSync(decompSnapshotPath, 'utf8'));
   const exclude = JSON.parse(fs.readFileSync(excludePath, 'utf8')).slice().sort();
   const specExclude = exclude.filter((n) => n.startsWith('sample-spectrogram-'));
   const autocorrExclude = exclude.filter((n) => n.startsWith('sample-autocorr-'));
   const lagplotExclude = exclude.filter((n) => n.startsWith('sample-lagplot-'));
   const seasonalExclude = exclude.filter((n) => n.startsWith('sample-seasonal-subseries-'));
+  const decompExclude = exclude.filter((n) => n.startsWith('sample-seasonal-decomp-'));
   const snapNames = Object.keys(snap).sort();
   assert.equal(new Set(names).size, names.length, 'duplicate sample-*.csv basenames');
   assert.equal(snapNames.length, 78, '3222d7b snapshot should list 78 files');
-  assert.equal(exclude.length, 33, 'sample-exclude.json should list the 33 excluded teaching CSVs');
+  assert.equal(exclude.length, 38, 'sample-exclude.json should list the 38 excluded teaching CSVs');
   const missing = snapNames.filter((n) => !byName.has(n));
   assert.deepEqual(missing, [], 'snapshot files missing from tree: ' + missing.join(', '));
   const extra = names.filter((n) => !Object.prototype.hasOwnProperty.call(snap, n)).sort();
   assert.deepEqual(extra, exclude, 'sample-*.csv outside the 3222d7b snapshot must equal the exclusion list (glob ' + SAMPLE_GLOB + ')');
-  assert.equal(names.length, 111, '78 original + 8 spectrogram + 8 autocorrelation + 8 lag plot + 9 seasonal subseries');
+  assert.equal(names.length, 116, '78 original + 8 spectrogram + 8 autocorrelation + 8 lag plot + 9 seasonal subseries + 5 seasonal decomposition');
   const flips = [];
   for (const name of snapNames) {
     const got = top1Id(byName.get(name));
@@ -122,10 +128,18 @@ test('78-file set (first captured at web-poc 3222d7b; values re-captured after l
     if (got !== seasonalSnap[name]) seasonalFlips.push({ file: name, expected: seasonalSnap[name], got: got });
   }
   assert.deepEqual(seasonalFlips, [], 'seasonal subseries sample #1 flipped: ' + JSON.stringify(seasonalFlips));
-  assert.deepEqual(autocorrExclude.concat(lagplotExclude, seasonalExclude, specExclude), exclude);
+  assert.deepEqual(Object.keys(decompSnap).sort(), decompExclude);
+  const decompFlips = [];
+  for (const name of decompExclude) {
+    const got = top1Id(byName.get(name));
+    excludedTop.set(name, got);
+    if (got !== decompSnap[name]) decompFlips.push({ file: name, expected: decompSnap[name], got: got });
+  }
+  assert.deepEqual(decompFlips, [], 'seasonal decomposition sample #1 flipped: ' + JSON.stringify(decompFlips));
+  assert.deepEqual(autocorrExclude.concat(lagplotExclude, decompExclude, seasonalExclude, specExclude), exclude);
   const teachingTop = exclude.filter((name) => {
     const id = excludedTop.get(name);
-    return id === 'autocorrelation-plot' || id === 'lag-plot' || id === 'seasonal-subseries-plot';
+    return id === 'autocorrelation-plot' || id === 'lag-plot' || id === 'seasonal-subseries-plot' || id === 'seasonal-decomposition-plot';
   });
-  assert.deepEqual(teachingTop, [], 'excluded teaching file ranked autocorrelation-plot, lag-plot or seasonal-subseries-plot #1: ' + teachingTop.join(', '));
+  assert.deepEqual(teachingTop, [], 'excluded teaching file ranked autocorrelation-plot, lag-plot, seasonal-subseries-plot or seasonal-decomposition-plot #1: ' + teachingTop.join(', '));
 });

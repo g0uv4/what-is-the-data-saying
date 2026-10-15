@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖與滯後圖各附 8 組 CSV 與 8 支自檢 .py，季節子序列圖附 9 組 CSV 與 9 支自檢 .py（8 組虛構＋1 份毛納羅亞二氧化碳真實資料），季節分解圖附 5 組 CSV 與 5 支自檢 .py（5 組虛構），散布圖矩陣附 5 組 CSV 與 5 支自檢 .py（S1、S4、S5 虛構；S2 鳶尾花公有領域；S3 企鵝 CC0））
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖與滯後圖各附 8 組 CSV 與 8 支自檢 .py，季節子序列圖附 9 組 CSV 與 9 支自檢 .py（8 組虛構＋1 份毛納羅亞二氧化碳真實資料），季節分解圖附 5 組 CSV 與 5 支自檢 .py（5 組虛構），散布圖矩陣附 5 組 CSV 與 5 支自檢 .py（S1、S4、S5 虛構；S2 鳶尾花公有領域；S3 企鵝 CC0），泰勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261015））
 
 來自專案維護者整理、已審的 skill pack。**非真實產業資料；數字未核。**
 
@@ -241,8 +241,18 @@
 | `sample-splom-sim-s4-too-many-vs-heatmap-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「散布圖矩陣資料與自檢腳本」 | 同上 |
 | `sample-splom-sim-s5-outlier-multicell.csv` | 散布圖矩陣虛構資料（S5；61 列、3727 位元組；離群點 (22, 4, 18) 僅一列，甲與丙高於其餘、乙低於其餘；第 1 行就是表頭、沒有 `#`、沒有 data_status；數字未核；與素材包逐位元相同） | `../scatterplot-matrix.md` |
 | `sample-splom-sim-s5-outlier-multicell-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「散布圖矩陣資料與自檢腳本」 | 同上 |
+| `sample-taylor-sim-s1-anatomy.csv` | 泰勒圖模擬範例資料（S1；2 列、71 位元組；觀測 std 1.0、corr 1.0、note 參考點，對自己的中心化均方根誤差 0；模型甲 1.2、0.75、note 示意，E'＝0.8；圖說的紅方是畫法，CSV 沒有顏色欄；第 1 行就是表頭、沒有 `#`、沒有 data_status；數字未核；與素材包逐位元相同） | `../taylor-diagram.md` |
+| `sample-taylor-sim-s1-anatomy-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「泰勒圖資料與自檢腳本」 | 同上 |
+| `sample-taylor-sim-s2-models.csv` | 泰勒圖模擬範例資料（S2；6 列、109 位元組；模型 A 的 E'＝0.3999999999999999，六點裡最小；形狀在 `marker` 欄；第 1 行就是表頭、沒有 `#`、沒有 data_status；數字未核；與素材包逐位元相同） | `../taylor-diagram.md` |
+| `sample-taylor-sim-s2-models-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「泰勒圖資料與自檢腳本」 | 同上 |
+| `sample-taylor-sim-s3-normalize.csv` | 泰勒圖模擬範例資料（S3；4 列、113 位元組；版面上／下：raw 雨量 3.2／0.85、raw 氣溫 1.1／0.9、norm 雨量 1.07／0.85、norm 氣溫 1.1／0.9；E' 只在正規化面板、以 s_r＝1 重算；第 1 行就是表頭、沒有 `#`、沒有 data_status；數字未核；與素材包逐位元相同） | `../taylor-diagram.md` |
+| `sample-taylor-sim-s3-normalize-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「泰勒圖資料與自檢腳本」 | 同上 |
+| `sample-taylor-sim-s4-crowded-vs-few.csv` | 泰勒圖模擬範例資料（S4；4 列、92 位元組；CSV 只有 few 四列，沒有圖說的 24 點；甲的 E' 最小；版面上廿四點／下四點；第 1 行就是表頭、沒有 `#`、沒有 data_status；數字未核；與素材包逐位元相同） | `../taylor-diagram.md` |
+| `sample-taylor-sim-s4-crowded-vs-few-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「泰勒圖資料與自檢腳本」 | 同上 |
+| `sample-taylor-sim-s5-improvement.csv` | 泰勒圖模擬範例資料（S5；2 列、53 位元組；舊版 1.35／0.6、新版 1.05／0.88，新版更靠近觀測；紅到綠的箭頭是圖說，CSV 沒有顏色欄；第 1 行就是表頭、沒有 `#`、沒有 data_status；數字未核；與素材包逐位元相同） | `../taylor-diagram.md` |
+| `sample-taylor-sim-s5-improvement-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「泰勒圖資料與自檢腳本」 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`、`../autocorrelation-plot.md`、`../lag-plot.md`、`../seasonal-subseries-plot.md`、`../seasonal-decomposition-plot.md`、`../scatterplot-matrix.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`、`../autocorrelation-plot.md`、`../lag-plot.md`、`../seasonal-subseries-plot.md`、`../seasonal-decomposition-plot.md`、`../scatterplot-matrix.md`、`../taylor-diagram.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -834,3 +844,34 @@ python3 sample-splom-sim-s5-outlier-multicell-selfcheck.py   # 其餘同理，�
 預期每支逐項印出 `PASS｜…`，最後一行 `RESULT: PASS（N 項通過、0 項失敗）`（在 `examples/data/` 實跑，結束碼 0）。實跑通過項數：S1 9、S2 8、S3 10、S4 8、S5 9。
 
 **以實際計數為準**（自檢從 CSV 重算。本節沒有改這些 CSV，與素材包逐位元相同。沒有重跑 `draw_splom.py`，本 repo 也沒有收這個腳本，也沒有收 png）：(1) 圖 S1 虛構，n＝80，甲與乙相關 0.7124228200726517，另外兩對絕對值都小於 0.1；(2) 圖 S2 花瓣長與花瓣寬 0.962865431402796，且是六對裡絕對值最大的一對（公有領域鳶尾花；課程稿圖說「約零點九六（未核）」）；(3) 圖 S3 n＝333、三個品種（阿德利 146、帽帶 68、巴布亞 119）；巴布亞平均鰭長與平均體重最高，鰭長與體重都仍與另外兩組有重疊（偏右上，不是完全分開）；圓、方、三角是畫圖時加上的，CSV 沒有形狀欄；(4) 圖 S4 七欄、100 列、非對角 21 對，最大絕對相關 0.8067857797701805，落在丙與戊；版面左／右；(5) 圖 S5 n＝61，離群點 (22, 4, 18) 僅一列，且在三個變數上都離開其餘 60 列。圖 R1、R2、R4 只用顏色區分組別，不符合顏色加形狀；正例是圖 S3。圖號維持 R1–R5、S1–S5，不重排。
+
+## 泰勒圖資料與自檢腳本 `sample-taylor-sim-s1-…` 到 `sample-taylor-sim-s5-improvement`
+
+**收錄哪些：** 素材包有 5 份練習資料（S1–S5，各對應一張模擬圖）和本 repo 另寫的 5 支自檢腳本；**5 組全部收錄**（共 10 個檔）。S1–S5 都是模擬範例資料。課程稿沒有點名畫圖腳本。素材包另有一支繪製模擬圖的腳本，公開檔不寫它的檔名，本 repo **沒有收**，也沒有收 png。
+
+**檔名：** 素材包檔名本來就有 `taylor` 前綴，與本 repo `examples/data/` 既有檔案**沒有撞名**，所以**沒有改名**。本節**沒有改這些 CSV**。複製後以 `cmp` 核對，**與素材包逐位元相同**。每支自檢以明確檔名讀 CSV（從腳本所在資料夾讀），沒有萬用字元；只用 Python 標準函式庫（`csv`、`math`、`os`、`sys`；中心化均方根誤差用餘弦定理自寫，E'² = s_r² + s_m² − 2 s_r s_m R，不靠 numpy）。預期值寫在腳本裡。練習檔的 s_r 取 1：圖 S1 的觀測標準差就是 1.0；圖 S2、圖 S4 的 few、圖 S5，以及圖 S3 的正規化面板，都用 s_r＝1。圖 S3 的原始雨量不拿 s_r＝1 去算。
+
+**沒有縮小：** 5 個 CSV 合計 **438 位元組（約 0.43 KiB）**，單檔最大是 S3 的 113 位元組。都小於 25 萬位元組。模擬圖種子 20261015。浮水印是「模擬｜範例數字未核（虛構資料）」。
+
+| 檔 | 列數 | CSV 位元組 | 欄位 |
+|---|---:|---:|---|
+| S1 `sample-taylor-sim-s1-anatomy.csv` | 2 | 71 | `id,std,corr,note` |
+| S2 `sample-taylor-sim-s2-models.csv` | 6 | 109 | `model,std,corr,marker` |
+| S3 `sample-taylor-sim-s3-normalize.csv` | 4 | 113 | `panel,var,std_or_norm,corr` |
+| S4 `sample-taylor-sim-s4-crowded-vs-few.csv` | 4 | 92 | `panel,id,std,corr` |
+| S5 `sample-taylor-sim-s5-improvement.csv` | 2 | 53 | `version,std,corr` |
+
+自檢腳本位元組：S1 2742、S2 2863、S3 3390、S4 2766、S5 2681。
+
+**CSV 格式：** 第 1 行就是表頭（**沒有** `#` 說明行），也**沒有** `data_status` 欄。列數是資料列（`wc -l` 再扣表頭）。S1–S5 都是模擬範例資料，數字未核。圖 S4 的 CSV 只有 few 四列；圖說的 24 點不在檔內，自檢未核對。
+
+```bash
+cd skills/what-is-the-data-saying/examples/data
+python3 sample-taylor-sim-s1-anatomy-selfcheck.py
+python3 sample-taylor-sim-s5-improvement-selfcheck.py   # 其餘同理，共 5 支
+```
+
+預期每支逐項印出 `PASS｜…`，最後一行 `RESULT: PASS（N 項通過、0 項失敗）`（在 `examples/data/` 實跑，結束碼 0）。實跑通過項數：S1 9、S2 10、S3 11、S4 10、S5 10。
+
+**以實際計數為準**（自檢從 CSV 重算。本節沒有改這些 CSV，與素材包逐位元相同。素材包點名的繪圖腳本沒有收，公開檔不寫檔名，也沒有重跑，也沒有收 png）：(1) 圖 S1 模擬範例，觀測 std 1.0、corr 1.0、note「參考點」，對自己的 E'＝0；模型甲 1.2／0.75、note「示意」，E'＝0.8；圖說的紅方是畫法；(2) 圖 S2 模型 A 的 E'＝0.3999999999999999，且是六點裡最小（不是先寫成 0.4）；(3) 圖 S3 版面上／下；同一變數的相關不變；氣溫的數值不變、雨量變了；正規化後面版以 s_r＝1 重算，雨量 E'＝0.5708765190476832、氣溫 0.4795831523312717；原始雨量不用 s_r＝1；(4) 圖 S4 版面上廿四點／下四點；CSV 只有 few 四列，甲的 E'＝0.3784177585684897 最小，乙正好 0.75；24 點自檢未核對；(5) 圖 S5 舊版 E'＝1.0965856099730655、新版 0.5044799302251775，新版更靠近（標準差更靠近 1，相關也較高）；紅到綠的箭頭是圖說，CSV 沒有顏色欄。圖 R3、R4、R5 數字未核。圖 R2 的課程稿圖說沒寫這四字，授權註記另寫數字未核，不從圖上量。圖號維持 R1–R5、S1–S5，不重排。
+

@@ -3,7 +3,7 @@ name: what-is-the-data-saying
 description: >
   Given a table or report, recommend the chart and how to make it (資料在說什麼).
   Taiwan zh-TW teaching-grade pedagogy compiled by the project maintainer（專案維護者）
-  from internal teaching notes, plus 75 named patterns. Use when the user
+  from internal teaching notes, plus 76 named patterns. Use when the user
   pastes CSV / Excel / a table / 報表 and asks which chart, how to visualize,
   這份資料該怎麼畫, 推薦圖表, 視覺化, or runs /what-is-the-data-saying.
 when-to-use: >
@@ -14,7 +14,7 @@ argument-hint: paste a table or describe the report
 metadata:
   short-description: "Which chart? How to make it. 資料在說什麼"
   author: g0uv4
-  version: "0.3.37"
+  version: "0.3.38"
   lineage: "maintainer-curated internal teaching notes（專案維護者依內部教學筆記整理）"
   license: MIT
 ---
@@ -118,6 +118,7 @@ pattern：examples/<slug>.md（若有）
 | 等間隔的月資料或季資料，想同時看哪個月偏高、高出多少，以及各月份自己這些年有沒有在變 | 季節子序列圖（seasonal subseries plot；亦稱 cycle plot，中文「循環圖」未核；`examples/seasonal-subseries-plot.md`；月 12 格、季 4 格、星期 7 格；格內歷年小折線加平均橫線、共用縱軸；平均線高低＝哪個月偏高，格內斜率＝這個月自己有沒有在變；自相關圖與滯後圖只回答有沒有季節；季節圖是每年一條線，不是本圖；三種去趨勢不要說成同一件事：圖 R16 扣二次曲線（5 月約 +3.15、9 月約 −3.35 ppm，自檢高低差 6.51），圖 S4 扣趨勢直線（高低差 10.2、6 月高、1 月低），「減當年平均」的 +2.87／−2.88 只是對照；圖 R1 是手冊事先扣過直線；圖 R8 極座標是反例、不做投資判斷；圖 S2、圖 S7 只有直式上／中／下；圖號不重排；「至少 4–5 年」是實務建議、查無文獻） |
 | 等間隔的時間序列、週期已知，想把一條序列拆成趨勢、季節、殘差，並看季節振幅變不變、殘差還有沒有規律 | 季節分解圖（seasonal decomposition plot；`examples/seasonal-decomposition-plot.md`；古典分解圖、STL 分解圖是算法不是另一種圖；`seasonal_decompose`／`STL`／`decompose`／`stl` 是函式名；季節調整後序列是單線，不是本圖；直式多格、橫軸對齊，通常原始→趨勢→季節→殘差，先比各格刻度；加法＝相加、乘法＝相乘；月週期 12、季 4；古典頭尾各缺約半年；振幅隨水準變大用乘法（圖 S2 加法殘差 14.47／15.98，乘法 0.02／0.01）；季節會變或有離群值用穩健 STL（圖 S3 古典 5.28、STL 2.39；圖 S5 古典趨勢鼓起 5.4、穩健 STL 1.1）；殘差比季節大就不要信季節格（圖 S4：1.29 對 2.64）；圖 R4、圖 R5 不是四格；圖 S2–S5 只有直式上／中／下；圖號不重排；臺灣官方譯名未核；「季节分解」只引述） |
 | 約三到四個數值變數，想一次看兩兩的相關方向、有沒有分成幾團、有沒有一個點在很多格同時偏離 | 散布圖矩陣（scatterplot matrix；亦稱 pairs plot，縮寫 SPLOM；`examples/scatterplot-matrix.md`；`pairplot`／`scatter_matrix`／`pairs` 是函式名不是另一種圖；對角線是直方圖或密度，其餘畫點，上三角可放皮爾森相關；只畫一對改散點圖，只要係數或欄太多改相關熱圖再挑三到四欄，同一條序列錯開 k 步改滯後圖，變數很多要看每筆剖面改平行座標；分組要顏色加形狀，正例是圖 S3 圓／方／三角加色；圖 R1、R2、R4 只用顏色，圖 R2 雖全是方點仍只靠顏色，圖 R4 的顏色是譜聚類結果不是原品種；圖 S1 甲與乙約 0.7124228200726517；圖 S2 花瓣長寬約 0.962865431402796；圖 S3 n＝333、巴布亞平均鰭長與體重最高但仍有重疊；圖 S4 左／右、七欄、丙與戊約 0.8067857797701805；圖 S5 n＝61、離群點 (22, 4, 18)；S1／S4／S5 虛構、種子 20261014，S2 鳶尾花公有領域，S3 企鵝 CC0；圖號不重排；臺灣官方譯名課程稿沒有記載、本稿不另查） |
+| 多個模型對同一觀測，想同時看標準差、相關與中心化均方根誤差（先扣平均） | 泰勒圖（Taylor diagram；Karl E. Taylor，2001；`examples/taylor-diagram.md`；半圓極座標，觀測在橫軸；不同單位先除以觀測標準差，觀測在半徑＝1；形狀加顏色加標號，改版畫箭頭；只看平均偏差改 Bland–Altman，只看相關改散點，變數兩兩改散布圖矩陣，多軸剖面改雷達；圖 S1 模型甲標準差 1.2、相關 0.75、中心化均方根誤差 0.8，CSV 註記是「示意」；圖 S2 模型 A 的中心化均方根誤差 0.3999999999999999、六點裡最小；圖 S3 上／下，E' 只在正規化面板、s_r＝1；圖 S4 上廿四點／下四點，CSV 只有 few 四列、自檢未核對 24 點；圖 S5 新版比舊版更靠近；S1–S5 模擬範例、種子 20261015、數字未核；圖 R3–R5 數字未核；圖號不重排；臺灣官方譯名課程稿沒有記載、本稿不另查） |
 | 多類別交叉／市場區隔×組成 | 馬賽克（獨立性）；商用變寬堆疊用馬里梅可；平行集合；集合交集用 UpSet |
 | 網路關係 | 力導向／弧線／鄰接矩陣／蜂巢圖；有階層+葉連線用 HEB；稠密成毛球、每條邊要可辨識或依類型分塊用 BioFabric（生物織布圖，暫譯） |
 | 地理量 | 等值區域圖（choropleth；先正規化，勿用總量填色）；計數疏密用點密度圖；總量規模用比例符號地圖；每區等權重、怕大區搶眼用圖塊地圖（一區一格）；面積＝資料用面積變形地圖；起迄用流向地圖 |

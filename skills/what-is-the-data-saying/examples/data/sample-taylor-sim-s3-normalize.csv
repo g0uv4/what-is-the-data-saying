@@ -1,0 +1,5 @@
+panel,var,std_or_norm,corr
+raw,雨量,3.2,0.85
+raw,氣溫,1.1,0.9
+norm,雨量,1.07,0.85
+norm,氣溫,1.1,0.9

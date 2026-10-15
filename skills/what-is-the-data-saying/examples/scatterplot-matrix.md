@@ -151,7 +151,7 @@
 
 觀察（依課程稿，不當依據）：中文找不到相關原帖，不編造。
 
-鄰居 pattern：[`correlation-scatter.md`](correlation-scatter.md)（只畫一對；矩陣裡值得深挖的格再開這一張）、[`matrix-heatmap.md`](matrix-heatmap.md)（只要係數，或變數太多時先篩）、[`lag-plot.md`](lag-plot.md)（同一條序列錯開 k 步，不是不同變數）、[`parallel-coordinates.md`](parallel-coordinates.md)（變數很多時看每筆剖面；課程稿沒有拿這一檔當對照）。
+鄰居 pattern：[`correlation-scatter.md`](correlation-scatter.md)（只畫一對；矩陣裡值得深挖的格再開這一張）、[`matrix-heatmap.md`](matrix-heatmap.md)（只要係數，或變數太多時先篩）、[`lag-plot.md`](lag-plot.md)（同一條序列錯開 k 步，不是不同變數）、[`parallel-coordinates.md`](parallel-coordinates.md)（變數很多時看每筆剖面；課程稿沒有拿這一檔當對照）、[`taylor-diagram.md`](taylor-diagram.md)（多個模型對同一觀測的標準差、相關與中心化均方根誤差；不是變數兩兩的點。課程稿沒有拿這一檔當對照）。
 
 ## 圖檔與授權（不複製，只連結）
 

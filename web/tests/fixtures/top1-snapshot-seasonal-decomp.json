@@ -1,0 +1,7 @@
+{
+  "sample-seasonal-decomp-sim-s1-anatomy.csv": "bubble-chart",
+  "sample-seasonal-decomp-sim-s2-add-vs-mult.csv": "bubble-chart",
+  "sample-seasonal-decomp-sim-s3-classical-vs-stl.csv": "bubble-chart",
+  "sample-seasonal-decomp-sim-s4-no-season.csv": "bubble-chart",
+  "sample-seasonal-decomp-sim-s5-outlier.csv": "bubble-chart"
+}

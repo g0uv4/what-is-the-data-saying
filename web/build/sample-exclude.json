@@ -31,5 +31,10 @@
   "sample-seasonal-subseries-sim-s5-no-season.csv",
   "sample-seasonal-subseries-sim-s6-outlier.csv",
   "sample-seasonal-subseries-sim-s7-acf-lag-subseries.csv",
-  "sample-seasonal-subseries-sim-s8-how-to.csv"
+  "sample-seasonal-subseries-sim-s8-how-to.csv",
+  "sample-seasonal-decomp-sim-s1-anatomy.csv",
+  "sample-seasonal-decomp-sim-s2-add-vs-mult.csv",
+  "sample-seasonal-decomp-sim-s3-classical-vs-stl.csv",
+  "sample-seasonal-decomp-sim-s4-no-season.csv",
+  "sample-seasonal-decomp-sim-s5-outlier.csv"
 ]

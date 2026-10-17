@@ -3,7 +3,7 @@ name: what-is-the-data-saying
 description: >
   Given a table or report, recommend the chart and how to make it (資料在說什麼).
   Taiwan zh-TW teaching-grade pedagogy compiled by the project maintainer（專案維護者）
-  from internal teaching notes, plus 77 named patterns. Use when the user
+  from internal teaching notes, plus 78 named patterns. Use when the user
   pastes CSV / Excel / a table / 報表 and asks which chart, how to visualize,
   這份資料該怎麼畫, 推薦圖表, 視覺化, or runs /what-is-the-data-saying.
 when-to-use: >
@@ -14,7 +14,7 @@ argument-hint: paste a table or describe the report
 metadata:
   short-description: "Which chart? How to make it. 資料在說什麼"
   author: g0uv4
-  version: "0.3.39"
+  version: "0.3.40"
   lineage: "maintainer-curated internal teaching notes（專案維護者依內部教學筆記整理）"
   license: MIT
 ---
@@ -120,6 +120,7 @@ pattern：examples/<slug>.md（若有）
 | 約三到四個數值變數，想一次看兩兩的相關方向、有沒有分成幾團、有沒有一個點在很多格同時偏離 | 散布圖矩陣（scatterplot matrix；亦稱 pairs plot，縮寫 SPLOM；`examples/scatterplot-matrix.md`；`pairplot`／`scatter_matrix`／`pairs` 是函式名不是另一種圖；對角線是直方圖或密度，其餘畫點，上三角可放皮爾森相關；只畫一對改散點圖，只要係數或欄太多改相關熱圖再挑三到四欄，同一條序列錯開 k 步改滯後圖，變數很多要看每筆剖面改平行座標；分組要顏色加形狀，正例是圖 S3 圓／方／三角加色；圖 R1、R2、R4 只用顏色，圖 R2 雖全是方點仍只靠顏色，圖 R4 的顏色是譜聚類結果不是原品種；圖 S1 甲與乙約 0.7124228200726517；圖 S2 花瓣長寬約 0.962865431402796；圖 S3 n＝333、巴布亞平均鰭長與體重最高但仍有重疊；圖 S4 左／右、七欄、丙與戊約 0.8067857797701805；圖 S5 n＝61、離群點 (22, 4, 18)；S1／S4／S5 虛構、種子 20261014，S2 鳶尾花公有領域，S3 企鵝 CC0；圖號不重排；臺灣官方譯名課程稿沒有記載、本稿不另查） |
 | 多個模型對同一觀測，想同時看標準差、相關與中心化均方根誤差（先扣平均） | 泰勒圖（Taylor diagram；Karl E. Taylor，2001；`examples/taylor-diagram.md`；半圓極座標，觀測在橫軸；不同單位先除以觀測標準差，觀測在半徑＝1；形狀加顏色加標號，改版畫箭頭；只看平均偏差改 Bland–Altman，只看相關改散點，變數兩兩改散布圖矩陣，多軸剖面改雷達；圖 S1 模型甲標準差 1.2、相關 0.75、中心化均方根誤差 0.8，CSV 註記是「示意」；圖 S2 模型 A 的中心化均方根誤差 0.3999999999999999、六點裡最小；圖 S3 上／下，E' 只在正規化面板、s_r＝1；圖 S4 上廿四點／下四點，CSV 只有 few 四列、自檢未核對 24 點；圖 S5 新版比舊版更靠近；S1–S5 模擬範例、種子 20261015、數字未核；圖 R3–R5 數字未核；圖號不重排；臺灣官方譯名課程稿沒有記載、本稿不另查） |
 | 等間隔訊號、取樣率已知且固定，整段大致同一套頻率，想看尖峰落在哪些頻率（振動、變星、腦波先掃頻率） | 週期圖（periodogram；`examples/periodogram.md`；橫軸頻率、縱軸功率，是整段功率頻譜密度的估計；尖峰對應頻率；頻率隨時間大變改頻譜圖，窗長、短時傅立葉轉換與分貝見該檔；自相關看延遲；單段雜訊不因序列變長而變小，用 Welch；真頻率不在頻率格上時漢寧旁瓣低於矩形窗；圖 S1 CSV 200 點、尖峰正好 20.0 赫茲、未扣平均功率 10192.720424279498，模擬記載的 1024 點與 19.922 赫茲不在檔內；圖 S2 存檔尖峰 12.109375 與 37.109375 赫茲；圖 S3 兩窗尖峰都在 10.15625 赫茲、0.0 分貝；圖 S4 Welch 尖峰 25.0 赫茲、功率 0.41938521275201973，原始單段不在 CSV；圖 S5 的 15.0 與 40.0 赫茲都在，先後不在 CSV；圖 R2、圖 R4 數字未核；圖 R3 只作方法對照；S1–S5 模擬範例、種子 20261016；圖號不重排；臺灣官方譯名課程稿沒有記載、本稿不另查） |
+| 有輸入與輸出可比，要讀系統對各頻率的放大與延遲（濾波器、喇叭、控制迴路） | 波德圖（Bode plot；`examples/bode-plot.md`；共用對數頻率，上增益分貝、下相位度；只問訊號頻率改週期圖，頻率隨時間改頻譜圖；圖 S1 在 1000 赫茲理論 −3.01 分貝、−45.0 度；圖 S4 的 29 列對數內插是 2.0436073735431166 赫茲、4.472372749108375 赫茲、12.074723090701836 分貝、32.732897812097804 度，密格 2.052／4.468／12.02／32.67 不是原列；圖 S5 的 49.68 赫茲、14.02 分貝不在 CSV；圖 R3 的 f_GM 與 f_PM 對調照錄；圖 R4 約 5 千赫茲、約 30 度數字未核；S1–S5 模擬範例資料、種子 20261017；圖號不重排；臺灣官方譯名課程稿沒有記載、本稿不另查） |
 | 多類別交叉／市場區隔×組成 | 馬賽克（獨立性）；商用變寬堆疊用馬里梅可；平行集合；集合交集用 UpSet |
 | 網路關係 | 力導向／弧線／鄰接矩陣／蜂巢圖；有階層+葉連線用 HEB；稠密成毛球、每條邊要可辨識或依類型分塊用 BioFabric（生物織布圖，暫譯） |
 | 地理量 | 等值區域圖（choropleth；先正規化，勿用總量填色）；計數疏密用點密度圖；總量規模用比例符號地圖；每區等權重、怕大區搶眼用圖塊地圖（一區一格）；面積＝資料用面積變形地圖；起迄用流向地圖 |

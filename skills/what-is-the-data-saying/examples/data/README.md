@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖與滯後圖各附 8 組 CSV 與 8 支自檢 .py，季節子序列圖附 9 組 CSV 與 9 支自檢 .py（8 組虛構＋1 份毛納羅亞二氧化碳真實資料），季節分解圖附 5 組 CSV 與 5 支自檢 .py（5 組虛構），散布圖矩陣附 5 組 CSV 與 5 支自檢 .py（S1、S4、S5 虛構；S2 鳶尾花公有領域；S3 企鵝 CC0），泰勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261015），週期圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261016））
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖與滯後圖各附 8 組 CSV 與 8 支自檢 .py，季節子序列圖附 9 組 CSV 與 9 支自檢 .py（8 組虛構＋1 份毛納羅亞二氧化碳真實資料），季節分解圖附 5 組 CSV 與 5 支自檢 .py（5 組虛構），散布圖矩陣附 5 組 CSV 與 5 支自檢 .py（S1、S4、S5 虛構；S2 鳶尾花公有領域；S3 企鵝 CC0），泰勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261015），週期圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261016），波德圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261017））
 
 來自專案維護者整理、已審的 skill pack。**非真實產業資料；數字未核。**
 
@@ -261,8 +261,18 @@
 | `sample-periodogram-sim-s4-welch-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「週期圖資料與自檢腳本」 | 同上 |
 | `sample-periodogram-sim-s5-vs-spectrogram.csv` | 週期圖模擬範例資料（S5；501 列、16554 位元組；`freq_Hz,periodogram_power`；15.0 赫茲 1.201085763474063、40.0 赫茲 1.2359419294357712；先後不在 CSV；第 1 行就是表頭、沒有 `#`、沒有 data_status；模擬範例資料、數字未核；與素材包逐位元相同） | `../periodogram.md` |
 | `sample-periodogram-sim-s5-vs-spectrogram-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「週期圖資料與自檢腳本」 | 同上 |
+| `sample-bode-sim-s1-anatomy.csv` | 波德圖範例資料（S1；17 列、731 位元組；`freq_Hz,gain_dB_measured,phase_deg_measured,gain_dB_theory,phase_deg_theory`；1000 赫茲理論 −3.01 分貝、−45.0 度；模擬範例資料、種子 20261017、數字未核） | `../bode-plot.md` |
+| `sample-bode-sim-s1-anatomy-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「波德圖資料與自檢腳本」 | 同上 |
+| `sample-bode-sim-s2-linear-vs-log.csv` | 波德圖範例資料（S2；26 列、431 位元組；`freq_Hz,gain_dB`；存檔最大 630.957 赫茲、−0.176 分貝；5000 赫茲不是一列；模擬範例資料、種子 20261017、數字未核） | `../bode-plot.md` |
+| `sample-bode-sim-s2-linear-vs-log-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「波德圖資料與自檢腳本」 | 同上 |
+| `sample-bode-sim-s3-order-slope.csv` | 波德圖範例資料（S3；21 列、836 位元組；`freq_Hz,gain1_dB,phase1_deg,gain2_dB,phase2_deg`；一階斜率 −19.957、二階 −40.0；模擬範例資料、種子 20261017、數字未核） | `../bode-plot.md` |
+| `sample-bode-sim-s3-order-slope-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「波德圖資料與自檢腳本」 | 同上 |
+| `sample-bode-sim-s4-stability-margins.csv` | 波德圖範例資料（S4；29 列、731 位元組；`freq_Hz,open_loop_gain_dB,open_loop_phase_deg`；對數內插裕度 12.074723090701836 分貝、32.732897812097804 度；密格四數不是原列；模擬範例資料、種子 20261017、數字未核） | `../bode-plot.md` |
+| `sample-bode-sim-s4-stability-margins-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「波德圖資料與自檢腳本」 | 同上 |
+| `sample-bode-sim-s5-signal-vs-system.csv` | 波德圖範例資料（S5；460 列、11280 位元組；`freq_Hz,input_power_dB,output_power_dB`；輸出尖峰 48.828 赫茲、−12.908 分貝；49.68 赫茲、14.02 分貝不在 CSV；模擬範例資料、種子 20261017、數字未核） | `../bode-plot.md` |
+| `sample-bode-sim-s5-signal-vs-system-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「波德圖資料與自檢腳本」 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`、`../autocorrelation-plot.md`、`../lag-plot.md`、`../seasonal-subseries-plot.md`、`../seasonal-decomposition-plot.md`、`../scatterplot-matrix.md`、`../taylor-diagram.md`、`../periodogram.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`、`../autocorrelation-plot.md`、`../lag-plot.md`、`../seasonal-subseries-plot.md`、`../seasonal-decomposition-plot.md`、`../scatterplot-matrix.md`、`../taylor-diagram.md`、`../periodogram.md`、`../bode-plot.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -914,4 +924,18 @@ python3 sample-periodogram-sim-s5-vs-spectrogram-selfcheck.py   # 其餘同理�
 預期每支逐項印出 `PASS｜…`，最後一行 `RESULT: PASS（N 項通過、0 項失敗）`（在 `examples/data/` 實跑，結束碼 0）。實跑通過項數：S1 13、S2 10、S3 11、S4 10、S5 10。
 
 **以實際計數為準**（自檢從 CSV 重算。本節沒有改這些 CSV，與素材包逐位元相同。課程稿沒有點名畫圖腳本。素材包點名的繪圖腳本沒有收，公開檔不寫檔名，也沒有重跑，也沒有收 png）：(1) 圖 S1 這份檔 200 點，尖峰正好 20.0 赫茲；未扣平均功率 10192.720424279498，扣平均 10192.720424279489，對稱漢寧後 2351.9007398023687；n＝1024 與 19.922 赫茲不在檔內；(2) 圖 S2 高於 0.01 的局部極大只有 12.109375 赫茲（0.0568727306453308）與 37.109375 赫茲（0.02650337611567428），前者較高；12.01 與 37.01 不是存檔的列；(3) 圖 S3 兩種窗的尖峰都在 10.15625 赫茲、0.0 分貝；±2 格以外最高旁瓣都在 11.328125 赫茲，矩形 −17.019584057359197、漢寧 −34.20898840629693，124 格裡矩形較高的有 98 格；(4) 圖 S4 Welch 尖峰正好 25.0 赫茲、功率 0.41938521275201973，而且高於其餘每一格；原始單段不在檔內；(5) 圖 S5 15.0 赫茲 1.201085763474063、40.0 赫茲 1.2359419294357712 是兩個主要尖峰；先後不在檔內。圖 R2、圖 R4 數字未核。圖 R1 的課程稿寫約 30 與 50 赫茲，不從圖上重測。圖 R3 只作單段對 Welch 的方法對照，來源頁標右半為鏡像。圖號維持 R1–R5、S1–S5，不重排。窗長、短時傅立葉轉換與分貝見頻譜圖，不在本節重講。
+
+## 波德圖資料與自檢腳本 `sample-bode-sim-s1-…` 到 `sample-bode-sim-s5-signal-vs-system`
+
+5 組範例資料 CSV 與 5 支自檢已在本目錄（共 10 檔）。S1–S5 都是模擬範例資料，種子 20261017，浮水印「模擬｜範例數字未核（虛構資料）」，數字未核。檔名已有 `bode` 前綴。CSV 與素材包逐位元相同（`cmp`）。合計 14009 位元組（約 13.68 KiB），最大是 S5 的 11280。第 1 行就是表頭，沒有 `#`，沒有 `data_status`。自檢只用 `csv`、`math`、`os`、`sys`，不靠 numpy。通過項數 S1 11、S2 12、S3 14、S4 14、S5 12。腳本位元組 3261、3154、3846、3821、3371。沒有收 png。
+
+| 檔 | 列數 | CSV 位元組 | 欄位 |
+|---|---:|---:|---|
+| S1 `sample-bode-sim-s1-anatomy.csv` | 17 | 731 | `freq_Hz,gain_dB_measured,phase_deg_measured,gain_dB_theory,phase_deg_theory` |
+| S2 `sample-bode-sim-s2-linear-vs-log.csv` | 26 | 431 | `freq_Hz,gain_dB` |
+| S3 `sample-bode-sim-s3-order-slope.csv` | 21 | 836 | `freq_Hz,gain1_dB,phase1_deg,gain2_dB,phase2_deg` |
+| S4 `sample-bode-sim-s4-stability-margins.csv` | 29 | 731 | `freq_Hz,open_loop_gain_dB,open_loop_phase_deg` |
+| S5 `sample-bode-sim-s5-signal-vs-system.csv` | 460 | 11280 | `freq_Hz,input_power_dB,output_power_dB` |
+
+自檢：`sample-bode-sim-s1-anatomy-selfcheck.py`、`sample-bode-sim-s2-linear-vs-log-selfcheck.py`、`sample-bode-sim-s3-order-slope-selfcheck.py`、`sample-bode-sim-s4-stability-margins-selfcheck.py`、`sample-bode-sim-s5-signal-vs-system-selfcheck.py`。圖 S2 的 5000 赫茲不是一列；圖 S4 密格 2.052 赫茲、4.468 赫茲、12.02 分貝、32.67 度不是原列；圖 S5 的 49.68 赫茲、14.02 分貝不在 CSV。圖 R3 的 f_GM 與 f_PM 對調照錄。圖 R4 約 5 千赫茲、約 30 度數字未核。
 

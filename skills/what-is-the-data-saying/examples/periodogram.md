@@ -155,7 +155,7 @@
 
 觀察（依課程稿，不當依據）：中文找不到相關原帖，不編造。
 
-鄰居 pattern：[`spectrogram.md`](spectrogram.md)（頻率隨時間變；窗長、短時傅立葉轉換與分貝見該檔）、[`autocorrelation-plot.md`](autocorrelation-plot.md)（看延遲；本圖看頻率）、[`lag-plot.md`](lag-plot.md)（同一序列錯開 k 步的形狀；環形只暗示有週期。課程稿沒有拿這一檔當對照）。
+鄰居 pattern：[`spectrogram.md`](spectrogram.md)（頻率隨時間變；窗長、短時傅立葉轉換與分貝見該檔）、[`autocorrelation-plot.md`](autocorrelation-plot.md)（看延遲；本圖看頻率）、[`lag-plot.md`](lag-plot.md)（同一序列錯開 k 步的形狀；環形只暗示有週期。課程稿沒有拿這一檔當對照）、[`bode-plot.md`](bode-plot.md)（畫系統：共用對數頻率，上增益分貝、下相位度；本檔畫訊號）。
 
 ## 圖檔與授權（不複製，只連結）
 

@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖與滯後圖各附 8 組 CSV 與 8 支自檢 .py，季節子序列圖附 9 組 CSV 與 9 支自檢 .py（8 組虛構＋1 份毛納羅亞二氧化碳真實資料），季節分解圖附 5 組 CSV 與 5 支自檢 .py（5 組虛構），散布圖矩陣附 5 組 CSV 與 5 支自檢 .py（S1、S4、S5 虛構；S2 鳶尾花公有領域；S3 企鵝 CC0），泰勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261015），週期圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261016），波德圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261017））
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖與滯後圖各附 8 組 CSV 與 8 支自檢 .py，季節子序列圖附 9 組 CSV 與 9 支自檢 .py（8 組虛構＋1 份毛納羅亞二氧化碳真實資料），季節分解圖附 5 組 CSV 與 5 支自檢 .py（5 組虛構），散布圖矩陣附 5 組 CSV 與 5 支自檢 .py（S1、S4、S5 虛構；S2 鳶尾花公有領域；S3 企鵝 CC0），泰勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261015），週期圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261016），波德圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261017），霍夫默勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261018））
 
 來自專案維護者整理、已審的 skill pack。**非真實產業資料；數字未核。**
 
@@ -271,8 +271,18 @@
 | `sample-bode-sim-s4-stability-margins-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「波德圖資料與自檢腳本」 | 同上 |
 | `sample-bode-sim-s5-signal-vs-system.csv` | 波德圖範例資料（S5；460 列、11280 位元組；`freq_Hz,input_power_dB,output_power_dB`；輸出尖峰 48.828 赫茲、−12.908 分貝；49.68 赫茲、14.02 分貝不在 CSV；模擬範例資料、種子 20261017、數字未核） | `../bode-plot.md` |
 | `sample-bode-sim-s5-signal-vs-system-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「波德圖資料與自檢腳本」 | 同上 |
+| `sample-hovmoller-sim-s1-anatomy.csv` | 霍夫默勒圖範例資料（S1；61 列、29670 位元組；`day` 加上經度 0 到 360、每 5 度，74 欄；脊線 3.9151242728714966 度／日，印成 3.915，記載 3.89 不是原格；全距 −2.212…0.109；模擬範例資料、種子 20261018、數字未核） | `../hovmoller-diagram.md` |
+| `sample-hovmoller-sim-s1-anatomy-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「霍夫默勒圖資料與自檢腳本」 | 同上 |
+| `sample-hovmoller-sim-s2-direction.csv` | 霍夫默勒圖範例資料（S2；31 列、14672 位元組；`day` 加上經度 0 到 360、每 5 度，74 欄；19 天的列最大值在經度 200，全場最大 1.948 也在 200；往東 +6、往西 −8 度／日未核對；模擬範例資料、種子 20261018、數字未核） | `../hovmoller-diagram.md` |
+| `sample-hovmoller-sim-s2-direction-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「霍夫默勒圖資料與自檢腳本」 | 同上 |
+| `sample-hovmoller-sim-s3-phase-group.csv` | 霍夫默勒圖範例資料（S3；51 列、32099 位元組；`day` 加上經度 0 到 360、每 4 度，92 欄；0 到 10 天、每 0.2 天，不是 51 天；群速脊線 27.990950226244344 度／日，印成 27.99；相速每天 10 度未分開追；模擬範例資料、種子 20261018、數字未核） | `../hovmoller-diagram.md` |
+| `sample-hovmoller-sim-s3-phase-group-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「霍夫默勒圖資料與自檢腳本」 | 同上 |
+| `sample-hovmoller-sim-s4-colormap.csv` | 霍夫默勒圖範例資料（S4；31 列、14843 位元組；`day` 加上經度 0 到 360、每 5 度，74 欄；每一天 6 次變號，波數 3；色盤名稱不在 CSV；模擬範例資料、種子 20261018、數字未核） | `../hovmoller-diagram.md` |
+| `sample-hovmoller-sim-s4-colormap-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「霍夫默勒圖資料與自檢腳本」 | 同上 |
+| `sample-hovmoller-sim-s5-traffic.csv` | 霍夫默勒圖範例資料（S5；61 列、17651 位元組；`minute` 加上里程 0 到 20、每 0.5 公里，42 欄；車速 14.859…100.0；高速平均 89.58560792741166，印成 89.59；低於每小時 45 公里的格子 183 個；塞車波每小時 −18 公里未核對；模擬範例資料、種子 20261018、數字未核） | `../hovmoller-diagram.md` |
+| `sample-hovmoller-sim-s5-traffic-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「霍夫默勒圖資料與自檢腳本」 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`、`../autocorrelation-plot.md`、`../lag-plot.md`、`../seasonal-subseries-plot.md`、`../seasonal-decomposition-plot.md`、`../scatterplot-matrix.md`、`../taylor-diagram.md`、`../periodogram.md`、`../bode-plot.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`、`../autocorrelation-plot.md`、`../lag-plot.md`、`../seasonal-subseries-plot.md`、`../seasonal-decomposition-plot.md`、`../scatterplot-matrix.md`、`../taylor-diagram.md`、`../periodogram.md`、`../bode-plot.md`、`../hovmoller-diagram.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -938,4 +948,18 @@ python3 sample-periodogram-sim-s5-vs-spectrogram-selfcheck.py   # 其餘同理�
 | S5 `sample-bode-sim-s5-signal-vs-system.csv` | 460 | 11280 | `freq_Hz,input_power_dB,output_power_dB` |
 
 自檢：`sample-bode-sim-s1-anatomy-selfcheck.py`、`sample-bode-sim-s2-linear-vs-log-selfcheck.py`、`sample-bode-sim-s3-order-slope-selfcheck.py`、`sample-bode-sim-s4-stability-margins-selfcheck.py`、`sample-bode-sim-s5-signal-vs-system-selfcheck.py`。圖 S2 的 5000 赫茲不是一列；圖 S4 密格 2.052 赫茲、4.468 赫茲、12.02 分貝、32.67 度不是原列；圖 S5 的 49.68 赫茲、14.02 分貝不在 CSV。圖 R3 的 f_GM 與 f_PM 對調照錄。圖 R4 約 5 千赫茲、約 30 度數字未核。
+
+## 霍夫默勒圖資料與自檢腳本 `sample-hovmoller-sim-s1-…` 到 `sample-hovmoller-sim-s5-traffic`
+
+5 組範例資料 CSV 與 5 支自檢已在本目錄（共 10 檔）。S1–S5 都是模擬範例資料，種子 20261018，浮水印「模擬｜範例數字未核（虛構資料）」，數字未核。檔名已有 `hovmoller` 前綴。合計 108935 位元組（約 106.38 KiB），最大是 S3 的 32099。都小於 25 萬位元組。第 1 行就是表頭，沒有 `#`，沒有 `data_status`。寬表：時間為列、位置為欄。0 度與 360 度是同一條經線，斜率與變號先去掉尾欄。自檢只用 `csv`、`math`、`os`、`sys`，不靠 numpy。通過項數 S1 9、S2 9、S3 8、S4 8、S5 10。腳本位元組 3948、4123、3940、4006、3679。沒有收 png。
+
+| 檔 | 列數 | CSV 位元組 | 欄位 |
+|---|---:|---:|---|
+| S1 `sample-hovmoller-sim-s1-anatomy.csv` | 61 | 29670 | `day` 加上經度 0 到 360、每 5 度（74 欄） |
+| S2 `sample-hovmoller-sim-s2-direction.csv` | 31 | 14672 | `day` 加上經度 0 到 360、每 5 度（74 欄） |
+| S3 `sample-hovmoller-sim-s3-phase-group.csv` | 51 | 32099 | `day` 加上經度 0 到 360、每 4 度（92 欄） |
+| S4 `sample-hovmoller-sim-s4-colormap.csv` | 31 | 14843 | `day` 加上經度 0 到 360、每 5 度（74 欄） |
+| S5 `sample-hovmoller-sim-s5-traffic.csv` | 61 | 17651 | `minute` 加上里程 0 到 20、每 0.5 公里（42 欄） |
+
+自檢：`sample-hovmoller-sim-s1-anatomy-selfcheck.py`、`sample-hovmoller-sim-s2-direction-selfcheck.py`、`sample-hovmoller-sim-s3-phase-group-selfcheck.py`、`sample-hovmoller-sim-s4-colormap-selfcheck.py`、`sample-hovmoller-sim-s5-traffic-selfcheck.py`。圖 S1 脊線 3.9151242728714966 度／日（印 3.915；記載 3.89 不是原格）；赤道附近換算印成 5.04 公尺每秒。圖 S2 的 +6 與 −8 度／日未核對。圖 S3 群速印成 27.99，相速每天 10 度未分開追。圖 S4 色盤名稱不在 CSV。圖 S5 塞車波每小時 −18 公里未核對。圖 R1 時間往上、圖 S1 往下。高緯不要把 111.2 公里直接套上。圖 R1 速度未核、緯度存疑。圖 R2 變數與單位未核。圖 R5 彩虹色只看走向。
 

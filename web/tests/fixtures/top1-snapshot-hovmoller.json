@@ -1,0 +1,7 @@
+{
+  "sample-hovmoller-sim-s1-anatomy.csv": "control-chart",
+  "sample-hovmoller-sim-s2-direction.csv": "bubble-chart",
+  "sample-hovmoller-sim-s3-phase-group.csv": "bubble-chart",
+  "sample-hovmoller-sim-s4-colormap.csv": "control-chart",
+  "sample-hovmoller-sim-s5-traffic.csv": "bubble-chart"
+}

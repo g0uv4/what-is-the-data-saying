@@ -1,0 +1,7 @@
+{
+  "sample-taylor-sim-s1-anatomy.csv": "lollipop-rank",
+  "sample-taylor-sim-s2-models.csv": "lollipop-rank",
+  "sample-taylor-sim-s3-normalize.csv": "categorical-comparison",
+  "sample-taylor-sim-s4-crowded-vs-few.csv": "correlation-scatter",
+  "sample-taylor-sim-s5-improvement.csv": "lollipop-rank"
+}

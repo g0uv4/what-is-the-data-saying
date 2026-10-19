@@ -1,0 +1,7 @@
+{
+  "sample-splom-sim-s1-anatomy.csv": "bubble-chart",
+  "sample-splom-sim-s2-corr-upper.csv": "bubble-chart",
+  "sample-splom-sim-s3-grouped-shapes.csv": "boxplot-summary",
+  "sample-splom-sim-s4-too-many-vs-heatmap.csv": "correlation-scatter",
+  "sample-splom-sim-s5-outlier-multicell.csv": "boxplot-summary"
+}

@@ -1,0 +1,7 @@
+{
+  "sample-periodogram-sim-s1-anatomy.csv": "correlation-scatter",
+  "sample-periodogram-sim-s2-two-tones.csv": "correlation-scatter",
+  "sample-periodogram-sim-s3-leakage.csv": "bubble-chart",
+  "sample-periodogram-sim-s4-welch.csv": "correlation-scatter",
+  "sample-periodogram-sim-s5-vs-spectrogram.csv": "hexbin-density"
+}

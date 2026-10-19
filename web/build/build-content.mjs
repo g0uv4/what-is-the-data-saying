@@ -137,10 +137,11 @@ const samplePattern = {
 };
 
 // The excluded teaching CSVs are the spectrogram long raw signals and the
-// autocorrelation, lag plot, seasonal subseries, and seasonal decomposition
-// teaching series (listed in sample-exclude.json). They are not embedded in
-// data/samples.js to keep it small and because the recommender is frozen;
-// they remain in examples/data.
+// autocorrelation, lag plot, seasonal subseries, seasonal decomposition,
+// scatterplot matrix, Taylor diagram, periodogram, Bode plot, Hovmöller
+// diagram, and Skew-T log-P teaching series (listed in sample-exclude.json).
+// They are not embedded in data/samples.js to keep it small and because the
+// recommender is frozen; they remain in examples/data.
 const SAMPLE_EXCLUDE = new Set(JSON.parse(readFileSync(join(here, 'sample-exclude.json'), 'utf8')));
 
 const csvNames = readdirSync(dataDir).filter((f) => f.endsWith('.csv')).sort();

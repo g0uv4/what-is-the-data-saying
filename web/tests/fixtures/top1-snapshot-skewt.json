@@ -1,0 +1,7 @@
+{
+  "sample-skewt-sim-s1-anatomy.csv": "bubble-chart",
+  "sample-skewt-sim-s2-why-skew.csv": "bubble-chart",
+  "sample-skewt-sim-s3-parcel-cape.csv": "bubble-chart",
+  "sample-skewt-sim-s4-cloud-layers.csv": "bubble-chart",
+  "sample-skewt-sim-s5-stable-unstable.csv": "boxplot-summary"
+}

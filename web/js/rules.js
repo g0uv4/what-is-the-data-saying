@@ -1,5 +1,5 @@
 /*
- * WIDS recommendation rules — data-driven table for all patterns (74 as of v0.3.36).
+ * WIDS recommendation rules — data-driven table for all patterns (80 as of v0.3.42).
  * Derived from skills/what-is-the-data-saying/references/chart-heuristics.md
  * (決策表 + 形狀 → 圖捷徑) and data-shape-checks.md (欄位角色 + 結構探測).
  *
@@ -471,7 +471,43 @@
       requires: { measure: [1] }, base: 0, need: ['time'],
       prefer: [], avoid: [],
       fields: { zh: '等間隔時間序列 → 直式多格（原始、趨勢、季節、殘差），橫軸對齊', en: 'evenly spaced series → stacked panels (observed, trend, seasonal, residual), shared time axis' },
-      why: { zh: '拆成趨勢、季節、殘差，並看季節振幅變不變 → 季節分解圖（教學；不參與推薦）', en: 'Split into trend, seasonal, and residual → seasonal decomposition plot (teach; not recommended)' } })
+      why: { zh: '拆成趨勢、季節、殘差，並看季節振幅變不變 → 季節分解圖（教學；不參與推薦）', en: 'Split into trend, seasonal, and residual → seasonal decomposition plot (teach; not recommended)' } }),
+    R('scatterplot-matrix', '散布圖矩陣', 'Scatterplot matrix', {
+      teachingOnly: true,
+      requires: { measure: [3] }, base: 0, need: ['manyNumeric'],
+      prefer: [], avoid: [],
+      fields: { zh: '約三到四個數值變數 → 兩兩成格，對角線放單變數分布', en: 'about three to four numeric variables → pairwise cells, univariate distribution on the diagonal' },
+      why: { zh: '一次看兩兩的方向、群聚與離群值 → 散布圖矩陣（教學；不參與推薦）', en: 'Pairwise direction, clusters, and outliers together → scatterplot matrix (teach; not recommended)' } }),
+    R('taylor-diagram', '泰勒圖', 'Taylor diagram', {
+      teachingOnly: true,
+      requires: { measure: [2] }, base: 0, need: ['fewRows'],
+      prefer: [], avoid: [],
+      fields: { zh: '多個模型對同一觀測 → 半圓（半徑＝標準差，角度＝相關，到觀測點的距離＝中心化均方根誤差）', en: 'several models versus one observation → semicircle (radius = standard deviation, angle = correlation, distance to the observation = centered root-mean-square error)' },
+      why: { zh: '振幅像不像、相關高不高、扣掉平均之後還差多遠 → 泰勒圖（教學；不參與推薦）', en: 'Whether amplitude matches, correlation is high, and how far the error remains after removing the mean → Taylor diagram (teach; not recommended)' } }),
+    R('periodogram', '週期圖', 'Periodogram', {
+      teachingOnly: true,
+      requires: { measure: [1] }, base: 0, need: ['longSeries'],
+      prefer: [], avoid: [],
+      fields: { zh: '等間隔序列 → 橫軸頻率、縱軸功率，整段的尖峰', en: 'evenly spaced series → frequency on the horizontal axis, power on the vertical axis, peaks for the whole record' },
+      why: { zh: '整段由哪些頻率組成 → 週期圖（教學；不參與推薦）', en: 'Which frequencies make up the whole record → periodogram (teach; not recommended)' } }),
+    R('bode-plot', '波德圖', 'Bode plot', {
+      teachingOnly: true,
+      requires: { measure: [1] }, base: 0, need: ['seqAxis'],
+      prefer: [], avoid: [],
+      fields: { zh: '對數頻率 → 上格增益（分貝）、下格相位（度）', en: 'logarithmic frequency → gain in decibels above, phase in degrees below' },
+      why: { zh: '系統對各頻率放大多少、延遲多少 → 波德圖（教學；不參與推薦）', en: 'How much a system amplifies and delays each frequency → Bode plot (teach; not recommended)' } }),
+    R('hovmoller-diagram', '霍夫默勒圖', 'Hovmöller diagram', {
+      teachingOnly: true,
+      requires: { measure: [1] }, base: 0, need: ['wideSeries'],
+      prefer: [], avoid: [],
+      fields: { zh: '位置 × 時間 → 顏色表數值，看色帶往哪斜', en: 'position by time → color shows the value; read which way the bands slope' },
+      why: { zh: '往哪走、走多快 → 霍夫默勒圖（教學；不參與推薦）', en: 'Which way it moves, and how fast → Hovmöller diagram (teach; not recommended)' } }),
+    R('skew-t-log-p', '斜溫圖', 'Skew-T log-P diagram', {
+      teachingOnly: true,
+      requires: { measure: [3] }, base: 0, need: ['manyNumeric'],
+      prefer: [], avoid: [],
+      fields: { zh: '一地一時各層的氣壓、溫度、露點 → 氣壓取對數、等溫線斜 45 度', en: 'pressure, temperature, and dew point through the column at one place and time → logarithmic pressure, isotherms skewed 45 degrees' },
+      why: { zh: '這一地、這一刻穩不穩、哪裡可能有雲 → 斜溫圖（教學；不參與推薦）', en: 'Stability, and where cloud is possible, at one place and one time → Skew-T log-P diagram (teach; not recommended)' } })
 
   ];
 

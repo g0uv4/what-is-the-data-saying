@@ -1,0 +1,7 @@
+{
+  "sample-bode-sim-s1-anatomy.csv": "bubble-chart",
+  "sample-bode-sim-s2-linear-vs-log.csv": "correlation-scatter",
+  "sample-bode-sim-s3-order-slope.csv": "bubble-chart",
+  "sample-bode-sim-s4-stability-margins.csv": "bubble-chart",
+  "sample-bode-sim-s5-signal-vs-system.csv": "bubble-chart"
+}

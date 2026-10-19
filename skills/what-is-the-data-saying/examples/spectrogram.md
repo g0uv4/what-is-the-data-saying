@@ -67,7 +67,7 @@
 | 圖種 | 一格（或一點）代表 | 顏色或位置代表 | 和頻譜圖的關係 |
 |---|---|---|---|
 | 頻譜圖（本稿） | 一個時間窗 × 一個頻率格 | 顏色＝分貝 | — |
-| 頻譜（spectrum；本 repo 無專檔） | 一個頻率 | 高度＝能量 | 把頻譜圖沿時間平均壓成一條線，就看不出先後（S7） |
+| 頻譜（spectrum；本 repo 無專檔。整段功率頻譜密度的估計見 `periodogram.md`，那是其中一種估計） | 一個頻率 | 高度＝能量 | 把頻譜圖沿時間平均壓成一條線，就看不出先後（S7） |
 | 一般熱圖（[`matrix-heatmap.md`](matrix-heatmap.md)） | 列 × 欄任一表格 | 顏色＝數值 | 頻譜圖是熱圖的一種：列＝頻率、欄＝時間窗；格子是算出來的，而且要先取捨窗長 |
 | 千層麵圖（[`lasagna-plot.md`](lasagna-plot.md)） | 一個對象 × 一個時間點 | 顏色＝數值 | 千層麵圖每列是個體，列序可以重排；頻譜圖每列是頻率，順序固定 |
 | 地平線圖（[`horizon-chart.md`](horizon-chart.md)） | 一個時間點 | 折疊色帶＝數值 | 地平線圖填的是單一序列的數值；頻譜圖先拆成許多頻率再上色 |
@@ -223,7 +223,7 @@
 21. [@kcimc](https://x.com/kcimc/status/2105081448160227678)
 22. [@AnimalBattStats](https://x.com/AnimalBattStats/status/2105687005401137322)
 
-鄰居 pattern：`matrix-heatmap.md`（一般熱圖；頻譜圖是頻率 × 時間窗的特例，格子是算出來的）、`lasagna-plot.md`（列＝個體、可以重排；頻譜圖列＝頻率、不能調）、`horizon-chart.md`（單一數值的折疊色帶）、`recurrence-plot.md`（時間 × 時間的相似方陣；不必先知道週期）、`calendar-heatmap.md`、`spiral-plot.md`（先假設週期再排版）、`streamgraph-composition.md`（人定類別、用厚度）、`control-chart.md`（盯單一數值）、`contour-density.md`（等值線，不是連續色）、`waterfall-bridge.md`（財務瀑布圖，不是三維瀑布圖）、`swimmer-plot.md`（提及腫瘤學瀑布圖，也不是三維瀑布圖）、`autocorrelation-plot.md`（時間差域看週期；頻譜圖在頻率域看週期）。
+鄰居 pattern：`matrix-heatmap.md`（一般熱圖；頻譜圖是頻率 × 時間窗的特例，格子是算出來的）、`lasagna-plot.md`（列＝個體、可以重排；頻譜圖列＝頻率、不能調）、`horizon-chart.md`（單一數值的折疊色帶）、`recurrence-plot.md`（時間 × 時間的相似方陣；不必先知道週期）、`calendar-heatmap.md`、`spiral-plot.md`（先假設週期再排版）、`streamgraph-composition.md`（人定類別、用厚度）、`control-chart.md`（盯單一數值）、`contour-density.md`（等值線，不是連續色）、`waterfall-bridge.md`（財務瀑布圖，不是三維瀑布圖）、`swimmer-plot.md`（提及腫瘤學瀑布圖，也不是三維瀑布圖）、`autocorrelation-plot.md`（時間差域看週期；頻譜圖在頻率域看週期）、`periodogram.md`（整段的頻率組成、尖峰對應頻率；頻率隨時間大變才用本檔。窗長、短時傅立葉轉換與分貝設定見本檔）、`bode-plot.md`（畫系統：共用對數頻率，上增益分貝、下相位度；本檔畫訊號）、`hovmoller-diagram.md`（位置 × 時間的色格，看往哪走、走多快；頻率隨時間仍用本檔）。
 
 ## 圖檔與授權（不複製，只連結）
 

@@ -22,4 +22,4 @@
 - [ ] 同尺；半透明填色
 - [ ] 自檢換軸序結論是否仍穩
 
-鄰居 pattern：`circular-bar.md`、`spiral-plot.md`、`parallel-coordinates.md`。
+鄰居 pattern：`circular-bar.md`、`spiral-plot.md`、`parallel-coordinates.md`、`taylor-diagram.md`（半圓極座標放的是模型對觀測的標準差與相關係數，不是多軸剖面；課程稿沒有拿本檔當對照）。

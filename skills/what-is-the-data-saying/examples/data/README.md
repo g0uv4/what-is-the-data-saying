@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖與滯後圖各附 8 組 CSV 與 8 支自檢 .py，季節子序列圖附 9 組 CSV 與 9 支自檢 .py（8 組虛構＋1 份毛納羅亞二氧化碳真實資料），季節分解圖附 5 組 CSV 與 5 支自檢 .py（5 組虛構），散布圖矩陣附 5 組 CSV 與 5 支自檢 .py（S1、S4、S5 虛構；S2 鳶尾花公有領域；S3 企鵝 CC0），泰勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261015），週期圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261016），波德圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261017），霍夫默勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261018））
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖與滯後圖各附 8 組 CSV 與 8 支自檢 .py，季節子序列圖附 9 組 CSV 與 9 支自檢 .py（8 組虛構＋1 份毛納羅亞二氧化碳真實資料），季節分解圖附 5 組 CSV 與 5 支自檢 .py（5 組虛構），散布圖矩陣附 5 組 CSV 與 5 支自檢 .py（S1、S4、S5 虛構；S2 鳶尾花公有領域；S3 企鵝 CC0），泰勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261015），週期圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261016），波德圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261017），霍夫默勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261018），斜溫圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261019））
 
 來自專案維護者整理、已審的 skill pack。**非真實產業資料；數字未核。**
 
@@ -281,8 +281,18 @@
 | `sample-hovmoller-sim-s4-colormap-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「霍夫默勒圖資料與自檢腳本」 | 同上 |
 | `sample-hovmoller-sim-s5-traffic.csv` | 霍夫默勒圖範例資料（S5；61 列、17651 位元組；`minute` 加上里程 0 到 20、每 0.5 公里，42 欄；車速 14.859…100.0；高速平均 89.58560792741166，印成 89.59；低於每小時 45 公里的格子 183 個；塞車波每小時 −18 公里未核對；模擬範例資料、種子 20261018、數字未核） | `../hovmoller-diagram.md` |
 | `sample-hovmoller-sim-s5-traffic-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「霍夫默勒圖資料與自檢腳本」 | 同上 |
+| `sample-skewt-sim-s1-anatomy.csv` | 斜溫圖範例資料（S1；27 列、780 位元組；`pressure_hPa`、`temperature_C`、`dewpoint_C`、`wind_speed_kt`、`wind_dir_deg`；500 百帕 −5.7 度；垂直誤讀與斜角未核；風速風向未另核；模擬範例資料、種子 20261019、數字未核） | `../skew-t-log-p.md` |
+| `sample-skewt-sim-s1-anatomy-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「斜溫圖資料與自檢腳本」 | 同上 |
+| `sample-skewt-sim-s2-why-skew.csv` | 斜溫圖範例資料（S2；27 列、459 位元組；只有 `pressure_hPa`、`temperature_C`、`dewpoint_C`；左 0 度、右 45 度未核；模擬範例資料、種子 20261019、數字未核） | `../skew-t-log-p.md` |
+| `sample-skewt-sim-s2-why-skew-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「斜溫圖資料與自檢腳本」 | 同上 |
+| `sample-skewt-sim-s3-parcel-cape.csv` | 斜溫圖範例資料（S3；27 列、617 位元組；多 `surface_parcel_C`；穿越 746.8284542966692 與 162.8008773618526 百帕；2311 與 −87 焦耳／公斤未積分；950 百帕溫差 0 不是自由對流高度；模擬範例資料、種子 20261019、數字未核） | `../skew-t-log-p.md` |
+| `sample-skewt-sim-s3-parcel-cape-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「斜溫圖資料與自檢腳本」 | 同上 |
+| `sample-skewt-sim-s4-cloud-layers.csv` | 斜溫圖範例資料（S4；27 列、605 位元組；多 `dewpoint_depression_C`；露點差 ≤ 2.0 的連續層是 [975, 775]（9 層）與 [400, 350]（2 層）；地面露點差 2.4；是不是雲未核；模擬範例資料、種子 20261019、數字未核） | `../skew-t-log-p.md` |
+| `sample-skewt-sim-s4-cloud-layers-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「斜溫圖資料與自檢腳本」 | 同上 |
+| `sample-skewt-sim-s5-stable-unstable.csv` | 斜溫圖範例資料（S5；54 列、1628 位元組；`panel` 先 `stable` 再 `unstable`；穩定面板沒有正的溫度差；印成 943.99 的近地薄正差不是自由對流高度；2455 與 −74 焦耳／公斤未積分；模擬範例資料、種子 20261019、數字未核） | `../skew-t-log-p.md` |
+| `sample-skewt-sim-s5-stable-unstable-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「斜溫圖資料與自檢腳本」 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`、`../autocorrelation-plot.md`、`../lag-plot.md`、`../seasonal-subseries-plot.md`、`../seasonal-decomposition-plot.md`、`../scatterplot-matrix.md`、`../taylor-diagram.md`、`../periodogram.md`、`../bode-plot.md`、`../hovmoller-diagram.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`、`../autocorrelation-plot.md`、`../lag-plot.md`、`../seasonal-subseries-plot.md`、`../seasonal-decomposition-plot.md`、`../scatterplot-matrix.md`、`../taylor-diagram.md`、`../periodogram.md`、`../bode-plot.md`、`../hovmoller-diagram.md`、`../skew-t-log-p.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -962,4 +972,18 @@ python3 sample-periodogram-sim-s5-vs-spectrogram-selfcheck.py   # 其餘同理�
 | S5 `sample-hovmoller-sim-s5-traffic.csv` | 61 | 17651 | `minute` 加上里程 0 到 20、每 0.5 公里（42 欄） |
 
 自檢：`sample-hovmoller-sim-s1-anatomy-selfcheck.py`、`sample-hovmoller-sim-s2-direction-selfcheck.py`、`sample-hovmoller-sim-s3-phase-group-selfcheck.py`、`sample-hovmoller-sim-s4-colormap-selfcheck.py`、`sample-hovmoller-sim-s5-traffic-selfcheck.py`。圖 S1 脊線 3.9151242728714966 度／日（印 3.915；記載 3.89 不是原格）；赤道附近換算印成 5.04 公尺每秒。圖 S2 的 +6 與 −8 度／日未核對。圖 S3 群速印成 27.99，相速每天 10 度未分開追。圖 S4 色盤名稱不在 CSV。圖 S5 塞車波每小時 −18 公里未核對。圖 R1 時間往上、圖 S1 往下。高緯不要把 111.2 公里直接套上。圖 R1 速度未核、緯度存疑。圖 R2 變數與單位未核。圖 R5 彩虹色只看走向。
+
+## 斜溫圖資料與自檢腳本 `sample-skewt-sim-s1-…` 到 `sample-skewt-sim-s5-stable-unstable`
+
+5 組範例資料 CSV 與 5 支自檢已在本目錄（共 10 檔）。S1–S5 都是模擬範例資料，種子 20261019，浮水印「模擬｜範例數字未核（虛構資料）」，數字未核。檔名已有 `skewt` 前綴。合計 4089 位元組（約 3.99 KiB），最大是 S5 的 1628。都小於 25 萬位元組。第 1 行就是表頭，沒有 `#`，沒有 `data_status`。氣壓 1000 到 100 百帕、嚴格遞減：1000–700 每 25 百帕，700–200 每 50 百帕，200–100 每 25 百帕，共 27 層。圖 S5 先 27 列 `stable`，再 27 列 `unstable`。自檢只用 `csv`、`math`、`os`、`sys`，不靠 numpy。通過項數 S1 10、S2 7、S3 17、S4 10、S5 24。腳本位元組 4194、2952、6255、3854、8554。沒有收 png。
+
+| 檔 | 列數 | CSV 位元組 | 欄位 |
+|---|---:|---:|---|
+| S1 `sample-skewt-sim-s1-anatomy.csv` | 27 | 780 | `pressure_hPa`、`temperature_C`、`dewpoint_C`、`wind_speed_kt`、`wind_dir_deg` |
+| S2 `sample-skewt-sim-s2-why-skew.csv` | 27 | 459 | `pressure_hPa`、`temperature_C`、`dewpoint_C` |
+| S3 `sample-skewt-sim-s3-parcel-cape.csv` | 27 | 617 | `pressure_hPa`、`temperature_C`、`dewpoint_C`、`surface_parcel_C` |
+| S4 `sample-skewt-sim-s4-cloud-layers.csv` | 27 | 605 | `pressure_hPa`、`temperature_C`、`dewpoint_C`、`dewpoint_depression_C` |
+| S5 `sample-skewt-sim-s5-stable-unstable.csv` | 54 | 1628 | `panel`、`pressure_hPa`、`temperature_C`、`dewpoint_C`、`surface_parcel_C` |
+
+自檢：`sample-skewt-sim-s1-anatomy-selfcheck.py`、`sample-skewt-sim-s2-why-skew-selfcheck.py`、`sample-skewt-sim-s3-parcel-cape-selfcheck.py`、`sample-skewt-sim-s4-cloud-layers-selfcheck.py`、`sample-skewt-sim-s5-stable-unstable-selfcheck.py`。圖 S1 的 500 百帕是 −5.7 度；垂直誤讀與斜角未核；風速風向未另核。圖 S2 的 0 度與 45 度未核。圖 S3 穿越 746.8284542966692 與 162.8008773618526 百帕；2311 與 −87 未積分；950 百帕溫差 0 不是自由對流高度。圖 S4 的層是 [975, 775]（9 層）與 [400, 350]（2 層）；地面露點差 2.4；是不是雲未核；2 度是經驗門檻、各家不一、未核。圖 S5 穩定面板沒有正的溫度差；印成 943.99 的近地薄正差不是自由對流高度；不穩定面板自由對流高度附近是 756.1733601325386 百帕、平衡高度附近是 164.00229547459637 百帕；2455 與 −74 未積分。圖 R1 是 CC BY-SA 4.0 JeanBizHertzberg，底圖未核，必須寫「底圖未核，轉載須再確認」，整張不是已清授權。圖 R2 是 CC BY-SA 4.0 TomRat。圖 R3 公有領域 NOAA SPC。圖 R4 公有領域 NWS。圖 R5 公有領域 NWS Quad Cities。
 

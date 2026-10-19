@@ -1,6 +1,6 @@
 # ATTRIBUTION（來源與對照）
 
-本 skill **0.3.41** 的圖種啟發式、口述產出步驟與 `examples/` pattern，由專案維護者依內部教學筆記整理，每個 pattern 附驗證資料（來源連結、授權說明，以及虛構 demo CSV 與自檢腳本）；原始筆記不在本 repo。
+本 skill **0.3.42** 的圖種啟發式、口述產出步驟與 `examples/` pattern，由專案維護者依內部教學筆記整理，每個 pattern 附驗證資料（來源連結、授權說明，以及虛構 demo CSV 與自檢腳本）；原始筆記不在本 repo。
 
 技能文字為摘要與可執行 checklist，**不是**教學筆記全文轉貼；數字案例沿用原筆記「未核」標註習慣。
 原始筆記、草稿與截圖**不在這個公開 repo**；下表左欄只列筆記的日期與檔名，方便對照，不是可開啟的檔案。
@@ -93,6 +93,7 @@
 | 2026-10-16-am-periodogram.md | 週期圖（periodogram；與頻譜圖、自相關圖、滯後圖、一般頻譜分界；整段頻率組成，尖峰對應頻率；頻率隨時間大變改頻譜圖；Welch 分段平均；圖 R2、圖 R4 數字未核；圖 R3 只作方法對照） | `examples/periodogram.md`；5 組 demo CSV 與自檢腳本見 `examples/data/`（S1–S5 皆為模擬範例資料，種子 20261016；檔名已有 `periodogram` 前綴、與素材包逐位元相同；自檢只用標準函式庫、預期值寫在腳本裡，圖 S1 的功率用純 Python 離散傅立葉轉換）。參考圖不入庫：R1 CC BY-SA 4.0 Ixfd64；R2 CC BY-SA 4.0 Warrickball；R3 CC0 Bob K；R4 CC BY 4.0 ESO／G. Anglada-Escudé；R5 CC BY-SA 4.0 Ixfd64 |
 | 2026-10-17-am-bode.md | 波德圖（Bode plot；與週期圖、頻譜圖分界；畫系統的放大與延遲；共用對數頻率，上增益分貝、下相位度；圖 R3 的 f_GM 與 f_PM 對調照錄；圖 R4 數字未核） | `examples/bode-plot.md`；5 組 demo CSV 與自檢腳本見 `examples/data/`（S1–S5 皆為模擬範例資料，種子 20261017；檔名已有 `bode` 前綴）。參考圖不入庫：R1 CC BY-SA 3.0 Alejo2083；R2 CC0 Brews_ohare；R3 CC0 Sigmundg；R4 CC0 Qudusayinde；R5 CC BY-SA 3.0 Gmaxwell（上傳者） |
 | 2026-10-18-am-hovmoller-polished.md | 霍夫默勒圖（Hovmöller diagram；又作霍夫穆勒圖，不當主名；與矩陣熱圖、頻譜圖、折線分界；一軸位置、一軸時間，顏色表數值；看往哪走、走多快；圖 R1 時間往上、圖 S1 往下；圖 R1 速度未核、緯度存疑；圖 R2 變數與單位未核；圖 R5 彩虹色只看走向） | `examples/hovmoller-diagram.md`；5 組 demo CSV 與自檢腳本見 `examples/data/`（S1–S5 皆為模擬範例資料，種子 20261018；檔名已有 `hovmoller` 前綴）。參考圖不入庫：R1 CC BY-SA 4.0 KIRAN S R；R2–R4 public domain US gov NOAA CPC；R5 public domain Morn PD-user-w |
+| 2026-10-19-am-skewt-polished.md | 斜溫圖（Skew-T log-P diagram；課程稿沒有另給中文別名；與折線、霍夫默勒圖、地圖分界；一地一時的垂直剖面；氣壓取對數、等溫線斜 45 度；溫度沿斜線讀；兩線貼近只是可能有雲；位能要連對流抑制） | `examples/skew-t-log-p.md`；5 組 demo CSV 與自檢腳本見 `examples/data/`（S1–S5 皆為模擬範例資料，種子 20261019；檔名已有 `skewt` 前綴）。參考圖不入庫：R1 CC BY-SA 4.0 JeanBizHertzberg，懷俄明大學底圖未核，圖說必須寫「底圖未核，轉載須再確認」，整張不是已清授權；R2 CC BY-SA 4.0 TomRat；R3 public domain NOAA SPC；R4 public domain NWS；R5 public domain NWS Quad Cities |
 
 各筆記另有同日的研究筆記與截圖，作為圖例與查證依據，未複製進 repo。
 
@@ -106,7 +107,7 @@
 ## 尚未獨立成 pattern 的缺口
 
 - 南丁格爾玫瑰、三元圖、樹狀譜系、蜂巢圖、HEB、流量地圖、比例符號地圖、平行集合：目前多半只在 `chart-heuristics.md`，尚無專檔 example。
-- 點密度圖、河流圖、人口金字塔、棒棒糖圖、箱形圖、氣泡圖、馬里梅可圖、等值區域圖、圖塊地圖、矩陣熱圖、螺旋圖、BioFabric、火焰圖、Circos、火山圖、曼哈頓圖、MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖、柏拉圖、管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖、滯後圖、季節子序列圖、季節分解圖 已有專檔 example + 虛構 demo CSV；散布圖矩陣已有專檔，S1、S4、S5 是虛構 demo CSV，S2（鳶尾花，公有領域）與 S3（企鵝，CC0）是公開資料集；泰勒圖已有專檔，S1–S5 都是模擬範例 CSV；週期圖已有專檔，S1–S5 都是模擬範例 CSV，種子 20261016；波德圖已有專檔，S1–S5 都是模擬範例 CSV，種子 20261017；霍夫默勒圖已有專檔，S1–S5 都是模擬範例 CSV，種子 20261018；其餘筆記「適合使用的範例」三小節樣本尚未全面打包。
+- 點密度圖、河流圖、人口金字塔、棒棒糖圖、箱形圖、氣泡圖、馬里梅可圖、等值區域圖、圖塊地圖、矩陣熱圖、螺旋圖、BioFabric、火焰圖、Circos、火山圖、曼哈頓圖、MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖、柏拉圖、管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖、滯後圖、季節子序列圖、季節分解圖 已有專檔 example + 虛構 demo CSV；散布圖矩陣已有專檔，S1、S4、S5 是虛構 demo CSV，S2（鳶尾花，公有領域）與 S3（企鵝，CC0）是公開資料集；泰勒圖已有專檔，S1–S5 都是模擬範例 CSV；週期圖已有專檔，S1–S5 都是模擬範例 CSV，種子 20261016；波德圖已有專檔，S1–S5 都是模擬範例 CSV，種子 20261017；霍夫默勒圖已有專檔，S1–S5 都是模擬範例 CSV，種子 20261018；斜溫圖已有專檔，S1–S5 都是模擬範例 CSV，種子 20261019；其餘筆記「適合使用的範例」三小節樣本尚未全面打包。
 - 社群敘事卡產線未併入本 plugin（敘事卡 ≠ 資料形狀推薦）。
 
 ## 授權與改寫

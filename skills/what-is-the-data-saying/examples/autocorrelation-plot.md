@@ -181,7 +181,7 @@
 
 以 X 官方搜尋查詢英文「autocorrelation plot」「ACF plot」「PACF plot」「autocorrelation」「partial autocorrelation」與中文「自相關圖」「偏自相關」等關鍵詞（台北時間 2026-10-09 上午）。精確片語搜尋多次回傳 0 筆；隨後查詢工具因請求次數超過上限而暫停回應。另行使用網路搜尋（限定 x.com 與 twitter.com）以及 DuckDuckGo 進行頁面擷取，**都沒有找到可核對的原帖連結**。**因此原帖筆數＝0。** 不編造任何帳號或網址。
 
-鄰居 pattern：`matrix-heatmap.md`（相關矩陣＝correlogram 第二義；本檔是時間序列滯後棒圖）、`recurrence-plot.md`（時間×時間的相似方陣；自相關把所有成對時間差濃縮成單一係數）、`spectrogram.md`（時間 × 頻率看週期；自相關在時間差域看週期）、`time-series-trend.md`（折線看數值高低；自相關是結構診斷）、`control-chart.md`（盯單一數值有沒有超出管制界限；自相關看殘差隔幾步還有相關）、`horizon-chart.md`、`spiral-plot.md`、`calendar-heatmap.md`（先假設週期再排版；自相關由尖峰位置呈現潛在週期）、`lag-plot.md`（單一滯後攤成散佈圖；本檔把每個滯後壓成一根棒）、`seasonal-subseries-plot.md`（滯後 12 很高只回答有沒有季節；哪個月偏高、各月自己有沒有在變看這一檔）、`seasonal-decomposition-plot.md`（滯後 12 很高只回答有沒有季節；拆成趨勢、季節、殘差看這一檔）。
+鄰居 pattern：`matrix-heatmap.md`（相關矩陣＝correlogram 第二義；本檔是時間序列滯後棒圖）、`recurrence-plot.md`（時間×時間的相似方陣；自相關把所有成對時間差濃縮成單一係數）、`spectrogram.md`（時間 × 頻率看週期；自相關在時間差域看週期）、`time-series-trend.md`（折線看數值高低；自相關是結構診斷）、`control-chart.md`（盯單一數值有沒有超出管制界限；自相關看殘差隔幾步還有相關）、`horizon-chart.md`、`spiral-plot.md`、`calendar-heatmap.md`（先假設週期再排版；自相關由尖峰位置呈現潛在週期）、`lag-plot.md`（單一滯後攤成散佈圖；本檔把每個滯後壓成一根棒）、`seasonal-subseries-plot.md`（滯後 12 很高只回答有沒有季節；哪個月偏高、各月自己有沒有在變看這一檔）、`seasonal-decomposition-plot.md`（滯後 12 很高只回答有沒有季節；拆成趨勢、季節、殘差看這一檔）、`periodogram.md`（整段看頻率、尖峰對應頻率；自相關看延遲。頻率隨時間大變改頻譜圖）。
 
 ## 圖檔與授權（不複製，只連結）
 

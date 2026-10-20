@@ -3,7 +3,7 @@ name: what-is-the-data-saying
 description: >
   Given a table or report, recommend the chart and how to make it (資料在說什麼).
   Taiwan zh-TW teaching-grade pedagogy compiled by the project maintainer（專案維護者）
-  from internal teaching notes, plus 80 named patterns. Use when the user
+  from internal teaching notes, plus 81 named patterns. Use when the user
   pastes CSV / Excel / a table / 報表 and asks which chart, how to visualize,
   這份資料該怎麼畫, 推薦圖表, 視覺化, or runs /what-is-the-data-saying.
 when-to-use: >
@@ -14,7 +14,7 @@ argument-hint: paste a table or describe the report
 metadata:
   short-description: "Which chart? How to make it. 資料在說什麼"
   author: g0uv4
-  version: "0.3.42"
+  version: "0.3.43"
   lineage: "maintainer-curated internal teaching notes（專案維護者依內部教學筆記整理）"
   license: MIT
 ---
@@ -123,6 +123,7 @@ pattern：examples/<slug>.md（若有）
 | 有輸入與輸出可比，要讀系統對各頻率的放大與延遲（濾波器、喇叭、控制迴路） | 波德圖（Bode plot；`examples/bode-plot.md`；共用對數頻率，上增益分貝、下相位度；只問訊號頻率改週期圖，頻率隨時間改頻譜圖；圖 S1 在 1000 赫茲理論 −3.01 分貝、−45.0 度；圖 S4 的 29 列對數內插是 2.0436073735431166 赫茲、4.472372749108375 赫茲、12.074723090701836 分貝、32.732897812097804 度，密格 2.052／4.468／12.02／32.67 不是原列；圖 S5 的 49.68 赫茲、14.02 分貝不在 CSV；圖 R3 的 f_GM 與 f_PM 對調照錄；圖 R4 約 5 千赫茲、約 30 度數字未核；S1–S5 模擬範例資料、種子 20261017；圖號不重排；臺灣官方譯名課程稿沒有記載、本稿不另查） |
 | 位置固定、等間隔量測，要看往哪走、走多快（波動、雨雲、塞車） | 霍夫默勒圖（Hovmöller diagram；又作霍夫穆勒圖，不當主名；`examples/hovmoller-diagram.md`；一軸位置、一軸時間，顏色表數值；先標時間往上或往下，圖 R1 往上、圖 S1 往下；時間往下時右下斜是往東；頻率隨時間改頻譜圖，兩軸不限位置與時間改矩陣熱圖，只看一地改折線；圖 S1 脊線 3.9151242728714966 度／日，印成 3.915，記載每天 3.89 度不是原格，赤道附近印成 5.04 公尺每秒；高緯要乘緯度餘弦；圖 S3 群速脊線 27.990950226244344 度／日，印成 27.99，對記載 28，相速每天 10 度未從 CSV 分開追，51 列是 0 到 10 天、每 0.2 天；圖 S2 的 +6／−8 度／日、圖 S5 每小時 −18 公里、圖 S4 色盤名稱，CSV 未核對；圖 R1 速度未核、緯度存疑；圖 R2 變數與單位未核；圖 R5 彩虹色只看走向；S1–S5 模擬範例資料、種子 20261018；圖號不重排；臺灣官方譯名課程稿沒有記載、本稿不另查） |
 | 一地一時的垂直剖面，各層有氣壓、溫度、露點，要看穩不穩、哪裡可能有雲、雷雨潛勢 | 斜溫圖（Skew-T log-P diagram；`examples/skew-t-log-p.md`；氣壓取對數、等溫線斜 45 度；溫度沿斜線讀；兩線貼近只是可能有雲；位能要連對流抑制；僅地面值改折線，多地多時改霍夫默勒圖，很多測站改地圖；圖 S1 的 500 百帕是 −5.7 度；圖 S3 穿越 746.8284542966692 與 162.8008773618526 百帕，2311 與 −87 焦耳／公斤未積分；圖 S4 的層是 [975, 775] 與 [400, 350] 百帕，是不是雲未核；圖 S5 穩定面板沒有正的溫度差，943.99 不是自由對流高度；圖 R1 CC BY-SA 4.0 JeanBizHertzberg，底圖未核，轉載須再確認，整張不是已清授權；圖 R2 CC BY-SA 4.0 TomRat；圖 R3 公有領域 NOAA SPC；圖 R4 公有領域 NWS；圖 R5 公有領域 NWS Quad Cities；S1–S5 模擬範例資料、種子 20261019；圖號不重排；臺灣官方譯名課程稿沒有記載、本稿不另查） |
+| 有顏色、亮度與距離，或同一星團，要看恆星分群與演化階段 | 赫羅圖（Hertzsprung–Russell diagram；`examples/hr-diagram.md`；橫軸溫度或顏色，縱軸光度或星等，左熱右冷、上亮下暗，星等軸倒過來；顏色－星等圖是相近圖種；點還分得開用散點，點太多改密度且顏色是星數；距離不明先換絕對星等；S1/S2 同一份依巴谷公開資料、ESA 1997 經 VizieR、17,746 列、標範例資料；S3–S5 模擬範例資料；圖 R4「約 15,000 顆」未核；臺灣官方譯名課程稿沒有記載、本稿不另查） |
 | 多類別交叉／市場區隔×組成 | 馬賽克（獨立性）；商用變寬堆疊用馬里梅可；平行集合；集合交集用 UpSet |
 | 網路關係 | 力導向／弧線／鄰接矩陣／蜂巢圖；有階層+葉連線用 HEB；稠密成毛球、每條邊要可辨識或依類型分塊用 BioFabric（生物織布圖，暫譯） |
 | 地理量 | 等值區域圖（choropleth；先正規化，勿用總量填色）；計數疏密用點密度圖；總量規模用比例符號地圖；每區等權重、怕大區搶眼用圖塊地圖（一區一格）；面積＝資料用面積變形地圖；起迄用流向地圖 |

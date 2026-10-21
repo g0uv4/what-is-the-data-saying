@@ -299,7 +299,7 @@
 | `sample-hr-sim-s4-overplotting-3000-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「赫羅圖資料與自檢腳本」 | 同上 |
 | `sample-hr-sim-s5-ms-fitting.csv` | 赫羅圖範例資料（S5；235 列、6469 位元組；模擬範例資料、種子 20261025、標範例資料） | `../hr-diagram.md` |
 | `sample-hr-sim-s5-ms-fitting-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「赫羅圖資料與自檢腳本」 | 同上 |
-| `sample-smith-sim-s2-open-stub.csv` | 史密斯圖範例資料（S2；91 列、3528 位元組；`freq_GHz`、`R_ohm`、`X_ohm`、`gamma_re`、`gamma_im`；虛構示範數字、模擬範例資料，沒有隨機種子；表內最大電阻 350.729，記載的 367 不是這一檔的列） | `../smith-chart.md` |
+| `sample-smith-sim-s2-open-stub.csv` | 史密斯圖範例資料（S2；91 列、3528 位元組；`freq_GHz`、`R_ohm`、`X_ohm`、`gamma_re`、`gamma_im`；虛構示範數字、模擬範例資料，沒有隨機種子；表內最大電阻 350.729（約 351 歐姆）） | `../smith-chart.md` |
 | `sample-smith-sim-s2-open-stub-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「史密斯圖資料與自檢腳本」 | 同上 |
 | `sample-smith-sim-s3-l-match.csv` | 史密斯圖範例資料（S3；3 列、243 位元組；`step`、`z_norm_re`、`z_norm_im`、`gamma_re`、`gamma_im`、`note`；虛構示範數字、模擬範例資料，沒有隨機種子） | `../smith-chart.md` |
 | `sample-smith-sim-s3-l-match-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「史密斯圖資料與自檢腳本」 | 同上 |
@@ -1014,7 +1014,7 @@ python3 sample-periodogram-sim-s5-vs-spectrogram-selfcheck.py   # 其餘同理�
 
 ## 史密斯圖資料與自檢腳本 `sample-smith-sim-s2-open-stub` 到 `sample-smith-sim-s4-s5-antenna-sweep`
 
-3 個 CSV 與 3 支自檢已在本目錄。S1 沒有 CSV。S2–S5 是虛構示範數字、模擬範例資料，沒有隨機種子。S4 與 S5 共用 `sample-smith-sim-s4-s5-antenna-sweep.csv`。三個 CSV 合計 8023 位元組。自檢腳本：`sample-smith-sim-s2-open-stub-selfcheck.py`（17 項通過）、`sample-smith-sim-s3-l-match-selfcheck.py`（24 項通過）、`sample-smith-sim-s4-s5-antenna-sweep-selfcheck.py`（20 項通過）。腳本位元組 4926、5711、6970。記載的最大電阻 367 歐姆、線長與相速、2.44 吉赫、圖紙讀值 0.30−j0.54、較密曲線的頻段端點、模型名稱、圖 R3 的標記歐姆，都印 NOT CHECKED，不計入通過項數。圖 R2、圖 R4 署名 Sbyrnes321，CC BY-SA 3.0、同方式分享。例題圖不採用、不連結。
+3 個 CSV 與 3 支自檢已在本目錄。S1 沒有 CSV。S2–S5 是虛構示範數字、模擬範例資料，沒有隨機種子。S4 與 S5 共用 `sample-smith-sim-s4-s5-antenna-sweep.csv`。三個 CSV 合計 8023 位元組。自檢腳本：`sample-smith-sim-s2-open-stub-selfcheck.py`（17 項通過）、`sample-smith-sim-s3-l-match-selfcheck.py`（24 項通過）、`sample-smith-sim-s4-s5-antenna-sweep-selfcheck.py`（20 項通過）。腳本位元組 4926、5711、6970。表內最大電阻約 351 歐姆（350.729）。線長與相速、2.44 吉赫、圖紙讀值 0.30−j0.54、模型名稱，都印 NOT CHECKED，不計入通過項數。較密曲線的頻段端點與圖 R3 的標記歐姆在 pattern 頁標「示範值／未核」；自檢對它們印 NOT CHECKED，不計入通過項數。圖 R2、圖 R4 署名 Sbyrnes321，CC BY-SA 3.0、同方式分享。例題圖不採用、不連結。
 
 | 檔 | 列數 | CSV 位元組 |
 |---|---:|---:|

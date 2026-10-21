@@ -1,0 +1,4 @@
+step,z_norm_re,z_norm_im,gamma_re,gamma_im,note
+load,0.4000,-0.6000,-0.20690,-0.51724,負載 20-j30 歐姆
+after_series_L,0.4000,0.4899,-0.27273,0.44536,串聯電感 3.55 nH
+after_shunt_C,1.0000,0.0000,0.00000,0.00000,並聯電容 1.60 pF

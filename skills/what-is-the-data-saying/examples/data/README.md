@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖與滯後圖各附 8 組 CSV 與 8 支自檢 .py，季節子序列圖附 9 組 CSV 與 9 支自檢 .py（8 組虛構＋1 份毛納羅亞二氧化碳真實資料），季節分解圖附 5 組 CSV 與 5 支自檢 .py（5 組虛構），散布圖矩陣附 5 組 CSV 與 5 支自檢 .py（S1、S4、S5 虛構；S2 鳶尾花公有領域；S3 企鵝 CC0），泰勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261015），週期圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261016），波德圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261017），霍夫默勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261018），斜溫圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261019），赫羅圖附 4 個 CSV 與 4 支自檢 .py（S1 與 S2 共用一份依巴谷 CSV，ESA 1997 經 VizieR，標範例資料；S3–S5 為模擬範例資料；四個 CSV 都標範例資料））
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖與滯後圖各附 8 組 CSV 與 8 支自檢 .py，季節子序列圖附 9 組 CSV 與 9 支自檢 .py（8 組虛構＋1 份毛納羅亞二氧化碳真實資料），季節分解圖附 5 組 CSV 與 5 支自檢 .py（5 組虛構），散布圖矩陣附 5 組 CSV 與 5 支自檢 .py（S1、S4、S5 虛構；S2 鳶尾花公有領域；S3 企鵝 CC0），泰勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261015），週期圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261016），波德圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261017），霍夫默勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261018），斜溫圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261019），赫羅圖附 4 個 CSV 與 4 支自檢 .py（S1 與 S2 共用一份依巴谷 CSV，ESA 1997 經 VizieR，標範例資料；S3–S5 為模擬範例資料；四個 CSV 都標範例資料），史密斯圖附 3 個 CSV 與 3 支自檢 .py（S2–S5 為虛構示範數字、模擬範例資料，沒有隨機種子；S4 與 S5 共用一份 CSV；S1 沒有 CSV））
 
 來自專案維護者整理、已審的 skill pack。**非真實產業資料；數字未核。**
 
@@ -299,8 +299,14 @@
 | `sample-hr-sim-s4-overplotting-3000-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「赫羅圖資料與自檢腳本」 | 同上 |
 | `sample-hr-sim-s5-ms-fitting.csv` | 赫羅圖範例資料（S5；235 列、6469 位元組；模擬範例資料、種子 20261025、標範例資料） | `../hr-diagram.md` |
 | `sample-hr-sim-s5-ms-fitting-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「赫羅圖資料與自檢腳本」 | 同上 |
+| `sample-smith-sim-s2-open-stub.csv` | 史密斯圖範例資料（S2；91 列、3528 位元組；`freq_GHz`、`R_ohm`、`X_ohm`、`gamma_re`、`gamma_im`；虛構示範數字、模擬範例資料，沒有隨機種子；表內最大電阻 350.729，記載的 367 不是這一檔的列） | `../smith-chart.md` |
+| `sample-smith-sim-s2-open-stub-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「史密斯圖資料與自檢腳本」 | 同上 |
+| `sample-smith-sim-s3-l-match.csv` | 史密斯圖範例資料（S3；3 列、243 位元組；`step`、`z_norm_re`、`z_norm_im`、`gamma_re`、`gamma_im`、`note`；虛構示範數字、模擬範例資料，沒有隨機種子） | `../smith-chart.md` |
+| `sample-smith-sim-s3-l-match-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「史密斯圖資料與自檢腳本」 | 同上 |
+| `sample-smith-sim-s4-s5-antenna-sweep.csv` | 史密斯圖範例資料（S4 與 S5 共用；61 列、4252 位元組；虛構示範數字、模擬範例資料，沒有隨機種子） | `../smith-chart.md` |
+| `sample-smith-sim-s4-s5-antenna-sweep-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「史密斯圖資料與自檢腳本」 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`、`../autocorrelation-plot.md`、`../lag-plot.md`、`../seasonal-subseries-plot.md`、`../seasonal-decomposition-plot.md`、`../scatterplot-matrix.md`、`../taylor-diagram.md`、`../periodogram.md`、`../bode-plot.md`、`../hovmoller-diagram.md`、`../skew-t-log-p.md`、`../hr-diagram.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`、`../autocorrelation-plot.md`、`../lag-plot.md`、`../seasonal-subseries-plot.md`、`../seasonal-decomposition-plot.md`、`../scatterplot-matrix.md`、`../taylor-diagram.md`、`../periodogram.md`、`../bode-plot.md`、`../hovmoller-diagram.md`、`../skew-t-log-p.md`、`../hr-diagram.md`、`../smith-chart.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -1005,4 +1011,14 @@ python3 sample-periodogram-sim-s5-vs-spectrogram-selfcheck.py   # 其餘同理�
 | S3 `sample-hr-sim-s3-cluster-age.csv` | 698 | 21666 |
 | S4 `sample-hr-sim-s4-overplotting-3000.csv` | 3000 | 77527 |
 | S5 `sample-hr-sim-s5-ms-fitting.csv` | 235 | 6469 |
+
+## 史密斯圖資料與自檢腳本 `sample-smith-sim-s2-open-stub` 到 `sample-smith-sim-s4-s5-antenna-sweep`
+
+3 個 CSV 與 3 支自檢已在本目錄。S1 沒有 CSV。S2–S5 是虛構示範數字、模擬範例資料，沒有隨機種子。S4 與 S5 共用 `sample-smith-sim-s4-s5-antenna-sweep.csv`。三個 CSV 合計 8023 位元組。自檢腳本：`sample-smith-sim-s2-open-stub-selfcheck.py`（17 項通過）、`sample-smith-sim-s3-l-match-selfcheck.py`（24 項通過）、`sample-smith-sim-s4-s5-antenna-sweep-selfcheck.py`（20 項通過）。腳本位元組 4926、5711、6970。記載的最大電阻 367 歐姆、線長與相速、2.44 吉赫、圖紙讀值 0.30−j0.54、較密曲線的頻段端點、模型名稱、圖 R3 的標記歐姆，都印 NOT CHECKED，不計入通過項數。圖 R2、圖 R4 署名 Sbyrnes321，CC BY-SA 3.0、同方式分享。例題圖不採用、不連結。
+
+| 檔 | 列數 | CSV 位元組 |
+|---|---:|---:|
+| S2 `sample-smith-sim-s2-open-stub.csv` | 91 | 3528 |
+| S3 `sample-smith-sim-s3-l-match.csv` | 3 | 243 |
+| S4、S5 `sample-smith-sim-s4-s5-antenna-sweep.csv` | 61 | 4252 |
 

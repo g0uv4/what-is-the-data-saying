@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖與滯後圖各附 8 組 CSV 與 8 支自檢 .py，季節子序列圖附 9 組 CSV 與 9 支自檢 .py（8 組虛構＋1 份毛納羅亞二氧化碳真實資料），季節分解圖附 5 組 CSV 與 5 支自檢 .py（5 組虛構），散布圖矩陣附 5 組 CSV 與 5 支自檢 .py（S1、S4、S5 虛構；S2 鳶尾花公有領域；S3 企鵝 CC0），泰勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261015），週期圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261016），波德圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261017），霍夫默勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261018），斜溫圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261019），赫羅圖附 4 個 CSV 與 4 支自檢 .py（S1 與 S2 共用一份依巴谷 CSV，ESA 1997 經 VizieR，標範例資料；S3–S5 為模擬範例資料；四個 CSV 都標範例資料），史密斯圖附 3 個 CSV 與 3 支自檢 .py（S2–S5 為虛構示範數字、模擬範例資料，沒有隨機種子；S4 與 S5 共用一份 CSV；S1 沒有 CSV））
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖與滯後圖各附 8 組 CSV 與 8 支自檢 .py，季節子序列圖附 9 組 CSV 與 9 支自檢 .py（8 組虛構＋1 份毛納羅亞二氧化碳真實資料），季節分解圖附 5 組 CSV 與 5 支自檢 .py（5 組虛構），散布圖矩陣附 5 組 CSV 與 5 支自檢 .py（S1、S4、S5 虛構；S2 鳶尾花公有領域；S3 企鵝 CC0），泰勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261015），週期圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261016），波德圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261017），霍夫默勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261018），斜溫圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261019），赫羅圖附 4 個 CSV 與 4 支自檢 .py（S1 與 S2 共用一份依巴谷 CSV，ESA 1997 經 VizieR，標範例資料；S3–S5 為模擬範例資料；四個 CSV 都標範例資料），史密斯圖附 3 個 CSV 與 3 支自檢 .py（S2–S5 為虛構示範數字、模擬範例資料，沒有隨機種子；S4 與 S5 共用一份 CSV；S1 沒有 CSV），奈奎斯特圖附 4 個 CSV 與 4 支自檢 .py（S1 與 S2 共用一份 CSV；S1–S5 為模擬範例資料，沒有隨機種子））
 
 來自專案維護者整理、已審的 skill pack。**非真實產業資料；數字未核。**
 
@@ -305,8 +305,16 @@
 | `sample-smith-sim-s3-l-match-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「史密斯圖資料與自檢腳本」 | 同上 |
 | `sample-smith-sim-s4-s5-antenna-sweep.csv` | 史密斯圖範例資料（S4 與 S5 共用；61 列、4252 位元組；虛構示範數字、模擬範例資料，沒有隨機種子） | `../smith-chart.md` |
 | `sample-smith-sim-s4-s5-antenna-sweep-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「史密斯圖資料與自檢腳本」 | 同上 |
+| `sample-nyquist-sim-s1-s2-loop.csv` | 奈奎斯特圖範例資料（S1 與 S2 共用；161 列、7566 位元組；`omega_rad_s`、`re`、`im`、`mag_dB`、`phase_deg`；模擬範例資料，沒有隨機種子；負實軸內插頻率 1.736279175827654、實部 −0.49816319848922835） | `../nyquist-plot.md` |
+| `sample-nyquist-sim-s1-s2-loop-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；8957 位元組；28 項通過；NOT CHECKED 不計入通過項數）；見下方「奈奎斯特圖資料與自檢腳本」 | 同上 |
+| `sample-nyquist-sim-s3-gain12-full.csv` | 奈奎斯特圖範例資料（S3；201 列、5912 位元組；頻率 −100 到 99.77，不是到 100；模擬範例資料，沒有隨機種子） | `../nyquist-plot.md` |
+| `sample-nyquist-sim-s3-gain12-full-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；5533 位元組；18 項通過；NOT CHECKED 不計入通過項數）；見下方「奈奎斯特圖資料與自檢腳本」 | 同上 |
+| `sample-nyquist-sim-s4-delay.csv` | 奈奎斯特圖範例資料（S4；201 列、13312 位元組；延遲 0、0.3、1.5；模擬範例資料，沒有隨機種子） | `../nyquist-plot.md` |
+| `sample-nyquist-sim-s4-delay-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；7143 位元組；32 項通過；NOT CHECKED 不計入通過項數）；見下方「奈奎斯特圖資料與自檢腳本」 | 同上 |
+| `sample-nyquist-sim-s5-unstable-open-loop.csv` | 奈奎斯特圖範例資料（S5；201 列、10170 位元組；K=0.5 與 K=2；模擬範例資料，沒有隨機種子） | `../nyquist-plot.md` |
+| `sample-nyquist-sim-s5-unstable-open-loop-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；6265 位元組；21 項通過；NOT CHECKED 不計入通過項數）；見下方「奈奎斯特圖資料與自檢腳本」 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`、`../autocorrelation-plot.md`、`../lag-plot.md`、`../seasonal-subseries-plot.md`、`../seasonal-decomposition-plot.md`、`../scatterplot-matrix.md`、`../taylor-diagram.md`、`../periodogram.md`、`../bode-plot.md`、`../hovmoller-diagram.md`、`../skew-t-log-p.md`、`../hr-diagram.md`、`../smith-chart.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`、`../autocorrelation-plot.md`、`../lag-plot.md`、`../seasonal-subseries-plot.md`、`../seasonal-decomposition-plot.md`、`../scatterplot-matrix.md`、`../taylor-diagram.md`、`../periodogram.md`、`../bode-plot.md`、`../hovmoller-diagram.md`、`../skew-t-log-p.md`、`../hr-diagram.md`、`../smith-chart.md`、`../nyquist-plot.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -1022,3 +1030,13 @@ python3 sample-periodogram-sim-s5-vs-spectrogram-selfcheck.py   # 其餘同理�
 | S3 `sample-smith-sim-s3-l-match.csv` | 3 | 243 |
 | S4、S5 `sample-smith-sim-s4-s5-antenna-sweep.csv` | 61 | 4252 |
 
+## 奈奎斯特圖資料與自檢腳本 `sample-nyquist-sim-s1-s2-loop` 到 `sample-nyquist-sim-s5-unstable-open-loop`
+
+4 個 CSV 與 4 支自檢已在本目錄。S1 與 S2 共用 `sample-nyquist-sim-s1-s2-loop.csv`。S3、S4、S5 各有自己的 CSV。S1–S5 是模擬範例資料，沒有隨機種子。四個 CSV 合計 36960 位元組（7566+5912+13312+10170）。自檢腳本：`sample-nyquist-sim-s1-s2-loop-selfcheck.py`（28 項通過）、`sample-nyquist-sim-s3-gain12-full-selfcheck.py`（18 項通過）、`sample-nyquist-sim-s4-delay-selfcheck.py`（32 項通過）、`sample-nyquist-sim-s5-unstable-open-loop-selfcheck.py`（21 項通過）。腳本位元組 8957、5533、7143、6265。通過項數只數自檢印 PASS 的項。NOT CHECKED 不計入通過項數。裕度是存檔實部、虛部對頻率的線性內插，不是密格記載。圖 S1、圖 S2 的內插是頻率 1.736279175827654、實部 −0.49816319848922835、2.007374296280183 倍、6.052567177234536 分貝，單位圓頻率 1.233760931584715、相位裕度 27.232355441124582 度。密格的 1.732、−0.5、2 倍、6 分貝、1.233、27.1 度是「示範值／未核」。圖 S3 頻率從 −100 到 99.77，不是到 100；正頻率內插實部 −1.4994324581478504；整條閉合繞圈 −2.000000000000001；只閉合正頻率 −1.0000000000000002。圖 S4 延遲 1.5 的相位裕度是 −28.8415857745413，不是 331.1584142254587；第一個負實軸實部是 −1.135104924732878（記載的 −1.14 與 −1.136 不是這一檔）。圖 S5 列上最負實部是 −0.49995 與 −1.9998，都在 ω=−0.01；記載的圓弧端點 [−0.5, 0] 與 [−2, 0] 是式子極限，不是這 201 列的端點。右半平面極點數、閉迴路極點、臨界延遲、圖說「頻率 0：增益 4」、圖 S2 標了哪三個頻率，都印 NOT CHECKED。圖 R3 署名 Pierre-Baptiste Steckler，CC BY-SA 4.0、同方式分享。圖 R2 只靠紅綠，要看線位置。圖 R4 只示意形狀。圖 R5 字很小。沒有收 png。公開檔不寫繪圖腳本的檔名。
+
+| 檔 | 列數 | CSV 位元組 |
+|---|---:|---:|
+| S1、S2 `sample-nyquist-sim-s1-s2-loop.csv` | 161 | 7566 |
+| S3 `sample-nyquist-sim-s3-gain12-full.csv` | 201 | 5912 |
+| S4 `sample-nyquist-sim-s4-delay.csv` | 201 | 13312 |
+| S5 `sample-nyquist-sim-s5-unstable-open-loop.csv` | 201 | 10170 |

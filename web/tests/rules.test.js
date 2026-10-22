@@ -106,7 +106,7 @@ test('renderers available for sample data', () => {
   assert.ok(!C.available(load('lollipop-categories.csv')).includes('scatter'));
 });
 
-test('teachingOnly rules are exactly the ten teaching-only charts and evaluate omits them on a long even-step series', () => {
+test('teachingOnly rules are exactly the twelve teaching-only charts and evaluate omits them on a long even-step series', () => {
   const teachingIds = R.RULES.filter((r) => r.teachingOnly).map((r) => r.id);
   assert.deepEqual(teachingIds, [
     'autocorrelation-plot',
@@ -118,7 +118,9 @@ test('teachingOnly rules are exactly the ten teaching-only charts and evaluate o
     'periodogram',
     'bode-plot',
     'hovmoller-diagram',
-    'skew-t-log-p'
+    'skew-t-log-p',
+    'hr-diagram',
+    'smith-chart'
   ]);
   const lines = ['t,x'];
   for (let t = 1; t <= 60; t++) {
@@ -128,5 +130,5 @@ test('teachingOnly rules are exactly the ten teaching-only charts and evaluate o
   const shape = R.computeShape(T.profileTable(parseCSV(lines.join('\n'))));
   const results = R.evaluate(shape, 'en');
   assert.deepEqual(results.map((r) => r.id).filter((id) => teachingIds.includes(id)), []);
-  assert.equal(results.length, R.RULES.length - 10);
+  assert.equal(results.length, R.RULES.length - 12);
 });

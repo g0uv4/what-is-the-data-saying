@@ -1,0 +1,6 @@
+{
+  "sample-hr-hip-s1-s2-hipparcos.csv": "ma-plot",
+  "sample-hr-sim-s3-cluster-age.csv": "boxplot-summary",
+  "sample-hr-sim-s4-overplotting-3000.csv": "boxplot-summary",
+  "sample-hr-sim-s5-ms-fitting.csv": "boxplot-summary"
+}

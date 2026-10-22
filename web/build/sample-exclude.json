@@ -66,5 +66,12 @@
   "sample-skewt-sim-s2-why-skew.csv",
   "sample-skewt-sim-s3-parcel-cape.csv",
   "sample-skewt-sim-s4-cloud-layers.csv",
-  "sample-skewt-sim-s5-stable-unstable.csv"
+  "sample-skewt-sim-s5-stable-unstable.csv",
+  "sample-hr-hip-s1-s2-hipparcos.csv",
+  "sample-hr-sim-s3-cluster-age.csv",
+  "sample-hr-sim-s4-overplotting-3000.csv",
+  "sample-hr-sim-s5-ms-fitting.csv",
+  "sample-smith-sim-s2-open-stub.csv",
+  "sample-smith-sim-s3-l-match.csv",
+  "sample-smith-sim-s4-s5-antenna-sweep.csv"
 ]

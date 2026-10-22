@@ -1,5 +1,5 @@
 /*
- * WIDS recommendation rules — data-driven table for all patterns (80 as of v0.3.42).
+ * WIDS recommendation rules — data-driven table for all patterns (82 as of v0.3.44).
  * Derived from skills/what-is-the-data-saying/references/chart-heuristics.md
  * (決策表 + 形狀 → 圖捷徑) and data-shape-checks.md (欄位角色 + 結構探測).
  *
@@ -507,7 +507,19 @@
       requires: { measure: [3] }, base: 0, need: ['manyNumeric'],
       prefer: [], avoid: [],
       fields: { zh: '一地一時各層的氣壓、溫度、露點 → 氣壓取對數、等溫線斜 45 度', en: 'pressure, temperature, and dew point through the column at one place and time → logarithmic pressure, isotherms skewed 45 degrees' },
-      why: { zh: '這一地、這一刻穩不穩、哪裡可能有雲 → 斜溫圖（教學；不參與推薦）', en: 'Stability, and where cloud is possible, at one place and one time → Skew-T log-P diagram (teach; not recommended)' } })
+      why: { zh: '這一地、這一刻穩不穩、哪裡可能有雲 → 斜溫圖（教學；不參與推薦）', en: 'Stability, and where cloud is possible, at one place and one time → Skew-T log-P diagram (teach; not recommended)' } }),
+    R('hr-diagram', '赫羅圖', 'Hertzsprung–Russell diagram', {
+      teachingOnly: true,
+      requires: { measure: [2] }, base: 0, need: ['manyNumeric'],
+      prefer: [], avoid: [],
+      fields: { zh: '顏色或溫度 × 光度或星等 → 左熱右冷、上亮下暗，星等軸倒過來', en: 'color or temperature by luminosity or magnitude → hot on the left, bright at the top, magnitude axis reversed' },
+      why: { zh: '恆星分成哪些群、演化到哪一段 → 赫羅圖（教學；不參與推薦）', en: 'Which groups the stars fall into, and which stage they have reached → Hertzsprung–Russell diagram (teach; not recommended)' } }),
+    R('smith-chart', '史密斯圖', 'Smith chart', {
+      teachingOnly: true,
+      requires: { measure: [2] }, base: 0, need: ['manyNumeric'],
+      prefer: [], avoid: [],
+      fields: { zh: '複數阻抗或反射係數，尤其是掃頻 → 正規化後收進單位圓，圓心是匹配', en: 'complex impedance or reflection coefficient, especially a frequency sweep → normalized into the unit circle, matched at the center' },
+      why: { zh: '離匹配多遠、隨頻率怎麼走 → 史密斯圖（教學；不參與推薦）', en: 'How far from a match, and how that moves with frequency → Smith chart (teach; not recommended)' } })
 
   ];
 

@@ -168,7 +168,7 @@
 
 觀察（依課程稿，不當依據）：列出的三則都是英文。硬碟那一則課程稿標成個人回憶。
 
-鄰居 pattern：[`periodogram.md`](periodogram.md)（畫訊號：整段含哪些頻率。2026-10-16。圖 S5 的功率格歸這一檔的讀法，本稿不重講）、[`spectrogram.md`](spectrogram.md)（畫訊號：頻率隨時間怎麼變。2026-10-08。本稿不重講）、[`smith-chart.md`](smith-chart.md)（史密斯圖：複數阻抗或反射係數收進單位圓，看離匹配多遠。頻率響應的大小與相位仍用本檔）、[`nyquist-plot.md`](nyquist-plot.md)（奈奎斯特圖：開迴路 L(jω) 畫在複數平面，看離 −1 多遠、繞不繞。做法見該檔，本稿不重講）。
+鄰居 pattern：[`periodogram.md`](periodogram.md)（畫訊號：整段含哪些頻率。2026-10-16。圖 S5 的功率格歸這一檔的讀法，本稿不重講）、[`spectrogram.md`](spectrogram.md)（畫訊號：頻率隨時間怎麼變。2026-10-08。本稿不重講）、[`smith-chart.md`](smith-chart.md)（史密斯圖：複數阻抗或反射係數收進單位圓，看離匹配多遠。頻率響應的大小與相位仍用本檔）、[`nyquist-plot.md`](nyquist-plot.md)（奈奎斯特圖：開迴路 L(jω) 畫在複數平面，看離 −1 多遠、繞不繞。做法見該檔，本稿不重講）、[`root-locus-plot.md`](root-locus-plot.md)（根軌跡圖：已知轉移函數、掃一個增益看閉迴路極點怎麼走。波德課程稿沒有列根軌跡。做法見該檔，本稿不重講）。
 
 ## 圖檔與授權（不複製，只連結）
 

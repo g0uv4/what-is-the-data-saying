@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖與滯後圖各附 8 組 CSV 與 8 支自檢 .py，季節子序列圖附 9 組 CSV 與 9 支自檢 .py（8 組虛構＋1 份毛納羅亞二氧化碳真實資料），季節分解圖附 5 組 CSV 與 5 支自檢 .py（5 組虛構），散布圖矩陣附 5 組 CSV 與 5 支自檢 .py（S1、S4、S5 虛構；S2 鳶尾花公有領域；S3 企鵝 CC0），泰勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261015），週期圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261016），波德圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261017），霍夫默勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261018），斜溫圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261019），赫羅圖附 4 個 CSV 與 4 支自檢 .py（S1 與 S2 共用一份依巴谷 CSV，ESA 1997 經 VizieR，標範例資料；S3–S5 為模擬範例資料；四個 CSV 都標範例資料），史密斯圖附 3 個 CSV 與 3 支自檢 .py（S2–S5 為虛構示範數字、模擬範例資料，沒有隨機種子；S4 與 S5 共用一份 CSV；S1 沒有 CSV），奈奎斯特圖附 4 個 CSV 與 4 支自檢 .py（S1 與 S2 共用一份 CSV；S1–S5 為模擬範例資料，沒有隨機種子），根軌跡圖附 3 個 CSV 與 3 支自檢 .py（S1–S3 共用一份 CSV；S1–S5 為模擬範例資料，沒有隨機種子））
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖與滯後圖各附 8 組 CSV 與 8 支自檢 .py，季節子序列圖附 9 組 CSV 與 9 支自檢 .py（8 組虛構＋1 份毛納羅亞二氧化碳真實資料），季節分解圖附 5 組 CSV 與 5 支自檢 .py（5 組虛構），散布圖矩陣附 5 組 CSV 與 5 支自檢 .py（S1、S4、S5 虛構；S2 鳶尾花公有領域；S3 企鵝 CC0），泰勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261015），週期圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261016），波德圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261017），霍夫默勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261018），斜溫圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261019），赫羅圖附 4 個 CSV 與 4 支自檢 .py（S1 與 S2 共用一份依巴谷 CSV，ESA 1997 經 VizieR，標範例資料；S3–S5 為模擬範例資料；四個 CSV 都標範例資料），史密斯圖附 3 個 CSV 與 3 支自檢 .py（S2–S5 為虛構示範數字、模擬範例資料，沒有隨機種子；S4 與 S5 共用一份 CSV；S1 沒有 CSV），奈奎斯特圖附 4 個 CSV 與 4 支自檢 .py（S1 與 S2 共用一份 CSV；S1–S5 為模擬範例資料，沒有隨機種子），根軌跡圖附 3 個 CSV 與 3 支自檢 .py（S1–S3 共用一份 CSV；S1–S5 為模擬範例資料，沒有隨機種子），派柏圖附 5 個 CSV 與 5 支自檢 .py（S1–S5 為模擬範例資料，沒有隨機種子））
 
 來自專案維護者整理、已審的 skill pack。**非真實產業資料；數字未核。**
 
@@ -319,8 +319,18 @@
 | `sample-rootlocus-sim-s4-add-zero-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；5764 位元組；19 項通過；NOT CHECKED 不計入通過項數）；見下方「根軌跡圖資料與自檢腳本」 | 同上 |
 | `sample-rootlocus-sim-s5-unstable-open-loop.csv` | 根軌跡圖範例資料（S5；201 列、6380 位元組；`K`、`re_1`、`im_1`、`re_2`、`im_2`；開迴路在 K=0 有一個右半平面極點；模擬範例資料，沒有隨機種子） | `../root-locus-plot.md` |
 | `sample-rootlocus-sim-s5-unstable-open-loop-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；5878 位元組；18 項通過；NOT CHECKED 不計入通過項數）；見下方「根軌跡圖資料與自檢腳本」 | 同上 |
+| `sample-piper-sim-s1-anatomy.csv` | 派柏圖範例資料（S1；1 列、66 位元組；`Ca_pct`、`Mg_pct`、`NaK_pct`、`HCO3_pct`、`SO4_pct`、`Cl_pct`；模擬範例資料，沒有隨機種子；菱形鈣＋鎂 80、硫酸根＋氯 35） | `../piper-diagram.md` |
+| `sample-piper-sim-s1-anatomy-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；2880 位元組；11 項通過；NOT CHECKED 不計入通過項數）；見下方「派柏圖資料與自檢腳本」 | 同上 |
+| `sample-piper-sim-s2-conversion.csv` | 派柏圖範例資料（S2；7 列、202 位元組；`ion`、`mg_per_L`、`equivalent_weight`、`meq_per_L`；模擬範例資料，沒有隨機種子；陽 37.061029、陰 38.24727、電荷差 −1.5751796491911236%） | `../piper-diagram.md` |
+| `sample-piper-sim-s2-conversion-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；5858 位元組；24 項通過；NOT CHECKED 不計入通過項數）；見下方「派柏圖資料與自檢腳本」 | 同上 |
+| `sample-piper-sim-s3-groups.csv` | 派柏圖範例資料（S3；16 列、1915 位元組；四群各 4 瓶；模擬範例資料，沒有隨機種子；最大 |電荷差| 4.04275） | `../piper-diagram.md` |
+| `sample-piper-sim-s3-groups-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；5842 位元組；13 項通過；NOT CHECKED 不計入通過項數）；見下方「派柏圖資料與自檢腳本」 | 同上 |
+| `sample-piper-sim-s4-mixing.csv` | 派柏圖範例資料（S4；8 列、595 位元組；海水比例 0–100%；模擬範例資料，沒有隨機種子；1% 46.3542／69.3683） | `../piper-diagram.md` |
+| `sample-piper-sim-s4-mixing-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；5216 位元組；16 項通過；NOT CHECKED 不計入通過項數）；見下方「派柏圖資料與自檢腳本」 | 同上 |
+| `sample-piper-sim-s5-ratio-only.csv` | 派柏圖範例資料（S5；2 列、177 位元組；合計 324.5 與 3245；模擬範例資料，沒有隨機種子） | `../piper-diagram.md` |
+| `sample-piper-sim-s5-ratio-only-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；3462 位元組；14 項通過；NOT CHECKED 不計入通過項數）；見下方「派柏圖資料與自檢腳本」 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`、`../autocorrelation-plot.md`、`../lag-plot.md`、`../seasonal-subseries-plot.md`、`../seasonal-decomposition-plot.md`、`../scatterplot-matrix.md`、`../taylor-diagram.md`、`../periodogram.md`、`../bode-plot.md`、`../hovmoller-diagram.md`、`../skew-t-log-p.md`、`../hr-diagram.md`、`../smith-chart.md`、`../nyquist-plot.md`、`../root-locus-plot.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`、`../autocorrelation-plot.md`、`../lag-plot.md`、`../seasonal-subseries-plot.md`、`../seasonal-decomposition-plot.md`、`../scatterplot-matrix.md`、`../taylor-diagram.md`、`../periodogram.md`、`../bode-plot.md`、`../hovmoller-diagram.md`、`../skew-t-log-p.md`、`../hr-diagram.md`、`../smith-chart.md`、`../nyquist-plot.md`、`../root-locus-plot.md`、`../piper-diagram.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -1056,3 +1066,15 @@ python3 sample-periodogram-sim-s5-vs-spectrogram-selfcheck.py   # 其餘同理�
 | S1、S2、S3 `sample-rootlocus-sim-s1-s2-s3-loop.csv` | 201 | 10397 |
 | S4 `sample-rootlocus-sim-s4-add-zero.csv` | 201 | 10573 |
 | S5 `sample-rootlocus-sim-s5-unstable-open-loop.csv` | 201 | 6380 |
+
+## 派柏圖資料與自檢腳本 `sample-piper-sim-s1-anatomy` 到 `sample-piper-sim-s5-ratio-only`
+
+5 個 CSV 與 5 支自檢已在本目錄。S1–S5 各有自己的 CSV。S1–S5 是模擬範例資料，手打虛構示範水樣，沒有隨機種子。五個 CSV 合計 2955 位元組（66+202+1915+595+177）。自檢腳本：`sample-piper-sim-s1-anatomy-selfcheck.py`（11 項通過）、`sample-piper-sim-s2-conversion-selfcheck.py`（24 項通過）、`sample-piper-sim-s3-groups-selfcheck.py`（13 項通過）、`sample-piper-sim-s4-mixing-selfcheck.py`（16 項通過）、`sample-piper-sim-s5-ratio-only-selfcheck.py`（14 項通過）。腳本位元組 2880、5858、5842、5216、3462。通過項數只數自檢印 PASS 的項。NOT CHECKED 不計入通過項數。圖 S1 菱形點鈣＋鎂 80、硫酸根＋氯 35。圖 S2 存檔當量重 20.039、12.1525、22.99、39.098、61.017、48.03、35.453；由存檔重算鎂 11.658031088082902%／19.98293139675102%，鈉＋鉀 80.56994818652849→71.93807004117451，氯 73.33333333333333→81.1221297624641，陽 37.061029、陰 38.24727、電荷差 −1.5751796491911236%。記載的 11.7、20.0、80.6、71.9、73.3、81.1、37.06、38.25、−1.58 與當量重 20.04／12.15／39.10／61.02／35.45 是「示範值／未核」。圖 S3 四群各 4 瓶，電荷差絕對值最大 4.04275，不是記載的 ±4.04%。圖 S4 1% 存檔 46.3542／69.3683，路程 0.624088883285574；5% 28.0013／91.3253。記載的 46.4／69.4 與 28.0／91.3 不是存檔。典型海水毫克值未核。圖 S5 合計 324.5 與 3245，同一點 90.80876511662076／14.15189465377601。圖 R1、圖 R2、圖 R4 署名 Kvgunten、Paolopaolo714、郊外生活，CC BY-SA 4.0、同方式分享，裁白邊並縮圖；圖 R1 另遮框。圖 R3 公有領域，仍署名 Babakathy。H 區、溫泉歸屬、河水出處、4.7 未核。沒有收 png。公開檔不寫繪圖腳本的檔名。
+
+| 檔 | 列數 | CSV 位元組 |
+|---|---:|---:|
+| S1 `sample-piper-sim-s1-anatomy.csv` | 1 | 66 |
+| S2 `sample-piper-sim-s2-conversion.csv` | 7 | 202 |
+| S3 `sample-piper-sim-s3-groups.csv` | 16 | 1915 |
+| S4 `sample-piper-sim-s4-mixing.csv` | 8 | 595 |
+| S5 `sample-piper-sim-s5-ratio-only.csv` | 2 | 177 |

@@ -1,0 +1,3 @@
+case,gain_margin_dB,phase_margin_deg,closed_loop_peak_dB
+before,6.02,15.55,11.67
+lead,16.43,44.51,2.46

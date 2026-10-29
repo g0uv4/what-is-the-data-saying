@@ -24,4 +24,4 @@
 - [ ] 數值=徑向棒長
 - [ ] 圖注提醒精準比較弱於直線長條
 
-鄰居 pattern：`circos.md`、`radar-profile.md`、`spiral-plot.md`、`lollipop-rank.md`。
+鄰居 pattern：`circos.md`、`radar-profile.md`、`spiral-plot.md`、`lollipop-rank.md`、`wind-rose.md`（風向對時間比例，可依風速堆疊；不是類別棒長）。

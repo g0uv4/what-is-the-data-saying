@@ -1,0 +1,7 @@
+{
+  "sample-stripes-s1-anatomy.csv": "time-series-trend",
+  "sample-stripes-s2-stripes-vs-line.csv": "time-series-trend",
+  "sample-stripes-s3-symmetric-scale.csv": "time-series-trend",
+  "sample-stripes-s4-baseline.csv": "time-series-trend",
+  "sample-stripes-s5-bar-instead.csv": "time-series-trend"
+}

@@ -1,0 +1,7 @@
+{
+  "sample-windrose-s1-rctp-36sector.csv": "bubble-chart",
+  "sample-windrose-s2-rctp-season.csv": "boxplot-summary",
+  "sample-windrose-s3-radius-vs-area.csv": "bubble-chart",
+  "sample-windrose-s4-runway-coverage.csv": "lollipop-rank",
+  "sample-windrose-s5-sector-bias.csv": "bubble-chart"
+}

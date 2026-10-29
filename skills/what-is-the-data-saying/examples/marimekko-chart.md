@@ -71,6 +71,6 @@
 - https://www.data-to-viz.com/graph/mosaic.html （本輪 404）
 - https://observablehq.com/@d3/mosaic-plot （本輪可能 429）
 
-鄰居 pattern：`mosaic-crosstab.md`、`treemap-composition.md`、`sankey-flow.md`、`alluvial-stages.md`、`lorenz-curve.md`（洛倫茲曲線：單一數量在個體間的累計份額分配，與兩層份額不同）。
+鄰居 pattern：`mosaic-crosstab.md`、`treemap-composition.md`、`sankey-flow.md`、`alluvial-stages.md`、`lorenz-curve.md`（洛倫茲曲線：單一數量在個體間的累計份額分配，與兩層份額不同）、[`piper-diagram.md`](piper-diagram.md)（派柏圖：水樣主要離子的兩三角加菱形，不是區隔×組成。做法見該檔，本稿不重講）。
 
 圖檔與截圖留在教圖／skill-pack（素材包 `images/`，稿內嵌約 23 張），本 repo **不複製**大圖；對帳見 `ATTRIBUTION.md`。

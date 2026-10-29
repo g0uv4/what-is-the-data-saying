@@ -2,7 +2,7 @@
 /**
  * #1 eligible pattern for every sample-*.csv.
  * Search: repo-root recursive sample-*.csv (skip node_modules and .git).
- * 78 original files + 8 spectrogram teaching CSVs + 8 autocorrelation teaching CSVs + 8 lag plot teaching CSVs + 9 seasonal subseries teaching CSVs + 5 seasonal decomposition teaching CSVs + 30 teaching CSVs from v0.3.37–v0.3.42 + 7 teaching CSVs from v0.3.43–v0.3.44 (4 Hertzsprung–Russell, 3 Smith chart) = 153 total.
+ * 78 original files + 8 spectrogram teaching CSVs + 8 autocorrelation teaching CSVs + 8 lag plot teaching CSVs + 9 seasonal subseries teaching CSVs + 5 seasonal decomposition teaching CSVs + 30 teaching CSVs from v0.3.37–v0.3.42 + 7 teaching CSVs from v0.3.43–v0.3.44 (4 Hertzsprung–Russell, 3 Smith chart) + 32 teaching CSVs from v0.3.45–v0.3.51 (4 Nyquist, 3 root locus, 5 Piper, 5 Nichols, 5 wind rose, 5 Stiff, 5 warming stripes) = 185 total.
  * The 78-file set was first captured at web-poc 3222d7b; values were
  * re-captured after parseCSV began skipping leading `#` comment lines
  * (the old values reflected comment text parsed as the header).
@@ -38,6 +38,12 @@
  * 3 Smith chart) are also excluded. Their #1 (none is a teaching-only chart) is in
  * top1-snapshot-hr.json and top1-snapshot-smith.json. The earlier twelve snapshots
  * did not change.
+ * The 32 teaching CSVs added in v0.3.45–v0.3.51 (4 Nyquist plot, 3 root locus,
+ * 5 Piper diagram, 5 Nichols chart, 5 wind rose, 5 Stiff diagram, 5 warming
+ * stripes) are also excluded. Their #1 (none is a teaching-only chart) is in
+ * top1-snapshot-nyquist.json, top1-snapshot-rootlocus.json, top1-snapshot-piper.json,
+ * top1-snapshot-nichols.json, top1-snapshot-windrose.json, top1-snapshot-stiff.json,
+ * and top1-snapshot-stripes.json. The earlier fourteen snapshots did not change.
  */
 const test = require('node:test');
 const assert = require('node:assert/strict');
@@ -62,6 +68,13 @@ const hovmollerSnapshotPath = path.join(__dirname, 'fixtures', 'top1-snapshot-ho
 const skewtSnapshotPath = path.join(__dirname, 'fixtures', 'top1-snapshot-skewt.json');
 const hrSnapshotPath = path.join(__dirname, 'fixtures', 'top1-snapshot-hr.json');
 const smithSnapshotPath = path.join(__dirname, 'fixtures', 'top1-snapshot-smith.json');
+const nyquistSnapshotPath = path.join(__dirname, 'fixtures', 'top1-snapshot-nyquist.json');
+const rootlocusSnapshotPath = path.join(__dirname, 'fixtures', 'top1-snapshot-rootlocus.json');
+const piperSnapshotPath = path.join(__dirname, 'fixtures', 'top1-snapshot-piper.json');
+const nicholsSnapshotPath = path.join(__dirname, 'fixtures', 'top1-snapshot-nichols.json');
+const windroseSnapshotPath = path.join(__dirname, 'fixtures', 'top1-snapshot-windrose.json');
+const stiffSnapshotPath = path.join(__dirname, 'fixtures', 'top1-snapshot-stiff.json');
+const stripesSnapshotPath = path.join(__dirname, 'fixtures', 'top1-snapshot-stripes.json');
 const excludePath = path.join(__dirname, '..', 'build', 'sample-exclude.json');
 const SAMPLE_GLOB = '**/sample-*.csv';
 
@@ -82,7 +95,7 @@ function top1Id(file) {
   return first ? first.id : null;
 }
 
-test('78-file set (first captured at web-poc 3222d7b; values re-captured after leading # comment lines are skipped) keeps its #1; extras are exactly the 75 excluded teaching files', () => {
+test('78-file set (first captured at web-poc 3222d7b; values re-captured after leading # comment lines are skipped) keeps its #1; extras are exactly the 107 excluded teaching files', () => {
   const files = listSampleCsv(repoRoot, []).sort();
   const names = files.map((f) => path.basename(f));
   const byName = new Map(files.map((f) => [path.basename(f), f]));
@@ -100,6 +113,13 @@ test('78-file set (first captured at web-poc 3222d7b; values re-captured after l
   const skewtSnap = JSON.parse(fs.readFileSync(skewtSnapshotPath, 'utf8'));
   const hrSnap = JSON.parse(fs.readFileSync(hrSnapshotPath, 'utf8'));
   const smithSnap = JSON.parse(fs.readFileSync(smithSnapshotPath, 'utf8'));
+  const nyquistSnap = JSON.parse(fs.readFileSync(nyquistSnapshotPath, 'utf8'));
+  const rootlocusSnap = JSON.parse(fs.readFileSync(rootlocusSnapshotPath, 'utf8'));
+  const piperSnap = JSON.parse(fs.readFileSync(piperSnapshotPath, 'utf8'));
+  const nicholsSnap = JSON.parse(fs.readFileSync(nicholsSnapshotPath, 'utf8'));
+  const windroseSnap = JSON.parse(fs.readFileSync(windroseSnapshotPath, 'utf8'));
+  const stiffSnap = JSON.parse(fs.readFileSync(stiffSnapshotPath, 'utf8'));
+  const stripesSnap = JSON.parse(fs.readFileSync(stripesSnapshotPath, 'utf8'));
   const exclude = JSON.parse(fs.readFileSync(excludePath, 'utf8')).slice().sort();
   const specExclude = exclude.filter((n) => n.startsWith('sample-spectrogram-'));
   const autocorrExclude = exclude.filter((n) => n.startsWith('sample-autocorr-'));
@@ -114,15 +134,22 @@ test('78-file set (first captured at web-poc 3222d7b; values re-captured after l
   const taylorExclude = exclude.filter((n) => n.startsWith('sample-taylor-'));
   const hrExclude = exclude.filter((n) => n.startsWith('sample-hr-'));
   const smithExclude = exclude.filter((n) => n.startsWith('sample-smith-'));
+  const nicholsExclude = exclude.filter((n) => n.startsWith('sample-nichols-'));
+  const nyquistExclude = exclude.filter((n) => n.startsWith('sample-nyquist-'));
+  const piperExclude = exclude.filter((n) => n.startsWith('sample-piper-'));
+  const rootlocusExclude = exclude.filter((n) => n.startsWith('sample-rootlocus-'));
+  const stiffExclude = exclude.filter((n) => n.startsWith('sample-stiff-'));
+  const stripesExclude = exclude.filter((n) => n.startsWith('sample-stripes-'));
+  const windroseExclude = exclude.filter((n) => n.startsWith('sample-windrose-'));
   const snapNames = Object.keys(snap).sort();
   assert.equal(new Set(names).size, names.length, 'duplicate sample-*.csv basenames');
   assert.equal(snapNames.length, 78, '3222d7b snapshot should list 78 files');
-  assert.equal(exclude.length, 75, 'sample-exclude.json should list the 75 excluded teaching CSVs');
+  assert.equal(exclude.length, 107, 'sample-exclude.json should list the 107 excluded teaching CSVs');
   const missing = snapNames.filter((n) => !byName.has(n));
   assert.deepEqual(missing, [], 'snapshot files missing from tree: ' + missing.join(', '));
   const extra = names.filter((n) => !Object.prototype.hasOwnProperty.call(snap, n)).sort();
   assert.deepEqual(extra, exclude, 'sample-*.csv outside the 3222d7b snapshot must equal the exclusion list (glob ' + SAMPLE_GLOB + ')');
-  assert.equal(names.length, 153, '78 original + 68 earlier excluded teaching CSVs + 7 new teaching CSVs');
+  assert.equal(names.length, 185, '78 original + 75 earlier excluded teaching CSVs + 32 new teaching CSVs');
   const flips = [];
   for (const name of snapNames) {
     const got = top1Id(byName.get(name));
@@ -204,11 +231,32 @@ test('78-file set (first captured at web-poc 3222d7b; values re-captured after l
     }
     assert.deepEqual(groupFlips, [], label + ' sample #1 flipped: ' + JSON.stringify(groupFlips));
   }
-  assert.deepEqual(autocorrExclude.concat(bodeExclude, hovmollerExclude, hrExclude, lagplotExclude, periodogramExclude, decompExclude, seasonalExclude, skewtExclude, smithExclude, specExclude, splomExclude, taylorExclude), exclude);
+  const v51Groups = [
+    [nyquistSnap, nyquistExclude, 4, 'Nyquist plot'],
+    [rootlocusSnap, rootlocusExclude, 3, 'root locus plot'],
+    [piperSnap, piperExclude, 5, 'Piper diagram'],
+    [nicholsSnap, nicholsExclude, 5, 'Nichols chart'],
+    [windroseSnap, windroseExclude, 5, 'wind rose'],
+    [stiffSnap, stiffExclude, 5, 'Stiff diagram'],
+    [stripesSnap, stripesExclude, 5, 'warming stripes']
+  ];
+  for (const [groupSnap, groupExclude, groupLen, label] of v51Groups) {
+    assert.equal(groupExclude.length, groupLen, label + ' should exclude ' + groupLen + ' CSVs');
+    assert.deepEqual(Object.keys(groupSnap).sort(), groupExclude);
+    const groupFlips = [];
+    for (const name of groupExclude) {
+      const got = top1Id(byName.get(name));
+      excludedTop.set(name, got);
+      if (got !== groupSnap[name]) groupFlips.push({ file: name, expected: groupSnap[name], got: got });
+    }
+    assert.deepEqual(groupFlips, [], label + ' sample #1 flipped: ' + JSON.stringify(groupFlips));
+  }
+  assert.deepEqual(autocorrExclude.concat(bodeExclude, hovmollerExclude, hrExclude, lagplotExclude, nicholsExclude, nyquistExclude, periodogramExclude, piperExclude, rootlocusExclude, decompExclude, seasonalExclude, skewtExclude, smithExclude, specExclude, splomExclude, stiffExclude, stripesExclude, taylorExclude, windroseExclude), exclude);
   const teachingIds = new Set([
     'autocorrelation-plot', 'lag-plot', 'seasonal-subseries-plot', 'seasonal-decomposition-plot',
     'scatterplot-matrix', 'taylor-diagram', 'periodogram', 'bode-plot', 'hovmoller-diagram', 'skew-t-log-p',
-    'hr-diagram', 'smith-chart'
+    'hr-diagram', 'smith-chart', 'nyquist-plot', 'root-locus-plot', 'piper-diagram', 'nichols-chart',
+    'wind-rose', 'stiff-diagram', 'warming-stripes'
   ]);
   const teachingTop = exclude.filter((name) => teachingIds.has(excludedTop.get(name)));
   assert.deepEqual(teachingTop, [], 'excluded teaching file ranked a teaching-only chart #1: ' + teachingTop.join(', '));

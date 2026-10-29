@@ -57,4 +57,4 @@
 
 圖檔與截圖留在教圖／skill-pack（素材包 `images/`），本 repo **不複製**大圖；對帳見 `ATTRIBUTION.md`。
 
-鄰居 pattern：`horizon-chart.md`（地平線圖：一條序列一列、列與列不相加，看各自相對基準的偏離；河流圖是多條疊成一張看組成）。
+鄰居 pattern：`horizon-chart.md`（地平線圖：一條序列一列、列與列不相加，看各自相對基準的偏離；河流圖是多條疊成一張看組成）、[`piper-diagram.md`](piper-diagram.md)（派柏圖：水樣主要離子比例，不是組成隨時間。做法見該檔，本稿不重講）。

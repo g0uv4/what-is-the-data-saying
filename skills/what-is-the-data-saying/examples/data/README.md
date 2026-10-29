@@ -1,4 +1,4 @@
-# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖與滯後圖各附 8 組 CSV 與 8 支自檢 .py，季節子序列圖附 9 組 CSV 與 9 支自檢 .py（8 組虛構＋1 份毛納羅亞二氧化碳真實資料），季節分解圖附 5 組 CSV 與 5 支自檢 .py（5 組虛構），散布圖矩陣附 5 組 CSV 與 5 支自檢 .py（S1、S4、S5 虛構；S2 鳶尾花公有領域；S3 企鵝 CC0），泰勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261015），週期圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261016），波德圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261017），霍夫默勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261018），斜溫圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261019），赫羅圖附 4 個 CSV 與 4 支自檢 .py（S1 與 S2 共用一份依巴谷 CSV，ESA 1997 經 VizieR，標範例資料；S3–S5 為模擬範例資料；四個 CSV 都標範例資料），史密斯圖附 3 個 CSV 與 3 支自檢 .py（S2–S5 為虛構示範數字、模擬範例資料，沒有隨機種子；S4 與 S5 共用一份 CSV；S1 沒有 CSV））
+# Demo data（虛構示意；多為 CSV，火焰圖為已收合堆疊 .txt，MA 圖、QQ 圖、Bland–Altman 圖、LocusZoom 圖、P–P 圖、核型圖、森林圖、地平線圖與柏拉圖各附一支自檢 .py，管制圖、洛倫茲曲線、馬雷圖、存活曲線、游泳圖、千層麵圖、遞迴圖、頻譜圖、自相關圖與滯後圖各附 8 組 CSV 與 8 支自檢 .py，季節子序列圖附 9 組 CSV 與 9 支自檢 .py（8 組虛構＋1 份毛納羅亞二氧化碳真實資料），季節分解圖附 5 組 CSV 與 5 支自檢 .py（5 組虛構），散布圖矩陣附 5 組 CSV 與 5 支自檢 .py（S1、S4、S5 虛構；S2 鳶尾花公有領域；S3 企鵝 CC0），泰勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261015），週期圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261016），波德圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261017），霍夫默勒圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261018），斜溫圖附 5 組 CSV 與 5 支自檢 .py（S1–S5 皆為模擬範例資料，種子 20261019），赫羅圖附 4 個 CSV 與 4 支自檢 .py（S1 與 S2 共用一份依巴谷 CSV，ESA 1997 經 VizieR，標範例資料；S3–S5 為模擬範例資料；四個 CSV 都標範例資料），史密斯圖附 3 個 CSV 與 3 支自檢 .py（S2–S5 為虛構示範數字、模擬範例資料，沒有隨機種子；S4 與 S5 共用一份 CSV；S1 沒有 CSV），奈奎斯特圖附 4 個 CSV 與 4 支自檢 .py（S1 與 S2 共用一份 CSV；S1–S5 為模擬範例資料，沒有隨機種子），根軌跡圖附 3 個 CSV 與 3 支自檢 .py（S1–S3 共用一份 CSV；S1–S5 為模擬範例資料，沒有隨機種子），派柏圖附 5 個 CSV 與 5 支自檢 .py（S1–S5 為模擬範例資料，沒有隨機種子），尼可斯圖附 5 個 CSV 與 5 支自檢 .py（S1–S5 為模擬範例資料，沒有隨機種子，虛構轉移函數），風花圖附 5 個 CSV 與 5 支自檢 .py（S1–S5 是本專案依愛荷華環境網機場例行天氣報告算出來的，桃園 RCTP、高雄 RCKH，2016–2025，不是虛構模擬），史迪夫圖附 5 個 CSV 與 5 支自檢 .py（S1–S5 是水質資料入口網的美國河川水樣，每處一天，不是虛構模擬，沒有隨機種子；作者換算毫當量未核），升溫條紋圖附 5 個 CSV 與 5 支自檢 .py（S1–S4 各 176 列、同一份美國國家海洋暨大氣總署全球陸海年均溫距平、基準期標頭 1901–2000、沒有共用檔、四個檔位元組相同各 1859；S5 是 2016–2025 十列、115 位元組；五個 CSV 合計 7551；不是虛構模擬，沒有隨機種子））
 
 來自專案維護者整理、已審的 skill pack。**非真實產業資料；數字未核。**
 
@@ -305,8 +305,72 @@
 | `sample-smith-sim-s3-l-match-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「史密斯圖資料與自檢腳本」 | 同上 |
 | `sample-smith-sim-s4-s5-antenna-sweep.csv` | 史密斯圖範例資料（S4 與 S5 共用；61 列、4252 位元組；虛構示範數字、模擬範例資料，沒有隨機種子） | `../smith-chart.md` |
 | `sample-smith-sim-s4-s5-antenna-sweep-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料）；見下方「史密斯圖資料與自檢腳本」 | 同上 |
+| `sample-nyquist-sim-s1-s2-loop.csv` | 奈奎斯特圖範例資料（S1 與 S2 共用；161 列、7566 位元組；`omega_rad_s`、`re`、`im`、`mag_dB`、`phase_deg`；模擬範例資料，沒有隨機種子；負實軸內插頻率 1.736279175827654、實部 −0.49816319848922835） | `../nyquist-plot.md` |
+| `sample-nyquist-sim-s1-s2-loop-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；8957 位元組；28 項通過；NOT CHECKED 不計入通過項數）；見下方「奈奎斯特圖資料與自檢腳本」 | 同上 |
+| `sample-nyquist-sim-s3-gain12-full.csv` | 奈奎斯特圖範例資料（S3；201 列、5912 位元組；頻率 −100 到 99.77，不是到 100；模擬範例資料，沒有隨機種子） | `../nyquist-plot.md` |
+| `sample-nyquist-sim-s3-gain12-full-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；5533 位元組；18 項通過；NOT CHECKED 不計入通過項數）；見下方「奈奎斯特圖資料與自檢腳本」 | 同上 |
+| `sample-nyquist-sim-s4-delay.csv` | 奈奎斯特圖範例資料（S4；201 列、13312 位元組；延遲 0、0.3、1.5；模擬範例資料，沒有隨機種子） | `../nyquist-plot.md` |
+| `sample-nyquist-sim-s4-delay-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；7143 位元組；32 項通過；NOT CHECKED 不計入通過項數）；見下方「奈奎斯特圖資料與自檢腳本」 | 同上 |
+| `sample-nyquist-sim-s5-unstable-open-loop.csv` | 奈奎斯特圖範例資料（S5；201 列、10170 位元組；K=0.5 與 K=2；模擬範例資料，沒有隨機種子） | `../nyquist-plot.md` |
+| `sample-nyquist-sim-s5-unstable-open-loop-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；6265 位元組；21 項通過；NOT CHECKED 不計入通過項數）；見下方「奈奎斯特圖資料與自檢腳本」 | 同上 |
+| `sample-rootlocus-sim-s1-s2-s3-loop.csv` | 根軌跡圖範例資料（S1、S2 與 S3 共用；201 列、10397 位元組；`K`、`re_1`、`im_1`、`re_2`、`im_2`、`re_3`、`im_3`；模擬範例資料，沒有隨機種子；末列增益 937.542） | `../root-locus-plot.md` |
+| `sample-rootlocus-sim-s1-s2-s3-loop-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；11410 位元組；28 項通過；NOT CHECKED 不計入通過項數）；見下方「根軌跡圖資料與自檢腳本」 | 同上 |
+| `sample-rootlocus-sim-s4-add-zero.csv` | 根軌跡圖範例資料（S4；201 列、10573 位元組；加零點；模擬範例資料，沒有隨機種子；K>0 實部都為負） | `../root-locus-plot.md` |
+| `sample-rootlocus-sim-s4-add-zero-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；5764 位元組；19 項通過；NOT CHECKED 不計入通過項數）；見下方「根軌跡圖資料與自檢腳本」 | 同上 |
+| `sample-rootlocus-sim-s5-unstable-open-loop.csv` | 根軌跡圖範例資料（S5；201 列、6380 位元組；`K`、`re_1`、`im_1`、`re_2`、`im_2`；開迴路在 K=0 有一個右半平面極點；模擬範例資料，沒有隨機種子） | `../root-locus-plot.md` |
+| `sample-rootlocus-sim-s5-unstable-open-loop-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；5878 位元組；18 項通過；NOT CHECKED 不計入通過項數）；見下方「根軌跡圖資料與自檢腳本」 | 同上 |
+| `sample-piper-sim-s1-anatomy.csv` | 派柏圖範例資料（S1；1 列、66 位元組；`Ca_pct`、`Mg_pct`、`NaK_pct`、`HCO3_pct`、`SO4_pct`、`Cl_pct`；模擬範例資料，沒有隨機種子；菱形鈣＋鎂 80、硫酸根＋氯 35） | `../piper-diagram.md` |
+| `sample-piper-sim-s1-anatomy-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；2880 位元組；11 項通過；NOT CHECKED 不計入通過項數）；見下方「派柏圖資料與自檢腳本」 | 同上 |
+| `sample-piper-sim-s2-conversion.csv` | 派柏圖範例資料（S2；7 列、202 位元組；`ion`、`mg_per_L`、`equivalent_weight`、`meq_per_L`；模擬範例資料，沒有隨機種子；陽 37.061029、陰 38.24727、電荷差 −1.5751796491911236%） | `../piper-diagram.md` |
+| `sample-piper-sim-s2-conversion-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；5858 位元組；24 項通過；NOT CHECKED 不計入通過項數）；見下方「派柏圖資料與自檢腳本」 | 同上 |
+| `sample-piper-sim-s3-groups.csv` | 派柏圖範例資料（S3；16 列、1915 位元組；四群各 4 瓶；模擬範例資料，沒有隨機種子；最大 |電荷差| 4.04275） | `../piper-diagram.md` |
+| `sample-piper-sim-s3-groups-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；5842 位元組；13 項通過；NOT CHECKED 不計入通過項數）；見下方「派柏圖資料與自檢腳本」 | 同上 |
+| `sample-piper-sim-s4-mixing.csv` | 派柏圖範例資料（S4；8 列、595 位元組；海水比例 0–100%；模擬範例資料，沒有隨機種子；1% 46.3542／69.3683） | `../piper-diagram.md` |
+| `sample-piper-sim-s4-mixing-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；5216 位元組；16 項通過；NOT CHECKED 不計入通過項數）；見下方「派柏圖資料與自檢腳本」 | 同上 |
+| `sample-piper-sim-s5-ratio-only.csv` | 派柏圖範例資料（S5；2 列、177 位元組；合計 324.5 與 3245；模擬範例資料，沒有隨機種子） | `../piper-diagram.md` |
+| `sample-piper-sim-s5-ratio-only-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；3462 位元組；14 項通過；NOT CHECKED 不計入通過項數）；見下方「派柏圖資料與自檢腳本」 | 同上 |
+| `sample-nichols-sim-s1-anatomy.csv` | 尼可斯圖範例資料（S1；21 列、566 位元組；`omega_rad_s`、`open_loop_phase_deg`、`open_loop_gain_dB`；模擬範例資料，沒有隨機種子，虛構轉移函數；21 列對數頻率內插增益裕度 15.595091495422169、相位裕度 43.20281974826571） | `../nichols-chart.md` |
+| `sample-nichols-sim-s1-anatomy-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；5733 位元組；15 項通過；NOT CHECKED 不計入通過項數）；見下方「尼可斯圖資料與自檢腳本」 | 同上 |
+| `sample-nichols-sim-s2-gain-shift.csv` | 尼可斯圖範例資料（S2；2 列、94 位元組；`K`、`gain_margin_dB`、`phase_margin_deg`、`closed_loop_peak_dB`；模擬範例資料，沒有隨機種子，虛構轉移函數；K=1 存檔 15.56／43.21／2.67 是密格，不是圖 S1 內插） | `../nichols-chart.md` |
+| `sample-nichols-sim-s2-gain-shift-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；2707 位元組；9 項通過；NOT CHECKED 不計入通過項數）；見下方「尼可斯圖資料與自檢腳本」 | 同上 |
+| `sample-nichols-sim-s3-tangent-peak.csv` | 尼可斯圖範例資料（S3；21 列、803 位元組；`omega_rad_s`、`open_loop_phase_deg`、`open_loop_gain_dB`、`closed_loop_gain_dB`；模擬範例資料，沒有隨機種子，虛構轉移函數；存檔閉迴路最大 4.8886 在頻率 1） | `../nichols-chart.md` |
+| `sample-nichols-sim-s3-tangent-peak-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；5040 位元組；15 項通過；NOT CHECKED 不計入通過項數）；見下方「尼可斯圖資料與自檢腳本」 | 同上 |
+| `sample-nichols-sim-s4-lead.csv` | 尼可斯圖範例資料（S4；2 列、106 位元組；`case`、`gain_margin_dB`、`phase_margin_deg`、`closed_loop_peak_dB`；模擬範例資料，沒有隨機種子，虛構轉移函數；補償前 6.02／15.55／11.67，補償後 16.43／44.51／2.46） | `../nichols-chart.md` |
+| `sample-nichols-sim-s4-lead-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；3067 位元組；10 項通過；NOT CHECKED 不計入通過項數）；見下方「尼可斯圖資料與自檢腳本」 | 同上 |
+| `sample-nichols-sim-s5-phase-wrap.csv` | 尼可斯圖範例資料（S5；21 列、790 位元組；`omega_rad_s`、`phase_wrapped_deg`、`phase_unwrapped_deg`、`open_loop_gain_dB`；模擬範例資料，沒有隨機種子，虛構轉移函數；折回在 1.77828 與 2.37137 之間） | `../nichols-chart.md` |
+| `sample-nichols-sim-s5-phase-wrap-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；4669 位元組；12 項通過；NOT CHECKED 不計入通過項數）；見下方「尼可斯圖資料與自檢腳本」 | 同上 |
+| `sample-windrose-s1-rctp-36sector.csv` | 風花圖範例資料（S1；36 列、1361 位元組；`sector_center_deg`、`pct_bf1to3`、`pct_bf4to6`、`pct_bf7plus`、`pct_total`；本專案依愛荷華環境網機場例行天氣報告算出，桃園 RCTP，2016–2025，不是虛構模擬；40° 存檔 11.8286） | `../wind-rose.md` |
+| `sample-windrose-s1-rctp-36sector-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；3876 位元組；12 項通過；NOT CHECKED 不計入通過項數）；見下方「風花圖資料與自檢腳本」 | 同上 |
+| `sample-windrose-s2-rctp-season.csv` | 風花圖範例資料（S2；72 列、4182 位元組；`season`、`sector_center_deg`、`pct_bf1to3`、`pct_bf4to6`、`pct_bf7plus`、`pct_total`；本專案依愛荷華環境網算出，桃園 RCTP 冬夏，2016–2025，不是虛構模擬；冬 40° 存檔 19.03、夏 240° 存檔 10.9934） | `../wind-rose.md` |
+| `sample-windrose-s2-rctp-season-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；4729 位元組；14 項通過；NOT CHECKED 不計入通過項數）；見下方「風花圖資料與自檢腳本」 | 同上 |
+| `sample-windrose-s3-radius-vs-area.csv` | 風花圖範例資料（S3；36 列、1093 位元組；`sector_center_deg`、`pct_total`、`radius_if_length_prop`、`radius_if_area_prop`；本專案依愛荷華環境網算出，不是虛構模擬；40° 存檔 11.8286、230° 存檔 3.39627） | `../wind-rose.md` |
+| `sample-windrose-s3-radius-vs-area-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；4149 位元組；14 項通過；NOT CHECKED 不計入通過項數）；見下方「風花圖資料與自檢腳本」 | 同上 |
+| `sample-windrose-s4-runway-coverage.csv` | 風花圖範例資料（S4；2 列、180 位元組；`station`、`runway_true_deg`、`n_obs`、`coverage_20kt_pct`、`coverage_13kt_pct`、`coverage_13kt_if_rotated90_pct`；本專案依愛荷華環境網算出，桃園 RCTP、高雄 RCKH，2016–2025，不是虛構模擬；跑道真方位 OurAirports、公有領域；桃園 49.3、n 86595、13 節轉 90° 67.5882，高雄 91.9、n 87022、13 節轉 90° 99.4875） | `../wind-rose.md` |
+| `sample-windrose-s4-runway-coverage-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；3817 位元組；12 項通過；NOT CHECKED 不計入通過項數）；見下方「風花圖資料與自檢腳本」 | 同上 |
+| `sample-windrose-s5-sector-bias.csv` | 風花圖範例資料（S5；16 列、298 位元組；`sector16_center_deg`、`n_10deg_dirs`、`pct_total_16`；本專案依愛荷華環境網算出，不是虛構模擬；北 14.0137、西 13.0312） | `../wind-rose.md` |
+| `sample-windrose-s5-sector-bias-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；4057 位元組；13 項通過；NOT CHECKED 不計入通過項數）；見下方「風花圖資料與自檢腳本」 | 同上 |
+| `sample-stiff-s1-anatomy.csv` | 史迪夫圖範例資料（S1；1 列、251 位元組；`code`、`name`、`date`、`鈉加鉀_meq`、`鈣_meq`、`鎂_meq`、`氯_meq`、`碳酸氫根_meq`、`硫酸根_meq`、`陽離子合計_meq`、`陰離子合計_meq`、`電荷差_pct`；水質資料入口網的美國河川水樣，科羅拉多河，一天，不是虛構模擬，沒有隨機種子；作者換算毫當量未核；鈣存檔 2.785、硫酸根存檔 2.998） | `../stiff-diagram.md` |
+| `sample-stiff-s1-anatomy-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；4940 位元組；13 項通過；NOT CHECKED 不計入通過項數）；見下方「史迪夫圖資料與自檢腳本」 | 同上 |
+| `sample-stiff-s2-mg-vs-meq.csv` | 史迪夫圖範例資料（S2；1 列、283 位元組；`code`、`name`、`date`、`鈣_mg`、`鎂_mg`、`鈉_mg`、`鉀_mg`、`碳酸氫根_mg`、`硫酸根_mg`、`氯_mg`、`鈣_meq`、`鎂_meq`、`鈉加鉀_meq`、`碳酸氫根_meq`、`硫酸根_meq`、`氯_meq`；同一瓶的毫克與毫當量；碳酸氫根毫克 146.0 大於硫酸根 144.0，毫當量硫酸根 2.998 大於碳酸氫根 2.393） | `../stiff-diagram.md` |
+| `sample-stiff-s2-mg-vs-meq-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；3971 位元組；12 項通過；NOT CHECKED 不計入通過項數）；見下方「史迪夫圖資料與自檢腳本」 | 同上 |
+| `sample-stiff-s3-three-rivers.csv` | 史迪夫圖範例資料（S3；3 列、462 位元組；`code`、`name`、`date`、`鈉加鉀_meq`、`鈣_meq`、`鎂_meq`、`氯_meq`、`碳酸氫根_meq`、`硫酸根_meq`、`陽離子合計_meq`、`陰離子合計_meq`、`電荷差_pct`；A、B、C 三條河；陽離子和 3.798、6.385、12.421） | `../stiff-diagram.md` |
+| `sample-stiff-s3-three-rivers-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；6479 位元組；30 項通過；NOT CHECKED 不計入通過項數）；見下方「史迪夫圖資料與自檢腳本」 | 同上 |
+| `sample-stiff-s4-scale-trap.csv` | 史迪夫圖範例資料（S4；2 列、361 位元組；`code`、`name`、`date`、`鈉加鉀_meq`、`鈣_meq`、`鎂_meq`、`氯_meq`、`碳酸氫根_meq`、`硫酸根_meq`、`陽離子合計_meq`、`陰離子合計_meq`、`電荷差_pct`；A 與 D；陽離子和商 13.379673512374934175882043180621379673512374934176，不是 13.4） | `../stiff-diagram.md` |
+| `sample-stiff-s4-scale-trap-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；5443 位元組；25 項通過；NOT CHECKED 不計入通過項數）；見下方「史迪夫圖資料與自檢腳本」 | 同上 |
+| `sample-stiff-s5-bar-instead.csv` | 史迪夫圖範例資料（S5；3 列、462 位元組；`code`、`name`、`date`、`鈉加鉀_meq`、`鈣_meq`、`鎂_meq`、`氯_meq`、`碳酸氫根_meq`、`硫酸根_meq`、`陽離子合計_meq`、`陰離子合計_meq`、`電荷差_pct`；與 S3 同一三條河；5.808／0.752＝7.7234042553191489361702127659574468085106382978723，不是 7.7） | `../stiff-diagram.md` |
+| `sample-stiff-s5-bar-instead-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；3795 位元組；16 項通過；NOT CHECKED 不計入通過項數）；見下方「史迪夫圖資料與自檢腳本」 | 同上 |
+| `sample-stripes-s1-anatomy.csv` | 升溫條紋圖範例資料（S1；176 列、1859 位元組；`year`、`anomaly_c`；美國國家海洋暨大氣總署全球陸海年均溫距平，基準期標頭 1901–2000，不是虛構模擬，沒有隨機種子；1917 存檔 -0.42、2024 存檔 1.25；1937 與 1947 保留來源字串 -0） | `../warming-stripes.md` |
+| `sample-stripes-s1-anatomy-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；4601 位元組；17 項通過；NOT CHECKED 不計入通過項數）；見下方「升溫條紋圖資料與自檢腳本」 | 同上 |
+| `sample-stripes-s2-stripes-vs-line.csv` | 升溫條紋圖範例資料（S2；176 列、1859 位元組；與 S1 同一份，沒有共用檔） | `../warming-stripes.md` |
+| `sample-stripes-s2-stripes-vs-line-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；2769 位元組；13 項通過；NOT CHECKED 不計入通過項數）；見下方「升溫條紋圖資料與自檢腳本」 | 同上 |
+| `sample-stripes-s3-symmetric-scale.csv` | 升溫條紋圖範例資料（S3；176 列、1859 位元組；與 S1 同一份，沒有共用檔；中點 0.415，0 與中點之間 42 年） | `../warming-stripes.md` |
+| `sample-stripes-s3-symmetric-scale-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；3534 位元組；17 項通過；NOT CHECKED 不計入通過項數）；見下方「升溫條紋圖資料與自檢腳本」 | 同上 |
+| `sample-stripes-s4-baseline.csv` | 升溫條紋圖範例資料（S4；176 列、1859 位元組；與 S1 同一份，沒有共用檔；1901–2000 平均 0.0002，1991–2020 和 18.17） | `../warming-stripes.md` |
+| `sample-stripes-s4-baseline-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；6381 位元組；28 項通過；NOT CHECKED 不計入通過項數）；見下方「升溫條紋圖資料與自檢腳本」 | 同上 |
+| `sample-stripes-s5-bar-instead.csv` | 升溫條紋圖範例資料（S5；10 列、115 位元組；`year`、`anomaly_c`；2016–2025；2016 與 2019 存檔皆 0.99） | `../warming-stripes.md` |
+| `sample-stripes-s5-bar-instead-selfcheck.py` | 上一檔的自檢腳本（只需 Python 標準函式庫，不是資料；2970 位元組；14 項通過；NOT CHECKED 不計入通過項數）；見下方「升溫條紋圖資料與自檢腳本」 | 同上 |
 
-對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`、`../autocorrelation-plot.md`、`../lag-plot.md`、`../seasonal-subseries-plot.md`、`../seasonal-decomposition-plot.md`、`../scatterplot-matrix.md`、`../taylor-diagram.md`、`../periodogram.md`、`../bode-plot.md`、`../hovmoller-diagram.md`、`../skew-t-log-p.md`、`../hr-diagram.md`、`../smith-chart.md`。
+對應 pattern：`../dot-density-map.md`、`../streamgraph-composition.md`、`../population-pyramid.md`、`../lollipop-rank.md`、`../boxplot-summary.md`、`../bubble-chart.md`、`../marimekko-chart.md`、`../choropleth-map.md`、`../tile-map.md`、`../matrix-heatmap.md`、`../spiral-plot.md`、`../biofabric.md`、`../flame-graph.md`、`../circos.md`、`../volcano-plot.md`、`../manhattan-plot.md`、`../ma-plot.md`、`../qq-plot.md`、`../bland-altman.md`、`../locuszoom.md`、`../pp-plot.md`、`../karyotype-ideogram.md`、`../forest-plot.md`、`../horizon-chart.md`、`../pareto-chart.md`、`../control-chart.md`、`../lorenz-curve.md`、`../marey-chart.md`、`../kaplan-meier-survival.md`、`../swimmer-plot.md`、`../lasagna-plot.md`、`../recurrence-plot.md`、`../spectrogram.md`、`../autocorrelation-plot.md`、`../lag-plot.md`、`../seasonal-subseries-plot.md`、`../seasonal-decomposition-plot.md`、`../scatterplot-matrix.md`、`../taylor-diagram.md`、`../periodogram.md`、`../bode-plot.md`、`../hovmoller-diagram.md`、`../skew-t-log-p.md`、`../hr-diagram.md`、`../smith-chart.md`、`../nyquist-plot.md`、`../root-locus-plot.md`、`../piper-diagram.md`、`../nichols-chart.md`、`../wind-rose.md`、`../stiff-diagram.md`、`../warming-stripes.md`。
 
 ## 自檢腳本 `sample-ma-selfcheck.py`
 
@@ -1022,3 +1086,83 @@ python3 sample-periodogram-sim-s5-vs-spectrogram-selfcheck.py   # 其餘同理�
 | S3 `sample-smith-sim-s3-l-match.csv` | 3 | 243 |
 | S4、S5 `sample-smith-sim-s4-s5-antenna-sweep.csv` | 61 | 4252 |
 
+## 奈奎斯特圖資料與自檢腳本 `sample-nyquist-sim-s1-s2-loop` 到 `sample-nyquist-sim-s5-unstable-open-loop`
+
+4 個 CSV 與 4 支自檢已在本目錄。S1 與 S2 共用 `sample-nyquist-sim-s1-s2-loop.csv`。S3、S4、S5 各有自己的 CSV。S1–S5 是模擬範例資料，沒有隨機種子。四個 CSV 合計 36960 位元組（7566+5912+13312+10170）。自檢腳本：`sample-nyquist-sim-s1-s2-loop-selfcheck.py`（28 項通過）、`sample-nyquist-sim-s3-gain12-full-selfcheck.py`（18 項通過）、`sample-nyquist-sim-s4-delay-selfcheck.py`（32 項通過）、`sample-nyquist-sim-s5-unstable-open-loop-selfcheck.py`（21 項通過）。腳本位元組 8957、5533、7143、6265。通過項數只數自檢印 PASS 的項。NOT CHECKED 不計入通過項數。裕度是存檔實部、虛部對頻率的線性內插，不是密格記載。圖 S1、圖 S2 的內插是頻率 1.736279175827654、實部 −0.49816319848922835、2.007374296280183 倍、6.052567177234536 分貝，單位圓頻率 1.233760931584715、相位裕度 27.232355441124582 度。密格的 1.732、−0.5、2 倍、6 分貝、1.233、27.1 度是「示範值／未核」。圖 S3 頻率從 −100 到 99.77，不是到 100；正頻率內插實部 −1.4994324581478504；整條閉合繞圈 −2.000000000000001；只閉合正頻率 −1.0000000000000002。圖 S4 延遲 1.5 的相位裕度是 −28.8415857745413，不是 331.1584142254587；第一個負實軸實部是 −1.135104924732878（記載的 −1.14 與 −1.136 不是這一檔）。圖 S5 列上最負實部是 −0.49995 與 −1.9998，都在 ω=−0.01；記載的圓弧端點 [−0.5, 0] 與 [−2, 0] 是式子極限，不是這 201 列的端點。右半平面極點數、閉迴路極點、臨界延遲、圖說「頻率 0：增益 4」、圖 S2 標了哪三個頻率，都印 NOT CHECKED。圖 R3 署名 Pierre-Baptiste Steckler，CC BY-SA 4.0、同方式分享。圖 R2 只靠紅綠，要看線位置。圖 R4 只示意形狀。圖 R5 字很小。沒有收 png。公開檔不寫繪圖腳本的檔名。
+
+| 檔 | 列數 | CSV 位元組 |
+|---|---:|---:|
+| S1、S2 `sample-nyquist-sim-s1-s2-loop.csv` | 161 | 7566 |
+| S3 `sample-nyquist-sim-s3-gain12-full.csv` | 201 | 5912 |
+| S4 `sample-nyquist-sim-s4-delay.csv` | 201 | 13312 |
+| S5 `sample-nyquist-sim-s5-unstable-open-loop.csv` | 201 | 10170 |
+
+## 根軌跡圖資料與自檢腳本 `sample-rootlocus-sim-s1-s2-s3-loop` 到 `sample-rootlocus-sim-s5-unstable-open-loop`
+
+3 個 CSV 與 3 支自檢已在本目錄。S1、S2 與 S3 共用 `sample-rootlocus-sim-s1-s2-s3-loop.csv`。S4、S5 各有自己的 CSV。S1–S5 是模擬範例資料，虛構系統，沒有隨機種子。三個 CSV 合計 27350 位元組（10397+10573+6380）。自檢腳本：`sample-rootlocus-sim-s1-s2-s3-loop-selfcheck.py`（28 項通過）、`sample-rootlocus-sim-s4-add-zero-selfcheck.py`（19 項通過）、`sample-rootlocus-sim-s5-unstable-open-loop-selfcheck.py`（18 項通過）。腳本位元組 11410、5764、5878。通過項數只數自檢印 PASS 的項。NOT CHECKED 不計入通過項數。分離點不是存檔的一格，是虛部平方的兩點擬合：K=0.38461305790181505、實部 −0.4226214290384014。記載的 K 0.3849 不是這一檔；實部 −0.4226 與擬合到小數第四位一致。課程稿的約 −0.42、約 0.38 是兩位小數。漸近線規則由 K=0 的極點算出，質心正好 −1、角度 60／180／300 度。末列 K=937.542 相對質心的角度是 ±59.8270199518355 度，不是正好 60 度。三個檔的末列增益都是 937.542，不是 1000。虛軸交點是 K=5.63963 與 K=6.04311 之間的線性內插：K=6.00078034376338、虛部 ±1.4141960660849822。增益正好 6 不是一列。阻尼比 0.5 是 K=1.00231 與 K=1.07401 之間、讓虛部等於實部絕對值乘 √3 的內插：K=1.0375331444568823、極點 −0.3333078113277144±0.5773060637791827j。步階過衝 15.5% 不在 CSV，印 NOT CHECKED。ζ=0.5 的二階公式是 16.303353482158048，印成 16.3。S4 增益 20 不是一列。同一段括號上，沒有零點的極點（在 S1 那份檔）是 −3.8368531266076022 與 0.41842650042869395±2.2440291454701344j，實部為正、不穩定。有零點的極點是 −1.5189807887967992 與 −0.740509980851672±4.381390803086597j。零點 −1.5 與質心 −0.75 是模型，不是存檔的一格。S4 的 K>0 實部都為負。S5 的特徵式是 s^2+(4+K)s+(2K−5)=0，代數上 K>2.5 才穩。檔內沒有 K=2.5。實部過零的內插是 K=2.500573014309268。圖 R1、圖 R2 署名 Hill.rick.c，CC BY-SA 4.0、同方式分享。圖 R3 是 CC0，仍署名 Constant314；紅藍兩色的意思未核。圖 R4 署名 AndrewDressel，CC BY-SA 3.0，課程稿用的是裁切放大版，同方式分享。43.7 公尺／秒只見英文維基，未核；另一篇論文算出 38.4，本稿不另給網址。沒有收 png。公開檔不寫繪圖腳本的檔名。
+
+| 檔 | 列數 | CSV 位元組 |
+|---|---:|---:|
+| S1、S2、S3 `sample-rootlocus-sim-s1-s2-s3-loop.csv` | 201 | 10397 |
+| S4 `sample-rootlocus-sim-s4-add-zero.csv` | 201 | 10573 |
+| S5 `sample-rootlocus-sim-s5-unstable-open-loop.csv` | 201 | 6380 |
+
+## 派柏圖資料與自檢腳本 `sample-piper-sim-s1-anatomy` 到 `sample-piper-sim-s5-ratio-only`
+
+5 個 CSV 與 5 支自檢已在本目錄。S1–S5 各有自己的 CSV。S1–S5 是模擬範例資料，手打虛構示範水樣，沒有隨機種子。五個 CSV 合計 2955 位元組（66+202+1915+595+177）。自檢腳本：`sample-piper-sim-s1-anatomy-selfcheck.py`（11 項通過）、`sample-piper-sim-s2-conversion-selfcheck.py`（24 項通過）、`sample-piper-sim-s3-groups-selfcheck.py`（13 項通過）、`sample-piper-sim-s4-mixing-selfcheck.py`（16 項通過）、`sample-piper-sim-s5-ratio-only-selfcheck.py`（14 項通過）。腳本位元組 2880、5858、5842、5216、3462。通過項數只數自檢印 PASS 的項。NOT CHECKED 不計入通過項數。圖 S1 菱形點鈣＋鎂 80、硫酸根＋氯 35。圖 S2 存檔當量重 20.039、12.1525、22.99、39.098、61.017、48.03、35.453；由存檔重算鎂 11.658031088082902%／19.98293139675102%，鈉＋鉀 80.56994818652849→71.93807004117451，氯 73.33333333333333→81.1221297624641，陽 37.061029、陰 38.24727、電荷差 −1.5751796491911236%。記載的 11.7、20.0、80.6、71.9、73.3、81.1、37.06、38.25、−1.58 與當量重 20.04／12.15／39.10／61.02／35.45 是「示範值／未核」。圖 S3 四群各 4 瓶，電荷差絕對值最大 4.04275，不是記載的 ±4.04%。圖 S4 1% 存檔 46.3542／69.3683，路程 0.624088883285574；5% 28.0013／91.3253。記載的 46.4／69.4 與 28.0／91.3 不是存檔。典型海水毫克值未核。圖 S5 合計 324.5 與 3245，同一點 90.80876511662076／14.15189465377601。圖 R1、圖 R2、圖 R4 署名 Kvgunten、Paolopaolo714、郊外生活，CC BY-SA 4.0、同方式分享，裁白邊並縮圖；圖 R1 另遮框。圖 R3 公有領域，仍署名 Babakathy。H 區、溫泉歸屬、河水出處、4.7 未核。沒有收 png。公開檔不寫繪圖腳本的檔名。
+
+| 檔 | 列數 | CSV 位元組 |
+|---|---:|---:|
+| S1 `sample-piper-sim-s1-anatomy.csv` | 1 | 66 |
+| S2 `sample-piper-sim-s2-conversion.csv` | 7 | 202 |
+| S3 `sample-piper-sim-s3-groups.csv` | 16 | 1915 |
+| S4 `sample-piper-sim-s4-mixing.csv` | 8 | 595 |
+| S5 `sample-piper-sim-s5-ratio-only.csv` | 2 | 177 |
+
+## 尼可斯圖資料與自檢腳本 `sample-nichols-sim-s1-anatomy` 到 `sample-nichols-sim-s5-phase-wrap`
+
+5 個 CSV 與 5 支自檢已在本目錄。S1–S5 各有自己的 CSV。S1–S5 是模擬範例資料，虛構轉移函數，沒有隨機種子。五個 CSV 合計 2359 位元組（566+94+803+106+790）。自檢腳本：`sample-nichols-sim-s1-anatomy-selfcheck.py`（15 項通過）、`sample-nichols-sim-s2-gain-shift-selfcheck.py`（9 項通過）、`sample-nichols-sim-s3-tangent-peak-selfcheck.py`（15 項通過）、`sample-nichols-sim-s4-lead-selfcheck.py`（10 項通過）、`sample-nichols-sim-s5-phase-wrap-selfcheck.py`（12 項通過）。腳本位元組 5733、2707、5040、3067、4669。通過項數只數自檢印 PASS 的項。NOT CHECKED 不計入通過項數。圖 S1 的 21 列對數頻率內插增益裕度 15.595091495422169 分貝、相位裕度 43.20281974826571 度，相位穿越 2.236075610614252、增益穿越 0.7787726504594005；存檔列重算閉迴路峰值 2.6701705500584403 分貝、頻率 0.7943。密格記載 15.56、43.21、2.67、頻率 0.806、相位穿越 2.236、增益穿越 0.779 是「示範值／未核」。圖 R1 來源頁的 3.52 分貝、11.4 度、峰值 14.69 分貝沒有對應 CSV。圖 S2 存檔 K=1 是密格 15.56／43.21／2.67，不是圖 S1 的內插；K=2 是 9.54／25.39／7.32。20·log10(2) 是 6.020599913279624，記載的 6.02 不是公式，存檔沒有 shift 欄。圖 S3 存檔閉迴路最大 4.8886、頻率 1.0，不是密格 5.10；切點 −149.47 度、−0.73 分貝與增益 1.5 不在 CSV。21 列內插增益裕度 12.135038696826124、相位裕度 32.7197002731605，增益穿越 1.0237623247680192、相位穿越 2.2356387854599795，不是密格 12.04、32.68、1.082、1.026、2.236。圖 S4 存檔補償前 6.02／15.55／11.67，補償後 16.43／44.51／2.46。6 分貝圈公式是 3.5218251811136247 分貝、28.955024371859846 度，不是 3.52、28.96。−151.25、28.75、−150.25、−3.5、3.5 不在這一檔。增益 3 與領先補償 (1+0.6s)/(1+0.1s) 不在 CSV。圖 S5 折回在頻率 1.77828 與 2.37137 之間，鄰列折回相位 −170.227 與 177.491、展開 −170.227 與 −182.509，不是正好 2.236、從 −180.0 跳到 179.9。展開相位 −180 在頻率 2.235960633968452，開迴路增益 −15.594814476469633，不是 −15.56。圖 R1 署名 Saung Tadashi，CC0 1.0，仍署名，由向量圖轉成 1200×1123 點陣圖，未改內容。圖 R2、圖 R3 署名 Wolfch、Luca Ghio，CC BY-SA 3.0、同方式分享，放大 2.5 倍（已放大），看圖推讀。圖 R3 圖上 33°、9.6 分貝是圖上原字，對應轉移函數無法證明。沒有收 png。公開檔不寫繪圖腳本的檔名。
+
+| 檔 | 列數 | CSV 位元組 |
+|---|---:|---:|
+| S1 `sample-nichols-sim-s1-anatomy.csv` | 21 | 566 |
+| S2 `sample-nichols-sim-s2-gain-shift.csv` | 2 | 94 |
+| S3 `sample-nichols-sim-s3-tangent-peak.csv` | 21 | 803 |
+| S4 `sample-nichols-sim-s4-lead.csv` | 2 | 106 |
+| S5 `sample-nichols-sim-s5-phase-wrap.csv` | 21 | 790 |
+
+## 風花圖資料與自檢腳本 `sample-windrose-s1-rctp-36sector` 到 `sample-windrose-s5-sector-bias`
+
+5 個 CSV 與 5 支自檢已在本目錄。S1–S5 各有自己的 CSV。S1–S5 是本專案依愛荷華環境網機場例行天氣報告算出來的，桃園 RCTP、高雄 RCKH，2016–2025，不是虛構模擬。跑道真方位來自 OurAirports，授權註記寫公有領域。五個 CSV 合計 7114 位元組（1361+4182+1093+180+298）。自檢腳本：`sample-windrose-s1-rctp-36sector-selfcheck.py`（12 項通過）、`sample-windrose-s2-rctp-season-selfcheck.py`（14 項通過）、`sample-windrose-s3-radius-vs-area-selfcheck.py`（14 項通過）、`sample-windrose-s4-runway-coverage-selfcheck.py`（12 項通過）、`sample-windrose-s5-sector-bias-selfcheck.py`（13 項通過）。腳本位元組 3876、4729、4149、3817、4057。通過項數只數自檢印 PASS 的項。NOT CHECKED 不計入通過項數。頁上讀數用存檔字串，或由存檔以 decimal 重算（圖 S3 的除法與開根號，有效位數 50）。課程稿的一位小數、說明表的兩位小數，是事後捨入。(1) 圖 S1 課程稿與說明表 11.8% 對存檔 11.8286。(2) facts 頂格 11.83 對存檔 11.8286。(3) facts 靜風與風向不定 4.44、課程稿 4.4%，對 100 減總比例 4.43558；這一檔沒有靜風欄，也沒有風向不定欄。(4) facts 蒲福 4–6 的 47.87 與 7 以上的 0.51，對三級加總 47.8653549 與 0.50811211。(5) facts 中心 0–90 度 55.3，對含 90 度的加總 55.34846。(6) 觀測筆數 86595 不在圖 S1，只在跑道覆蓋率那一檔。(7) 真靜風 0.12 與課程稿 0.1%，沒有任何練習 CSV 有真靜風欄。(8) 圖 S2 課程稿與說明表冬季 19.0%，存檔是 19.03。(9) 夏季 11.0% 與 facts 10.99，存檔是 10.9934。(10) facts 冬季 0–90 度 80.7、180–260 度 4.3、餘數 3.24，加總是 80.66568、4.288189、餘數 3.239571。(11) facts 夏季 0–90 度 19.0、180–260 度 44.1、餘數 5.14，加總是 19.01943、44.12035、餘數 5.14128。(12) 冬季觀測 21361、夏季 21804，這一檔沒有筆數欄。(13) 圖 S3 課程稿 11.8% 對 3.4%、說明表 11.83% 對 3.40%、facts 11.83 與 3.4，存檔是 11.8286 與 3.39627。(14) 課程稿與說明表 3.5 倍、facts 3.48，兩格相除是 3.4828208593545271724568423594119431022857428885218。(15) 課程稿與說明表面積 12.1 倍、facts 12.13，比值平方是 12.130041138355007143755651209279624464396864304419。(16) 把四捨五入後的開根號半徑再平方當成百分比比值：3.43928／1.8429 的平方是 3.4828239987404338029909609259854959973696635961809，與百分比比值不同。(17) 圖 S4 說明表 13 節 99.2／67.6／98.9／99.5 與 20 節 99.9，存檔是 99.1986、67.5882、98.9451、99.4875 與 99.9446、99.9402。(18) facts 一位或兩位小數 99.94、99.2、67.59、98.95、99.49，不等於存檔字串。(19) 20 節轉 90 度 93.19 與課程稿 93.2%，這一檔沒有該欄。(20) 風向不定超過門檻的筆數與靜風百分比，這一檔沒有這兩欄。(21) 13 節約 6.7 或 6.69 公尺每秒不是存檔欄，13×0.514444 不能從這兩列算出。(22) 高雄轉 90 度覆蓋率較高是因為風較弱，這是推論，CSV 沒有風速分布欄。(23) 圖 S5 課程稿北 14.0、北北東 7.4、北北西 6.9、西 13.0，存檔是 14.0137、7.36251、6.92583、13.0312。(24) facts 14.01、7.36、6.93、13.03 不是存檔字串。(25) facts 的 16 格捨入清單不是存檔 14.0137、7.36251、7.53603、6.20992、5.86633、0.804394、0.879088、1.27209、4.01163、2.68898、3.33479、5.87438、13.0312、5.78589、5.4492、6.92583。(26) 課程稿三向平均 9.2、二向 4.5 與 facts 9.23、4.51，平均是 9.230715 與 4.5102585。(27) 餘數寫成 9.0% 或 facts 8.95，100 減總比例是 8.954038；這一檔沒有靜風欄。(28) 真靜風 0.23 與課程稿 0.2%，沒有任何練習 CSV 有真靜風欄。(29) 高雄觀測筆數 87022 不在圖 S5。
+
+| 檔 | 列數 | CSV 位元組 |
+|---|---:|---:|
+| S1 `sample-windrose-s1-rctp-36sector.csv` | 36 | 1361 |
+| S2 `sample-windrose-s2-rctp-season.csv` | 72 | 4182 |
+| S3 `sample-windrose-s3-radius-vs-area.csv` | 36 | 1093 |
+| S4 `sample-windrose-s4-runway-coverage.csv` | 2 | 180 |
+| S5 `sample-windrose-s5-sector-bias.csv` | 16 | 298 |
+
+## 史迪夫圖資料與自檢腳本 `sample-stiff-s1-anatomy` 到 `sample-stiff-s5-bar-instead`
+
+5 個 CSV 與 5 支自檢已在本目錄。S1–S5 各有自己的 CSV。沒有共用 CSV。S3 與 S5 都是 462 位元組、同一三條河；S4 是 A 與 D。S1–S5 是水質資料入口網的美國河川水樣，每處一天，不是虛構模擬，沒有隨機種子。作者換算毫當量未核。五個 CSV 合計 1819 位元組（251+283+462+361+462）。自檢腳本：`sample-stiff-s1-anatomy-selfcheck.py`（13 項通過）、`sample-stiff-s2-mg-vs-meq-selfcheck.py`（12 項通過）、`sample-stiff-s3-three-rivers-selfcheck.py`（30 項通過）、`sample-stiff-s4-scale-trap-selfcheck.py`（25 項通過）、`sample-stiff-s5-bar-instead-selfcheck.py`（16 項通過）。腳本位元組 4940、3971、6479、5443、3795。通過項數只數自檢印 PASS 的項。NOT CHECKED 不計入通過項數。頁上讀數用存檔字串，或由存檔以 decimal 重算（除法，有效位數 50）。合計欄、電荷差欄，以及課程稿的一位小數，印 NOT CHECKED。(1) 圖 S1 課程稿與表的鈣 2.79、硫酸根 3.00，存檔是 2.785 與 2.998。(2) 把存檔合計 6.38 與 6.44 當成三離子和；和是 6.385 與 6.437。(3) 把電荷差欄 -0.4 當成未捨入的百分比；100×(6.385−6.437)/(6.385+6.437) = -0.40555295585712057401341444392450475744813601622212。(4) facts 測站 USGS-09380000，這一檔沒有測站欄。(5) 作者換算毫當量、Hem 表 9、課程稿當量重：這一檔沒有毫克欄，當量重也不在列上；來源標作者換算未核。(6) 課程稿年份 1951 不在這一檔。(7) 表上圖 R1 最近鄰放大 3 倍是改圖，不在練習 CSV。(8) 圖 R1 下面那瓶的鈣與硫酸根（含硝酸根）超出 10 毫當量，是看圖判讀，沒有練習 CSV。(9) 圖 R2 四類水、圖 R3 深度 2–110 公尺、圖 R4 刻度 0–10，是論文主張或看圖判讀，沒有練習 CSV。(10) 圖 S2 課程稿與表的碳酸氫根 146、硫酸根 144、硫酸根 3.00、碳酸氫根 2.39，存檔是 146.0、144.0、2.998、2.393。(11) facts 鈉＋鉀毫克 49.550000000000004，46.6 與 2.95 的 decimal 和是 49.55。(12) 作者換算毫當量：毫克與毫當量在列上，當量重不在；來源標未核。(13) facts 的 Hem 1985 表 9 當量重 20.04、12.15、22.99、39.1、35.45、48.03、61.02 不在這一檔。(14) 課程稿當量重 20.039、12.1525、22.990、39.098、61.017、48.03、35.453 不在這一檔。(15) 不算碳酸根是假設酸鹼值約 8.3，四個樣本的酸鹼值沒有酸鹼值欄；來源說沒有逐一查。(16) 圖 S3 共用刻度 0–7，刻度數字不在檔內；三條河單一離子最大是 5.808。(17) 把存檔合計 3.8、3.48、6.38、6.44、12.42、11.75 當成三離子和；和是 3.798、3.478、6.385、6.437、12.421、11.754。(18) 把電荷差欄 4.4、-0.4、2.8 當成未捨入百分比；全精度是 4.3980208905992303463441451346893897746014293567894、-0.40555295585712057401341444392450475744813601622212、2.7590486039296794208893485005170630816959669079628。(19) facts 把 D 放在圖 S3：陽離子 50.82、陰離子 48.87、電荷差 2.0；D 不在這一檔（在圖 S4）。(20) 水型名稱是作者依最大離子判讀，沒有水型欄。(21) 5% 或 10% 的電荷平衡門檻是慣例，不是從這一檔算出來的。(22) 圖 R3 深度 2–110 公尺是論文主張，不在這一檔。(23) 圖 R2 四類是論文的劃分，不在這一檔。(24) 圖 S4 課程稿、表與 facts 的 13.4 倍，陽離子和的商是 13.379673512374934175882043180621379673512374934176，存檔合計的商 50.82/3.8 是 13.373684210526315789473684210526315789473684210526。(25) 各用各的刻度看起來一樣大，是外觀，不在這一檔。(26) 圖 R4 刻度 0–10、哪幾口井靠河，是看圖判讀；標記是「哪幾口井靠河為看圖判讀」。(27) 圖 S5 課程稿與表的約旦河鈉＋鉀 5.81、密西西比河 0.75，存檔是 5.808 與 0.752。(28) 課程稿、表與 facts 的 7.7 倍，5.808/0.752 = 7.7234042553191489361702127659574468085106382978723。
+
+| 檔 | 列數 | CSV 位元組 |
+|---|---:|---:|
+| S1 `sample-stiff-s1-anatomy.csv` | 1 | 251 |
+| S2 `sample-stiff-s2-mg-vs-meq.csv` | 1 | 283 |
+| S3 `sample-stiff-s3-three-rivers.csv` | 3 | 462 |
+| S4 `sample-stiff-s4-scale-trap.csv` | 2 | 361 |
+| S5 `sample-stiff-s5-bar-instead.csv` | 3 | 462 |
+
+## 升溫條紋圖資料與自檢腳本 `sample-stripes-s1-anatomy` 到 `sample-stripes-s5-bar-instead`
+
+5 個 CSV 與 5 支自檢已在本目錄。沒有共用 CSV。S1–S4 各是完整的 176 年，內容相同、位元組相同（各 1859），各寫成一個檔。S5 只有 2016–2025，115 位元組、10 列。五個 CSV 合計 7551 位元組（1859+1859+1859+1859+115）。S1–S5 是美國國家海洋暨大氣總署全球陸海年均溫距平，基準期標頭 1901–2000，不是虛構模擬，沒有隨機種子。1937 與 1947 保留來源字串 `-0`。自檢腳本：`sample-stripes-s1-anatomy-selfcheck.py`（17 項通過）、`sample-stripes-s2-stripes-vs-line-selfcheck.py`（13 項通過）、`sample-stripes-s3-symmetric-scale-selfcheck.py`（17 項通過）、`sample-stripes-s4-baseline-selfcheck.py`（28 項通過）、`sample-stripes-s5-bar-instead-selfcheck.py`（14 項通過）。腳本位元組 4601、2769、3534、6381、2970。通過項數只數自檢印 PASS 的項。NOT CHECKED 不計入通過項數。頁上讀數用存檔字串，或由存檔以 decimal 重算（除法，有效位數 50）。(1) 圖 S1：1917 存檔 `-0.42`，2024 存檔 `1.25`，大於 0 為 71、等於 0 為 2、小於 0 為 103。前段淺藍、末段深紅是看圖判讀，印 NOT CHECKED。(2) 圖 S2：`1.25` 減 `-0.42` 恰好 1.67。條紋只說變暖、疊細線色弱，印 NOT CHECKED。(3) 圖 S3：中點恰好 0.415。高於 0 且低於 0.415 恰好 42 年，最早 1877、最晚 2000。1877–2000 閉區間距平大於 0 是 46 年，不是 42。被畫成藍，印 NOT CHECKED。(4) 圖 S4：1901–2000 和 0.02、平均恰好 0.0002。記載 0.0 不是這個平均。1991–2020 和 18.17，未捨入平均是 1817/3000，6 無限循環。有效位數 50 的商末位進位。記載 0.606 不是未捨入平均。偏紅（平移後大於 0）在 1991–2020 是 20。減去 0.0002 以後，大於 0 的 71 年沒有改類；1937 與 1947 從零變成小於 0。平移後絕對值仍不大於 1.25。第三欄與圖 R4 的三種基準期印 NOT CHECKED。(5) 圖 S5：2016 與 2019 存檔都是 `0.99`，差是 0；2020 減 2016 恰好 0.02。幾乎同色印 NOT CHECKED。
+
+| 檔 | 列數 | CSV 位元組 |
+|---|---:|---:|
+| S1 `sample-stripes-s1-anatomy.csv` | 176 | 1859 |
+| S2 `sample-stripes-s2-stripes-vs-line.csv` | 176 | 1859 |
+| S3 `sample-stripes-s3-symmetric-scale.csv` | 176 | 1859 |
+| S4 `sample-stripes-s4-baseline.csv` | 176 | 1859 |
+| S5 `sample-stripes-s5-bar-instead.csv` | 10 | 115 |

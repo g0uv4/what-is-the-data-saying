@@ -1,0 +1,7 @@
+{
+  "sample-stiff-s1-anatomy.csv": null,
+  "sample-stiff-s2-mg-vs-meq.csv": null,
+  "sample-stiff-s3-three-rivers.csv": "time-series-trend",
+  "sample-stiff-s4-scale-trap.csv": "dumbbell-gap",
+  "sample-stiff-s5-bar-instead.csv": "time-series-trend"
+}

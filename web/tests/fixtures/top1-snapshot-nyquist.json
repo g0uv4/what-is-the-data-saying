@@ -1,0 +1,6 @@
+{
+  "sample-nyquist-sim-s1-s2-loop.csv": "bubble-chart",
+  "sample-nyquist-sim-s3-gain12-full.csv": "correlation-scatter",
+  "sample-nyquist-sim-s4-delay.csv": "bubble-chart",
+  "sample-nyquist-sim-s5-unstable-open-loop.csv": "correlation-scatter"
+}

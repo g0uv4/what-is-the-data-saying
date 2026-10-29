@@ -1,5 +1,5 @@
 /*
- * WIDS recommendation rules — data-driven table for all patterns (82 as of v0.3.44).
+ * WIDS recommendation rules — data-driven table for all patterns (89 as of v0.3.51).
  * Derived from skills/what-is-the-data-saying/references/chart-heuristics.md
  * (決策表 + 形狀 → 圖捷徑) and data-shape-checks.md (欄位角色 + 結構探測).
  *
@@ -519,7 +519,49 @@
       requires: { measure: [2] }, base: 0, need: ['manyNumeric'],
       prefer: [], avoid: [],
       fields: { zh: '複數阻抗或反射係數，尤其是掃頻 → 正規化後收進單位圓，圓心是匹配', en: 'complex impedance or reflection coefficient, especially a frequency sweep → normalized into the unit circle, matched at the center' },
-      why: { zh: '離匹配多遠、隨頻率怎麼走 → 史密斯圖（教學；不參與推薦）', en: 'How far from a match, and how that moves with frequency → Smith chart (teach; not recommended)' } })
+      why: { zh: '離匹配多遠、隨頻率怎麼走 → 史密斯圖（教學；不參與推薦）', en: 'How far from a match, and how that moves with frequency → Smith chart (teach; not recommended)' } }),
+    R('nyquist-plot', '奈奎斯特圖', 'Nyquist plot', {
+      teachingOnly: true,
+      requires: { measure: [2] }, base: 0, need: ['manyNumeric'],
+      prefer: [], avoid: [],
+      fields: { zh: '開迴路各頻率的實部與虛部 → 畫在複數平面，臨界點是 -1', en: 'real and imaginary parts of the open-loop response at each frequency → complex plane, critical point at -1' },
+      why: { zh: '離 -1 多遠、有沒有繞過 → 奈奎斯特圖（教學；不參與推薦）', en: 'How far from -1, and whether the curve encircles it → Nyquist plot (teach; not recommended)' } }),
+    R('root-locus-plot', '根軌跡圖', 'Root locus plot', {
+      teachingOnly: true,
+      requires: { measure: [2] }, base: 0, need: ['manyNumeric'],
+      prefer: [], avoid: [],
+      fields: { zh: '閉迴路極點隨增益移動的實部與虛部 → 極點用 ×、零點用 ○', en: 'real and imaginary parts of closed-loop poles as gain moves → poles as ×, zeros as ○' },
+      why: { zh: '增益調到多少開始振盪、多少變不穩定 → 根軌跡圖（教學；不參與推薦）', en: 'At what gain the loop starts to oscillate, and when it goes unstable → Root locus plot (teach; not recommended)' } }),
+    R('piper-diagram', '派柏圖', 'Piper diagram', {
+      teachingOnly: true,
+      requires: { measure: [3] }, base: 0, need: ['manyNumeric'],
+      prefer: [], avoid: [],
+      fields: { zh: '多個水樣的主要陰陽離子毫當量分率 → 兩個三角加一個菱形', en: 'major-ion milliequivalent fractions for many water samples → two triangles plus a diamond' },
+      why: { zh: '水樣分成哪些群、有沒有混合 → 派柏圖（教學；不參與推薦）', en: 'Which groups the water samples fall into, and whether they mix → Piper diagram (teach; not recommended)' } }),
+    R('nichols-chart', '尼可斯圖', 'Nichols chart', {
+      teachingOnly: true,
+      requires: { measure: [2] }, base: 0, need: ['manyNumeric'],
+      prefer: [], avoid: [],
+      fields: { zh: '開迴路相位對增益（分貝）→ 同一張圖讀裕度與閉迴路尖峰', en: 'open-loop phase against gain in dB → margins and the closed-loop peak on one plot' },
+      why: { zh: '裕度還剩多少、閉迴路尖峰多高 → 尼可斯圖（教學；不參與推薦）', en: 'How much margin is left, and how high the closed-loop peak is → Nichols chart (teach; not recommended)' } }),
+    R('wind-rose', '風花圖', 'Wind rose', {
+      teachingOnly: true,
+      requires: { measure: [1] }, base: 0, need: ['manyNumeric'],
+      prefer: [], avoid: [],
+      fields: { zh: '風向扇區 × 時間占比（可再分風速級）→ 長度是占比，不是風速', en: 'direction sector by share of time, optionally split by speed class → length is time share, not wind speed' },
+      why: { zh: '風多從哪個方向來、各風速級占多久 → 風花圖（教學；不參與推薦）', en: 'Which way the wind comes from, and how long each speed class lasts → Wind rose (teach; not recommended)' } }),
+    R('stiff-diagram', '史迪夫圖', 'Stiff diagram', {
+      teachingOnly: true,
+      requires: { measure: [3] }, base: 0, need: ['manyNumeric'],
+      prefer: [], avoid: [],
+      fields: { zh: '一瓶水的陽離子在左、陰離子在右，同一毫當量刻度 → 一瓶一個多邊形', en: 'cations on the left and anions on the right, one meq scale → one polygon per sample' },
+      why: { zh: '幾瓶水的形狀像不像、哪一列最寬 → 史迪夫圖（教學；不參與推薦）', en: 'Whether a few water samples share a shape, and which ion row is widest → Stiff diagram (teach; not recommended)' } }),
+    R('warming-stripes', '升溫條紋圖', 'Warming stripes', {
+      teachingOnly: true,
+      requires: { measure: [1], date: [1] }, base: 0, need: ['time'],
+      prefer: [], avoid: [],
+      fields: { zh: '一年一個距平、按年份排 → 比基準冷畫藍、暖畫紅，不放數字', en: 'one anomaly per year, in year order → blue below the baseline, red above, no numbers' },
+      why: { zh: '長期是變冷還是變暖 → 升溫條紋圖（教學；不參與推薦）', en: 'Whether the long run is cooling or warming → Warming stripes (teach; not recommended)' } })
 
   ];
 

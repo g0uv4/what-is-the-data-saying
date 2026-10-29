@@ -1,0 +1,7 @@
+{
+  "sample-nichols-sim-s1-anatomy.csv": "bubble-chart",
+  "sample-nichols-sim-s2-gain-shift.csv": "bubble-chart",
+  "sample-nichols-sim-s3-tangent-peak.csv": "bubble-chart",
+  "sample-nichols-sim-s4-lead.csv": "lollipop-rank",
+  "sample-nichols-sim-s5-phase-wrap.csv": "bubble-chart"
+}
